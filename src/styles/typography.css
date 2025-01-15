@@ -1,27 +1,27 @@
 @font-face {
     font-family: 'Product Sans';
-    src: url('/public/fonts/Product\ Sans\ Regular.ttf') format('truetype');
+    src: url('/fonts/Product\ Sans\ Regular.ttf') format('truetype');
     font-style: normal;
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'Product Sans';
-    src: url('/public/fonts/Product\ Sans\ Bold.ttf') format('truetype');
+    src: url('/fonts/Product\ Sans\ Bold.ttf') format('truetype');
     font-style: normal;
     font-weight: 700;
 }
 
 @font-face {
     font-family: 'Product Sans';
-    src: url('/public/fonts/Product\ Sans\ Italic.ttf') format('truetype');
+    src: url('/fonts/Product\ Sans\ Italic.ttf') format('truetype');
     font-style: italic;
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'Product Sans';
-    src: url('/public/fonts/Product\ Sans\ Bold\ Italic.ttf') format('truetype');
+    src: url('/fonts/Product\ Sans\ Bold\ Italic.ttf') format('truetype');
     font-style: italic;
     font-weight: 700;
 }
@@ -36,6 +36,10 @@
 
     --base-heading-size: 1rem;
     --base-heading-factor: 1.61;
+
+    @media (width < 768px) {
+        --base-heading-factor: 1.42;
+    }
 
     h1,
     h2,
