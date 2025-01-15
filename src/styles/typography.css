@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Product Sans';
+    src: url('/public/fonts/Product\ Sans\ Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('/public/fonts/Product\ Sans\ Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('/public/fonts/Product\ Sans\ Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('/public/fonts/Product\ Sans\ Bold\ Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 700;
+}
+
+/* Typography */
+
+.text {
+    font-family: 'Product Sans', sans-serif;
+
+    line-height: 1.5;
+    color: #333;
+
+    --base-heading-size: 1rem;
+    --base-heading-factor: 1.61;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        line-height: 1;
+    }
+
+    h1 {
+        font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 4));
+    }
+    h2 {
+        font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 3));
+    }
+    h3 {
+        font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 2));
+    }
+    h4 {
+        font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 1));
+    }
+
+    * + * {
+        margin-top: 1rem;
+    }
+}

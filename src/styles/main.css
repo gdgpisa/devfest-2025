@@ -1,0 +1,237 @@
+@layer base, components, pages, utilities;
+
+@import url(./typography.css);
+
+@layer base {
+    *,
+    *::before,
+    *::after {
+        cursor: auto;
+        color: inherit;
+        font: inherit;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+
+    :root {
+        --pastel-yellow: #ffe7a5;
+    }
+
+    html,
+    body {
+        min-height: 100%;
+    }
+
+    img {
+        display: block;
+    }
+
+    body {
+        font-family: 'Product Sans', sans-serif;
+        font-size: 1.125rem;
+        line-height: 1.5;
+        color: #333;
+        background: #fff;
+    }
+}
+
+/* Components */
+
+@layer components {
+    button,
+    a[role='button'] {
+        display: grid;
+        place-content: center;
+
+        font-family: 'Product Sans', sans-serif;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #333;
+        background-color: #fff;
+        border: 2px solid #333;
+
+        --internal-size: var(--size, 2rem);
+
+        padding: 0 calc(var(--internal-size) / 2);
+        min-height: var(--internal-size);
+        border-radius: calc(var(--internal-size) / 2);
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: #0002;
+        }
+
+        &.large {
+            --size: 3rem;
+            font-size: 1.25rem;
+        }
+    }
+
+    header {
+        nav {
+            height: 4rem;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            gap: 1rem;
+            padding: 1rem;
+
+            background: #fff;
+            border-bottom: 2px solid #333;
+
+            .nav-item {
+                &:first-child {
+                    font-size: 1.5rem;
+                    color: #333;
+                }
+
+                > a {
+                    cursor: pointer;
+                    display: grid;
+                    place-content: center;
+                    place-items: center;
+                    gap: 0.5rem;
+
+                    grid-auto-flow: column;
+
+                    padding: 0 1rem;
+                    min-height: 2rem;
+                    border-radius: 1rem;
+
+                    img {
+                        height: 2rem;
+                    }
+                }
+
+                &:not(:first-child) > a:hover {
+                    background: #0001;
+                }
+            }
+
+            .spacer {
+                flex: 1;
+            }
+        }
+    }
+
+    footer {
+        min-height: 4rem;
+
+        display: grid;
+        place-content: center;
+
+        background: #333;
+        color: #fff;
+        border-top: 2px solid #333;
+    }
+
+    section {
+        display: grid;
+        place-content: center;
+
+        min-height: 50vh;
+
+        padding: 6rem;
+
+        &.hero {
+            height: calc(100vh - 4rem);
+        }
+
+        &:not(:first-child) {
+            border-top: 2px solid #333;
+        }
+    }
+
+    .hero-content {
+        --gap: 3rem;
+
+        padding: 0 6rem;
+
+        button,
+        a[role='button'] {
+            font-size: 1.5rem;
+        }
+    }
+
+    .hero-image {
+        max-width: 50vw;
+        height: calc(100vh - 4rem);
+
+        object-fit: cover;
+
+        z-index: -1;
+    }
+
+    .card {
+        display: grid;
+        place-content: center;
+        place-items: center;
+
+        padding: var(--size, 1rem);
+        border-radius: var(--size, 1rem);
+        border: 2px solid #333;
+        gap: var(--size, 1rem);
+
+        max-width: 85ch;
+
+        background: #f0f0f0;
+
+        &.large {
+            --size: 2rem;
+            border-width: 3px;
+        }
+    }
+
+    .stats-layouts {
+        display: grid;
+
+        gap: 3rem;
+        grid-template-columns: 3fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-auto-flow: dense;
+
+        > .stats-card {
+            padding: 3rem;
+
+            width: 80ch;
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+    }
+}
+
+/* Utilities */
+
+@layer utilities {
+    .text-center {
+        text-align: center;
+    }
+
+    .text-large {
+        font-size: 2.75rem;
+    }
+
+    .v-stack {
+        display: grid;
+        gap: var(--gap, 0);
+        align-content: start;
+        justify-items: start;
+
+        &.center {
+            justify-items: center;
+        }
+    }
+
+    .h-stack {
+        display: grid;
+        gap: var(--gap, 0);
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: start;
+    }
+}

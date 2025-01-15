@@ -1,0 +1,47 @@
+---
+import '@/styles/main.css'
+import 'katex/dist/katex.css'
+
+import Footer from '@/components/astro/Footer.astro'
+import Header from '@/components/astro/Header.astro'
+
+type Props = {
+    title?: string
+}
+
+const { title = 'DevFest Pisa 2025' } = Astro.props
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+
+        <script>
+            import renderMathInElement from 'katex/contrib/auto-render'
+
+            document.addEventListener('DOMContentLoaded', function () {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false },
+                        { left: '\\(', right: '\\)', display: false },
+                        { left: '\\[', right: '\\]', display: true },
+                    ],
+                    throwOnError: false,
+                })
+            })
+        </script>
+
+        <title>{title}</title>
+    </head>
+    <body>
+        <Header />
+        <main>
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>

@@ -1,16 +1,80 @@
 ---
+import Base from '@/layouts/Base.astro'
 
+import towerImageSvg from '@/assets/tower_pisa_beta.svg'
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>DevFest Pisa 2025</title>
-    </head>
-    <body>
-        <h1>DevFest Pisa 2025</h1>
-    </body>
-</html>
+<Base>
+    <section class="hero">
+        <div class="h-stack">
+            <div class="hero-content v-stack">
+                <div class="text">
+                    <h1>DevFest Pisa 2025</h1>
+                </div>
+                <div class="text">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni fugit magnam, cumque vitae
+                        veritatis nostrum natus enim nulla aliquid obcaecati.
+                    </p>
+                </div>
+                <a class="large" href="#cfp" role="button">Call for Papers</a>
+            </div>
+            <img class="hero-image" src={towerImageSvg.src} alt="Leaning Tower of Pisa" />
+        </div>
+    </section>
+    <section id="cfp">
+        <div class="card large">
+            <div class="text">
+                <h2>Call for Papers</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni fugit magnam, cumque vitae veritatis
+                    nostrum natus enim nulla aliquid obcaecati.
+                </p>
+            </div>
+            <a class="large" href="/cfp" role="button"> Submit your talk </a>
+        </div>
+    </section>
+    <section id="stats">
+        <div class="stats-layouts">
+            <div class="stats-card card large">
+                <div class="text">
+                    <h2>DevFest Pisa 2025 is coming soon!</h2>
+                    <p>
+                        After last year's success, GDG Pisa is happy to announce that DevFest Pisa is coming back in
+                        town, with a summer edition! You can enjoy a one-day conference all about Android, Web, Cloud
+                        and Google technologies in the heart of Tuscany.
+                    </p>
+                    <p>
+                        Last year's conference was a blast! Check out the video recap and make sure you don't miss it
+                        next year!
+                    </p>
+                </div>
+                <a class="large" href="#" role="button"> DevFest Pisa 2024 Video Recap </a>
+            </div>
+            <div class="card large">
+                <div class="v-stack center">
+                    <div class="text-large">400+</div>
+                    <div class="text">Attendees</div>
+                </div>
+            </div>
+            <div class="card large">
+                <div class="v-stack center">
+                    <div class="text-large">30+</div>
+                    <div class="text">Speakers</div>
+                </div>
+            </div>
+            <div class="card large">
+                <div class="v-stack center">
+                    <div class="text-large">30+</div>
+                    <div class="text">Talks</div>
+                </div>
+            </div>
+            <div class="card large">
+                <div class="v-stack center">
+                    <div class="text-large">$n$+</div>
+                    <div class="text">After Party Beers 🍻</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Base>
