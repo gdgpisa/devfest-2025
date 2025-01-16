@@ -145,6 +145,8 @@
         padding: 6rem;
 
         &.hero {
+            position: relative;
+            overflow: hidden;
             height: calc(100vh - 4rem);
         }
 
@@ -182,7 +184,14 @@
         z-index: -1;
 
         @media (width < 768px) {
-            display: none;
+            position: absolute;
+
+            right: 0;
+            width: auto;
+            max-width: unset;
+
+            transform: translateX(50%);
+            filter: invert(1) brightness(0.25) invert(1);
         }
     }
 
