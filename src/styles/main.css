@@ -231,7 +231,8 @@
         > .stats-card {
             --size: 3rem;
 
-            width: 80ch;
+            max-width: 80ch;
+            width: 100%;
             grid-column: span 1;
             grid-row: span 2;
         }
