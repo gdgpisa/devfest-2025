@@ -1,0 +1,29 @@
+sponsors:
+  diamond:
+    - name: 'Company A'
+      logo: 'company-a.png'
+      url: 'https://company-a.com'
+    - name: 'Company B'
+      logo: 'company-b.png'
+      url: 'https://company-b.com'
+  platinum:
+    - name: 'Company C'
+      logo: 'company-c.png'
+      url: 'https://company-c.com'
+    - name: 'Company D'
+      logo: 'company-d.png'
+      url: 'https://company-d.com'
+  gold:
+    - name: 'Company E'
+      logo: 'company-e.png'
+      url: 'https://company-e.com'
+    - name: 'Company F'
+      logo: 'company-f.png'
+      url: 'https://company-f.com'
+  silver:
+    - name: 'Company G'
+      logo: 'company-g.png'
+      url: 'https://company-g.com'
+    - name: 'Company H'
+      logo: 'company-h.png'
+      url: 'https://company-h.com'

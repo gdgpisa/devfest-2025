@@ -32,7 +32,6 @@
     font-family: 'Product Sans', sans-serif;
 
     line-height: 1.5;
-    color: #333;
 
     --base-heading-size: 1rem;
     --base-heading-factor: 1.61;
@@ -61,7 +60,7 @@
         font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 1));
     }
 
-    * + * {
+    > * + * {
         margin-top: 1rem;
     }
 }

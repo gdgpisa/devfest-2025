@@ -2,10 +2,21 @@
 import Base from '@/layouts/Base.astro'
 
 import towerImageSvg from '@/assets/tower_pisa_beta.svg'
+import KatexSSR from '@/components/astro/KatexSSR.astro'
+import { Image } from 'astro:assets'
+
+// const galleryCollage = await Astro.glob('@/assets/gallery/*.jpg')
+
+// @ts-ignore
+const galleryCollage: { default: { src: string } }[] = await Promise.all(
+    Object.values(import.meta.glob('/src/assets/gallery/*.jpg')).map(module => module())
+)
+
+console.log(galleryCollage)
 ---
 
 <Base>
-    <section class="hero">
+    <section id="hero">
         <div class="h-stack">
             <div class="hero-content v-stack">
                 <div class="text">
@@ -17,15 +28,17 @@ import towerImageSvg from '@/assets/tower_pisa_beta.svg'
                         veritatis nostrum natus enim nulla aliquid obcaecati.
                     </p>
                 </div>
-                <a class="large" href="#cfp" role="button">Call for Papers</a>
+                <a class="primary large" href="#cfp" role="button">Call for Papers</a>
             </div>
             <img class="hero-image" src={towerImageSvg.src} alt="Leaning Tower of Pisa" />
         </div>
     </section>
     <section id="cfp">
+        <div class="text">
+            <h2>Call for Papers</h2>
+        </div>
         <div class="card large">
             <div class="text">
-                <h2>Call for Papers</h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni fugit magnam, cumque vitae veritatis
                     nostrum natus enim nulla aliquid obcaecati.
@@ -53,7 +66,7 @@ import towerImageSvg from '@/assets/tower_pisa_beta.svg'
             </div>
             <div class="card large">
                 <div class="v-stack center">
-                    <div class="text-large">400+</div>
+                    <div class="text-large">500+</div>
                     <div class="text text-center">Attendees</div>
                 </div>
             </div>
@@ -65,14 +78,222 @@ import towerImageSvg from '@/assets/tower_pisa_beta.svg'
             </div>
             <div class="card large">
                 <div class="v-stack center">
-                    <div class="text-large">30+</div>
-                    <div class="text text-center">Talks</div>
+                    <div class="text-large">5+</div>
+                    <div class="text text-center">Speakers' Nations</div>
                 </div>
             </div>
             <div class="card large">
                 <div class="v-stack center">
-                    <div class="text-large">$n$+</div>
-                    <div class="text text-center">After Party Beers 🍻</div>
+                    <div class="text-large">
+                        <KatexSSR formula="n" />+
+                    </div>
+                    <div class="text text-center">
+                        After Party Beers <span class="text-emoji">🍻</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="past-editions">
+        <div class="text">
+            <h3>New to DevFest Pisa? Check out our previous editions!</h3>
+        </div>
+        <div class="card-gallery">
+            <div class="h-stack">
+                <div class="card tight">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/v3nYSljL8P4"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="card tight">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/HOvwmfNEw1I"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="card tight">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/h5d-EOTWOOU"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="card tight">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/KKKoFXHC_zc"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="gallery" class="tight">
+        <div class="image-gallery">
+            <div class="image-gallery-wrapper">
+                {
+                    galleryCollage.map((module, i) => {
+                        const src = module.default.src
+                        const filename = src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
+
+                        if (!filename) {
+                            throw new Error('Invalid filename')
+                        }
+
+                        const [rows, cols] = filename.includes('@')
+                            ? (filename
+                                  .split('@')
+                                  .at(-1)
+                                  ?.split('x')
+                                  .map((s: string) => parseInt(s)) ?? [1, 1])
+                            : [1, 1]
+
+                        return <img src={src} alt={`gallery image ${i}`} style={`--rows: ${rows}; --cols: ${cols};`} />
+                    })
+                }
+
+                <div
+                    class="card"
+                    style={{
+                        'grid-column': '3 / span 2',
+                        'grid-row-start': '2',
+                    }}
+                >
+                    <div class="text">Prova</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="sponsors">
+        <div class="v-stack">
+            <div class="text">
+                <h2>Sponsors</h2>
+            </div>
+            <div class="text">
+                <h3
+                    class="text-custom"
+                    style="background-image: linear-gradient(to right, hsl(300, 100%, 70%), hsl(189, 100%, 70%));"
+                >
+                    <strong>Diamond</strong>
+                </h3>
+            </div>
+            <div class="sponsor-list h-flex-wrap">
+                <div class="card">
+                    <div class="text text-large">Lorem, ipsum.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Eius, voluptates.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Debitis, exercitationem.</div>
+                </div>
+            </div>
+            <div class="text">
+                <h3
+                    class="text-custom"
+                    style="background-image: linear-gradient(to right, hsl(253, 100%, 71%), hsl(0, 0%, 59%));"
+                >
+                    <strong>Platinum</strong>
+                </h3>
+            </div>
+            <div class="sponsor-list h-flex-wrap">
+                <div class="card">
+                    <div class="text text-large">Lorem, ipsum.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Eius, voluptates.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Debitis, exercitationem.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Eius, voluptates.</div>
+                </div>
+            </div>
+
+            <div class="text">
+                <h3
+                    class="text-custom"
+                    style="background-image: linear-gradient(to bottom right, hsl(42, 100%, 63%), hsl(42, 72%, 50%));"
+                >
+                    <strong>Gold</strong>
+                </h3>
+            </div>
+            <div class="sponsor-list h-flex-wrap">
+                <div class="card">
+                    <div class="text text-large">Lorem, ipsum.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Eius, voluptates.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Debitis, exercitationem.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Eius, voluptates.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Debitis, exercitationem.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Eius, voluptates.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Debitis, exercitationem.</div>
+                </div>
+            </div>
+            <div class="text">
+                <!-- silver -->
+                <h3
+                    class="text-custom"
+                    style="background-image: linear-gradient(to bottom right, hsl(0, 0%, 59%), hsl(0, 0%, 31%));"
+                >
+                    <strong>Silver</strong>
+                </h3>
+            </div>
+            <div class="sponsor-list h-flex-wrap">
+                <div class="card">
+                    <div class="text text-large">Lorem, ipsum.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Eius, voluptates.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Debitis, exercitationem.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Eius, voluptates.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Debitis, exercitationem.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Debitis, exercitationem.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Eius, voluptates.</div>
+                </div>
+                <div class="card">
+                    <div class="text text-large">Debitis, exercitationem.</div>
                 </div>
             </div>
         </div>
