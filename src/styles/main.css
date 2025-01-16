@@ -147,7 +147,8 @@
         &.hero {
             position: relative;
             overflow: hidden;
-            height: calc(100vh - 4rem);
+            min-height: calc(100vh - 4rem);
+            max-height: fit-content;
         }
 
         &:not(:first-child) {
@@ -177,7 +178,7 @@
 
     .hero-image {
         max-width: 50vw;
-        height: calc(100vh - 4rem);
+        height: calc(100vh - 16rem);
 
         object-fit: cover;
 
