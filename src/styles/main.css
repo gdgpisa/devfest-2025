@@ -1,6 +1,7 @@
 @layer base, components, pages, utilities;
 
 @import url(./typography.css);
+@import url(./scrollingGrid.css);
 
 @layer base {
     *,
