@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="1297mm"
-   height="917mm"
-   viewBox="0 0 1297 917"
+   width="1255.3076mm"
+   height="176.67139mm"
+   viewBox="0 0 1255.3076 176.67139"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
@@ -24,14 +24,18 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.068929749"
-     inkscape:cx="-391.70315"
-     inkscape:cy="1298.4234"
+     inkscape:cx="-406.21068"
+     inkscape:cy="1211.3783"
      inkscape:window-width="1536"
      inkscape:window-height="890"
      inkscape:window-x="-6"
      inkscape:window-y="-6"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <defs
      id="defs2">
     <clipPath
@@ -171,7 +175,8 @@
   <g
      inkscape:label="Livello 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-18.41398,-21.698799)">
     <g
        id="g1029"
        inkscape:label="nxw-logo (1)"
