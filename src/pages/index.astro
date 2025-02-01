@@ -6,6 +6,8 @@ import KatexSSR from '@/components/astro/KatexSSR.astro'
 import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 
+import sponsors from '@/sponsors.yaml'
+
 // const galleryCollage = await Astro.glob('@/assets/gallery/*.jpg')
 
 // @ts-ignore
@@ -41,6 +43,30 @@ const getGridCols = (images: typeof galleryCollage) => {
 }
 
 const totalCols = getGridCols(galleryCollage)
+
+// Sponsors
+
+// @ts-ignore
+const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
+    (
+        await Promise.all(
+            Object.values(import.meta.glob<{ default: ImageMetadata }>('/src/assets/sponsors/*')).map(module =>
+                module()
+            )
+        )
+    ).map((module: { default: ImageMetadata }) => {
+        const src = module.default.src
+        const filename = src.split('/').at(-1)!.split('?').at(0)!
+
+        if (!filename) {
+            throw new Error('Invalid filename')
+        }
+
+        return [filename, module.default]
+    })
+)
+
+console.log(sponsorLogos)
 ---
 
 <Base>
@@ -49,12 +75,12 @@ const totalCols = getGridCols(galleryCollage)
             <div class="hero-content v-stack">
                 <div class="text">
                     <h1>DevFest Pisa 2025</h1>
-                    <h3>12 April 2025 @ <span class="blur-text">Nice try, cooming soon</span></h3>
+                    <h3>
+                        12 April 2025 @ <span class="blur-text">Nice try</span>
+                    </h3>
                 </div>
                 <div class="text">
-                    <p>
-                        Together we grow, together we build! 🌱
-                    </p>
+                    <p>Together we grow, together we build! 🌱</p>
                 </div>
                 <a class="primary large" href="#cfp" role="button">Call for Papers</a>
             </div>
@@ -68,7 +94,8 @@ const totalCols = getGridCols(galleryCollage)
         <div class="card large">
             <div class="text">
                 <p>
-                    Call For Paper is closing soon! 🚀 Do not miss the occasion of keeping the community growing! Submit your talk now and become a speaker! 🎤✨
+                    Call For Paper is closing soon! 🚀 Do not miss the occasion of keeping the community growing! Submit
+                    your talk now and become a speaker! 🎤✨
                 </p>
             </div>
             <a class="large" href="/cfp" role="button"> Submit your talk </a>
@@ -81,15 +108,15 @@ const totalCols = getGridCols(galleryCollage)
                     <h2>DevFest Pisa 2025 is coming soon!</h2>
                     <p>
                         After last year's success, GDG Pisa is happy to announce that DevFest Pisa is coming back in
-                        town with new surprises! </br>
-                        You can enjoy a one-day conference all about AI, Web, Cloud and much more in the heart of Tuscany.
+                        town with new surprises!
                     </p>
-                    <p>
-                        Last year's conference was a blast! Check out the video recap and make sure you don't miss it
-                        next year!
-                    </p>
+                    You can enjoy a one-day conference all about AI, Web, Cloud and much more in the heart of Tuscany.
                 </div>
-                <a class="large" href="#" role="button"> DevFest Pisa 2024 Video Recap </a>
+                <p>
+                    Last year's conference was a blast! Check out the video recap and make sure you don't miss it next
+                    year!
+                </p>
+                <a class="large" href="https://youtu.be/v3nYSljL8P4" role="button"> DevFest Pisa 2024 Video Recap </a>
             </div>
             <div class="card large">
                 <div class="v-stack center">
@@ -121,6 +148,7 @@ const totalCols = getGridCols(galleryCollage)
             </div>
         </div>
     </section>
+
     <section id="past-editions">
         <div class="text">
             <h3>New to DevFest Pisa? Check out our previous editions!</h3>
@@ -178,7 +206,7 @@ const totalCols = getGridCols(galleryCollage)
         <div class="image-gallery">
             <div class="image-gallery-wrapper">
                 {
-                    galleryCollage.map((module, i) => {
+                    galleryCollage.slice(0, 10).map((module, i) => {
                         const src = module.default.src
                         const filename = src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
 
@@ -242,127 +270,126 @@ const totalCols = getGridCols(galleryCollage)
             <div class="text">
                 <h2>Sponsors</h2>
             </div>
-            <div class="text">
-                <h3 style="color: #444;">
-                    <strong>Main Sponsor</strong>
-                </h3>
-            </div>
-            <div class="sponsor-list h-flex-wrap">
-                <div class="card">
-                    <div class="text text-large">Google</div>
-                </div>
-            </div>
-            <div class="text">
-                <h3
-                    class="text-custom"
-                    style="background-image: linear-gradient(to right, hsl(300, 100%, 70%), hsl(189, 100%, 70%));"
-                >
-                    <strong>Diamond</strong>
-                </h3>
-            </div>
-            <div class="sponsor-list h-flex-wrap">
-                <div class="card">
-                    <div class="text text-large">Lorem, ipsum.</div>
-                </div>
-                <div class="card">
-                    <div class="text text-large">Eius, voluptates.</div>
-                </div>
-                <div class="card">
-                    <div class="text text-large">Debitis, exercitationem.</div>
-                </div>
-            </div>
 
-            <!-- 
-            <div class="text">
-        <h3
-          class="text-custom"
-          style="background-image: linear-gradient(to right, hsl(253, 100%, 71%), hsl(0, 0%, 59%));"
-        >
-          <strong>Platinum</strong>
-        </h3>
-      </div>
-      
-      
-      <div class="sponsor-list h-flex-wrap">
-        <div class="card">
-          <div class="text text-large">Lorem, ipsum.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Eius, voluptates.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Debitis, exercitationem.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Eius, voluptates.</div>
-        </div>
-      </div>
+            {
+                sponsors.main && (
+                    <>
+                        <div class="text">
+                            <h3 style="color: #444;">
+                                <strong>Main Sponsor ✨</strong>
+                            </h3>
+                        </div>
+                        <div class="sponsor-list h-flex-wrap">
+                            {sponsors.main.map(sponsor => {
+                                return (
+                                    <div class="card">
+                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </>
+                )
+            }
 
-      <div class="text">
-        <h3
-          class="text-custom"
-          style="background-image: linear-gradient(to bottom right, hsl(42, 100%, 63%), hsl(42, 72%, 50%));"
-        >
-          <strong>Gold</strong>
-        </h3>
-      </div>
-      <div class="sponsor-list h-flex-wrap">
-        <div class="card">
-          <div class="text text-large">Lorem, ipsum.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Eius, voluptates.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Debitis, exercitationem.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Eius, voluptates.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Debitis, exercitationem.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Eius, voluptates.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Debitis, exercitationem.</div>
-        </div>
-      </div>
-      <div class="text">
-        <h3
-          class="text-custom"
-          style="background-image: linear-gradient(to bottom right, hsl(0, 0%, 59%), hsl(0, 0%, 31%));"
-        >
-          <strong>Silver</strong>
-        </h3>
-      </div>
-      <div class="sponsor-list h-flex-wrap">
-        <div class="card">
-          <div class="text text-large">Lorem, ipsum.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Eius, voluptates.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Debitis, exercitationem.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Eius, voluptates.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Debitis, exercitationem.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Debitis, exercitationem.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Eius, voluptates.</div>
-        </div>
-        <div class="card">
-          <div class="text text-large">Debitis, exercitationem.</div>
-        </div>
-      </div> -->
+            {
+                sponsors.diamond && (
+                    <>
+                        <div class="text">
+                            <h3>
+                                <span
+                                    class="text-custom"
+                                    style="background-image: linear-gradient(to right, hsl(300, 100%, 70%), hsl(189, 100%, 70%));"
+                                >
+                                    <strong>Diamond</strong>
+                                </span>
+                                💎
+                            </h3>
+                        </div>
+                        <div class="sponsor-list h-flex-wrap">
+                            {sponsors.diamond.map(sponsor => {
+                                return (
+                                    <div class="card">
+                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </>
+                )
+            }
+
+            {
+                sponsors.platinum && (
+                    <>
+                        <div class="text">
+                            <h3
+                                class="text-custom"
+                                style="background-image: linear-gradient(to right, hsl(253, 100%, 71%), hsl(0, 0%, 59%));"
+                            >
+                                <strong>Platinum</strong>
+                            </h3>
+                        </div>
+                        <div class="sponsor-list h-flex-wrap">
+                            {sponsors.platinum.map(sponsor => {
+                                return (
+                                    <div class="card">
+                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </>
+                )
+            }
+
+            {
+                sponsors.gold && (
+                    <>
+                        <div class="text">
+                            <h3
+                                class="text-custom"
+                                style="background-image: linear-gradient(to bottom right, hsl(42, 100%, 63%), hsl(42, 72%, 50%));"
+                            >
+                                <strong>Gold</strong>
+                            </h3>
+                        </div>
+                        <div class="sponsor-list h-flex-wrap">
+                            {sponsors.gold.map(sponsor => {
+                                return (
+                                    <div class="card">
+                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </>
+                )
+            }
+
+            {
+                sponsors.silver && (
+                    <>
+                        <div class="text">
+                            <h3
+                                class="text-custom"
+                                style="background-image: linear-gradient(to bottom right, hsl(0, 0%, 59%), hsl(0, 0%, 31%));"
+                            >
+                                <strong>Silver</strong>
+                            </h3>
+                        </div>
+                        {sponsors.silver.map(sponsor => {
+                            return (
+                                <div class="sponsor-list h-flex-wrap">
+                                    <div class="card">
+                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </>
+                )
+            }
         </div>
     </section>
 </Base>

@@ -25,6 +25,7 @@
         --halftone-cyan: #6aff8d;
         --pastel-cyan: #a5ffba;
 
+        --dark-blue: #516ebe;
         --core-blue: #356bff;
         --pastel-blue: #a5bdff;
 
@@ -317,6 +318,10 @@
         [role='button'] {
             color: #fff !important;
         }
+
+        .card {
+            box-shadow: 9px 9px 0 0 var(--dark-blue);
+        }
     }
 
     #stats {
@@ -361,6 +366,9 @@
         border-radius: 1rem;
         overflow: hidden;
 
+        display: grid;
+        place-content: center;
+
         &::after {
             content: '';
             position: absolute;
@@ -379,6 +387,7 @@
 
         @media (width < 768px) {
             overflow: visible;
+            width: 100%;
 
             &::after {
                 display: none;
@@ -445,6 +454,10 @@
 
         padding: 0 6rem;
         z-index: 2;
+
+        .text {
+            font-size: 22px;
+        }
 
         button,
         a[role='button'] {
@@ -544,6 +557,19 @@
 
     .sponsor-list {
         --gap: 2rem;
+
+        max-width: 72rem;
+
+        .card {
+            display: grid;
+            place-content: center;
+            place-items: center;
+        }
+
+        img {
+            height: 4rem;
+            max-width: 12rem;
+        }
     }
 }
 

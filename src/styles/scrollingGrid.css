@@ -24,7 +24,8 @@
 
         gap: var(--gap);
         animation: scrollToLeft var(--animation-orbit-period) linear infinite;
-        align-items: baseline;
+
+        align-items: start;
     }
 
     .track:nth-child(odd) {
@@ -38,10 +39,10 @@
         overflow: clip;
     }
 
-    .box:hover {
-        /* border-color: var(--halftone-cyan); */
-        /* border-width: 4px; */
-    }
+    /* .box:hover { */
+    /* border-color: var(--halftone-cyan); */
+    /* border-width: 4px; */
+    /* } */
 
     .boxImage {
         width: 100%;
