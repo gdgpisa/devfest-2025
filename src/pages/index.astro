@@ -12,11 +12,11 @@ import sponsors from '@/sponsors.yaml'
 
 // @ts-ignore
 const galleryCollage: { default: { src: string } }[] = await Promise.all(
-    Object.values(import.meta.glob('/src/assets/gallery/*.jpg')).map(module => module())
+    Object.values(import.meta.glob('/src/assets/gallery/*.jpg')).map(module => module()),
 )
 
 const galleryCollageEager: { default: ImageMetadata }[] = await Promise.all(
-    Object.values(import.meta.glob<{ default: ImageMetadata }>('/src/assets/gallery/*.jpg')).map(module => module())
+    Object.values(import.meta.glob<{ default: ImageMetadata }>('/src/assets/gallery/*.jpg')).map(module => module()),
 )
 console.log(galleryCollage)
 
@@ -51,8 +51,8 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
     (
         await Promise.all(
             Object.values(import.meta.glob<{ default: ImageMetadata }>('/src/assets/sponsors/*')).map(module =>
-                module()
-            )
+                module(),
+            ),
         )
     ).map((module: { default: ImageMetadata }) => {
         const src = module.default.src
@@ -63,7 +63,7 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
         }
 
         return [filename, module.default]
-    })
+    }),
 )
 
 console.log(sponsorLogos)
