@@ -571,6 +571,25 @@
             max-width: 12rem;
         }
     }
+    
+    #iwd-theme {
+        background: #CAE6FF;
+        color: #333;
+
+        --card-bg: #fff;
+        --card-fg: #333;
+        --card-border: #000;
+
+        --button-bg: #CAE6FF;
+
+        [role='button'] {
+            color: #333 !important;
+        }
+
+        .card {
+            box-shadow: 9px 9px 0 0 var(--dark-blue);
+        }
+    }
 }
 
 /* Utilities */
