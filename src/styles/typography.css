@@ -28,17 +28,18 @@
 
 /* Typography */
 
-.text {
-    font-family: 'Product Sans', sans-serif;
-
-    line-height: 1.5;
-
+:root {
     --base-heading-size: 1rem;
     --base-heading-factor: 1.61;
 
     @media (width < 768px) {
         --base-heading-factor: 1.42;
     }
+}
+
+.text {
+    font-family: 'Product Sans', sans-serif;
+    line-height: 1.5;
 
     h1,
     h2,
@@ -63,4 +64,24 @@
     > * + * {
         margin-top: 1rem;
     }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1;
+}
+
+h1 {
+    font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 4));
+}
+h2 {
+    font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 3));
+}
+h3 {
+    font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 2));
+}
+h4 {
+    font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 1));
 }

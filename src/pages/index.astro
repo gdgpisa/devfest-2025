@@ -6,7 +6,7 @@ import KatexSSR from '@/components/astro/KatexSSR.astro'
 import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 
-import sponsors from '@/sponsors.yaml'
+import sponsors, { type Sponsors } from '@/sponsors.yaml'
 
 // const galleryCollage = await Astro.glob('@/assets/gallery/*.jpg')
 
@@ -65,8 +65,6 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
         return [filename, module.default]
     }),
 )
-
-console.log(sponsorLogos)
 ---
 
 <Base>
@@ -78,8 +76,6 @@ console.log(sponsorLogos)
                     <h3>
                         12 April 2025 @ <span class="blur-text">Nice try</span>
                     </h3>
-                </div>
-                <div class="text">
                     <p>Together we grow, together we build! 🌱</p>
                 </div>
                 <a class="primary large" href="#cfp" role="button">Call for Papers</a>
@@ -87,10 +83,9 @@ console.log(sponsorLogos)
             <img class="hero-image" src={towerImageSvg.src} alt="Leaning Tower of Pisa" />
         </div>
     </section>
+
     <section id="cfp">
-        <div class="text">
-            <h2>Call for Papers</h2>
-        </div>
+        <h2>Call for Papers</h2>
         <div class="card large">
             <div class="text">
                 <p>
@@ -105,6 +100,7 @@ console.log(sponsorLogos)
             <a class="large" href="/cfp" role="button"> Submit your talk </a>
         </div>
     </section>
+
     <section id="stats">
         <div class="stats-layouts">
             <div class="stats-card card large">
@@ -115,29 +111,29 @@ console.log(sponsorLogos)
                         town with new surprises! You can enjoy a one-day conference all about AI, Web, Cloud and much
                         more in the heart of Tuscany.
                     </p>
+                    <p>
+                        Last year's conference was a blast! Check out the video recap and make sure you don't miss it
+                        next year!
+                    </p>
                 </div>
-                <p>
-                    Last year's conference was a blast! Check out the video recap and make sure you don't miss it next
-                    year!
-                </p>
                 <a class="large" href="https://youtu.be/v3nYSljL8P4" role="button"> DevFest Pisa 2024 Video Recap </a>
             </div>
             <div class="card large">
                 <div class="v-stack center">
                     <div class="text-large">500+</div>
-                    <div class="text text-center">Attendees</div>
+                    <div class="text-center">Attendees</div>
                 </div>
             </div>
             <div class="card large">
                 <div class="v-stack center">
                     <div class="text-large">30+</div>
-                    <div class="text text-center">Speakers</div>
+                    <div class="text-center">Speakers</div>
                 </div>
             </div>
             <div class="card large">
                 <div class="v-stack center">
                     <div class="text-large">5+</div>
-                    <div class="text text-center">Speakers' Nations</div>
+                    <div class="text-center">Speakers' Nations</div>
                 </div>
             </div>
             <div class="card large">
@@ -145,7 +141,7 @@ console.log(sponsorLogos)
                     <div class="text-large">
                         <KatexSSR formula="n" />+
                     </div>
-                    <div class="text text-center">
+                    <div class="text-center">
                         After Party Beers <span class="text-emoji">🍻</span>
                     </div>
                 </div>
@@ -154,9 +150,7 @@ console.log(sponsorLogos)
     </section>
 
     <section id="past-editions">
-        <div class="text">
-            <h3>New to DevFest Pisa? Check out our previous editions!</h3>
-        </div>
+        <h3>New to DevFest Pisa? Check out our previous editions!</h3>
         <div class="card-gallery">
             <div class="h-stack">
                 <div class="card tight">
@@ -271,128 +265,39 @@ console.log(sponsorLogos)
 
     <section id="sponsors">
         <div class="v-stack">
-            <div class="text">
-                <h2>Sponsors</h2>
-            </div>
-
+            <h2>Sponsors</h2>
             {
-                sponsors.main && (
-                    <>
-                        <div class="text">
-                            <h3 style="color: #444;">
-                                <strong>Main Sponsor ✨</strong>
-                            </h3>
-                        </div>
-                        <div class="sponsor-list h-flex-wrap">
-                            {sponsors.main.map(sponsor => {
-                                return (
-                                    <div class="card">
-                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </>
-                )
-            }
+                (Object.keys(sponsors) as (keyof Sponsors)[]).map((tier, i) => {
+                    // prettier-ignore
+                    const titleStyle = {
+                        main: 'color: #444;',
+                        diamond: 'background-image: linear-gradient(to right, hsl(300, 100%, 70%), hsl(189, 100%, 70%));',
+                        platinum: 'background-image: linear-gradient(to right, hsl(253, 100%, 71%), hsl(0, 0%, 59%));',
+                        gold: 'background-image: linear-gradient(to bottom right, hsl(42, 100%, 63%), hsl(42, 72%, 50%));',
+                        silver: 'background-image: linear-gradient(to bottom right, hsl(0, 0%, 59%), hsl(0, 0%, 31%));',
+                    }
 
-            {
-                sponsors.diamond && (
-                    <>
-                        <div class="text">
-                            <h3>
-                                <span
-                                    class="text-custom"
-                                    style="background-image: linear-gradient(to right, hsl(300, 100%, 70%), hsl(189, 100%, 70%));"
-                                >
-                                    <strong>Diamond</strong>
-                                </span>
-                                💎
-                            </h3>
-                        </div>
-                        <div class="sponsor-list h-flex-wrap">
-                            {sponsors.diamond.map(sponsor => {
-                                return (
-                                    <div class="card">
-                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </>
-                )
-            }
-
-            {
-                sponsors.platinum && (
-                    <>
-                        <div class="text">
-                            <h3
-                                class="text-custom"
-                                style="background-image: linear-gradient(to right, hsl(253, 100%, 71%), hsl(0, 0%, 59%));"
-                            >
-                                <strong>Platinum</strong>
-                            </h3>
-                        </div>
-                        <div class="sponsor-list h-flex-wrap">
-                            {sponsors.platinum.map(sponsor => {
-                                return (
-                                    <div class="card">
-                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </>
-                )
-            }
-
-            {
-                sponsors.gold && (
-                    <>
-                        <div class="text">
-                            <h3
-                                class="text-custom"
-                                style="background-image: linear-gradient(to bottom right, hsl(42, 100%, 63%), hsl(42, 72%, 50%));"
-                            >
-                                <strong>Gold</strong>
-                            </h3>
-                        </div>
-                        <div class="sponsor-list h-flex-wrap">
-                            {sponsors.gold.map(sponsor => {
-                                return (
-                                    <div class="card">
-                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </>
-                )
-            }
-
-            {
-                sponsors.silver && (
-                    <>
-                        <div class="text">
-                            <h3
-                                class="text-custom"
-                                style="background-image: linear-gradient(to bottom right, hsl(0, 0%, 59%), hsl(0, 0%, 31%));"
-                            >
-                                <strong>Silver</strong>
-                            </h3>
-                        </div>
-                        {sponsors.silver.map(sponsor => {
-                            return (
+                    return (
+                        sponsors[tier] && (
+                            <>
+                                <h3 class:list={{ 'text-custom': tier !== 'main' }} style={titleStyle[tier]}>
+                                    <strong>{tier.charAt(0).toUpperCase() + tier.slice(1)}</strong>
+                                </h3>
                                 <div class="sponsor-list h-flex-wrap">
-                                    <div class="card">
-                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
-                                    </div>
+                                    {sponsors[tier].map(sponsor => {
+                                        return (
+                                            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
+                                                <div class="card">
+                                                    <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
+                                                </div>
+                                            </a>
+                                        )
+                                    })}
                                 </div>
-                            )
-                        })}
-                    </>
-                )
+                            </>
+                        )
+                    )
+                })
             }
         </div>
     </section>

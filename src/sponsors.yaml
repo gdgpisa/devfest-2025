@@ -8,7 +8,7 @@ diamond:
     url: 'https://www.wolterskluwer.com/en/solutions/cch-tagetik'
   - name: 'Garmin Italy Technologies '
     logo: garmin.svg
-    url: 'www.garmin.com'
+    url: 'https://www.garmin.com'
   - name: 'Nextworks srl'
     logo: nextworks.svg
     url: 'https://www.nextworks.it/en/'

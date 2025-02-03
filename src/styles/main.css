@@ -176,7 +176,7 @@
         min-height: 4rem;
 
         background: #333;
-        color: #fff;
+        color: #ddd;
         border-top: 2px solid #333;
 
         padding: 3rem 6rem 6rem;
@@ -203,7 +203,7 @@
         }
 
         > :not(:first-child) {
-            border-top: 2px solid #888;
+            border-top: 2px solid #bbb;
             padding-top: 1rem;
             padding-bottom: 1rem;
         }
@@ -560,10 +560,21 @@
 
         max-width: 72rem;
 
+        a,
+        a * {
+            cursor: pointer;
+        }
+
         .card {
             display: grid;
             place-content: center;
             place-items: center;
+
+            box-shadow: 5px 5px 0 0 #888;
+
+            &:hover {
+                --card-bg: #e0e0e0;
+            }
         }
 
         img {

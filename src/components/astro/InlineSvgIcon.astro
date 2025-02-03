@@ -1,0 +1,11 @@
+---
+type Props = {
+    name: string
+}
+
+const { name } = Astro.props
+
+const rawSvgContent = await import(`/src/assets/icons/${name}.svg?raw`)
+---
+
+<Fragment set:html={rawSvgContent.default} />
