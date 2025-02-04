@@ -1,65 +1,78 @@
 ---
+import InlineSvg from '@/components/astro/InlineSvg.astro'
 import Base from '@/layouts/Base.astro'
-import { Image } from 'astro:assets'
 ---
 
 <Base>
     <section id="iwd-hero">
-        <div class="banner-iwd">
+        <div class="card large tight">
             <img src="src/assets/iwd-banner.png" alt="IWD Banner" />
         </div>
-    </section>
-
-    <section>
-        <div class="card large">
-            <div class="text">
-                <h3>We're happy to celebrate the International Women's Day (IWD) with you!👩‍💻</h3>
-
-                <img style="float: right;" src="src/assets/logo_wtm_quadrato.svg" alt="logo WTM Pisa" />
-
-                <p>For the GDG Pisa, diversity and inclusion are topics close to our heart.</p>
-                <p>
-                    Together with the <a
-                        class="large"
-                        href="https://developers.google.com/womentechmakers"
-                        target="_blank"
-                        rel="noopener noreferrer">Women Techmaker</a
-                    > group of Pisa, we decided to celebrate IWD at our DevFest with a dedicated track: the IWD track! This
-                    will focus on women in tech, diversity, inclusion, and soft skills. We hope to inspire you and enhance
-                    your enjoyment of the DevFest even more.
-                </p>
+        <div class="h-stack top">
+            <div class="card large">
+                <InlineSvg path="@/assets/logo_wtm_quadrato.svg" />
             </div>
+            <!-- <div class="card large" style="opacity: 0;">
+                <InlineSvg path="@/assets/logo_wtm_quadrato.svg" />
+            </div> -->
+            <div class="card large">
+                <div class="text">
+                    <!-- <h3>We're happy to celebrate the <span title="IWD">International Women's Day</span> with you!👩‍💻</h3> -->
+                    <h3>Join us for the International Women's Day 👩‍💻</h3>
+
+                    <p>For the GDG Pisa, diversity and inclusion are topics close to our heart.</p>
+                    <p>
+                        Together with the <a
+                            class="large"
+                            href="https://developers.google.com/womentechmakers"
+                            target="_blank"
+                            rel="noopener noreferrer">Women Techmakers</a
+                        > group of Pisa, we decided to celebrate International Women's Day (IWD) at our DevFest with a dedicated
+                        track: the IWD track! This will focus on women in tech, diversity, inclusion, and soft skills. We
+                        hope to inspire you and enhance your enjoyment of the DevFest even more.
+                    </p>
+                </div>
+            </div>
+            <!-- <div class="card large">
+                <InlineSvg path="@/assets/logo_wtm_quadrato.svg" />
+            </div> -->
         </div>
     </section>
     <section id="iwd-theme">
         <div class="text text-center">
-            <h2>Redefine Possible</h2>
+            <h2>
+                <strong>
+                    Redefine <span style="color: #00947B;">Possible</span>
+                </strong>
+            </h2>
             <p>
                 This year's theme it's a bold declaration that challenges the boundaries<br />
                 of what technology can achieve and reimagines who shapes its future.
             </p>
         </div>
-
         <div class="card large">
             <p>
-                We stand at a pivotal moment where AI is transforming our world—bringing unprecedented opportunities but
+                We stand at a pivotal moment where AI is transforming our world bringing unprecedented opportunities but
                 also risking the amplification of gender biases and systemic barriers. As artificial intelligence
-                becomes woven into society, we believe that women are not just participating in its development—they're
+                becomes woven into society, we believe that women are not just participating in its development they're
                 revolutionizing it, breaking conventions, and expanding the horizons of what technology can and should
                 be.
             </p>
             <p>
-                The future of technology isn't predetermined— it is something we actively shape. What seems impossible
+                The future of technology isn't predetermined it is something we actively shape. What seems impossible
                 today becomes tomorrow’s reality when we dare to challenge it.
             </p>
-            <a class="large" href="/cfp" role="button">
-                How will you "Redefine Possible" this International Women's Day?
-            </a>
         </div>
     </section>
-    <section>
+    <section style="background-color: var(--iwd-blue);">
         <div class="text">
-            <h2>What’s WTM?</h2>
+            <h2>
+                What’s
+                <div class="text-wtm-logo">
+                    <InlineSvg path="@/assets/logo_wtm_quadrato_notitle.svg" />
+                </div>
+                ?
+            </h2>
         </div>
         <div class="card large">
             <div class="text">
@@ -78,7 +91,12 @@ import { Image } from 'astro:assets'
                     part of the community. WTM also welcomes allies to support the mission.
                 </p>
             </div>
-            <a class="large" href="https://t.me/joinchat/BM7uSxFc3opUHvy5cYjS9A" role="button">
+            <a
+                style="--button-bg: #54A7ED;"
+                class="large"
+                href="https://t.me/joinchat/BM7uSxFc3opUHvy5cYjS9A"
+                role="button"
+            >
                 Get in touch with WTM Pisa
             </a>
             <!-- pulsante al gruppo telegram. Se  gradato #CAE6FF -> #D1ECE3  è bello ok, sennò solo verde -->

@@ -8,10 +8,7 @@ import type { ImageMetadata } from 'astro'
 
 import sponsors, { type Sponsors } from '@/sponsors.yaml'
 
-// const galleryCollage = await Astro.glob('@/assets/gallery/*.jpg')
-
-// @ts-ignore
-const galleryCollage: { default: { src: string } }[] = await Promise.all(
+const galleryCollage = await Promise.all(
     Object.values(import.meta.glob<{ default: ImageMetadata }>('/src/assets/gallery/*.jpg')).map(module => module()),
 )
 
@@ -251,7 +248,7 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
 
                             return (
                                 <div class="box card" style={{ gridColumn: `span ${cols}` }}>
-                                    <Image  class="boxImage" src={module.default} alt={`gallery image ${i}`} />
+                                    <Image class="boxImage" src={module.default} alt={`gallery image ${i}`} />
                                 </div>
                             )
                         })}
