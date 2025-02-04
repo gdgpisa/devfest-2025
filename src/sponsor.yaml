@@ -22,6 +22,12 @@ sponsors:
     - name: 'CCH Tagetik | Wolters Kluwer'
       logo: 'wolters_kluwer.svg'
       url: 'https://www.wolterskluwer.com/en/solutions/cch-tagetik'
+    - name: 'Link.it'
+      logo: 'link_it.svg'
+      url: 'https://www.link.it'
+    - name: 'Logobject AG'
+      logo: 'logobject.svg'
+      url: 'https://logobject.com/'
   # platinum:
   #   - name: 'Company C'
   #     logo: 'company-c.png'
