@@ -4,7 +4,7 @@ import Base from '@/layouts/Base.astro'
 ---
 
 <Base>
-    <section id="iwd-hero">
+    <section class="desktop-only" id="iwd-hero">
         <div class="card large tight">
             <img src="src/assets/iwd-banner.png" alt="IWD Banner" />
         </div>
@@ -36,6 +36,32 @@ import Base from '@/layouts/Base.astro'
             <!-- <div class="card large">
                 <InlineSvg path="@/assets/logo_wtm_quadrato.svg" />
             </div> -->
+        </div>
+    </section>
+    <section class="mobile-only" id="iwd-hero-mobile">
+        <img src="src/assets/iwd-banner.png" alt="IWD Banner" />
+    </section>
+    <section class="mobile-only">
+        <div class="card large">
+            <InlineSvg path="@/assets/logo_wtm_quadrato.svg" />
+        </div>
+        <div class="card large">
+            <div class="text">
+                <!-- <h3>We're happy to celebrate the <span title="IWD">International Women's Day</span> with you!👩‍💻</h3> -->
+                <h3>Join us for the International Women's Day 👩‍💻</h3>
+
+                <p>For the GDG Pisa, diversity and inclusion are topics close to our heart.</p>
+                <p>
+                    Together with the <a
+                        class="large"
+                        href="https://developers.google.com/womentechmakers"
+                        target="_blank"
+                        rel="noopener noreferrer">Women Techmakers</a
+                    > group of Pisa, we decided to celebrate International Women's Day (IWD) at our DevFest with a dedicated
+                    track: the IWD track! This will focus on women in tech, diversity, inclusion, and soft skills. We hope
+                    to inspire you and enhance your enjoyment of the DevFest even more.
+                </p>
+            </div>
         </div>
     </section>
     <section id="iwd-theme">

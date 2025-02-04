@@ -284,8 +284,8 @@
         }
 
         @media (width < 768px) {
-            padding: 2rem;
-            min-height: 80vh;
+            padding: 1.5rem;
+            gap: 1.5rem;
 
             &.tight {
                 padding: 0;
@@ -646,6 +646,18 @@
 
         .card {
             /* box-shadow: 9px 9px 0 0 var(--dark-blue); */
+        }
+    }
+
+    #iwd-hero-mobile {
+        padding: 0;
+        min-height: 0;
+
+        img {
+            width: 100%;
+            aspect-ratio: 1.61 / 1;
+
+            object-fit: cover;
         }
     }
 }
