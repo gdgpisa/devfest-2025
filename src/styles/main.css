@@ -30,6 +30,9 @@
         --pastel-blue: #a5bdff;
 
         --red-500: #ea4335;
+
+        --iwd-blue: #cae6ff;
+        --iwd-green: #d1ece3;
     }
 
     html,
@@ -504,11 +507,10 @@
         border: var(--card-border-size, 2px) solid var(--card-border, #333);
         gap: var(--size, 1rem);
 
+        background: var(--card-bg, #f0f0f0);
         color: var(--card-fg, #333);
 
         max-width: 85ch;
-
-        background: var(--card-bg, #f0f0f0);
 
         &.tight {
             padding: 0;
@@ -584,6 +586,46 @@
         img {
             height: 4rem;
             max-width: 12rem;
+        }
+    }
+
+    #iwd-theme {
+        background: var(--iwd-blue);
+        color: #333;
+
+        --card-bg: #fff;
+        --card-fg: #333;
+        --card-border: #000;
+
+        --button-bg: var(--iwd-blue);
+
+        [role='button'] {
+            color: #333 !important;
+        }
+
+        .card {
+            box-shadow: 9px 9px 0 0 var(--dark-blue);
+        }
+    }
+}
+
+@layer pages {
+    #iwd-hero {
+        padding: 0;
+        min-height: 0;
+
+        img {
+            max-width: 100%;
+        }
+
+        @media (width < 768px) {
+            padding: 0;
+
+            img {
+                width: 100%;
+                aspect-ratio: 1.61 / 1;
+                object-fit: cover;
+            }
         }
     }
 }
