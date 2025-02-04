@@ -3,51 +3,59 @@ import Base from '@/layouts/Base.astro'
 import { Image } from 'astro:assets'
 ---
 
-
 <Base>
-    <section>
+    <section id="iwd-hero">
         <div class="banner-iwd">
             <img src="src/assets/iwd-banner.png" alt="IWD Banner" />
         </div>
     </section>
 
     <section>
-        <div class="text">
-            <h3>We're happy to celebrate the International Women's Day (IWD) with you!👩‍💻 </h3>
-            <p>
-                For the GDG Pisa, diversity and inclusion are topics close to our heart.
-            </p>
-            <p>
-                Together with the <a class="large" href="https://developers.google.com/womentechmakers"target="_blank" rel="noopener noreferrer">Women Techmaker</a> group of Pisa, 
-                we decided to celebrate IWD at our DevFest with a dedicated track: the IWD track! This will focus on women in tech, diversity, inclusion, and soft skills. 
-                We hope to inspire you and enhance your enjoyment of the DevFest even more.
+        <div class="card large">
+            <div class="text">
+                <h3>We're happy to celebrate the International Women's Day (IWD) with you!👩‍💻</h3>
 
-            </p>
-            <img src="src/assets/logo_wtm_quadrato.svg" alt="logo WTM Pisa" /> <!-- da mettere a destra del testo. non si renderizza bene il testo dell svg -->
+                <img style="float: right;" src="src/assets/logo_wtm_quadrato.svg" alt="logo WTM Pisa" />
+
+                <p>For the GDG Pisa, diversity and inclusion are topics close to our heart.</p>
+                <p>
+                    Together with the <a
+                        class="large"
+                        href="https://developers.google.com/womentechmakers"
+                        target="_blank"
+                        rel="noopener noreferrer">Women Techmaker</a
+                    > group of Pisa, we decided to celebrate IWD at our DevFest with a dedicated track: the IWD track! This
+                    will focus on women in tech, diversity, inclusion, and soft skills. We hope to inspire you and enhance
+                    your enjoyment of the DevFest even more.
+                </p>
+            </div>
         </div>
     </section>
     <section id="iwd-theme">
-        <div class="text">
+        <div class="text text-center">
             <h2>Redefine Possible</h2>
-        </div>
             <p>
-                This year's theme it's a bold declaration that challenges the boundaries of what technology can achieve and reimagines who shapes its future. 
+                This year's theme it's a bold declaration that challenges the boundaries<br />
+                of what technology can achieve and reimagines who shapes its future.
             </p>
+        </div>
 
-            <div class="card">
-                <p>
-                    We stand at a pivotal moment where AI is transforming our world—bringing unprecedented opportunities but also risking the amplification of gender biases and systemic barriers.
-                    As artificial intelligence becomes woven into society, we believe that women are not just participating in its development—they're revolutionizing it, breaking conventions, and 
-                    expanding the horizons of what technology can and should be.
-                </p>
-                <p>
-                    The future of technology isn't predetermined— it is something we actively shape. 
-                    What seems impossible today becomes tomorrow’s reality when we dare to challenge it. 
-
-                    <a class="large" href="/cfp" role="button"> How will you "Redefine Possible" this International Women's Day? </a> 
-
-                </p>
-            </div>
+        <div class="card large">
+            <p>
+                We stand at a pivotal moment where AI is transforming our world—bringing unprecedented opportunities but
+                also risking the amplification of gender biases and systemic barriers. As artificial intelligence
+                becomes woven into society, we believe that women are not just participating in its development—they're
+                revolutionizing it, breaking conventions, and expanding the horizons of what technology can and should
+                be.
+            </p>
+            <p>
+                The future of technology isn't predetermined— it is something we actively shape. What seems impossible
+                today becomes tomorrow’s reality when we dare to challenge it.
+            </p>
+            <a class="large" href="/cfp" role="button">
+                How will you "Redefine Possible" this International Women's Day?
+            </a>
+        </div>
     </section>
     <section>
         <div class="text">
@@ -57,19 +65,23 @@ import { Image } from 'astro:assets'
             <div class="text">
                 <p>
                     Women Techmakers (WTM) is Google's global initiative dedicated to empowering women in technology.
-                    WTM is a supportive community that provide increased visibility, and essential resources to help women at all career stages join, succeed, and lead in the industry.
-
+                    WTM is a supportive community that provide increased visibility, and essential resources to help
+                    women at all career stages join, succeed, and lead in the industry.
                 </p>
                 <p>
-                    WTM exists because the tech industry faces a significant challenge: underrepresentation of women. We believe that by empowering a global network of leaders, we can create a world where all women thrive in tech.
+                    WTM exists because the tech industry faces a significant challenge: underrepresentation of women. We
+                    believe that by empowering a global network of leaders, we can create a world where all women thrive
+                    in tech.
                 </p>
                 <p>
-                     Whether you're a developer, designer, entrepreneur, or in any other tech role, we invite you to be part of the community. WTM also welcomes allies to support the mission.
-                     
+                    Whether you're a developer, designer, entrepreneur, or in any other tech role, we invite you to be
+                    part of the community. WTM also welcomes allies to support the mission.
                 </p>
             </div>
-            <a class="large" href="https://t.me/joinchat/BM7uSxFc3opUHvy5cYjS9A" role="button"> Get in touch with WTM Pisa </a> <!-- pulsante al gruppo telegram. Se  gradato #CAE6FF -> #D1ECE3  è bello ok, sennò solo verde -->
-            
+            <a class="large" href="https://t.me/joinchat/BM7uSxFc3opUHvy5cYjS9A" role="button">
+                Get in touch with WTM Pisa
+            </a>
+            <!-- pulsante al gruppo telegram. Se  gradato #CAE6FF -> #D1ECE3  è bello ok, sennò solo verde -->
         </div>
     </section>
 </Base>
