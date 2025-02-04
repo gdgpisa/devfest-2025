@@ -643,10 +643,6 @@
         [role='button'] {
             color: #333 !important;
         }
-
-        .card {
-            /* box-shadow: 9px 9px 0 0 var(--dark-blue); */
-        }
     }
 
     #iwd-hero-mobile {
