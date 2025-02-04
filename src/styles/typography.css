@@ -68,12 +68,18 @@
 
     a {
         font-weight: bold;
+        text-decoration: underline 2px dotted;
 
         cursor: pointer;
 
         &:hover {
             text-decoration: underline 2px solid;
         }
+    }
+
+    blockquote {
+        font-style: italic;
+        padding-left: 1rem;
     }
 }
 

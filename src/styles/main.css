@@ -239,7 +239,7 @@
 
         a {
             cursor: pointer;
-            text-decoration: underline 1px solid;
+            text-decoration: underline 1px solid !important;
 
             svg,
             img {
