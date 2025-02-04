@@ -1,20 +1,23 @@
 ---
-import InlineSvg from '@/components/astro/InlineSvg.astro'
+// import InlineSvg from '@/components/astro/InlineSvg.astro'
 import Base from '@/layouts/Base.astro'
+
+import wtmBanner from '@/assets/iwd-banner.png'
+
+import wtmQuadrato from '@/assets/logo_wtm_quadrato.svg?raw'
+import wtmQuadratoNoTitle from '@/assets/logo_wtm_quadrato_notitle.svg?raw'
 ---
 
 <Base>
     <section class="desktop-only" id="iwd-hero">
         <div class="card large tight">
-            <img src="src/assets/iwd-banner.png" alt="IWD Banner" />
+            <!-- <img src="src/assets/iwd-banner.png" alt="IWD Banner" /> -->
+            <img src={wtmBanner.src} alt="IWD Banner" />
         </div>
         <div class="h-stack top">
             <div class="card large">
-                <InlineSvg path="@/assets/logo_wtm_quadrato.svg" />
+                <Fragment set:html={wtmQuadrato} />
             </div>
-            <!-- <div class="card large" style="opacity: 0;">
-                <InlineSvg path="@/assets/logo_wtm_quadrato.svg" />
-            </div> -->
             <div class="card large">
                 <div class="text">
                     <!-- <h3>We're happy to celebrate the <span title="IWD">International Women's Day</span> with you!👩‍💻</h3> -->
@@ -33,9 +36,6 @@ import Base from '@/layouts/Base.astro'
                     </p>
                 </div>
             </div>
-            <!-- <div class="card large">
-                <InlineSvg path="@/assets/logo_wtm_quadrato.svg" />
-            </div> -->
         </div>
     </section>
     <section class="mobile-only" id="iwd-hero-mobile">
@@ -43,11 +43,10 @@ import Base from '@/layouts/Base.astro'
     </section>
     <section class="mobile-only">
         <div class="card large">
-            <InlineSvg path="@/assets/logo_wtm_quadrato.svg" />
+            <Fragment set:html={wtmQuadratoNoTitle} />
         </div>
         <div class="card large">
             <div class="text">
-                <!-- <h3>We're happy to celebrate the <span title="IWD">International Women's Day</span> with you!👩‍💻</h3> -->
                 <h3>Join us for the International Women's Day 👩‍💻</h3>
 
                 <p>For the GDG Pisa, diversity and inclusion are topics close to our heart.</p>
@@ -95,7 +94,7 @@ import Base from '@/layouts/Base.astro'
             <h2>
                 What’s
                 <div class="text-wtm-logo">
-                    <InlineSvg path="@/assets/logo_wtm_quadrato_notitle.svg" />
+                    <Fragment set:html={wtmQuadratoNoTitle} />
                 </div>
                 ?
             </h2>

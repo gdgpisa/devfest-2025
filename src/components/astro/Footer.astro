@@ -1,6 +1,12 @@
 ---
+// import InlineSvg from '@/components/astro/InlineSvg.astro'
+
 import iconEmail from '@/assets/icons/email.svg?raw'
-import InlineSvg from '@/components/astro/InlineSvg.astro'
+import iconTelegram from '@/assets/icons/telegram.svg?raw'
+import iconInstagram from '@/assets/icons/instagram.svg?raw'
+import iconLinkedin from '@/assets/icons/linkedin.svg?raw'
+import iconFacebook from '@/assets/icons/facebook.svg?raw'
+import iconYoutube from '@/assets/icons/youtube.svg?raw'
 ---
 
 <footer>
@@ -8,22 +14,22 @@ import InlineSvg from '@/components/astro/InlineSvg.astro'
         <h4>Social</h4>
         <div class="h-flex-wrap">
             <a href="mailto:pisagdg@gmail.com" target="_blank" rel="noopener noreferrer">
-                <InlineSvg path="@/assets/icons/email.svg" />
+                <Fragment set:html={iconEmail} />
             </a>
             <a href="https://gdgpisa.it/telegram" target="_blank" rel="noopener noreferrer">
-                <InlineSvg path="@/assets/icons/telegram.svg" />
+                <Fragment set:html={iconTelegram} />
             </a>
             <a href="https://instagram.com/gdgpisa" target="_blank" rel="noopener noreferrer">
-                <InlineSvg path="@/assets/icons/instagram.svg" />
+                <Fragment set:html={iconInstagram} />
             </a>
             <a href="https://linkedin.com/company/gdg-pisa" target="_blank" rel="noopener noreferrer">
-                <InlineSvg path="@/assets/icons/linkedin.svg" />
+                <Fragment set:html={iconLinkedin} />
             </a>
             <a href="https://facebook.com/gdg.pisa" target="_blank" rel="noopener noreferrer">
-                <InlineSvg path="@/assets/icons/facebook.svg" />
+                <Fragment set:html={iconFacebook} />
             </a>
             <a href="https://www.youtube.com/@gdgpisa4445" target="_blank" rel="noopener noreferrer">
-                <InlineSvg path="@/assets/icons/youtube.svg" />
+                <Fragment set:html={iconYoutube} />
             </a>
         </div>
     </div>

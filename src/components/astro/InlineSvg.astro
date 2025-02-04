@@ -5,7 +5,7 @@ type Props = {
 
 const { path } = Astro.props
 
-const rawSvgContent = await import(`${path.replace('@', '/src')}?raw`)
+const rawSvgContent = await import(`${path}?raw`)
 ---
 
 <Fragment set:html={rawSvgContent.default} />
