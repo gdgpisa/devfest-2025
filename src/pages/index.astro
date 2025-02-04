@@ -12,13 +12,8 @@ import sponsors, { type Sponsors } from '@/sponsors.yaml'
 
 // @ts-ignore
 const galleryCollage: { default: { src: string } }[] = await Promise.all(
-    Object.values(import.meta.glob('/src/assets/gallery/*.jpg')).map(module => module()),
-)
-
-const galleryCollageEager: { default: ImageMetadata }[] = await Promise.all(
     Object.values(import.meta.glob<{ default: ImageMetadata }>('/src/assets/gallery/*.jpg')).map(module => module()),
 )
-console.log(galleryCollage)
 
 // Calculate total grid spans for each row
 const getGridCols = (images: typeof galleryCollage) => {
@@ -200,6 +195,8 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
             </div>
         </div>
     </section>
+
+    <!-- Static Photo Gallery Grid (desktop only) -->
     <section id="gallery" class="tight">
         <div class="image-gallery">
             <div class="image-gallery-wrapper">
@@ -226,10 +223,12 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
             </div>
         </div>
     </section>
+
+    <!-- Animated Photo Gallery (mobile only) -->
     <section class="photoContainer">
         {
-            [0, 1].map(rowIndex => {
-                const rowImages = [...galleryCollageEager, ...galleryCollageEager.slice(0, 5)]
+            [0, 1].map(() => {
+                const rowImages = [...galleryCollage, ...galleryCollage.slice(0, 5)]
 
                 return (
                     <div class="track" style={{ '--total-boxes': totalCols }}>
