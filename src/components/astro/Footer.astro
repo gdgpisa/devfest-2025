@@ -1,12 +1,14 @@
 ---
-// import InlineSvg from '@/components/astro/InlineSvg.astro'
-
 import iconEmail from '@/assets/icons/email.svg?raw'
 import iconTelegram from '@/assets/icons/telegram.svg?raw'
 import iconInstagram from '@/assets/icons/instagram.svg?raw'
 import iconLinkedin from '@/assets/icons/linkedin.svg?raw'
 import iconFacebook from '@/assets/icons/facebook.svg?raw'
 import iconYoutube from '@/assets/icons/youtube.svg?raw'
+
+// The "<Fragment set:html={...} />" syntax is used to inline the raw SVG from the file,
+// this cannot be done with a component because the module must be imported statically
+// due to an Astro limitation (itself due to a Vite module resolution limitation).
 ---
 
 <footer>

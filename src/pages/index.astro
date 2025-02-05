@@ -7,23 +7,16 @@ import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 
 import sponsors, { type Sponsors } from '@/sponsors.yaml'
+import { resolveImageModules } from '@/lib/util'
 
-const sponsorsMetadata = await Promise.all(
-    Object.values(import.meta.glob<{ default: ImageMetadata }>('../../src/assets/sponsors/*')).map(module => module()),
-)
-
-console.log(sponsorsMetadata)
-
-const galleryCollage = await Promise.all(
-    Object.values(import.meta.glob<{ default: ImageMetadata }>('/src/assets/gallery/*.jpg')).map(module => module()),
+const galleryImageModules = await resolveImageModules(
+    import.meta.glob<{ default: ImageMetadata }>('@/assets/gallery/*.jpg'),
 )
 
 // Calculate total grid spans for each row
-const getGridCols = (images: typeof galleryCollage) => {
-    return images.reduce((acc, module) => {
-        const src = module.default.src
+const getGridCols = (images: typeof galleryImageModules) => {
+    return images.reduce((acc, { default: { src } }) => {
         const filename = src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
-
         if (!filename) {
             throw new Error('Invalid filename')
         }
@@ -40,25 +33,24 @@ const getGridCols = (images: typeof galleryCollage) => {
     }, 0)
 }
 
-const totalCols = getGridCols(galleryCollage)
+const totalCols = getGridCols(galleryImageModules)
 
 // Sponsors
 
-// @ts-ignore
-const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
-    sponsorsMetadata.map((module: { default: ImageMetadata }) => {
-        const src = module.default.src
-        const fileBasename = src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
+const sponsorsImageModules = await resolveImageModules(
+    import.meta.glob<{ default: ImageMetadata }>('@/assets/sponsors/*'),
+)
 
+const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
+    sponsorsImageModules.map(m => {
+        const fileBasename = m.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
         if (!fileBasename) {
             throw new Error('Invalid filename')
         }
 
-        return [fileBasename + '.svg', module.default]
+        return [fileBasename + '.svg', m.default]
     }),
 )
-
-console.log(sponsorLogos)
 ---
 
 <Base>
@@ -200,10 +192,8 @@ console.log(sponsorLogos)
         <div class="image-gallery">
             <div class="image-gallery-wrapper">
                 {
-                    galleryCollage.slice(0, 10).map((module, i) => {
-                        const src = module.default.src
+                    galleryImageModules.slice(0, 10).map(({ default: { src } }, i) => {
                         const filename = src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
-
                         if (!filename) {
                             throw new Error('Invalid filename')
                         }
@@ -227,15 +217,12 @@ console.log(sponsorLogos)
     <section class="photoContainer">
         {
             [0, 1].map(() => {
-                const rowImages = [...galleryCollage, ...galleryCollage.slice(0, 5)]
+                const rowImages = [...galleryImageModules, ...galleryImageModules.slice(0, 5)]
 
                 return (
                     <div class="track" style={{ '--total-boxes': totalCols }}>
                         {rowImages.map((module, i) => {
-                            const src = module.default.src
-                            //const filename = src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
                             const filename = module.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
-
                             if (!filename) {
                                 throw new Error('Invalid filename')
                             }
@@ -264,7 +251,7 @@ console.log(sponsorLogos)
         <div class="v-stack">
             <h2>Sponsors</h2>
             {
-                (Object.keys(sponsors) as (keyof Sponsors)[]).map((tier, i) => {
+                (Object.keys(sponsors) as (keyof Sponsors)[]).map(tier => {
                     // prettier-ignore
                     const titleStyle = {
                         main: 'color: #444;',
