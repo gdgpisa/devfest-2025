@@ -19,6 +19,13 @@ const { title = 'DevFest Pisa 2025' } = Astro.props
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
 
+        <!-- Open Graph Tags -->
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:image" content="/favicon.svg" />
+        <meta property="og:description" content="DevFest Pisa 2025" />
+
         <!-- Not needed anymore, see "KatexSSR.astro" -->
         <!-- <script>
             import renderMathInElement from 'katex/contrib/auto-render'

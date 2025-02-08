@@ -1,7 +1,14 @@
 ---
 import devfestLogoSvg from '@/assets/devfest-logo.svg'
+import '@/styles/navbar.css'
 ---
 
+<script>
+    document.body.classList.toggle('not-on-top', window.scrollY > 0)
+    window.addEventListener('scroll', () => {
+        document.body.classList.toggle('not-on-top', window.scrollY > 0)
+    })
+</script>
 <header>
     <nav>
         <div class="nav-item">
