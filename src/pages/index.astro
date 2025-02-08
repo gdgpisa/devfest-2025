@@ -8,6 +8,7 @@ import type { ImageMetadata } from 'astro'
 
 import sponsors, { type Sponsors } from '@/sponsors.yaml'
 import { resolveImageModules } from '@/lib/util'
+import { Icon } from 'astro-icon/components'
 
 const galleryImageModules = await resolveImageModules(
     import.meta.glob<{ default: ImageMetadata }>('@/assets/gallery/*.jpg'),
@@ -102,7 +103,10 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
                         next year!
                     </p>
                 </div>
-                <a class="large" href="https://youtu.be/v3nYSljL8P4" role="button"> DevFest Pisa 2024 Video Recap </a>
+                <a class="large" href="https://youtu.be/v3nYSljL8P4" role="button">
+                    <Icon name="material-symbols:play-arrow-rounded" />
+                    DevFest Pisa 2024 Video Recap
+                </a>
             </div>
             <div class="card large">
                 <div class="v-stack center">

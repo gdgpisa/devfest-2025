@@ -71,6 +71,9 @@
 
         display: grid;
         place-content: center;
+        place-items: center;
+        grid-auto-flow: column;
+        gap: 0.5rem;
 
         font-family: 'Product Sans', sans-serif;
         font-size: 1rem;
@@ -117,6 +120,10 @@
 
         &.primary {
             --button-bg: var(--button-primary-bg, var(--core-yellow));
+        }
+
+        &:has(> [data-icon]:first-child) {
+            padding-left: calc(var(--internal-size) / 3);
         }
     }
 

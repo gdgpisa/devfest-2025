@@ -5,6 +5,8 @@ import yaml from '@rollup/plugin-yaml'
 import { fileURLToPath } from 'url'
 import { join, dirname } from 'path'
 
+import icon from 'astro-icon'
+
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 // https://astro.build/config
@@ -12,6 +14,7 @@ export default defineConfig({
     devToolbar: {
         enabled: false,
     },
+
     vite: {
         resolve: {
             alias: {
@@ -20,4 +23,6 @@ export default defineConfig({
         },
         plugins: [yaml()],
     },
+
+    integrations: [icon()],
 })
