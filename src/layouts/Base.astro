@@ -19,17 +19,6 @@ const { title = 'DevFest Pisa 2025' } = Astro.props
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
 
-        <script is:inline>
-            if ('serviceWorker' in navigator) {
-                console.log('Unregistering old service workers')
-                navigator.serviceWorker.getRegistrations().then(registrations => {
-                    for (const registration of registrations) {
-                        registration.unregister()
-                    }
-                })
-            }
-        </script>
-
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={Astro.url} />
@@ -38,7 +27,7 @@ const { title = 'DevFest Pisa 2025' } = Astro.props
             property="og:description"
             content={[
                 `Together We Grow, Together We Build! 🌱`,
-                `Unisciti alla DevFest@Pisa, l’evento che riunisce la community tech per crescere e innovare insieme! 
+                `Unisciti alla DevFest Pisa, l’evento che riunisce la community tech per crescere e innovare insieme! 
                  Talk ispirazionali, workshop pratici e networking con esperti del settore. Perché solo insieme possiamo
                  costruire il futuro della tecnologia! 🚀`.replace(/\s+/g, ' '),
             ].join('\n')}
