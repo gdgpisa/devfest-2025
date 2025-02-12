@@ -644,6 +644,10 @@
         }
     }
 
+    #iwd-hero-mobile-content {
+        background: var(--iwd-blue);
+    }
+
     #iwd-theme {
         --button-bg: var(--iwd-blue);
 
