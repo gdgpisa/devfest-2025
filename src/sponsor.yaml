@@ -28,6 +28,9 @@ sponsors:
     - name: 'Logobject AG'
       logo: 'logobject.svg'
       url: 'https://logobject.com/'
+    - name: 'GILBARCO ITALIA SRL'
+      logo: 'gilbarco.svg'
+      url: 'https://www.gilbarco.com/eu/it/'
   # platinum:
   #   - name: 'Company C'
   #     logo: 'company-c.png'
@@ -42,10 +45,10 @@ sponsors:
   #   - name: 'Company F'
   #     logo: 'company-f.png'
   #     url: 'https://company-f.com'
-  # silver:
-  #   - name: 'Company G'
-  #     logo: 'company-g.png'
-  #     url: 'https://company-g.com'
-  #   - name: 'Company H'
-  #     logo: 'company-h.png'
-  #     url: 'https://company-h.com'
+  silver:
+    - name: 'Wondersys srl'
+      logo: 'wondersys.svg'
+      url: 'https://www.wonder-sys.com/'
+    # - name: 'Company H'
+    #   logo: 'company-h.png'
+    #   url: 'https://company-h.com'
