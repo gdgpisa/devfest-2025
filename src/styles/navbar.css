@@ -1,7 +1,7 @@
 @layer components {
     @media (width >= 768px) {
         header {
-            position: sticky;
+            position: fixed;
 
             top: 0;
             left: 0;
@@ -23,8 +23,7 @@
         }
 
         body {
-            position: relative;
-            /* padding-top: 4rem; */
+            padding-top: 4rem;
         }
 
         body.not-on-top header nav {
