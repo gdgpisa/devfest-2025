@@ -4,9 +4,9 @@ We know that you could have some questions so we prepared for you a list of **FA
 
 If you have any doubts left, please do not hesitate to [contact us](mailto:pisagdg+devfest@gmail.com).
 
-#### How do I get there?
+<!-- ### How do I get there?
 
-> You can easily reach **MACC (Meeting Art Craft Center)** with public transportation or just by walking. Please check the [location page](/location) where you can find further details.
+You can easily reach **Polo Fibonacci** with public transportation or just by walking. Please check the [location page](/location) where you can find further details. -->
 
 #### Do I need a ticket to join DevFest Pisa?
 
@@ -38,7 +38,9 @@ If you have any doubts left, please do not hesitate to [contact us](mailto:pisag
 
 #### Is a ticket issued by Meetup valid?
 
-> No, only the tickets issued from Eventbrite are valid. You can take one from this [platform](https://www.eventbrite.it/e/gdg-devfest-pisa-2025-tickets-1205952308819?aff=oddtdtcreator).
+> No, only the tickets issued from Eventbrite are valid.
+
+<!-- You can take one from this [platform](https://devfestpisa2024.eventbrite.com). -->
 
 #### What should I bring at the conference?
 

@@ -1,5 +1,7 @@
 # Website DevFest Pisa 2025
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/996efb3d-5136-4b7f-af08-2fd99ddc40ef/deploy-status)](https://app.netlify.com/sites/gdgpisa-devfest-2025/deploys)
+
 Sito per la DevFest Pisa 2025, evento organizzato dalla community GDG Pisa.
 
 ## Commands

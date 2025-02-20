@@ -1,7 +1,14 @@
 ---
 import devfestLogoSvg from '@/assets/devfest-logo.svg'
+import '@/styles/navbar.css'
 ---
 
+<script>
+    document.body.classList.toggle('not-on-top', window.scrollY > 0)
+    window.addEventListener('scroll', () => {
+        document.body.classList.toggle('not-on-top', window.scrollY > 0)
+    })
+</script>
 <header>
     <nav>
         <div class="nav-item">
@@ -11,8 +18,12 @@ import devfestLogoSvg from '@/assets/devfest-logo.svg'
             </a>
         </div>
         <div class="spacer"></div>
-        <div class="nav-item"><a href="/news">News</a></div>
+        <div class="nav-item">
+            <a href="/iwd">IWD</a>
+        </div>
+
+        <!-- <div class="nav-item"><a href="/news">News</a></div>
         <div class="nav-item"><a href="/team">Team</a></div>
-        <div class="nav-item"><a href="/location">Location</a></div>
+        <div class="nav-item"><a href="/location">Location</a></div> -->
     </nav>
 </header>

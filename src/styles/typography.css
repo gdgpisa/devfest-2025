@@ -1,50 +1,57 @@
 @font-face {
     font-family: 'Product Sans';
-    src: url('/fonts/Product\ Sans\ Regular.ttf') format('truetype');
+    src: url('@/assets/fonts/product-sans-regular.ttf') format('truetype');
     font-style: normal;
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'Product Sans';
-    src: url('/fonts/Product\ Sans\ Bold.ttf') format('truetype');
+    src: url('@/assets/fonts/product-sans-bold.ttf') format('truetype');
     font-style: normal;
     font-weight: 700;
 }
 
 @font-face {
     font-family: 'Product Sans';
-    src: url('/fonts/Product\ Sans\ Italic.ttf') format('truetype');
+    src: url('@/assets/fonts/product-sans-italic.ttf') format('truetype');
     font-style: italic;
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'Product Sans';
-    src: url('/fonts/Product\ Sans\ Bold\ Italic.ttf') format('truetype');
+    src: url('@/assets/fonts/product-sans-bold-italic.ttf') format('truetype');
     font-style: italic;
     font-weight: 700;
 }
 
 /* Typography */
 
-.text {
-    font-family: 'Product Sans', sans-serif;
-
-    line-height: 1.5;
-
+:root {
     --base-heading-size: 1rem;
     --base-heading-factor: 1.61;
 
     @media (width < 768px) {
         --base-heading-factor: 1.42;
     }
+}
+
+[data-icon] {
+    font-size: 24px;
+    color: currentColor;
+}
+
+.text {
+    font-family: 'Product Sans', sans-serif;
+    line-height: 1.5;
 
     h1,
     h2,
     h3,
     h4 {
-        line-height: 1;
+        line-height: 1.35;
+        text-wrap: balance;
     }
 
     h1 {
@@ -63,4 +70,40 @@
     > * + * {
         margin-top: 1rem;
     }
+
+    a {
+        font-weight: bold;
+        text-decoration: underline 2px dotted;
+
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline 2px solid;
+        }
+    }
+
+    blockquote {
+        font-style: italic;
+        padding-left: 1rem;
+    }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1;
+}
+
+h1 {
+    font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 4));
+}
+h2 {
+    font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 3));
+}
+h3 {
+    font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 2));
+}
+h4 {
+    font-size: calc(var(--base-heading-size) * pow(var(--base-heading-factor), 1));
 }

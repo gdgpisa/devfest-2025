@@ -1,0 +1,121 @@
+---
+import Base from '@/layouts/Base.astro'
+
+import wtmBanner from '@/assets/iwd-banner.png'
+
+import wtmQuadrato from '@/assets/logo_wtm_quadrato.svg?raw'
+import wtmQuadratoNoTitle from '@/assets/logo_wtm_quadrato_notitle.svg?raw'
+---
+
+<Base>
+    <section class="desktop-only" id="iwd-hero">
+        <div class="card large tight">
+            <img src={wtmBanner.src} alt="IWD Banner" />
+        </div>
+        <div class="h-stack top">
+            <div class="card large">
+                <Fragment set:html={wtmQuadrato} />
+            </div>
+            <div class="card large">
+                <div class="text">
+                    <h3>Join us for the International Women's Day 👩‍💻</h3>
+
+                    <p>For the GDG Pisa, diversity and inclusion are topics close to our heart.</p>
+                    <p>
+                        Together with the <a
+                            class="large"
+                            href="https://developers.google.com/womentechmakers"
+                            target="_blank"
+                            rel="noopener noreferrer">Women Techmakers</a
+                        > group of Pisa, we decided to celebrate International Women's Day (IWD) at our DevFest with a dedicated
+                        track: the IWD track! This will focus on women in tech, diversity, inclusion, and soft skills. We
+                        hope to inspire you and enhance your enjoyment of the DevFest even more.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mobile-only" id="iwd-hero-mobile">
+        <img src={wtmBanner.src} alt="IWD Banner" />
+    </section>
+    <section class="mobile-only" id="iwd-hero-mobile-content">
+        <div class="card large">
+            <Fragment set:html={wtmQuadratoNoTitle} />
+        </div>
+        <div class="card large">
+            <div class="text">
+                <h3>Join us for the International Women's Day 👩‍💻</h3>
+
+                <p>For the GDG Pisa, diversity and inclusion are topics close to our heart.</p>
+                <p>
+                    Together with the <a
+                        class="large"
+                        href="https://developers.google.com/womentechmakers"
+                        target="_blank"
+                        rel="noopener noreferrer">Women Techmakers</a
+                    > group of Pisa, we decided to celebrate International Women's Day (IWD) at our DevFest with a dedicated
+                    track: the IWD track! This will focus on women in tech, diversity, inclusion, and soft skills. We hope
+                    to inspire you and enhance your enjoyment of the DevFest even more.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="iwd-theme">
+        <div class="text text-center">
+            <h2>
+                <strong>
+                    Redefine <span style="color: #00947B;">Possible</span>
+                </strong>
+            </h2>
+            <p>
+                This year's theme it's a bold declaration that challenges the boundaries<br />
+                of what technology can achieve and reimagines who shapes its future.
+            </p>
+        </div>
+        <div class="card large">
+            <p>
+                We stand at a pivotal moment where AI is transforming our world bringing unprecedented opportunities but
+                also risking the amplification of gender biases and systemic barriers. As artificial intelligence
+                becomes woven into society, we believe that women are not just participating in its development they're
+                revolutionizing it, breaking conventions, and expanding the horizons of what technology can and should
+                be.
+            </p>
+            <p>
+                The future of technology isn't predetermined it is something we actively shape. What seems impossible
+                today becomes tomorrow’s reality when we dare to challenge it.
+            </p>
+        </div>
+    </section>
+    <section id="iwd-whats-wtm" style="background-color: var(--iwd-blue);">
+        <div class="text">
+            <h2>
+                What’s
+                <div class="text-wtm-logo">
+                    <Fragment set:html={wtmQuadratoNoTitle} />
+                </div>
+                ?
+            </h2>
+        </div>
+        <div class="card large">
+            <div class="text">
+                <p>
+                    Women Techmakers (WTM) is Google's global initiative dedicated to empowering women in technology.
+                    WTM is a supportive community that provide increased visibility, and essential resources to help
+                    women at all career stages join, succeed, and lead in the industry.
+                </p>
+                <p>
+                    WTM exists because the tech industry faces a significant challenge: underrepresentation of women. We
+                    believe that by empowering a global network of leaders, we can create a world where all women thrive
+                    in tech.
+                </p>
+                <p>
+                    Whether you're a developer, designer, entrepreneur, or in any other tech role, we invite you to be
+                    part of the community. WTM also welcomes allies to support the mission.
+                </p>
+            </div>
+            <a class="large" href="https://t.me/joinchat/BM7uSxFc3opUHvy5cYjS9A" role="button">
+                Get in touch with WTM Pisa
+            </a>
+        </div>
+    </section>
+</Base>
