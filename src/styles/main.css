@@ -33,6 +33,8 @@
 
         --iwd-blue: #cae6ff;
         --iwd-green: #d1ece3;
+
+        --iwd-blue-dark: oklch(from var(--iwd-blue) l calc(c + 0.1) h);
     }
 
     html,
@@ -362,6 +364,12 @@
         }
     }
 
+    #iwd {
+        background: var(--iwd-blue);
+
+        --button-bg: var(--iwd-blue-dark);
+    }
+
     #past-editions {
         --gap: 3rem;
     }
@@ -649,11 +657,13 @@
     }
 
     #iwd-theme {
-        --button-bg: var(--iwd-blue);
-
         [role='button'] {
             color: #333 !important;
         }
+    }
+
+    #iwd-whats-wtm {
+        --button-bg: var(--iwd-blue-dark);
     }
 
     #iwd-hero-mobile {
