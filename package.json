@@ -15,6 +15,7 @@
     "katex": "^0.16.20"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.2.3",
     "@rollup/plugin-yaml": "^4.1.2",
     "@types/katex": "^0.16.7",
     "prettier": "^3.4.2",

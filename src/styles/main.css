@@ -24,6 +24,7 @@
         --core-cyan: #00f43a;
         --halftone-cyan: #6aff8d;
         --pastel-cyan: #a5ffba;
+        --cyan-dark: #00c22d;
 
         --dark-blue: #516ebe;
         --core-blue: #356bff;
@@ -361,6 +362,16 @@
 
                 background: linear-gradient(to right, var(--red-500), var(--core-yellow));
             }
+        }
+    }
+
+    #tickets {
+        background: var(--pastel-cyan);
+
+        --button-bg: var(--core-cyan);
+
+        .card {
+            box-shadow: 9px 9px 0 0 var(--cyan-dark);
         }
     }
 
