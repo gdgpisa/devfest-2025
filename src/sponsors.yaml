@@ -14,7 +14,7 @@ diamond:
     url: 'https://it.nttdata.com/'
   - name: 'Garmin Italy Technologies '
     logo: 'garmin.svg'
-    url: 'www.garmin.com '
+    url: 'https://www.garmin.com'
   - name: 'TD GROUP ITALIA SRL'
     logo: 'td_group.svg'
     url: 'https://www.tdgroupitalia.it/'
