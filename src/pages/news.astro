@@ -5,6 +5,9 @@ import { Icon } from 'astro-icon/components'
 const articles = await Promise.all(
     Object.entries(import.meta.glob('@/assets/news/*.md')).map(([name, article]) => article()),
 )
+
+// @ts-ignore
+articles.sort((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date))
 ---
 
 <Base>
@@ -31,7 +34,12 @@ const articles = await Promise.all(
                             </div>
                         </div>
                         <div class="content">
-                            <div class="timestamp">28 Febbruary</div>
+                            <div class="timestamp">
+                                {new Date(frontmatter.date).toLocaleDateString('en-GB', {
+                                    month: 'long',
+                                    day: 'numeric',
+                                })}
+                            </div>
                             <div class="text">
                                 <Content />
                             </div>

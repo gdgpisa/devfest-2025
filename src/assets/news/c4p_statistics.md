@@ -1,5 +1,6 @@
 ---
 title: Call For Paper is closed!
+date: 2025-02-28
 ---
 
 ## Call For Paper is closed! ❌
