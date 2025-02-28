@@ -1,0 +1,44 @@
+---
+import Base from '@/layouts/Base.astro'
+import { Icon } from 'astro-icon/components'
+
+const articles = await Promise.all(
+    Object.entries(import.meta.glob('@/assets/news/*.md')).map(([name, article]) => article()),
+)
+---
+
+<Base>
+    <section id="news">
+        <h1>News</h1>
+        <div class="news-list">
+            {
+                // @ts-ignore
+                articles.map(({ Content, frontmatter }, i) => (
+                    <div
+                        class="news-item"
+                        style={{
+                            '--news-color': `hsl(${Math.random() * 360}, 100%, 50%)`,
+                        }}
+                    >
+                        <div class="title">
+                            <span>{frontmatter.title}</span>
+                            <div class="actions">
+                                <input type="checkbox" class="news-item-trigger hide" id={`news-${i + 1}`} />
+                                <label for={`news-${i + 1}`} class="button flat square">
+                                    <Icon class="news-item-not-expanded" name="material-symbols:open-in-full-rounded" />
+                                    <Icon class="news-item-expanded" name="material-symbols:close" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="timestamp">28 Febbruary</div>
+                            <div class="text">
+                                <Content />
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+</Base>
