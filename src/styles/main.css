@@ -66,6 +66,41 @@
 /* Components */
 
 @layer components {
+    [data-diagonal-message] {
+        position: relative;
+
+        &::after {
+            padding: 0.25rem 10rem;
+
+            content: attr(data-diagonal-message);
+            position: absolute;
+            z-index: 1;
+
+            font-size: 80px;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%) rotate(-30deg);
+
+            background: #e11;
+            color: #fff;
+
+            border-radius: 3px;
+
+            box-shadow:
+                9px 9px 0 0 #0002,
+                0 0 4rem 0 #0003;
+
+            @media (width < 768px) {
+                font-size: 70px;
+                padding: 0.25rem 7.5rem;
+
+                transform: translate(-50%, -50%) rotate(-60deg);
+            }
+        }
+    }
+
     button,
     a[role='button'] {
         --internal-button-bg: var(--button-bg, #fff);
@@ -92,7 +127,12 @@
 
         position: relative;
 
-        &:hover {
+        &[aria-disabled] {
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        &:not([aria-disabled]):hover {
             background-color: oklch(from var(--internal-button-bg) calc(l - 0.075) c h);
 
             transform: translateY(-6px);
