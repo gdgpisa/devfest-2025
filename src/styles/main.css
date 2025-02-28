@@ -393,6 +393,7 @@
     }
 
     #cfp {
+        user-select: none;
         /* background: linear-gradient(to left, var(--pastel-cyan), #fff);
         color: #333; */
 
