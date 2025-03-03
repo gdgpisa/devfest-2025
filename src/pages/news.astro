@@ -28,7 +28,7 @@ articles.sort((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date))
                         <div class="title">
                             <span>{frontmatter.title}</span>
                             <div class="actions">
-                                <input type="checkbox" class="news-item-trigger hide" id={`news-${i + 1}`} />
+                                <input type="checkbox" class="news-item-trigger hide" id={`news-${i + 1}`} autocomplete="off" />
                                 <label for={`news-${i + 1}`} class="button flat square">
                                     <Icon class="news-item-not-expanded" name="material-symbols:open-in-full-rounded" />
                                     <Icon class="news-item-expanded" name="material-symbols:close" />
