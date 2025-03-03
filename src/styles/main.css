@@ -144,6 +144,8 @@
 
         position: relative;
 
+        text-decoration: none !important;
+
         &[aria-disabled] {
             cursor: not-allowed;
             pointer-events: none;
@@ -716,6 +718,12 @@
         grid-template-columns: repeat(auto-fit, minmax(auto, 44rem));
         gap: 2rem;
 
+        place-content: center;
+
+        > .wide {
+            grid-column: 1 / -1;
+        }
+
         > .news-item {
             display: grid;
             grid-template-rows: auto 1fr;
@@ -796,7 +804,7 @@
                 bottom: 3rem;
                 left: 50%;
                 transform: translate(-50%, 0);
-                width: 72rem;
+                width: 80ch;
                 max-width: calc(100% - 4rem);
 
                 .news-item-not-expanded {

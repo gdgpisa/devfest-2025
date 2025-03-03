@@ -12,8 +12,10 @@ articles.sort((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date))
 
 <Base>
     <section id="news">
-        <h1>News</h1>
         <div class="news-list">
+            <div class="wide">
+                <h1>News</h1>
+            </div>
             {
                 // @ts-ignore
                 articles.map(({ Content, frontmatter }, i) => (
