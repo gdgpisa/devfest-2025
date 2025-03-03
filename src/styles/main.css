@@ -107,8 +107,11 @@
             box-shadow:
                 9px 9px 0 0 #0002,
                 0 0 4rem 0 #0003;
+        }
 
-            @media (width < 768px) {
+        /* moved this here due to ios bug */
+        @media (width < 768px) {
+            &::after {
                 font-size: 70px;
                 padding: 0.25rem 7.5rem;
 
