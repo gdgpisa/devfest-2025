@@ -700,6 +700,9 @@
             place-content: center;
             place-items: center;
 
+            height: 6rem;
+            max-width: 14rem;
+
             box-shadow: 5px 5px 0 0 #888;
 
             &:hover {
@@ -708,8 +711,9 @@
         }
 
         img {
-            height: 4rem;
-            max-width: 12rem;
+            height: 100%;
+            min-width: 8rem;
+            max-width: 100%;
         }
     }
 
