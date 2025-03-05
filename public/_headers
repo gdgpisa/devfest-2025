@@ -1,2 +1,14 @@
 /new
   Clear-Site-Data: "cache", "cookies", "storage"
+
+# Ensure service worker is never cached
+/service-worker.js
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+# Any other service worker files should also not be cached
+/*.worker.js
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
