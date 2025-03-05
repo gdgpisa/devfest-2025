@@ -9,20 +9,20 @@ self.addEventListener('install', function(event) {
 });
   
 self.addEventListener('activate', function(event) {
-  event.waitUntil(
-    self.clients.claim()
-      // Unregister all service workers including itself
-      .then(() => self.registration.unregister())
-      .then(() => {
-        // Only reload clients if there was a previous service worker
-        if (self.hadPreviousSW) {
-          return self.clients.matchAll();
-        } else {
-          return []; // Skip reload
-        }
-      })
-      .then(clients => {
-        clients.forEach(client => client.navigate(client.url));
-      })
-  );
+    event.waitUntil(
+        self.clients.claim()
+          // Unregister all service workers including itself
+          .then(() => self.registration.unregister())
+          .then(() => {
+            // Only reload clients if there was a previous service worker
+            if (self.hadPreviousSW) {
+              return self.clients.matchAll();
+            } else {
+              return []; // Skip reload
+            }
+          })
+          .then(clients => {
+            clients.forEach(client => client.navigate(client.url));
+          })
+    );
 });
