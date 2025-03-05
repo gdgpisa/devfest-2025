@@ -8,14 +8,22 @@ self.addEventListener('install', function(event) {
   
   self.addEventListener('activate', function(event) {
     event.waitUntil(
-      // Unregister all service workers including itself
-      self.registration.unregister()
+      // Claim all clients
+      self.clients.claim()
         .then(function() {
-          // Tell to all clients to refresh
+          // Unregister all service workers including itself
+          return self.registration.unregister();
+        })
+        .then(function() {
+          // Get all the clients
           return self.clients.matchAll();
         })
         .then(function(clients) {
-          clients.forEach(client => client.postMessage({ type: 'REFRESH' }));
+          // Force each client to reload to see the new website
+          clients.forEach(function(client) {
+            client.navigate(client.url);
+          });
         })
     );
   });
+  
