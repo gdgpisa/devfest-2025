@@ -310,15 +310,17 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
                                     <strong>{tier.charAt(0).toUpperCase() + tier.slice(1)}</strong>
                                 </h3>
                                 <div class="sponsor-list h-flex-wrap">
-                                    {sponsors[tier].map(sponsor => {
-                                        return (
-                                            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
-                                                <div class="card">
-                                                    <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
-                                                </div>
-                                            </a>
-                                        )
-                                    })}
+                                    {sponsors[tier]
+                                        ?.toSorted((s1, s2) => s1.name.localeCompare(s2.name))
+                                        .map(sponsor => {
+                                            return (
+                                                <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
+                                                    <div class="card">
+                                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
+                                                    </div>
+                                                </a>
+                                            )
+                                        })}
                                 </div>
                             </>
                         )
