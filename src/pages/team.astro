@@ -1,0 +1,51 @@
+---
+import Base from '@/layouts/Base.astro'
+import { Icon } from 'astro-icon/components'
+
+function snakecaseToTitleCase(str: string) {
+    return str
+        .split('_')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+}
+
+const memberPictures: { default: { src: string } }[] = await Promise.all(
+    Object.entries(import.meta.glob<{ default: ImageMetadata }>('@/assets/team/*')).map(([_name, picture]) =>
+        picture(),
+    ),
+)
+
+const teamMembers = memberPictures
+    .map(picture => {
+        const nameTitleCase = snakecaseToTitleCase(picture.default.src.split('/').at(-1)!.split('?')[0].split('.')[0])
+
+        return {
+            fullName: nameTitleCase,
+
+            firstName: nameTitleCase.split(' ').at(0),
+            lastName: nameTitleCase.split(' ').slice(1).join(' '),
+
+            picture,
+        }
+    })
+    .toSorted((a, b) => a.lastName.localeCompare(b.lastName))
+---
+
+<Base>
+    <section id="team">
+        <div class="team-list">
+            <div class="wide">
+                <h1>Team</h1>
+            </div>
+            {
+                teamMembers.map(member => (
+                    <div class="team-member">
+                        <img src={member.picture.default.src} alt={`Picture of ${member.fullName}`} />
+                        <h3>{member.firstName}</h3>
+                        <h3>{member.lastName}</h3>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+</Base>

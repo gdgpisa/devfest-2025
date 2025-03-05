@@ -1,6 +1,3 @@
-/new
-  Clear-Site-Data: "cache", "cookies", "storage"
-
 # Force disable caching for service worker
 /service-worker.js
   Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate

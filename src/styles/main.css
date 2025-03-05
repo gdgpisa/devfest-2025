@@ -916,6 +916,53 @@
             }
         }
     }
+
+    #team {
+        place-content: stretch;
+
+        padding: 6rem;
+
+        @media (width < 768px) {
+            padding: 3rem 1rem;
+        }
+    }
+
+    .team-list {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(auto, 15rem));
+        gap: 2rem 4rem;
+
+        place-content: center;
+
+        > .wide {
+            grid-column: 1 / -1;
+        }
+
+        .team-member {
+            display: grid;
+            grid-template-rows: auto auto;
+
+            img {
+                width: 15rem;
+                height: 15rem;
+
+                object-fit: cover;
+
+                border: 3px solid #222;
+                border-radius: 1rem;
+
+                box-shadow: 6px 6px 0 0 #0004;
+
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 2rem !important;
+            }
+        }
+    }
 }
 
 @layer pages {
