@@ -14,20 +14,20 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 #### The first speakers 🎤
 #### We're happy to welcome on stage the following speakers and sessions:
 
-- **Aldo d'Aquino**, Tech lead @ Bending Spoons - ***The Feedback Loop: Building a Culture of Growth and Improvement***
-- **Aleandro Prudenzano**, Security Engineer @ Doyensec - ***Imparare la cybersecurity catturando bandiere***
-- **Daniele Mario Areddu**, STUDENT @ ITIS VALLAURI VELLETRI | ASSOCIATED @ UNIDEA - ***Personalizzare l'IA per il Diritto: Addestrare Modelli su Dataset Legali***
-- **Francesco Paolo Liuzzi**, Community Manager @ Superhero Valley - ***Superhero Valley: tips and tricks per un futuro in Big Tech***
-- **Francesco Sciuti**, CEO @ Devmy | Google Developer Expert |Microsoft MVP | Google Certified Developer & AWS UG Lead - ***AI + A11Y = Surfa il web senza tavola...e senza mani!***
-- **Fulvio Denza**, Software Engineer @ Civo - ***Extending Kubernetes: Building torproxy for Anonymous Container Communication***
-- **Gregorio Palamà**, Google Cloud Innovator Champion | Mia-Platform Expert | Senior Enterprise Architect @ Adesso | Community Manager @ GDG Pescara - ***Come racconterò Kubernetes a mia figlia***
-- **Jennifer D. Daniel**, PhD Researcher, University of Bristol - ***Breaking Free from the Need for Male Approval in Professional Growth***
-- **Juna Salviati**, GDG Roma - ***Pixel e Particelle: quando l’arte generativa incontra il Quantum Computing***
-- **Mike van der Bijl**, DevSecOps Expert @ Scyon - ***Sailing the Waters using UI/UX Reinforced by Security***
-- **Nicola Corti**, Kotlin GDE - Android @ React - ***What I learned from Five Years of Advent of Code in Kotlin***
-- **Rowdy Rabouw**, Front-End Focused Senior DevOps Engineer - ***Beats in the Browser: Coding Music with JavaScript***
-- **Valentina Giuffrè & Paolo Botti**, Full Stack Developer @ TD Group Italia S.r.l. & Chief Technologist & Cloud Architect @ TD Group Italia srl - ***Storybook: l'Atomic Design oltre il wormhole 🌪️***
-- **Yassine Benabbas**, DevRel engineer @ Worldline | Teacher and LAUG member - ***How I ported Doom to the browser with WebAssembly***
+- **Aldo d'Aquino**, Tech lead @ Bending Spoons - ***The Feedback Loop: Building a Culture of Growth and Improvement*** - *talk language 🇬🇧*
+- **Aleandro Prudenzano**, Security Engineer @ Doyensec - ***Imparare la cybersecurity catturando bandiere*** - *talk language 🇮🇹*
+- **Daniele Mario Areddu**, STUDENT @ ITIS VALLAURI VELLETRI | ASSOCIATED @ UNIDEA - ***Personalizzare l'IA per il Diritto: Addestrare Modelli su Dataset Legali*** - *talk language 🇮🇹*
+- **Francesco Paolo Liuzzi**, Community Manager @ Superhero Valley - ***Superhero Valley: tips and tricks per un futuro in Big Tech*** - *talk language 🇮🇹*
+- **Francesco Sciuti**, CEO @ Devmy | Google Developer Expert |Microsoft MVP | Google Certified Developer & AWS UG Lead - ***AI + A11Y = Surfa il web senza tavola...e senza mani!*** - *talk language 🇮🇹*
+- **Fulvio Denza**, Software Engineer @ Civo - ***Extending Kubernetes: Building torproxy for Anonymous Container Communication*** - *talk language 🇬🇧*
+- **Gregorio Palamà**, Google Cloud Innovator Champion | Mia-Platform Expert | Senior Enterprise Architect @ Adesso | Community Manager @ GDG Pescara - ***Come racconterò Kubernetes a mia figlia*** - *talk language 🇮🇹*
+- **Jennifer D. Daniel**, PhD Researcher, University of Bristol - ***Breaking Free from the Need for Male Approval in Professional Growth*** - *talk language 🇬🇧*
+- **Juna Salviati**, GDG Roma - ***Pixel e Particelle: quando l’arte generativa incontra il Quantum Computing*** - *talk language 🇬🇧*
+- **Mike van der Bijl**, DevSecOps Expert @ Scyon - ***Sailing the Waters using UI/UX Reinforced by Security*** - *talk language 🇬🇧*
+- **Nicola Corti**, Kotlin GDE - Android @ React - ***What I learned from Five Years of Advent of Code in Kotlin*** - *talk language 🇬🇧*
+- **Rowdy Rabouw**, Front-End Focused Senior DevOps Engineer - ***Beats in the Browser: Coding Music with JavaScript*** - *talk language 🇬🇧*
+- **Valentina Giuffrè & Paolo Botti**, Full Stack Developer @ TD Group Italia S.r.l. & Chief Technologist & Cloud Architect @ TD Group Italia srl - ***Storybook: l'Atomic Design oltre il wormhole 🌪️*** - *talk language 🇮🇹*
+- **Yassine Benabbas**, DevRel engineer @ Worldline | Teacher and LAUG member - ***How I ported Doom to the browser with WebAssembly*** - *talk language 🇬🇧*
 
 Finally, if you love what we're doing, please share this amazing lineup with your friends and colleagues ❤️.
 
