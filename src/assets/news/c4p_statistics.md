@@ -33,4 +33,4 @@ Stay Tuned!
 
 Any questions? Email us at [pisagdg@gmail.com](mailto:pisagdg+devfest@gmail.com) or reach out on our social channels!
 
-DevFest Pisa Organizer team ❤️
+DevFest Pisa Team 💻❤️
