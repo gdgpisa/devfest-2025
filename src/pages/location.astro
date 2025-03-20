@@ -25,15 +25,12 @@ import { Icon } from 'astro-icon/components'
             <div class="location-visual">
                 <div class="map-pin map-pin-1">
                     <div class="pin-dot"></div>
-                    <div class="pin-pulse"></div>
                 </div>
                 <div class="map-pin map-pin-2">
                     <div class="pin-dot"></div>
-                    <div class="pin-pulse"></div>
                 </div>
                 <div class="map-pin map-pin-3 active">
                     <div class="pin-dot"></div>
-                    <div class="pin-pulse"></div>
                     <div class="pin-label">MACC</div>
                 </div>
                 <div class="map-landmark landmark-1">
@@ -53,12 +50,13 @@ import { Icon } from 'astro-icon/components'
         <div class="card large">
             <div class="text">
                 <p>
-                    DevFest Pisa 2025 will be held at the <strong>MACC (Meeting Art Craft Center)</strong> in the heart of Pisa.
-                    This modern conference center provides an ideal space for our tech community to gather, learn, and network.
+                    DevFest Pisa 2025 will be held at the <strong>MACC (Meeting Art Craft Center)</strong> in the heart of
+                    Pisa. This modern conference center provides an ideal space for our tech community to gather, learn,
+                    and network.
                 </p>
                 <p>
-                    The venue is easily accessible by public transportation and is within walking distance from many of Pisa's
-                    famous attractions, including the Leaning Tower and the historical city center.
+                    The venue is easily accessible by public transportation and is within walking distance from many of
+                    Pisa's famous attractions, including the Leaning Tower and the historical city center.
                 </p>
             </div>
         </div>
@@ -69,37 +67,39 @@ import { Icon } from 'astro-icon/components'
             <div class="wide">
                 <h2>Find Us</h2>
             </div>
-            <div class="map-item" style={{"--map-color": "hsl(180, 100%, 50%)"}}>
+            <div class="map-item">
                 <div class="title">
                     <span>MACC - Meeting Art Craft Center</span>
                     <div class="actions">
-                        <a href="https://www.google.com/maps/dir//MACC+-+Meeting+Art+Craft+Center,+Piazza+Vittorio+Emanuele+II,+5,+56125+Pisa+PI" 
-                           class="button flat square" 
-                           target="_blank">
+                        <a
+                            href="https://www.google.com/maps/dir//MACC+-+Meeting+Art+Craft+Center,+Piazza+Vittorio+Emanuele+II,+5,+56125+Pisa+PI"
+                            class="button flat square"
+                            target="_blank"
+                        >
                             <Icon name="mdi:directions" />
                         </a>
                     </div>
                 </div>
                 <div class="content">
-                    <div class="timestamp">
-                        P.za V. Emanuele II, 5, 56125 Pisa PI
-                    </div>
+                    <div class="timestamp">P.za V. Emanuele II, 5, 56125 Pisa PI</div>
                     <div class="text">
                         <p>
-                            The MACC is located in Piazza Vittorio Emanuele II, close to the Pisa Central Station and the historic center of the city.
+                            The MACC is located in Piazza Vittorio Emanuele II, close to the Pisa Central Station and
+                            the historic center of the city.
                         </p>
                     </div>
                     <div class="map-container">
-                        <iframe 
-                            width="100%" 
-                            height="450" 
-                            src="https://www.openstreetmap.org/export/embed.html?bbox=10.398118495941164%2C43.71597576078058%2C10.404384136199953%2C43.71876001581361&amp;layer=mapnik&amp;marker=43.71736790067228%2C10.401251316070557"
+                        <iframe
+                            width="100%"
+                            height="450"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=10.398118495941164%2C43.71597576078058%2C10.404384136199953%2C43.71876001581361&layer=mapnik&marker=43.71736790067228%2C10.401251316070557"
                             style="border: none;"></iframe>
-                        <a 
-                            href="https://www.openstreetmap.org/?mlat=43.71737&amp;mlon=10.40125#map=19/43.71737/10.40125" 
-                            class="primary" 
-                            role="button" 
-                            target="_blank">
+                        <a
+                            href="https://www.openstreetmap.org/?mlat=43.71737&mlon=10.40125#map=19/43.71737/10.40125"
+                            class="primary"
+                            role="button"
+                            target="_blank"
+                        >
                             <Icon name="mdi:open-in-new" />
                             View Larger Map
                         </a>
@@ -117,31 +117,32 @@ import { Icon } from 'astro-icon/components'
                 <h3>By Train</h3>
                 <div class="text">
                     <p>
-                        Pisa Central Station is well connected with major Italian cities. From the station, 
-                        you can reach MACC with a 15-minute walk or by taking bus lines 2, 4, or LAM Rossa.
+                        Pisa Central Station is well connected with major Italian cities. From the station, you can
+                        reach MACC with a 15-minute walk or by taking bus lines 2, 4, or LAM Rossa.
                     </p>
                 </div>
             </div>
-            
+
             <div class="card large direction-card">
                 <Icon name="mdi:airplane" />
                 <h3>By Plane</h3>
                 <div class="text">
                     <p>
-                        Pisa International Airport (Galileo Galilei) is just 3 km from the city center. 
-                        You can take the PisaMover shuttle to the train station and then follow directions above, 
-                        or take a taxi directly to the venue.
+                        Pisa International Airport (Galileo Galilei) is just 3 km from the city center. You can take the
+                        PisaMover shuttle to the train station and then follow directions above, or take a taxi directly
+                        to the venue.
                     </p>
                 </div>
             </div>
-            
+
             <div class="card large direction-card">
                 <Icon name="mdi:car" />
                 <h3>By Car</h3>
                 <div class="text">
                     <p>
-                        If you're driving, set your GPS to "Piazza Vittorio Emanuele II, 5, Pisa." 
-                        There are several parking options nearby, including Parking Santa Caterina and Parking Piazza Vittorio Emanuele II.
+                        If you're driving, set your GPS to "Piazza Vittorio Emanuele II, 5, Pisa." There are several
+                        parking options nearby, including Parking Santa Caterina and Parking Piazza Vittorio Emanuele
+                        II.
                     </p>
                 </div>
             </div>
@@ -153,12 +154,10 @@ import { Icon } from 'astro-icon/components'
         <div class="card large">
             <div class="text">
                 <p>
-                    Pisa offers a wide range of accommodation options to suit different budgets. We recommend booking your stay early,
-                    especially if you're visiting during peak tourist season.
+                    Pisa offers a wide range of accommodation options to suit different budgets. We recommend booking
+                    your stay early, especially if you're visiting during peak tourist season.
                 </p>
-                <p>
-                    Here are some hotels within walking distance of the venue:
-                </p>
+                <p>Here are some hotels within walking distance of the venue:</p>
                 <ul>
                     <li>Hotel Bologna (4-star) - 400m</li>
                     <li>Hotel Di Stefano (3-star) - 600m</li>
@@ -169,417 +168,3 @@ import { Icon } from 'astro-icon/components'
         </div>
     </section>
 </Base>
-
-<style>
-    /* Hero Section */
-    #location-hero {
-        position: relative;
-        overflow: hidden;
-        min-height: calc(100vh - 4rem);
-        max-height: fit-content;
-        background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--pastel-yellow) 100%);
-        
-        .location-hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            height: 100%;
-            width: 100%;
-            
-            @media (width < 768px) {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto 1fr;
-            }
-        }
-        
-        .location-text-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 2rem 4rem;
-            z-index: 10;
-            
-            @media (width < 768px) {
-                padding: 2rem 1.5rem;
-            }
-        }
-        
-        .location-text {
-            h1 {
-                font-size: 3.5rem;
-                margin-bottom: 2rem;
-                
-                @media (width < 768px) {
-                    font-size: 2.5rem;
-                    margin-bottom: 1.5rem;
-                }
-            }
-            
-            .location-badge {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                padding: 1rem;
-                background: rgba(255, 255, 255, 0.8);
-                border: 3px solid #333;
-                border-radius: 1rem;
-                margin-bottom: 2rem;
-                box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.2);
-                
-                [data-icon] {
-                    font-size: 2.5rem;
-                    color: var(--core-blue);
-                }
-                
-                h3 {
-                    font-size: 1.3rem;
-                    margin-bottom: 0.3rem;
-                }
-                
-                p {
-                    font-size: 1rem;
-                    color: #555;
-                }
-            }
-            
-            a[role="button"] {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.5rem;
-                --button-bg: var(--core-blue);
-                color: white;
-            }
-        }
-        
-        .location-visual {
-            position: relative;
-            overflow: hidden;
-            background: url('https://www.openstreetmap.org/export/embed.html?bbox=10.3900%2C43.7100%2C10.4100%2C43.7200&layer=mapnik') center/cover;
-            background-color: #e8e8e8;
-            background-blend-mode: overlay;
-            
-            &::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-                z-index: 1;
-            }
-            
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(135deg, rgba(165, 189, 255, 0.4) 0%, rgba(255, 231, 165, 0.4) 100%);
-                z-index: 2;
-            }
-            
-            @media (width < 768px) {
-                height: 60vh;
-            }
-        }
-        
-        .map-pin {
-            position: absolute;
-            z-index: 3;
-            
-            .pin-dot {
-                width: 16px;
-                height: 16px;
-                background: var(--core-blue);
-                border: 2px solid white;
-                border-radius: 50%;
-                box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
-            }
-            
-            .pin-pulse {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 40px;
-                height: 40px;
-                background: rgba(53, 107, 255, 0.3);
-                border-radius: 50%;
-                animation: pulse 2s infinite;
-                opacity: 0;
-            }
-            
-            &.active {
-                .pin-dot {
-                    width: 24px;
-                    height: 24px;
-                    background: var(--red-500);
-                }
-                
-                .pin-pulse {
-                    width: 60px;
-                    height: 60px;
-                    background: rgba(234, 67, 53, 0.3);
-                    opacity: 1;
-                }
-                
-                .pin-label {
-                    position: absolute;
-                    top: -40px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: var(--red-500);
-                    color: white;
-                    padding: 5px 10px;
-                    border-radius: 4px;
-                    font-weight: bold;
-                    white-space: nowrap;
-                    
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        bottom: -6px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        width: 0;
-                        height: 0;
-                        border-left: 6px solid transparent;
-                        border-right: 6px solid transparent;
-                        border-top: 6px solid var(--red-500);
-                    }
-                }
-            }
-        }
-        
-        .map-pin-1 {
-            top: 75%;
-            left: 25%;
-        }
-        
-        .map-pin-2 {
-            top: 35%;
-            left: 65%;
-        }
-        
-        .map-pin-3 {
-            top: 60%;
-            left: 45%;
-        }
-        
-        .map-landmark {
-            position: absolute;
-            z-index: 3;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            border: 2px solid #333;
-            box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.2);
-            
-            .landmark-icon {
-                font-size: 1.5rem;
-            }
-            
-            .landmark-label {
-                font-size: 0.8rem;
-                font-weight: bold;
-                white-space: nowrap;
-            }
-        }
-        
-        .landmark-1 {
-            top: 20%;
-            right: 20%;
-        }
-        
-        .landmark-2 {
-            top: 82%;
-            left: 8%;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: translate(-50%, -50%) scale(0.8);
-                opacity: 0.8;
-            }
-            70% {
-                transform: translate(-50%, -50%) scale(1.5);
-                opacity: 0;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1.8);
-                opacity: 0;
-            }
-        }
-    }
-    
-    /* Venue Info Section */
-    #location-info {
-        background: var(--pastel-blue);
-    }
-    
-    /* Map Section */
-    #location-map {
-        background: var(--pastel-cyan);
-        
-        .map-list {
-            width: 100%;
-            max-width: 90rem;
-            
-            display: grid;
-            gap: 2rem;
-            place-content: center;
-            
-            > .wide {
-                grid-column: 1 / -1;
-            }
-        }
-        
-        .map-item {
-            display: grid;
-            grid-template-rows: auto 1fr;
-            
-            border: 2px solid #333;
-            border-radius: 0.5rem;
-            
-            box-shadow: 0.5rem 0.5rem 0 0 var(--cyan-dark);
-            
-            overflow: hidden;
-            
-            > .title {
-                padding: 0.25rem 0.5rem;
-                
-                font-size: 1.75rem;
-                
-                border-bottom: 2px solid #333;
-                
-                background: linear-gradient(
-                    to bottom right,
-                    hsl(from var(--map-color) h 50 85),
-                    hsl(from var(--map-color) h 75 75)
-                );
-                
-                display: grid;
-                grid-template-columns: 1fr auto;
-                align-items: center;
-                
-                .actions {
-                    padding: 0.5rem 0.25rem;
-                    
-                    display: grid;
-                    grid-auto-flow: column;
-                    gap: 0.5rem;
-                }
-            }
-            
-            > .content {
-                padding: 1rem;
-                background: #fff;
-                
-                .timestamp {
-                    font-size: 15px;
-                    font-weight: bold;
-                    color: #888;
-                    margin-bottom: 1rem;
-                }
-                
-                .text {
-                    margin-bottom: 1.5rem;
-                }
-            }
-        }
-        
-        .map-container {
-            width: 100%;
-            display: grid;
-            gap: 1rem;
-            padding-top: 0.5rem;
-            
-            iframe {
-                width: 100%;
-                border-radius: 0.5rem;
-                border: 2px solid #333 !important;
-            }
-            
-            a[role="button"] {
-                justify-self: end;
-                --button-bg: var(--core-cyan);
-                
-                @media (width < 768px) {
-                    justify-self: center;
-                }
-            }
-        }
-    }
-    
-    /* Directions Section */
-    #location-directions {
-        background: var(--iwd-blue);
-        
-        .directions-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            width: 100%;
-            max-width: 80ch;
-            
-            @media (width < 768px) {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-        
-        .direction-card {
-            display: grid;
-            place-items: center;
-            text-align: center;
-            box-shadow: 6px 6px 0 0 var(--iwd-blue-dark);
-            
-            [data-icon] {
-                font-size: 2.5rem;
-                margin-bottom: 0.5rem;
-                color: var(--core-blue);
-            }
-            
-            h3 {
-                margin-bottom: 0.5rem;
-            }
-        }
-    }
-    
-    /* Accommodation Section */
-    #location-accommodation {
-        background: var(--iwd-green);
-        
-        .card {
-            max-width: 80ch;
-            position: relative;
-            
-            &::before {
-                position: absolute;
-                z-index: -1;
-                border-radius: inherit;
-                content: '';
-                inset: calc(var(--card-border-size) * -1);
-                transform: translate(0, 0.75rem);
-                background: linear-gradient(to right, var(--core-cyan), var(--core-blue));
-            }
-        }
-        
-        ul {
-            margin-top: 1rem;
-            margin-left: 2rem;
-            list-style-type: disc;
-        }
-    }
-    
-    /* Responsive adjustments */
-    @media (width < 768px) {
-        #location-hero .hero-content {
-            padding: 0 1.5rem;
-        }
-    }
-</style>
