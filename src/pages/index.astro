@@ -52,6 +52,44 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
         return [fileBasename + '.svg', m.default]
     }),
 )
+
+// Media Partners
+
+// import mediaPartnersData from '@/assets/media-partners/data.yaml'
+
+const mediaPartnersImageModules = await resolveImageModules(
+    import.meta.glob<{ default: ImageMetadata }>('@/assets/media-partners/*.{svg,png,jpg,jpeg}'),
+)
+
+// const mediaPartnersLogos: Record<string, ImageMetadata> = Object.fromEntries(
+//     mediaPartnersImageModules.map(m => {
+//         const fileBasename = m.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
+//         if (!fileBasename) {
+//             throw new Error('Invalid filename')
+//         }
+
+//         return [fileBasename + '.svg', m.default]
+//     }),
+// )
+
+// GDG Italia
+
+// import gdgItaliaData from '@/assets/gdg-italia/data.yaml'
+
+const gdgItaliaImageModules = await resolveImageModules(
+    import.meta.glob<{ default: ImageMetadata }>('@/assets/gdg-italia/*.{svg,png,jpg,jpeg}'),
+)
+
+// const gdgItaliaLogos: Record<string, ImageMetadata> = Object.fromEntries(
+//     gdgItaliaImageModules.map(m => {
+//         const fileBasename = m.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
+//         if (!fileBasename) {
+//             throw new Error('Invalid filename')
+//         }
+
+//         return [fileBasename + '.svg', m.default]
+//     }),
+// )
 ---
 
 <Base>
@@ -309,7 +347,7 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
                                 <h3 class:list={{ 'text-custom': tier !== 'main' }} style={titleStyle[tier]}>
                                     <strong>{tier.charAt(0).toUpperCase() + tier.slice(1)}</strong>
                                 </h3>
-                                <div class="sponsor-list h-flex-wrap">
+                                <div class="small-card-list h-flex-wrap">
                                     {sponsors[tier]
                                         ?.toSorted((s1, s2) => s1.name.localeCompare(s2.name))
                                         .map(sponsor => {
@@ -327,6 +365,46 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
                     )
                 })
             }
+        </div>
+    </section>
+
+    <section id="media-partners">
+        <div class="v-stack">
+            <h2>Partners</h2>
+            <h3><strong>Media Partners</strong></h3>
+            <div class="small-card-list h-flex-wrap">
+                {
+                    mediaPartnersImageModules.map(module => {
+                        const filename = module.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
+                        if (!filename) {
+                            throw new Error('Invalid filename')
+                        }
+
+                        return (
+                            <div class="card">
+                                <img src={module.default.src} alt={filename} />
+                            </div>
+                        )
+                    })
+                }
+            </div>
+            <h3><strong>GDG Italia</strong></h3>
+            <div class="small-card-list h-flex-wrap">
+                {
+                    gdgItaliaImageModules.map(module => {
+                        const filename = module.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
+                        if (!filename) {
+                            throw new Error('Invalid filename')
+                        }
+
+                        return (
+                            <div class="card">
+                                <img src={module.default.src} alt={filename} />
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     </section>
 </Base>
