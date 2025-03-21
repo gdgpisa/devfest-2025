@@ -1,9 +1,9 @@
 ---
-title: Announcing Our First Amazing Speakers! 🎉
+title: Announcing Our First Amazing Speakers!
 date: 2025-03-15
 ---
 
-## Announcing Our First Amazing Speakers! 🎉 – DevFest Pisa 2025 🚀
+## Announcing Our First Amazing Speakers! 📢
 
 Hello everyone! 🥳
 
@@ -39,6 +39,8 @@ Finally, if you love what we're doing, please share this amazing lineup with you
     Fill out the form to become a Helper
 </a>
 
-See you soon at DevFest Pisa 2025! 🎊
+See you soon at DevFest Pisa 2025 on April 12th! 🎊
+
+DevFest Pisa Team 💻❤️
 
 ***#DevFestPisa #GDG #TechCommunity #Developers #IWD #WTM #GDGPisa***
