@@ -4,51 +4,42 @@ import { Icon } from 'astro-icon/components'
 
 import gdeBannerImage from '@/assets/gde-banner.png'
 
-import speakerData from '@/assets/speakers/data.json'
-
-// const teamMembers = memberPictures
-//     .map(picture => {
-//         const nameTitleCase = snakecaseToTitleCase(picture.default.src.split('/').at(-1)!.split('?')[0].split('.')[0])
-
-//         return {
-//             fullName: nameTitleCase,
-
-//             firstName: nameTitleCase.split(' ').at(0),
-//             lastName: nameTitleCase.split(' ').slice(1).join(' '),
-
-//             picture,
-//         }
-//     })
-//     .toSorted((a, b) => a.lastName.localeCompare(b.lastName))
+import { TALKS_DATA } from '@/lib/speakers'
 ---
 
 <Base>
-    <section id="speakers">
-        <div class="team-list">
+    <section class="wide">
+        <div class="people-list">
             <div class="wide">
                 <h1>Speakers</h1>
             </div>
             {
-                speakerData
-                    .toSorted((a, b) => a.LastName.localeCompare(b.LastName))
-                    .map(speaker => (
-                        <div class="team-member">
-                            <div class="profile-picture">
+                TALKS_DATA.flatMap(talk =>
+                    talk.speakers.map(speaker => ({
+                        talkId: talk.id,
+                        speaker,
+                    })),
+                )
+                    .sort((a, b) => a.speaker.LastName.localeCompare(b.speaker.LastName))
+                    .map(({ talkId, speaker }) => (
+                        <a class="person interactive" href={`/talk/${talkId}`}>
+                            <div class="picture">
                                 <img
                                     src={speaker['Profile Picture']}
                                     alt={speaker.FirstName + ' ' + speaker.LastName}
                                 />
-                                {speaker['Are you a Google employee or GDE?'].includes('Yes') ? (
-                                    <img class="gde-banner" src={gdeBannerImage.src} />
-                                ) : (
-                                    ''
+                                {speaker['Are you a Google employee or GDE?'].includes('Yes') && (
+                                    <div class="gde-banner">
+                                        <img src={gdeBannerImage.src} />
+                                    </div>
                                 )}
                             </div>
 
                             <h3>{speaker.FirstName}</h3>
                             <h3>{speaker.LastName}</h3>
+
                             <p>{speaker.Title}</p>
-                        </div>
+                        </a>
                     ))
             }
         </div>

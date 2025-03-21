@@ -1,4 +1,4 @@
-# [
+# Tutti i GDG in Italia
 #   'https://gdg.community.dev/gdg-bari/',
 #   'https://gdg.community.dev/gdg-basilicata/',
 #   'https://gdg.community.dev/gdg-bologna/',
@@ -30,11 +30,63 @@
 #   'https://gdg.community.dev/gdg-vicenza/',
 #   'https://gdg.community.dev/gdg-on-campus-luiss-guido-carli-rome-italy/',
 #   'https://gdg.community.dev/gdg-on-campus-polytechnic-university-of-milan/',
-# ]
 
-# - name: 'PHC'
-#   logo: 'phc.svg'
-#   url: 'https://phc.dm.unipi.it/'
-# - name: 'PHC'
-#   logo: 'phc.svg'
-#   url: 'https://phc.dm.unipi.it/'
+# Loghi che abbiamo
+
+# gdg-bari.png
+# gdg-basilicata.jpeg
+# gdg-campobasso.jpg
+# gdg-catania.png
+# gdg-cloud-modena.png
+# gdg-firenze.png
+# gdg-genova.png
+# gdg-milano.svg
+# gdg-milano-cloud.svg
+# gdg-pescara.png
+# gdg-roma.svg
+# gdg-roma-citta.svg
+# gdg-torino.png
+# gdg-venezia.png
+
+- name: 'GDG Bari'
+  logo: 'gdg-bari.png'
+  url: 'https://gdg.community.dev/gdg-bari/'
+- name: 'GDG Basilicata'
+  logo: 'gdg-basilicata.jpeg'
+  url: 'https://gdg.community.dev/gdg-basilicata/'
+- name: 'GDG Campobasso'
+  logo: 'gdg-campobasso.jpg'
+  url: 'https://gdg.community.dev/gdg-campobasso/'
+- name: 'GDG Catania'
+  logo: 'gdg-catania.png'
+  url: 'https://gdg.community.dev/gdg-catania/'
+- name: 'GDG Cloud Milano'
+  logo: 'gdg-milano-cloud.svg'
+  url: 'https://gdg.community.dev/gdg-cloud-milano/'
+- name: 'GDG Cloud Modena'
+  logo: 'gdg-cloud-modena.png'
+  url: 'https://gdg.community.dev/gdg-cloud-modena/'
+- name: 'GDG Firenze'
+  logo: 'gdg-firenze.png'
+  url: 'https://gdg.community.dev/gdg-firenze/'
+- name: 'GDG Genova'
+  logo: 'gdg-genova.png'
+  url: 'https://gdg.community.dev/gdg-genova/'
+- name: 'GDG Milano'
+  logo: 'gdg-milano.svg'
+  url: 'https://gdg.community.dev/gdg-milano/'
+- name: 'GDG Pescara'
+  logo: 'gdg-pescara.png'
+  url: 'https://gdg.community.dev/gdg-pescara/'
+- name: 'GDG Roma'
+  logo: 'gdg-roma.svg'
+  url: 'https://gdg.community.dev/gdg-roma/'
+- name: 'GDG Roma Città'
+  logo: 'gdg-roma-citta.svg'
+  url: 'https://gdg.community.dev/gdg-roma-citta/'
+- name: 'GDG Torino'
+  logo: 'gdg-torino.png'
+  url: 'https://gdg.community.dev/gdg-torino/'
+- name: 'GDG Venezia'
+  logo: 'gdg-venezia.png'
+  url: 'https://gdg.community.dev/gdg-venezia/'

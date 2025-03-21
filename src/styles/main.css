@@ -440,6 +440,18 @@
             padding: 0;
         }
 
+        &.wide {
+            place-content: stretch;
+
+            padding: 6rem;
+
+            @media (width < 768px) {
+                padding: 3rem 1rem;
+            }
+
+            --gap: 2rem;
+        }
+
         &:not(:first-child) {
             border-top: 2px solid #333;
         }
@@ -552,16 +564,6 @@
     }
 
     #speakers {
-        place-content: stretch;
-
-        padding: 6rem;
-
-        @media (width < 768px) {
-            padding: 3rem 1rem;
-        }
-
-        --gap: 2rem;
-
         .profile-picture {
             position: relative;
 
@@ -977,12 +979,12 @@
         }
     }
 
-    .team-list {
+    .people-list {
         width: 100%;
 
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(auto, 15rem));
-        gap: 2rem 4rem;
+        grid-template-columns: repeat(auto-fit, minmax(auto, 17rem));
+        gap: 2rem 2rem;
 
         place-content: center;
 
@@ -990,15 +992,14 @@
             grid-column: 1 / -1;
         }
 
-        .team-member {
+        .person {
             display: grid;
             grid-template-rows: auto auto;
+            align-content: start;
 
-            img {
+            .picture {
                 width: 15rem;
                 height: 15rem;
-
-                object-fit: cover;
 
                 border: 3px solid #222;
                 border-radius: 1rem;
@@ -1006,10 +1007,58 @@
                 box-shadow: 6px 6px 0 0 #0004;
 
                 margin-bottom: 1rem;
+
+                position: relative;
+
+                overflow: clip;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .gde-banner {
+                    position: absolute;
+
+                    --offset: 0.5rem;
+
+                    left: 50%;
+                    transform: translateX(-50%);
+
+                    bottom: var(--offset);
+
+                    z-index: 1;
+
+                    overflow: clip;
+                    border-radius: 2rem;
+
+                    border: 2px solid #333;
+
+                    padding: 0.5rem 1rem;
+
+                    background: #f7f7f7;
+
+                    img {
+                        height: 1rem;
+                        object-fit: contain;
+                    }
+                }
             }
 
             h3 {
                 font-size: 2rem !important;
+            }
+
+            &.interactive {
+                cursor: pointer;
+
+                padding: 1rem;
+                border-radius: 1rem;
+
+                &:hover {
+                    background: #e0e0e0;
+                }
             }
         }
     }

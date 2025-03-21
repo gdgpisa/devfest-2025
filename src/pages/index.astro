@@ -6,9 +6,14 @@ import KatexSSR from '@/components/astro/KatexSSR.astro'
 import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 
-import sponsors, { type Sponsors } from '@/sponsors.yaml'
 import { resolveImageModules } from '@/lib/util'
 import { Icon } from 'astro-icon/components'
+
+import sponsors, { type Sponsors } from '@/sponsors.yaml'
+import mediaPartnersData from '@/assets/media-partners/data.yaml'
+import gdgItaliaData from '@/assets/gdg-italia/data.yaml'
+
+import { unifyImages } from '@/lib/assets-helpers'
 
 const galleryImageModules = await resolveImageModules(
     import.meta.glob<{ default: ImageMetadata }>('@/assets/gallery/*.jpg'),
@@ -55,41 +60,19 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
 
 // Media Partners
 
-// import mediaPartnersData from '@/assets/media-partners/data.yaml'
-
-const mediaPartnersImageModules = await resolveImageModules(
-    import.meta.glob<{ default: ImageMetadata }>('@/assets/media-partners/*.{svg,png,jpg,jpeg}'),
+const mediaPartners = unifyImages(
+    mediaPartnersData,
+    await resolveImageModules(
+        import.meta.glob<{ default: ImageMetadata }>('@/assets/media-partners/*.{svg,png,jpg,jpeg}'),
+    ),
 )
-
-// const mediaPartnersLogos: Record<string, ImageMetadata> = Object.fromEntries(
-//     mediaPartnersImageModules.map(m => {
-//         const fileBasename = m.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
-//         if (!fileBasename) {
-//             throw new Error('Invalid filename')
-//         }
-
-//         return [fileBasename + '.svg', m.default]
-//     }),
-// )
 
 // GDG Italia
 
-// import gdgItaliaData from '@/assets/gdg-italia/data.yaml'
-
-const gdgItaliaImageModules = await resolveImageModules(
-    import.meta.glob<{ default: ImageMetadata }>('@/assets/gdg-italia/*.{svg,png,jpg,jpeg}'),
+const gdgItalia = unifyImages(
+    gdgItaliaData,
+    await resolveImageModules(import.meta.glob<{ default: ImageMetadata }>('@/assets/gdg-italia/*.{svg,png,jpg,jpeg}')),
 )
-
-// const gdgItaliaLogos: Record<string, ImageMetadata> = Object.fromEntries(
-//     gdgItaliaImageModules.map(m => {
-//         const fileBasename = m.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
-//         if (!fileBasename) {
-//             throw new Error('Invalid filename')
-//         }
-
-//         return [fileBasename + '.svg', m.default]
-//     }),
-// )
 ---
 
 <Base>
@@ -374,35 +357,25 @@ const gdgItaliaImageModules = await resolveImageModules(
             <h3><strong>Media Partners</strong></h3>
             <div class="small-card-list h-flex-wrap">
                 {
-                    mediaPartnersImageModules.map(module => {
-                        const filename = module.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
-                        if (!filename) {
-                            throw new Error('Invalid filename')
-                        }
-
-                        return (
+                    mediaPartners.map(entry => (
+                        <a href={entry.url} target="_blank" rel="noopener noreferrer">
                             <div class="card">
-                                <img src={module.default.src} alt={filename} />
+                                <img src={entry.image.src} alt={entry.name} />
                             </div>
-                        )
-                    })
+                        </a>
+                    ))
                 }
             </div>
             <h3><strong>GDG Italia</strong></h3>
             <div class="small-card-list h-flex-wrap">
                 {
-                    gdgItaliaImageModules.map(module => {
-                        const filename = module.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
-                        if (!filename) {
-                            throw new Error('Invalid filename')
-                        }
-
-                        return (
+                    gdgItalia.map(entry => (
+                        <a href={entry.url} target="_blank" rel="noopener noreferrer">
                             <div class="card">
-                                <img src={module.default.src} alt={filename} />
+                                <img src={entry.image.src} alt={entry.name} />
                             </div>
-                        )
-                    })
+                        </a>
+                    ))
                 }
             </div>
         </div>

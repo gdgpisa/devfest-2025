@@ -1,0 +1,47 @@
+---
+import type { GetStaticPaths } from 'astro'
+import Base from '@/layouts/Base.astro'
+
+import { TALKS_DATA } from '@/lib/speakers'
+
+export const getStaticPaths = (() => {
+    return TALKS_DATA.map(entry => ({
+        params: {
+            id: entry.id,
+        },
+        props: {
+            ...entry,
+        },
+    }))
+}) satisfies GetStaticPaths
+
+const talk = Astro.props
+---
+
+<Base>
+    <section class="wide">
+        <h1>{talk.title}</h1>
+
+        <div class="text">
+            {talk.description}
+        </div>
+
+        <h2>Speakers</h2>
+        <div class="people-list">
+            {
+                talk.speakers.map(speaker => (
+                    <a class="person interactive" href={`/speaker/${speaker.id}`}>
+                        <div class="picture">
+                            <img src={speaker['Profile Picture']} alt={speaker.FirstName + ' ' + speaker.LastName} />
+                        </div>
+
+                        <h3>{speaker.FirstName}</h3>
+                        <h3>{speaker.LastName}</h3>
+
+                        <p>{speaker.Title}</p>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
+</Base>
