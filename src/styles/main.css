@@ -1031,20 +1031,29 @@
         }
     }
 
+    body:has(#location-hero) {
+        --gradient-stop: calc(125vw);
+        background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--pastel-yellow) var(--gradient-stop));
+        
+        @media (width < 768px) {
+            --gradient-stop: 200vw;
+        }
+    }
+
     #location-hero {
         position: relative;
         overflow: hidden;
         min-height: calc(100vh - 4rem);
         max-height: fit-content;
-        background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--pastel-yellow) 100%);
 
         .location-hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             height: 100%;
             width: 100%;
+            gap: 4rem;
 
-            @media (width < 768px) {
+            @media (width < 60rem) {
                 grid-template-columns: 1fr;
                 grid-template-rows: auto 1fr;
             }
@@ -1054,7 +1063,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 2rem 4rem;
+            padding: 2rem 0 2rem 0;
             z-index: 10;
 
             @media (width < 768px) {
@@ -1114,6 +1123,7 @@
             overflow: hidden;
             background-color: #e8e8e8;
             background-blend-mode: overlay;
+            min-width: 30vw;
 
             &::after {
                 content: '';
@@ -1137,9 +1147,26 @@
                 z-index: 2;
             }
 
-            @media (width < 768px) {
-                height: 60vh;
+            /*@media (width < 768px) {
+                height: 30rem;
+            }*/
+
+            @media (width < 300px) {
+                display: none;
             }
+        }
+
+        .location-arno {
+            background-image: url('src/assets/arno.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 3;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
 
         .map-pin {
@@ -1206,18 +1233,18 @@
         }
 
         .map-pin-1 {
-            top: 75%;
-            left: 25%;
+            top: 80%;
+            left: 27%;
         }
 
         .map-pin-2 {
             top: 10%;
-            left: 45%;
+            left: 33%;
         }
 
         .map-pin-3 {
-            top: 60%;
-            left: 45%;
+            top: 70%;
+            left: 38%;
         }
 
         .map-landmark {
@@ -1245,12 +1272,12 @@
 
         .landmark-1 {
             top: 15%;
-            left: 33%;
+            left: 20%;
         }
 
         .landmark-2 {
-            top: 82%;
-            left: 8%;
+            top: 85%;
+            left: 15%;
         }
 
         @keyframes pulsate {
@@ -1369,13 +1396,12 @@
 
     #location-directions {
         background: var(--iwd-blue);
+        place-content: unset;
 
         .directions-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
             gap: 2rem;
-            width: 100%;
-            max-width: 80ch;
 
             @media (width < 768px) {
                 grid-template-columns: 1fr;
@@ -1386,7 +1412,10 @@
         .direction-card {
             display: grid;
             place-items: center;
-            text-align: center;
+            place-content: start;
+            /*text-align: justify;*/
+            padding-top: 3rem;
+            padding-bottom: 2.5rem;
             box-shadow: 6px 6px 0 0 rgb(123, 194, 208);
 
             [data-icon] {
