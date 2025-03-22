@@ -1,4 +1,4 @@
-@layer base, components, pages, utilities;
+@layer base, typography, components, pages, utilities;
 
 @import url(./typography.css);
 @import url(./scrollingGrid.css);
@@ -475,6 +475,10 @@
         max-height: fit-content;
 
         background: linear-gradient(to right, var(--pastel-yellow) 45%, #fff);
+
+        body:has(&) {
+            background: var(--pastel-yellow);
+        }
     }
 
     #cfp {
@@ -563,43 +567,13 @@
         --gap: 2rem;
     }
 
-    #speakers {
-        .profile-picture {
-            position: relative;
-
-            /* overflow: hidden; */
-
-            /* border: 4px solid #333; */
-
-            /* img {
-                margin: 0;
-            } */
-
-            .gde-banner {
-                max-width: calc(100% - 6px);
-                height: auto;
-
-                left: 3px;
-                right: 3px;
-                bottom: calc(10px);
-
-                border-radius: 0;
-
-                border-bottom-left-radius: 0.75rem;
-                border-bottom-right-radius: 0.75rem;
-
-                position: absolute;
-                border: none;
-                box-shadow: none;
-
-                object-fit: fill;
-            }
-        }
-    }
-
     #news {
         background: #f0f0f0;
         min-height: calc(100vh - 12rem);
+
+        body:has(&) {
+            background: #f0f0f0;
+        }
     }
 
     .card-gallery {
@@ -1062,6 +1036,181 @@
             }
         }
     }
+
+    .talk {
+        display: grid;
+        gap: 3rem;
+        --gap: 3rem;
+
+        max-width: calc(24rem + var(--gap) + 2rem + 80ch + 2rem);
+        grid-template-columns: 1fr minmax(auto, calc(2rem + 80ch + 2rem));
+        align-items: start;
+        position: relative;
+
+        .metadata {
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: start;
+
+            gap: 1rem;
+            align-items: center;
+
+            font-size: 22px;
+        }
+
+        .speakers {
+            display: grid;
+            grid-auto-flow: row;
+            align-content: start;
+            gap: 1.5rem;
+
+            text-align: right;
+
+            > h3 {
+                font-weight: bold;
+                color: #000000b4;
+            }
+
+            .speaker {
+                display: grid;
+                grid-auto-flow: row;
+                gap: 1.5rem;
+
+                .info {
+                    display: grid;
+                    grid-auto-flow: row;
+                    justify-items: end;
+                    gap: 0.35rem;
+
+                    .tag-line {
+                        .text {
+                            font-size: 18px;
+                            font-weight: bold;
+                            line-height: 1.25;
+                            color: #0008;
+                        }
+                    }
+                }
+
+                .picture {
+                    position: relative;
+
+                    > img {
+                        width: 100%;
+
+                        border: 3px solid #333;
+                        border-radius: 1rem;
+                        box-shadow: 6px 6px 0 0 #0004;
+                        object-fit: cover;
+                        aspect-ratio: 1 / 1;
+                    }
+
+                    .gde-banner {
+                        position: absolute;
+
+                        left: 50%;
+                        transform: translateX(-50%);
+
+                        bottom: 1rem;
+
+                        z-index: 1;
+
+                        overflow: clip;
+                        border-radius: 2rem;
+
+                        border: 2px solid #333;
+
+                        padding: 0.5rem 1rem;
+
+                        background: #f7f7f7;
+
+                        box-shadow: 0 0 1rem 0 #0006;
+
+                        > img {
+                            height: 1.5rem;
+                            object-fit: contain;
+                        }
+                    }
+                }
+
+                .bio {
+                    font-size: 18px;
+                    line-height: 1.5;
+
+                    text-wrap: balance;
+                }
+            }
+        }
+
+        .content {
+            display: grid;
+            grid-auto-flow: row;
+            align-content: start;
+            gap: 2rem;
+
+            position: sticky;
+            top: 7.5rem;
+
+            .title {
+                text-wrap: balance;
+            }
+
+            .description {
+                background: #fff;
+                border: 3px solid #333;
+                border-radius: 1rem;
+                box-shadow: 6px 6px 0 0 #0004;
+
+                padding: 2rem;
+            }
+        }
+
+        @media (width < 768px) {
+            padding: 0;
+            gap: 1.5rem;
+
+            --gap: 1.5rem;
+            grid-template-columns: 1fr;
+
+            > .content {
+                grid-row: 1 / 2;
+                position: static;
+                gap: 1.5rem;
+
+                > .description {
+                    padding: 1.5rem;
+                }
+            }
+
+            > .speakers {
+                grid-row: 2 / 3;
+
+                text-align: left;
+
+                padding: 0 1rem 1rem 1rem;
+
+                > .speaker {
+                    > .info {
+                        justify-items: start;
+                    }
+                }
+            }
+        }
+    }
+
+    .chip {
+        display: grid;
+        place-content: center;
+        place-items: center;
+
+        padding: 0 1rem;
+        border-radius: 1rem;
+
+        font-weight: bold;
+
+        background: #0002;
+        color: #000a;
+    }
 }
 
 @layer pages {
@@ -1075,6 +1224,10 @@
         place-items: center;
 
         background: var(--iwd-blue);
+
+        body:has(&) {
+            background: var(--iwd-blue);
+        }
 
         --card-bg: #fff;
 
@@ -1127,6 +1280,20 @@
             aspect-ratio: 1.61 / 1;
 
             object-fit: cover;
+        }
+    }
+
+    #talk {
+        background: #fff3d2;
+
+        body:has(&) {
+            background: #fff3d2;
+        }
+
+        padding: 6rem 2rem;
+
+        @media (width < 768px) {
+            padding: 1.5rem 1rem;
         }
     }
 }

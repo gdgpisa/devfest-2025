@@ -2,6 +2,8 @@
 import type { GetStaticPaths } from 'astro'
 import Base from '@/layouts/Base.astro'
 
+import gdeBannerImage from '@/assets/gde-banner.png'
+
 import { TALKS_DATA } from '@/lib/speakers'
 
 export const getStaticPaths = (() => {
@@ -10,38 +12,78 @@ export const getStaticPaths = (() => {
             id: entry.id,
         },
         props: {
-            ...entry,
+            talk: entry,
         },
     }))
 }) satisfies GetStaticPaths
 
-const talk = Astro.props
+const { talk } = Astro.props
 ---
 
 <Base>
-    <section class="wide">
-        <h1>{talk.title}</h1>
+    <section id="talk">
+        <div class="talk">
+            <div class="speakers">
+                <h3>
+                    {talk.speakers.length > 1 ? 'Speakers' : 'Speaker'}
+                </h3>
+                {
+                    talk.speakers.map(speaker => (
+                        <div class="speaker">
+                            {/* <img src={speaker['Profile Picture']} alt={speaker.FirstName + ' ' + speaker.LastName} /> */}
 
-        <div class="text">
-            {talk.description}
-        </div>
+                            <div class="picture">
+                                <img
+                                    src={speaker['Profile Picture']}
+                                    alt={speaker.FirstName + ' ' + speaker.LastName}
+                                />
+                                {speaker['Are you a Google employee or GDE?'].includes('Yes') && (
+                                    <div class="gde-banner">
+                                        <img src={gdeBannerImage.src} />
+                                    </div>
+                                )}
+                            </div>
 
-        <h2>Speakers</h2>
-        <div class="people-list">
-            {
-                talk.speakers.map(speaker => (
-                    <a class="person interactive" href={`/speaker/${speaker.id}`}>
-                        <div class="picture">
-                            <img src={speaker['Profile Picture']} alt={speaker.FirstName + ' ' + speaker.LastName} />
+                            <div class="info">
+                                <div class="name">
+                                    <h3>
+                                        {speaker['FirstName']} {speaker['LastName']}
+                                    </h3>
+                                </div>
+                                <div class="tag-line">
+                                    <div class="text">{speaker['TagLine']}</div>
+                                </div>
+                            </div>
+
+                            <div class="bio text">
+                                {speaker.bio.split('\n').map(line => (
+                                    <p>{line}</p>
+                                ))}
+                            </div>
                         </div>
+                    ))
+                }
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2>{talk.title}</h2>
+                </div>
 
-                        <h3>{speaker.FirstName}</h3>
-                        <h3>{speaker.LastName}</h3>
+                <div class="metadata">
+                    <div class="chip">
+                        {talk.category}
+                    </div>
+                    <div class="chip">
+                        {talk.language}
+                    </div>
+                </div>
 
-                        <p>{speaker.Title}</p>
-                    </a>
-                ))
-            }
+                <div class="description">
+                    <div class="text">
+                        {talk.description.split('\n').map(line => <p>{line}</p>)}
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </Base>

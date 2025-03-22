@@ -36,14 +36,18 @@ export const TALKS_DATA = Object.entries(
 
         const category = speakers.filter(speaker => speaker['Category'] !== 'unknown')[0]['Category']
 
+        const language = speakers.filter(speaker => speaker['Language'] !== 'unknown')[0]['Language']
+
         // extract the first valid description and clean it up
 
         const talkId = slugify(title)
 
         return {
             id: talkId,
+
             title,
             category,
+            language,
             description: excelCleanup(
                 speakers.filter(speaker => speaker['Description'] !== 'unknown')[0]['Description'],
             ),
