@@ -1031,7 +1031,6 @@
         }
     }
 
-    /* Hero Section */
     #location-hero {
         position: relative;
         overflow: hidden;
@@ -1270,12 +1269,10 @@
         }
     }
 
-    /* Venue Info Section */
     #location-info {
         background: var(--pastel-blue);
     }
 
-    /* Map Section */
     #location-map {
         background: var(--pastel-cyan);
 
@@ -1370,7 +1367,6 @@
         }
     }
 
-    /* Directions Section */
     #location-directions {
         background: var(--iwd-blue);
 
@@ -1405,7 +1401,6 @@
         }
     }
 
-    /* Accommodation Section */
     #location-accommodation {
         background: var(--iwd-green);
 
@@ -1431,7 +1426,6 @@
         }
     }
 
-    /* Responsive adjustments */
     @media (width < 768px) {
         #location-hero .hero-content {
             padding: 0 1.5rem;
