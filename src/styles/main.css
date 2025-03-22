@@ -515,20 +515,26 @@
     }
 
     #stats {
-        .card {
-            position: relative;
+        background: #fff;
 
-            &::before {
-                position: absolute;
-                z-index: -1;
+        .stats-layouts {
+            z-index: 0;
 
-                border-radius: inherit;
+            .card {
+                position: relative;
 
-                content: '';
-                inset: calc(var(--card-border-size) * -1);
-                transform: translate(0, 0.75rem);
+                &::before {
+                    position: absolute;
+                    z-index: -1;
 
-                background: linear-gradient(to right, var(--red-500), var(--core-yellow));
+                    border-radius: inherit;
+
+                    content: '';
+                    inset: calc(var(--card-border-size) * -1);
+                    transform: translate(0, 0.75rem);
+
+                    background: linear-gradient(to right, var(--red-500), var(--core-yellow));
+                }
             }
         }
     }
@@ -551,9 +557,13 @@
 
     #past-editions {
         --gap: 3rem;
+
+        background: #fff;
     }
 
     #gallery {
+        background: #fff;
+
         @media (max-width: 768px) {
             display: none;
         }
@@ -561,10 +571,14 @@
 
     #sponsors {
         --gap: 2rem;
+
+        background: #fff;
     }
 
     #media-partners {
         --gap: 2rem;
+
+        background: #fff;
     }
 
     #news {
@@ -905,15 +919,22 @@
                 bottom: 3rem;
                 left: 50%;
                 transform: translate(-50%, 0);
-                width: 80ch;
+                width: calc(2 * 4rem + 80ch);
                 max-width: calc(100% - 4rem);
+
+                border-radius: 1rem;
+
+                > .title {
+                    padding: 0.5rem 0.75rem 0.5rem 1.5rem;
+                    font-weight: bold;
+                }
 
                 .news-item-not-expanded {
                     display: none;
                 }
 
                 .content {
-                    padding: 2rem;
+                    padding: 4rem;
                     max-height: unset;
                     max-width: unset;
 
@@ -1260,6 +1281,8 @@
     }
 
     #iwd-theme {
+        background: #fff;
+
         [role='button'] {
             color: #333 !important;
         }
