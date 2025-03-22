@@ -72,6 +72,15 @@
         &:has(#mobile-nav-trigger:checked) {
             overflow: hidden;
         }
+
+        &:has(#location-hero) {
+            --gradient-stop: calc(125vw);
+            background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--pastel-yellow) var(--gradient-stop));
+
+            @media (width < 768px) {
+                --gradient-stop: 200vw;
+            }
+        }
     }
 
     strong {
@@ -1031,15 +1040,6 @@
         }
     }
 
-    body:has(#location-hero) {
-        --gradient-stop: calc(125vw);
-        background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--pastel-yellow) var(--gradient-stop));
-        
-        @media (width < 768px) {
-            --gradient-stop: 200vw;
-        }
-    }
-
     #location-hero {
         position: relative;
         overflow: hidden;
@@ -1056,6 +1056,7 @@
             @media (width < 60rem) {
                 grid-template-columns: 1fr;
                 grid-template-rows: auto 1fr;
+                /*animation: none;*/
             }
         }
 
@@ -1124,6 +1125,7 @@
             background-color: #e8e8e8;
             background-blend-mode: overlay;
             min-width: 30vw;
+            --animation-duration: 4s;
 
             &::after {
                 content: '';
@@ -1134,6 +1136,8 @@
                 bottom: 0;
                 background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
                 z-index: 1;
+
+                animation: opacityIn var(--animation-duration) ease-out;
             }
 
             &::before {
@@ -1145,6 +1149,8 @@
                 bottom: 0;
                 background: linear-gradient(135deg, rgba(165, 189, 255, 0.4) 0%, rgba(255, 231, 165, 0.4) 100%);
                 z-index: 2;
+
+                animation: opacityIn var(--animation-duration) ease-out;
             }
 
             /*@media (width < 768px) {
@@ -1167,11 +1173,21 @@
             left: 0;
             right: 0;
             bottom: 0;
+
+            animation: slideIn 1s ease-out;
+            animation-fill-mode: forwards;
+            will-change: transform;
+            opacity: 0;
         }
 
         .map-pin {
             position: absolute;
             z-index: 3;
+
+            animation: slideIn 1.25s ease-out;
+            animation-fill-mode: forwards;
+            will-change: transform;
+            opacity: 0;
 
             .pin-dot {
                 width: 1rem;
@@ -1184,25 +1200,28 @@
 
             &.active {
                 .pin-dot {
-                    top: -100%;
-                    left: -100%;
+                    /*top: -100%;
+                    left: -100%;*/
                     width: 1.5rem;
                     height: 1.5rem;
                     background: var(--red-500);
+                    /*animation: pulsate 4s infinite ease-in;*/
                 }
 
-                .pin-dot::after {
+                /*.pin-dot::after {
                     content: '';
                     position: absolute;
-                    top: 50%;
+                    /*top: 50%;
                     left: 50%;
+                    top: 70%;
+                    left: 38%;
                     transform: translate(-50%, -50%);
                     width: 3.5rem;
                     height: 3.5rem;
                     background: rgba(234, 67, 53, 0.3);
                     border-radius: 50%;
                     animation: pulsate 4s infinite;
-                }
+                }*/
 
                 .pin-label {
                     position: absolute;
@@ -1245,6 +1264,25 @@
         .map-pin-3 {
             top: 70%;
             left: 38%;
+
+            animation: 2s slideOut 1s ease-out;
+            animation-fill-mode: forwards;
+            will-change: transform;
+            opacity: 0;
+        }
+
+        .pin-dot-3::after {
+            --radius: calc(1.5rem - 4px);
+            content: '';
+            position: absolute;
+            /*top: -50%;
+            left: -50%;
+            transform: translate(-50%, -50%);*/
+            width: var(--radius);
+            height: var(--radius);
+            background: rgba(234, 67, 53, 0.3);
+            border-radius: 50%;
+            animation: pulsate 4s infinite ease-in-out;
         }
 
         .map-landmark {
@@ -1258,6 +1296,11 @@
             border-radius: 4px;
             border: 2px solid #333;
             box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.2);
+
+            animation: slideIn 2s ease-out;
+            animation-fill-mode: forwards;
+            will-change: transform;
+            opacity: 0;
 
             .landmark-icon {
                 font-size: 1.5rem;
@@ -1279,20 +1322,48 @@
             top: 85%;
             left: 15%;
         }
+    }
+    @keyframes pulsate {
+        0% {
+            transform: scale(3);
+        }
+        65% {
+            transform: scale(4.5);
+            opacity: 1;
+        }
+        to {
+            transform: scale(3);
+        }
+    }
 
-        @keyframes pulsate {
-            0% {
-                transform: scale(0.95);
-                opacity: 0.7;
-            }
-            50% {
-                transform: scale(0.95);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(0.95);
-                opacity: 0.7;
-            }
+    @keyframes slideIn {
+        0% {
+            transform: translateX(-50vw); /*translateX(-75%);*/
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOut {
+        0% {
+            transform: translateX(50vw);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes opacityIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
         }
     }
 
@@ -1300,7 +1371,7 @@
         background: var(--pastel-blue);
 
         .card {
-            box-shadow: .5rem 0.5rem 0 0 var(--core-blue);
+            box-shadow: 0.5rem 0.5rem 0 0 var(--core-blue);
         }
     }
 
