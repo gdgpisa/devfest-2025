@@ -1298,6 +1298,10 @@
 
     #location-info {
         background: var(--pastel-blue);
+
+        .card {
+            box-shadow: .5rem 0.5rem 0 0 var(--core-blue);
+        }
     }
 
     #location-map {
