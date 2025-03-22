@@ -1054,6 +1054,12 @@
                 &:hover {
                     background: #e0e0e0;
                 }
+
+                @media (width < 768px) {
+                    padding: 1rem;
+
+                    background: #f0f0f0;
+                }
             }
         }
     }
