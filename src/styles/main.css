@@ -997,6 +997,22 @@
             }
         }
 
+        &.desktop-only {
+            > .card:first-child {
+                animation: slideDown 1s ease-in-out;
+            }
+
+            > .h-stack {
+                > .card:first-child {
+                    animation: slideIn 1s ease-in-out;
+                }
+
+                > .card:nth-child(2) {
+                    animation: slideOut 1s ease-in-out;
+                }
+            }
+        }
+
         section:nth-child(2) {
             background: #fff;
         }
@@ -1076,11 +1092,16 @@
             h1 {
                 font-size: 3.5rem;
                 margin-bottom: 2rem;
+                animation: slideDown 1s ease-in-out;
 
                 @media (width < 768px) {
                     font-size: 2.5rem;
                     margin-bottom: 1.5rem;
                 }
+            }
+
+            .primary.large {
+                animation: slideUp 1s ease-in-out;
             }
 
             .location-badge {
@@ -1093,6 +1114,8 @@
                 border-radius: 1rem;
                 margin-bottom: 2rem;
                 box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.2);
+
+                animation: slideIn 1s ease-in-out;
 
                 [data-icon] {
                     font-size: 2.5rem;
@@ -1126,6 +1149,7 @@
             background-blend-mode: overlay;
             min-width: 30vw;
             --animation-duration: 4s;
+            animation: slideDown 1s ease-in-out;
 
             &::after {
                 content: '';
@@ -1235,7 +1259,7 @@
                     font-weight: bold;
                     white-space: nowrap;
 
-                    animation: macc 1s ease-in-out 2.5s 1 forwards;
+                    animation: macc 0.5s ease-in-out 2.5s 1 forwards;
                     opacity: 0;
 
                     &::after {
@@ -1268,8 +1292,8 @@
             top: 70%;
             left: 38%;
 
-            animation: 2s slideOut 1s ease-out;
-            animation-fill-mode: forwards;
+            animation: slideOut 2.5s ease-out forwards;
+            /*animation-fill-mode: forwards;*/
             will-change: transform;
             opacity: 0;
         }
@@ -1285,9 +1309,9 @@
             height: var(--radius);
             background: rgba(234, 67, 53, 0.3);
             border-radius: 50%;
-            animation: 
-                first-pulse 2s ease-out 3s 1,
-                pulsate 4s infinite ease-in-out 5s;
+            animation:
+                first-pulse 2s ease-out 2.6s 1,
+                pulsate 4s infinite ease-in-out 4.6s;
             /*opacity: 0;*/
             animation-fill-mode: forwards;
             will-change: transform;
@@ -1348,7 +1372,7 @@
         0% {
             transform: scale(1);
         }
-        
+
         to {
             transform: scale(3);
         }
@@ -1372,6 +1396,28 @@
         }
         to {
             transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideDown {
+        0% {
+            transform: translateY(-50vh);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translate(-13vw, 50vh);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
             opacity: 1;
         }
     }
