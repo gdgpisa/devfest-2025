@@ -1259,7 +1259,7 @@
                     font-weight: bold;
                     white-space: nowrap;
 
-                    animation: macc 0.5s ease-in-out 2.5s 1 forwards;
+                    animation: macc 0.7s ease-in-out 2.5s 1 forwards;
                     opacity: 0;
 
                     &::after {
@@ -1391,7 +1391,7 @@
 
     @keyframes slideOut {
         0% {
-            transform: translateX(50vw);
+            transform: translateX(100vw);
             opacity: 0;
         }
         to {
