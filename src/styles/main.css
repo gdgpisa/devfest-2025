@@ -1259,7 +1259,7 @@
                     font-weight: bold;
                     white-space: nowrap;
 
-                    animation: macc 0.7s ease-in-out 2.25s 1 forwards;
+                    animation: macc 0.7s ease-in-out calc(2.25s - 0.7s + 0.5s) 1 forwards;
                     opacity: 0;
 
                     &::after {
