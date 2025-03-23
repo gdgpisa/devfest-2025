@@ -1227,13 +1227,16 @@
                     position: absolute;
                     top: -40px;
                     left: 50%;
-                    transform: translateX(-50%);
+                    /*transform: translateX(-50%);*/
                     background: var(--red-500);
                     color: white;
                     padding: 5px 10px;
                     border-radius: 4px;
                     font-weight: bold;
                     white-space: nowrap;
+
+                    animation: macc 1s ease-in-out 2.5s 1 forwards;
+                    opacity: 0;
 
                     &::after {
                         content: '';
@@ -1282,7 +1285,12 @@
             height: var(--radius);
             background: rgba(234, 67, 53, 0.3);
             border-radius: 50%;
-            animation: pulsate 4s infinite ease-in-out;
+            animation: 
+                first-pulse 2s ease-out 3s 1,
+                pulsate 4s infinite ease-in-out 5s;
+            /*opacity: 0;*/
+            animation-fill-mode: forwards;
+            will-change: transform;
         }
 
         .map-landmark {
@@ -1328,9 +1336,19 @@
             transform: scale(3);
         }
         65% {
-            transform: scale(4.5);
+            transform: scale(6);
             opacity: 1;
         }
+        to {
+            transform: scale(3);
+        }
+    }
+
+    @keyframes first-pulse {
+        0% {
+            transform: scale(1);
+        }
+        
         to {
             transform: scale(3);
         }
@@ -1363,6 +1381,17 @@
             opacity: 0;
         }
         to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes macc {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1) translateX(-50%);
             opacity: 1;
         }
     }
