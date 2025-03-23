@@ -1187,7 +1187,7 @@
         }
 
         .location-arno {
-            background-image: url('/public/arno.svg');
+            background-image: url('/src/assets/arno.svg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
