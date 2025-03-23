@@ -1259,7 +1259,7 @@
                     font-weight: bold;
                     white-space: nowrap;
 
-                    animation: macc 0.7s ease-in-out 2.5s 1 forwards;
+                    animation: macc 0.7s ease-in-out 2.25s 1 forwards;
                     opacity: 0;
 
                     &::after {
@@ -1292,7 +1292,7 @@
             top: 70%;
             left: 38%;
 
-            animation: slideOut 2.5s ease-out forwards;
+            animation: slideOut 2.25s ease-out forwards;
             /*animation-fill-mode: forwards;*/
             will-change: transform;
             opacity: 0;
@@ -1310,8 +1310,8 @@
             background: rgba(234, 67, 53, 0.3);
             border-radius: 50%;
             animation:
-                first-pulse 2s ease-out 2.6s 1,
-                pulsate 4s infinite ease-in-out 4.6s;
+                first-pulse 2s ease-out 2.3s 1,
+                pulsate 4s infinite ease-in-out 4.3s;
             /*opacity: 0;*/
             animation-fill-mode: forwards;
             will-change: transform;
