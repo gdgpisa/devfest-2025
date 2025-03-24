@@ -1,0 +1,71 @@
+---
+import Base from '@/layouts/Base.astro'
+import { TALKS_DATA, TALKS_TIME_BLOCKS, ROOMS } from '@/lib/speakers'
+
+const startOffset = TALKS_TIME_BLOCKS[0][0]
+
+function minutes(d: Date) {
+    return d.getHours() * 60 + d.getMinutes()
+}
+---
+
+<Base>
+    <section id="schedule" class="wide">
+        <h1>Schedule</h1>
+        <div
+            class="talk-schedule"
+            style={{
+                ['--start-offset']: `${minutes(new Date(startOffset))}`,
+            }}
+        >
+            {
+                TALKS_TIME_BLOCKS.map(([blockStart, talks]) => (
+                    <div
+                        class="schedule-cell header"
+                        style={{
+                            ['--start-time']: `${minutes(new Date(blockStart))}`,
+                            ['--duration']: `${talks.reduce((acc, talk) => (acc > 0 ? Math.min(acc, talk.duration!) : talk.duration!), 0)}`,
+                        }}
+                    >
+                        <div class="text">
+                            <p>
+                                {new Date(blockStart).toLocaleTimeString('en-US', {
+                                    hour: '2-digit',
+                                    minute: '2-digit',
+                                    hour12: false,
+                                })}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+            {
+                TALKS_DATA.filter(talk => !!talk.room).map(talk => (
+                    <div
+                        class="schedule-cell"
+                        style={{
+                            ['--start-time']: `${minutes(new Date(talk.startTime!))}`,
+                            ['--duration']: `${talk.duration!}`,
+                            ['--room']: `${ROOMS.indexOf(talk.room!)}`,
+                        }}
+                    >
+                        <div class="text">
+                            <p>
+                                <strong>{talk.title}</strong>
+                            </p>
+                            <ul>
+                                {talk.speakers.map(speaker => (
+                                    <li>
+                                        <span>
+                                            {speaker.FirstName} {speaker.LastName}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+</Base>

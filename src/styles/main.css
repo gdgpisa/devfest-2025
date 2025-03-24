@@ -1241,6 +1241,44 @@
         background: #0002;
         color: #000a;
     }
+
+    .talk-schedule {
+        display: grid;
+        gap: 1rem;
+
+        /* one row is 5min */
+        grid-template-columns: auto repeat(4, 1fr);
+        grid-row: 1rem;
+        grid-auto-flow: dense;
+
+        .schedule-cell {
+            grid-column: calc(var(--room) + 2) / span 1;
+            grid-row: calc((var(--start-time, 0) - var(--start-offset)) / 5) / span calc(var(--duration, 25) / 5);
+
+            display: grid;
+
+            padding: 1rem;
+            border-radius: 1rem;
+
+            background: #fff;
+            color: #333;
+
+            border: 2px solid #333;
+
+            &:hover {
+                background: #0001;
+                box-shadow: 0.5rem 0.5rem 0 0 #0004;
+            }
+
+            &.wide {
+                grid-column: 2 / -1;
+            }
+
+            &.header {
+                grid-column: 1 / 2;
+            }
+        }
+    }
 }
 
 @layer pages {
@@ -1327,6 +1365,10 @@
         @media (width < 768px) {
             padding: 1.5rem 1rem;
         }
+    }
+
+    #schedule {
+        padding: 3rem 1rem;
     }
 }
 
