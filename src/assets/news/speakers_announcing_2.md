@@ -1,5 +1,5 @@
 ---
-title: Announcing Our First Amazing Speakers! 🎉
+title: Announcing Our Next Amazing Speakers! 🎉
 date: 2025-03-27
 ---
 
@@ -27,8 +27,6 @@ Don't miss this opportunity! ⏰
 
 The complete agenda is almost ready! 📋 We're finalizing the last details to offer you an unforgettable experience! 🤩
 
-If you love what we're organizing, please share this amazing lineup with your friends and colleagues! ❤️📲 Help us spread the word!
-
 <a role="button" class="large width-fit margin-auto" target="_blank" href="https://www.eventbrite.it/e/gdg-devfest-pisa-2025-tickets-1205952308819">
     Get your Ticket
 </a>
@@ -38,5 +36,7 @@ If you love what we're organizing, please share this amazing lineup with your fr
 </a>
 
 See you soon at DevFest Pisa 2025! 🎊
+
+DevFest Pisa Team 💻❤️
 
 ***#DevFestPisa #GDG #TechCommunity #Developers #IWD #WTM #GDGPisa***
