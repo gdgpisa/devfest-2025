@@ -13,7 +13,6 @@ We're thrilled to introduce more incredible speakers 🌟 who will join us on st
 #### We're delighted to welcome these fantastic professionals to our stage:
 
 - **Mirko Raimo**, GDG Firenze Organizer | Software Developer @ Alten - ***Flutter and Game Development: Where to Begin?*** - *talk language 🇬🇧*
-- **Mariagiovanna Rotundo**, Ph.D. student @ University of Pisa | Lead @ GDG and WTM Pisa | WTM Ambassador - ***What happens to your privacy when data are moved on cloud?*** - *talk language 🇬🇧*
 - **Ivan Venuti**,  Docente di informatica nella scuola secondaria di secondo grado - ***Service Design e accessibilità per i siti Web*** - *talk language 🇮🇹*
 - **Fabio Catinella**, Senior Android Developer @ VarGroup - ***Your app at a Glance: App Widgets in Compose*** - *talk language 🇬🇧*
 - **Anna Bernasconi**, Dipartimento di Informatica @ Università di Pisa - ***Problemi NP-hard e come affrontarli*** - *talk language 🇮🇹*
