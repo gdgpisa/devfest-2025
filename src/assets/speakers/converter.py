@@ -17,15 +17,15 @@ def xlsx_to_json(input_file, output_file):
         df = pd.read_excel(input_file, sheet_name=None)  # Read all sheets
 
         if len(df) == 1:
-            data = list(df.values())[0].fillna(None).applymap(
+            data = list(df.values())[0].fillna("unknown").map(
                 serialize_datetime).to_dict(orient='records')
         else:
             data = {
-                sheet: df[sheet].fillna(None).applymap(serialize_datetime).to_dict(orient='records') for sheet in df
+                sheet: df[sheet].fillna("unknown").map(serialize_datetime).to_dict(orient='records') for sheet in df
             }
 
         with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
+            json.dump(data, f, indent=2, ensure_ascii=False)
 
         print(f"Conversion successful: {output_file}")
     except Exception as e:

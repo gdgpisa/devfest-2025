@@ -30,7 +30,9 @@ export const TALKS_DATA = Object.entries(
             : [[companyWebsite, speakers] as [string, Speaker[]]],
     )
     // at this point we have a list of pairs of [label, speakers] for each talk
-    .map(([_label, speakers]) => {
+    .map(([label, speakers]) => {
+        console.log(`Processing "${label}"...`)
+
         // extract the first valid title from the speakers (in a collab, only one has the title)
         const title = speakers.filter(speaker => speaker['Title'] !== 'unknown')[0]['Title']
 
@@ -67,7 +69,9 @@ export const TALKS_DATA = Object.entries(
 
 for (const talk of TALKS_DATA) {
     console.log(`> ${talk.title} (${talk.id})`)
+    console.log(`  Info: [${talk.category}] [${talk.language}]`)
     for (const speaker of talk.speakers) {
         console.log(`  - ${speaker['FirstName']} ${speaker['LastName']} @${speaker.id}`)
     }
+    console.log('')
 }
