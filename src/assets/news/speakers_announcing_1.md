@@ -22,7 +22,7 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 - **Fulvio Denza**, Software Engineer @ Civo - ***Extending Kubernetes: Building torproxy for Anonymous Container Communication*** - *talk language 🇬🇧*
 - **Gregorio Palamà**, Google Cloud Innovator Champion | Mia-Platform Expert | Senior Enterprise Architect @ Adesso | Community Manager @ GDG Pescara - ***Come racconterò Kubernetes a mia figlia*** - *talk language 🇮🇹*
 - **Jennifer D. Daniel**, PhD Researcher, University of Bristol - ***Breaking Free from the Need for Male Approval in Professional Growth*** - *talk language 🇬🇧*
-- **Juna Salviati**, GDG Roma - ***Pixel e Particelle: quando l’arte generativa incontra il Quantum Computing*** - *talk language 🇬🇧*
+- **Juna Salviati**, GDG Roma - ***Pixel and Particles: Generative Art meets Quantum Computing*** - *talk language 🇬🇧*
 - **Mike van der Bijl**, DevSecOps Expert @ Scyon - ***Sailing the Waters using UI/UX Reinforced by Security*** - *talk language 🇬🇧*
 - **Nicola Corti**, Kotlin GDE - Android @ React - ***What I learned from Five Years of Advent of Code in Kotlin*** - *talk language 🇬🇧*
 - **Rowdy Rabouw**, Front-End Focused Senior DevOps Engineer - ***Beats in the Browser: Coding Music with JavaScript*** - *talk language 🇬🇧*
