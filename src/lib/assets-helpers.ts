@@ -19,12 +19,18 @@ export const unifyImages = (
 
     const imageDict: Record<string, ImageMetadata> = Object.fromEntries(
         imageModules.map(image => {
-            const name = image.default.src.split('/').at(-1)?.split('?').at(0)
-            if (!name) {
+            const ext = image.default.src.split('?')[0].split('.').at(-1)
+            const name = image.default.src.split('/').at(-1)?.split('?').at(0)?.split('.').at(0)
+
+            const logoShortPath = name + '.' + ext
+
+            console.log(`- ${logoShortPath} (${image.default.src})`)
+
+            if (!logoShortPath) {
                 console.warn(`Image name not found for ${image.default.src}`)
             }
 
-            return [name, image.default]
+            return [logoShortPath, image.default]
         }),
     )
 
