@@ -2,8 +2,9 @@
 import Base from '@/layouts/Base.astro'
 
 import { ScheduleSection } from '@/components/preact/ScheduleSection'
+import { TALKS } from '@/lib/sessionize'
 ---
 
 <Base>
-    <ScheduleSection client:only />
+    <ScheduleSection client:only talks={TALKS} />
 </Base>

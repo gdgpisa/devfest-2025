@@ -208,6 +208,21 @@
             border-radius: 10rem;
         }
 
+        &.chip {
+            border-radius: 10rem;
+            border: none;
+            box-shadow: none;
+            transform: none;
+
+            background: #0002;
+
+            &:hover {
+                background-color: #0004;
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
         &:where(:has(> [data-icon]:first-child)) {
             padding-left: calc(var(--internal-size) / 3);
         }
@@ -1262,7 +1277,7 @@
 
         .schedule-cell {
             grid-column: calc(var(--room) + 2) / span 1;
-            grid-row: calc((var(--start-time, 0) - var(--start-offset)) / 5 + 1) / span calc(var(--duration, 25) / 5);
+            grid-row: calc((var(--start-time, 0) - var(--start-offset)) / 5 + 2) / span calc(var(--duration, 25) / 5);
 
             display: grid;
             align-content: start;
@@ -1286,8 +1301,17 @@
                 grid-column: 2 / -1;
             }
 
-            &.header {
+            &.header-row {
                 grid-column: 1 / 2;
+            }
+
+            &.header-column {
+                grid-row: 1 / 2;
+
+                display: grid;
+                grid-template-rows: auto;
+                place-content: center;
+                place-items: center;
             }
 
             &.interactive {
@@ -1321,6 +1345,11 @@
 
             > .metadata {
                 grid-column: 1 / -1;
+
+                display: flex;
+                align-content: start;
+                flex-wrap: wrap;
+                gap: 0.5rem;
             }
 
             > .actions {
@@ -1353,10 +1382,15 @@
 
         @media (width < 1000px) {
             gap: 0.5rem;
+            font-size: 70%;
 
             .schedule-cell {
                 padding: 0.75rem;
                 border-radius: 0.75rem;
+
+                &.selected {
+                    padding: calc(0.75rem - 1px);
+                }
             }
         }
     }
@@ -1450,10 +1484,71 @@
 
     #schedule {
         padding: 3rem 1rem;
+        gap: 4rem;
 
         --schedule-accent: var(--pastel-yellow);
 
         background: hsl(from var(--schedule-accent) h s calc(l + 10));
+
+        .schedule-filters {
+            place-self: center;
+
+            display: grid;
+            gap: 0.25rem 2rem;
+
+            grid-template-columns: auto auto;
+
+            background: hsl(from var(--schedule-accent) h calc(s - 70) calc(l));
+            padding: 1rem;
+            border-radius: 1rem;
+            border: 2px solid #333;
+
+            box-shadow: 0.5rem 0.5rem 0 0 #0004;
+
+            > .title {
+                grid-column: 1 / -1;
+
+                font-size: 28px;
+
+                display: grid;
+                grid-auto-flow: column;
+                align-items: center;
+                justify-content: start;
+            }
+
+            > .subtitle {
+                grid-row: 2;
+
+                font-size: 22px;
+                font-weight: bold;
+                color: #444;
+            }
+
+            > .filter-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                place-content: start;
+                gap: 0.5rem;
+
+                padding: 3px;
+                border-radius: calc(1rem + 3px);
+                border: 1px solid #0004;
+                /* background: #fff2; */
+                box-shadow: 2px 2px 0 0 #0004;
+
+                > .selected {
+                    background: #0005;
+                }
+            }
+        }
+
+        * {
+            transition: opacity 100ms ease-out;
+        }
+
+        .hidden {
+            opacity: 0.33;
+        }
     }
 }
 
