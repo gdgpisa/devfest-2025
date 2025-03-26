@@ -16,7 +16,7 @@ We're thrilled to introduce more incredible speakers 🌟 who will join us on st
 - **Ivan Venuti**,  Docente di informatica nella scuola secondaria di secondo grado - ***Service Design e accessibilità per i siti Web*** - *talk language 🇮🇹*
 - **Fabio Catinella**, Senior Android Developer @ VarGroup - ***Your app at a Glance: App Widgets in Compose*** - *talk language 🇬🇧*
 - **Anna Bernasconi**, Dipartimento di Informatica @ Università di Pisa - ***Problemi NP-hard e come affrontarli*** - *talk language 🇮🇹*
-- **Antonio Cangialosi**, Big Data Engineer @ Agile Lab - ***OTEL: How I Learned to Stop Worrying and Love My Microservices*** - *talk language 🇬🇧*
+- **Antonino Cangialosi**, Big Data Engineer @ Agile Lab - ***OTEL: How I Learned to Stop Worrying and Love My Microservices*** - *talk language 🇬🇧*
 - **Luca Corbucci**, Ph.D. candidate in Computer Science | podcaster and community manager - ***AI’s Hidden Cost: The Environmental Impact of Machine Learning*** - *talk language 🇬🇧*
 - **Federico Paolinelli**, Senior Principal Software Engineer @ Red Hat- ***How to give your first Talk without freaking out*** - *talk language 🇬🇧*
 - **Donatella Pasquale & Federico Matteoni**, Mobile app developers @ Garmin Italy Technologies SRL- ***A journey through the making of a new mobile app feature: from the idea to the customer*** - *talk language 🇬🇧*
