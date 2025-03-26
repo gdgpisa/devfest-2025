@@ -96,11 +96,44 @@ export const TALKS: Talk[] = rawSessions.map(session => {
     }
 })
 
+export const TALKS_TIME_BLOCKS = Object.entries(
+    TALKS.reduce<Record<string, Talk[]>>((acc, talk) => {
+        if (!talk.startTime || !talk.duration) {
+            return acc
+        }
+        const startTime = talk.startTime.toISOString()
+        if (!acc[startTime]) {
+            acc[startTime] = []
+        }
+        acc[startTime].push(talk)
+        return acc
+    }, {}),
+).sort(([a], [b]) => a.localeCompare(b))
+
+export const ROOMS = [...new Set(TALKS.map(talk => talk.room).filter(room => room !== 'unknown'))]
+
+// Debug
+
+console.log('Speakers:')
 for (const talk of TALKS) {
     console.log(`> ${talk.title} (${talk.id})`)
-    console.log(`  [${talk.category}] [${talk.language}] [${talk.room}]`)
+    console.log(`  [${talk.category}] [${talk.language}] [${talk.room}] [${talk.startTime.toISOString()}]`)
     for (const speaker of talk.speakers) {
         console.log(`  - ${speaker.firstName} ${speaker.lastName} @${speaker.id}`)
     }
     console.log('')
+}
+
+// Rooms
+console.log('Rooms:')
+for (const room of ROOMS) {
+    console.log(`> ${room}`)
+}
+
+console.log('Scheduled Talks:')
+for (const [date, talks] of TALKS_TIME_BLOCKS) {
+    console.log(`> ${date}`)
+    for (const talk of talks) {
+        console.log(`  - ${talk.title}`)
+    }
 }

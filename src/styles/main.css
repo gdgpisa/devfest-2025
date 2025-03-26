@@ -1266,17 +1266,22 @@
 
             border: 2px solid #333;
 
-            &:hover {
-                background: #0001;
-                box-shadow: 0.5rem 0.5rem 0 0 #0004;
-            }
-
             &.wide {
                 grid-column: 2 / -1;
             }
 
             &.header {
                 grid-column: 1 / 2;
+            }
+
+            &:not(.header) {
+                cursor: pointer;
+
+                &:hover {
+                    background: #0001;
+                    box-shadow: 0.25rem 0.25rem 0 0 #0004;
+                    transform: translate(-0.25rem, -0.25rem);
+                }
             }
         }
     }

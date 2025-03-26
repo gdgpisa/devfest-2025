@@ -1,6 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro'
-import { TALKS_DATA, TALKS_TIME_BLOCKS, ROOMS } from '@/lib/speakers'
+import { TALKS, TALKS_TIME_BLOCKS, ROOMS } from '@/lib/sessionize'
 
 const startOffset = TALKS_TIME_BLOCKS[0][0]
 
@@ -19,12 +19,20 @@ function minutes(d: Date) {
             }}
         >
             {
-                TALKS_TIME_BLOCKS.map(([blockStart, talks]) => (
+                TALKS_TIME_BLOCKS.map(([blockStart, talks], i) => (
                     <div
                         class="schedule-cell header"
                         style={{
                             ['--start-time']: `${minutes(new Date(blockStart))}`,
-                            ['--duration']: `${talks.reduce((acc, talk) => (acc > 0 ? Math.min(acc, talk.duration!) : talk.duration!), 0)}`,
+                            ['--duration']: `${Math.min(
+                                talks.reduce(
+                                    (acc, talk) => (acc > 0 ? Math.min(acc, talk.duration!) : talk.duration!),
+                                    0,
+                                ),
+                                TALKS_TIME_BLOCKS[i + 1]
+                                    ? minutes(new Date(TALKS_TIME_BLOCKS[i + 1][0])) - minutes(new Date(blockStart))
+                                    : Infinity,
+                            )}`,
                         }}
                     >
                         <div class="text">
@@ -40,7 +48,7 @@ function minutes(d: Date) {
                 ))
             }
             {
-                TALKS_DATA.filter(talk => !!talk.room).map(talk => (
+                TALKS.filter(talk => !!talk.room).map(talk => (
                     <div
                         class="schedule-cell"
                         style={{
@@ -57,7 +65,7 @@ function minutes(d: Date) {
                                 {talk.speakers.map(speaker => (
                                     <li>
                                         <span>
-                                            {speaker.FirstName} {speaker.LastName}
+                                            {speaker.firstName} {speaker.lastName}
                                         </span>
                                     </li>
                                 ))}
