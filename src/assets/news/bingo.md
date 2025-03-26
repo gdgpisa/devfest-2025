@@ -41,7 +41,7 @@ Collect all the stamps from the Diamond and Platinum sponsors present at the eve
 4. With the final GDG Pisa stamp, you will have completed the BINGO!
 
 ### Prize:
-Participants who complete the BINGO will be entitled to a "secret draw" to win unique and exclusive DevFest Pisa 2025 gadgets. ✨
+Participants who complete the BINGO will be entitled to a "secret draw" to get unique and exclusive DevFest Pisa 2025 gadgets. ✨
 
 ### Notes:
 - The Bingo is valid only for the duration of the DevFest Pisa 2025 event. ️
