@@ -1,5 +1,5 @@
-import rawSessions, { type RawSession } from '@/assets/speakers/sessions.json'
-import rawSpeakers, { type RawSpeaker } from '@/assets/speakers/speakers.json'
+import rawSessions from '@/assets/speakers/sessions.json'
+import rawSpeakers from '@/assets/speakers/speakers.json'
 
 export type Speaker = {
     id: string
@@ -136,4 +136,9 @@ for (const [date, talks] of TALKS_TIME_BLOCKS) {
     for (const talk of talks) {
         console.log(`  - ${talk.title}`)
     }
+}
+
+console.log('Speaker Pictures:')
+for (const speaker of SPEAKERS) {
+    console.log(`${speaker.id}: ${speaker.profilePicture}`)
 }

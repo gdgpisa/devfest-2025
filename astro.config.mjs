@@ -7,6 +7,8 @@ import { join, dirname } from 'path'
 
 import icon from 'astro-icon'
 
+import preact from '@astrojs/preact';
+
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 // https://astro.build/config
@@ -24,5 +26,5 @@ export default defineConfig({
         plugins: [yaml()],
     },
 
-    integrations: [icon()],
+    integrations: [icon(), preact()],
 })
