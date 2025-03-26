@@ -35,28 +35,28 @@ const ROOMS = ['Aula magna', 'IWD', 'seconda aula talk', 'terza aula talks']
 const EXTRA_EVENTS = [
     {
         title: 'Breakfast',
-        startTime: new Date(startOffset).setHours(8, 30),
+        startTime: new Date(new Date(startOffset).setHours(8, 30)),
         duration: 60,
     },
     {
         title: 'Opening Keynote',
-        startTime: new Date(startOffset).setHours(9, 30),
+        startTime: new Date(new Date(startOffset).setHours(9, 30)),
         duration: 30,
         room: 'Aula magna',
     },
     {
         title: 'Lunch',
-        startTime: new Date(startOffset).setHours(12, 40),
+        startTime: new Date(new Date(startOffset).setHours(12, 40)),
         duration: 80,
     },
     {
         title: 'Coffee Break',
-        startTime: new Date(startOffset).setHours(16, 30),
+        startTime: new Date(new Date(startOffset).setHours(16, 30)),
         duration: 30,
     },
     {
         title: 'Closing Keynote',
-        startTime: new Date(startOffset).setHours(18, 40),
+        startTime: new Date(new Date(startOffset).setHours(18, 40)),
         duration: 20,
         room: 'Aula magna',
     },
@@ -174,7 +174,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
             >
                 {TIME_LABELS.map(time => (
                     <div
-                        class="schedule-cell header-row"
+                        class="schedule-cell header-row desktop-only"
                         style={{
                             ['--start-time']: `${minutes(time.startTime)}`,
                             ['--duration']: `${time.duration}`,
@@ -194,7 +194,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
 
                 {ROOMS.map(room => (
                     <div
-                        class="schedule-cell header-column"
+                        class="schedule-cell header-column desktop-only"
                         style={{
                             ['--room']: `${ROOMS.indexOf(room)}`,
                         }}
@@ -203,83 +203,107 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                     </div>
                 ))}
 
-                {talks
-                    .filter(talk => !!talk.room)
-                    .map(talk => (
-                        <a
-                            class={clsx('schedule-cell', 'interactive', {
-                                selected: selectedTalks.includes(talk.id),
-                                hidden:
-                                    (selectedCategory && talk.category !== selectedCategory) ||
-                                    (selectedLevel && talk.level !== selectedLevel),
-                            })}
-                            style={{
-                                ['--start-time']: `${minutes(new Date(talk.startTime!))}`,
-                                ['--duration']: `${talk.duration!}`,
-                                ['--room']: `${ROOMS.indexOf(talk.room!)}`,
-                            }}
-                            href={`/talk/${talk.id}`}
-                        >
-                            <div class="title">{talk.title}</div>
-
-                            <div class="metadata">
-                                <div class="chip">{talk.category}</div>
-                                <div class="chip">{talk.level}</div>
-                            </div>
-
-                            <div class="actions">
-                                <button
-                                    class="flat square rounded"
-                                    onClick={e => {
-                                        e.preventDefault()
-
-                                        setSelectedTalks(
-                                            selectedTalks.includes(talk.id)
-                                                ? selectedTalks.filter(id => id !== talk.id)
-                                                : [...selectedTalks, talk.id],
-                                        )
+                {[
+                    ...talks
+                        .filter(talk => !!talk.room)
+                        .sort((a, b) => a.startTime!.getTime() - b.startTime!.getTime())
+                        .map(talk => ({
+                            startTime: talk.startTime!,
+                            element: (
+                                <a
+                                    class={clsx('schedule-cell', 'interactive', {
+                                        selected: selectedTalks.includes(talk.id),
+                                        hidden:
+                                            (selectedCategory && talk.category !== selectedCategory) ||
+                                            (selectedLevel && talk.level !== selectedLevel),
+                                    })}
+                                    style={{
+                                        ['--start-time']: `${minutes(new Date(talk.startTime!))}`,
+                                        ['--duration']: `${talk.duration!}`,
+                                        ['--room']: `${ROOMS.indexOf(talk.room!)}`,
                                     }}
+                                    href={`/talk/${talk.id}`}
                                 >
-                                    {selectedTalks.includes(talk.id) ? (
-                                        <MaterialSymbolsBookmarkCheckOutlineRounded />
-                                    ) : (
-                                        <MaterialSymbolsBookmarkAddOutlineRounded />
-                                    )}
-                                </button>
-                            </div>
+                                    <div class="title">{talk.title}</div>
 
-                            <div class="speakers">
-                                {talk.speakers.map(speaker => (
-                                    <>
-                                        <div class="text">
-                                            {speaker.firstName} {speaker.lastName}
+                                    <div class="metadata">
+                                        <div class="chip mobile-only">
+                                            {talk.startTime?.toLocaleTimeString('en-US', {
+                                                hour: '2-digit',
+                                                minute: '2-digit',
+                                                hour12: false,
+                                            })}
                                         </div>
-                                        <img
-                                            src={speaker.profilePicture}
-                                            alt={`${speaker.firstName} ${speaker.lastName}`}
-                                        />
-                                    </>
-                                ))}
-                            </div>
-                        </a>
-                    ))}
+                                        <div class="chip mobile-only">{talk.room}</div>
+                                        <div class="chip">{talk.category}</div>
+                                        <div class="chip">{talk.level}</div>
+                                        <div class="chip mobile-only">{talk.duration}min</div>
+                                    </div>
 
-                {EXTRA_EVENTS.map(event => (
-                    <div
-                        class="schedule-cell wide"
-                        style={{
-                            ['--start-time']: `${minutes(new Date(event.startTime))}`,
-                            ['--duration']: `${event.duration}`,
-                        }}
-                    >
-                        <div class="title">{event.title}</div>
-                        {event.room && (
-                            <div class="metadata">
-                                <div class="chip">{event.room}</div>
+                                    <div class="actions">
+                                        <button
+                                            class="flat square rounded"
+                                            onClick={e => {
+                                                e.preventDefault()
+
+                                                setSelectedTalks(
+                                                    selectedTalks.includes(talk.id)
+                                                        ? selectedTalks.filter(id => id !== talk.id)
+                                                        : [...selectedTalks, talk.id],
+                                                )
+                                            }}
+                                        >
+                                            {selectedTalks.includes(talk.id) ? (
+                                                <MaterialSymbolsBookmarkCheckOutlineRounded />
+                                            ) : (
+                                                <MaterialSymbolsBookmarkAddOutlineRounded />
+                                            )}
+                                        </button>
+                                    </div>
+
+                                    <div class="speakers">
+                                        {talk.speakers.map(speaker => (
+                                            <>
+                                                <div class="text">
+                                                    {speaker.firstName} {speaker.lastName}
+                                                </div>
+                                                <img
+                                                    src={speaker.profilePicture}
+                                                    alt={`${speaker.firstName} ${speaker.lastName}`}
+                                                />
+                                            </>
+                                        ))}
+                                    </div>
+                                </a>
+                            ),
+                        })),
+                    ...EXTRA_EVENTS.map(event => ({
+                        startTime: event.startTime,
+                        element: (
+                            <div
+                                class="schedule-cell wide"
+                                style={{
+                                    ['--start-time']: `${minutes(new Date(event.startTime))}`,
+                                    ['--duration']: `${event.duration}`,
+                                }}
+                            >
+                                <div class="title">{event.title}</div>
+                                <div class="metadata">
+                                    <div class="chip mobile-only">
+                                        {event.startTime.toLocaleTimeString('en-US', {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                            hour12: false,
+                                        })}
+                                    </div>
+                                    {event.room && <div class="chip">{event.room}</div>}
+                                </div>
                             </div>
-                        )}
-                    </div>
-                ))}
+                        ),
+                    })),
+                ]
+                    .sort((a, b) => a.startTime.getTime() - b.startTime.getTime())
+                    .map(({ element }) => element)}
             </div>
         </section>
     )
