@@ -4,15 +4,15 @@ import Base from '@/layouts/Base.astro'
 
 import gdeBannerImage from '@/assets/gde-banner.png'
 
-import { TALKS_DATA } from '@/lib/speakers'
+import { TALKS } from '@/lib/sessionize'
 
 export const getStaticPaths = (() => {
-    return TALKS_DATA.map(entry => ({
+    return TALKS.map(talk => ({
         params: {
-            id: entry.id,
+            id: talk.id,
         },
         props: {
-            talk: entry,
+            talk,
         },
     }))
 }) satisfies GetStaticPaths
@@ -30,14 +30,9 @@ const { talk } = Astro.props
                 {
                     talk.speakers.map(speaker => (
                         <div class="speaker">
-                            {/* <img src={speaker['Profile Picture']} alt={speaker.FirstName + ' ' + speaker.LastName} /> */}
-
                             <div class="picture">
-                                <img
-                                    src={speaker['Profile Picture']}
-                                    alt={speaker.FirstName + ' ' + speaker.LastName}
-                                />
-                                {speaker['Are you a Google employee or GDE?'].includes('Yes') && (
+                                <img src={speaker.profilePicture} alt={speaker.firstName + ' ' + speaker.lastName} />
+                                {speaker.isGDE && (
                                     <div class="gde-banner">
                                         <img src={gdeBannerImage.src} />
                                     </div>
@@ -47,11 +42,11 @@ const { talk } = Astro.props
                             <div class="info">
                                 <div class="name">
                                     <h3>
-                                        {speaker['FirstName']} {speaker['LastName']}
+                                        {speaker.firstName} {speaker.lastName}
                                     </h3>
                                 </div>
                                 <div class="tag-line">
-                                    <div class="text">{speaker['TagLine']}</div>
+                                    <div class="text">{speaker.tagLine}</div>
                                 </div>
                             </div>
 
@@ -72,9 +67,6 @@ const { talk } = Astro.props
                 <div class="metadata">
                     <div class="chip">
                         {talk.category}
-                    </div>
-                    <div class="chip">
-                        {talk.language}
                     </div>
                 </div>
 

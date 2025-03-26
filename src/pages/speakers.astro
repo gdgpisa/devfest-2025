@@ -4,7 +4,19 @@ import { Icon } from 'astro-icon/components'
 
 import gdeBannerImage from '@/assets/gde-banner.png'
 
-import { TALKS_DATA } from '@/lib/speakers'
+import { TALKS } from '@/lib/sessionize'
+
+function uniqueBy<T, S>(array: T[], key: (item: T) => S): T[] {
+    const seen = new Set<S>()
+    return array.filter(item => {
+        const k = key(item)
+        if (seen.has(k)) {
+            return false
+        }
+        seen.add(k)
+        return true
+    })
+}
 ---
 
 <Base>
@@ -14,33 +26,41 @@ import { TALKS_DATA } from '@/lib/speakers'
                 <h1>Speakers</h1>
             </div>
             {
-                TALKS_DATA.flatMap(talk =>
-                    talk.speakers.map(speaker => ({
-                        talkId: talk.id,
-                        speaker,
-                    })),
-                )
-                    .sort((a, b) => a.speaker.LastName.localeCompare(b.speaker.LastName))
-                    .map(({ talkId, speaker }) => (
-                        <a class="person interactive" href={`/talk/${talkId}`}>
-                            <div class="picture">
-                                <img
-                                    src={speaker['Profile Picture']}
-                                    alt={speaker.FirstName + ' ' + speaker.LastName}
-                                />
-                                {speaker['Are you a Google employee or GDE?'].includes('Yes') && (
-                                    <div class="gde-banner">
-                                        <img src={gdeBannerImage.src} />
-                                    </div>
-                                )}
-                            </div>
+                // finally we deduplicate all the speakers giving priority to
+                // the talks when the speaker is the main speaker
+                uniqueBy(
+                    [
+                        // first add the main speaker of each talk
+                        ...TALKS.map(talk => ({
+                            talk,
+                            speaker: talk.speakers[0],
+                        })),
+                        // then add the other speakers of each talk
+                        ...TALKS.flatMap(talk =>
+                            talk.speakers.slice(1).map(speaker => ({
+                                talk,
+                                speaker,
+                            })),
+                        ),
+                    ].sort((a, b) => a.speaker.lastName.localeCompare(b.speaker.lastName)),
+                    ({ speaker }) => speaker.id,
+                ).map(({ talk, speaker }) => (
+                    <a class="person interactive" href={`/talk/${talk.id}`}>
+                        <div class="picture">
+                            <img src={speaker.profilePicture} alt={speaker.firstName + ' ' + speaker.lastName} />
+                            {speaker.isGDE && (
+                                <div class="gde-banner">
+                                    <img src={gdeBannerImage.src} />
+                                </div>
+                            )}
+                        </div>
 
-                            <h3>{speaker.FirstName}</h3>
-                            <h3>{speaker.LastName}</h3>
+                        <h3>{speaker.firstName}</h3>
+                        <h3>{speaker.lastName}</h3>
 
-                            <p>{speaker.Title}</p>
-                        </a>
-                    ))
+                        <p>{talk.title}</p>
+                    </a>
+                ))
             }
         </div>
     </section>
