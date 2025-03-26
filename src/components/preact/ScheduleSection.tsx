@@ -24,43 +24,11 @@ export function getTalkTimeBlocks(talks: Talk[]) {
     ).sort(([a], [b]) => a.localeCompare(b))
 }
 
-const startOffset = new Date('2025-04-12').setHours(8, 30)
-
 function minutes(d: Date) {
     return d.getHours() * 60 + d.getMinutes()
 }
 
 const ROOMS = ['Aula magna', 'IWD', 'seconda aula talk', 'terza aula talks']
-
-const EXTRA_EVENTS = [
-    {
-        title: 'Breakfast',
-        startTime: new Date(new Date(startOffset).setHours(8, 30)),
-        duration: 60,
-    },
-    {
-        title: 'Opening Keynote',
-        startTime: new Date(new Date(startOffset).setHours(9, 30)),
-        duration: 30,
-        room: 'Aula magna',
-    },
-    {
-        title: 'Lunch',
-        startTime: new Date(new Date(startOffset).setHours(12, 40)),
-        duration: 80,
-    },
-    {
-        title: 'Coffee Break',
-        startTime: new Date(new Date(startOffset).setHours(16, 30)),
-        duration: 30,
-    },
-    {
-        title: 'Closing Keynote',
-        startTime: new Date(new Date(startOffset).setHours(18, 40)),
-        duration: 20,
-        room: 'Aula magna',
-    },
-]
 
 export function useLocalStorageState<T>(key: string, initialValue: T): [T, Dispatch<StateUpdater<T>>] {
     const [storedValue, setStoredValue] = useState<T>(() => {
@@ -102,6 +70,38 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
     const levels = useMemo(() => [...new Set(talks.map(talk => talk.level))], [talks])
 
     const talkTimeBlocks = useMemo(() => getTalkTimeBlocks(talks), [talks])
+
+    const startOffset = new Date('2025-04-12').setHours(8, 30)
+
+    const EXTRA_EVENTS = [
+        {
+            title: 'Breakfast',
+            startTime: new Date(new Date(startOffset).setHours(8, 30)),
+            duration: 60,
+        },
+        {
+            title: 'Opening Keynote',
+            startTime: new Date(new Date(startOffset).setHours(9, 30)),
+            duration: 30,
+            room: 'Aula magna',
+        },
+        {
+            title: 'Lunch',
+            startTime: new Date(new Date(startOffset).setHours(12, 40)),
+            duration: 80,
+        },
+        {
+            title: 'Coffee Break',
+            startTime: new Date(new Date(startOffset).setHours(16, 30)),
+            duration: 30,
+        },
+        {
+            title: 'Closing Keynote',
+            startTime: new Date(new Date(startOffset).setHours(18, 40)),
+            duration: 20,
+            room: 'Aula magna',
+        },
+    ]
 
     const TIME_LABELS = [
         ...talkTimeBlocks.map(([blockStart, talks], i) => ({
