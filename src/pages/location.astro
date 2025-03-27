@@ -1,6 +1,9 @@
 ---
 import Base from '@/layouts/Base.astro'
 import { Icon } from 'astro-icon/components'
+
+import { Image } from 'astro:assets';
+import macc from '@/assets/macc-pisa.jpg';
 ---
 
 <Base>
@@ -60,7 +63,7 @@ import { Icon } from 'astro-icon/components'
                     gather, learn, and network.
                 </p>
                 <div class="image-window">
-                    <img src="/src/assets/macc-pisa.jpg" alt="MACC - Meeting Art Craft Center" />
+                    <Image src={macc} alt="MACC - Meeting Art Craft Center" />
                 </div>
                 <p>
                     The venue is easily accessible by public transportation and is within walking distance from many of
