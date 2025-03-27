@@ -91,6 +91,10 @@
         &:has(#news) {
             background: #f0f0f0;
         }
+
+        &:has(#iwd-hero) {
+            background: var(--iwd-blue);
+        }
     }
 
     strong {
@@ -518,6 +522,8 @@
     }
 
     #stats {
+        background: white;
+
         .card {
             position: relative;
 
@@ -554,9 +560,12 @@
 
     #past-editions {
         --gap: 3rem;
+        background: white;
     }
 
     #gallery {
+        background: white;
+
         @media (max-width: 768px) {
             display: none;
         }
@@ -564,6 +573,7 @@
 
     #sponsors {
         --gap: 2rem;
+        background: white;
     }
 
     #news {
@@ -1066,6 +1076,7 @@
     }
 
     #iwd-theme {
+        background: white;
         [role='button'] {
             color: #333 !important;
         }
