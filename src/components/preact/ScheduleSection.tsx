@@ -14,11 +14,11 @@ export function getTalkTimeBlocks(talks: Talk[]) {
             if (!talk.startTime || !talk.duration) {
                 return acc
             }
-            const startTime = talk.startTime.toISOString()
-            if (!acc[startTime]) {
-                acc[startTime] = []
+
+            if (!acc[talk.startTime]) {
+                acc[talk.startTime] = []
             }
-            acc[startTime].push(talk)
+            acc[talk.startTime].push(talk)
             return acc
         }, {}),
     ).sort(([a], [b]) => a.localeCompare(b))
@@ -206,9 +206,9 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                 {[
                     ...talks
                         .filter(talk => !!talk.room)
-                        .sort((a, b) => a.startTime!.getTime() - b.startTime!.getTime())
+                        .sort((a, b) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime())
                         .map(talk => ({
-                            startTime: talk.startTime!,
+                            startTime: new Date(talk.startTime),
                             element: (
                                 <a
                                     class={clsx('schedule-cell', 'interactive', {
@@ -228,7 +228,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
 
                                     <div class="metadata">
                                         <div class="chip mobile-only">
-                                            {talk.startTime?.toLocaleTimeString('en-US', {
+                                            {new Date(talk.startTime).toLocaleTimeString('en-US', {
                                                 hour: '2-digit',
                                                 minute: '2-digit',
                                                 hour12: false,

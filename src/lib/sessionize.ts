@@ -21,7 +21,7 @@ export type Talk = {
     level: string
     language: string
 
-    startTime: Date
+    startTime: string
     duration: number // in minutes
 
     speakers: Speaker[]
@@ -79,7 +79,7 @@ export const TALKS: Talk[] = rawSessions.map(session => {
     const language = session['Language']
 
     const room = session['Room']
-    const startTime = new Date(session['Scheduled At'])
+    const startTime = session['Scheduled At']
     const duration = session['Scheduled Duration'] ?? 0
 
     const speakers = session['Speaker Ids'].split(', ').map(speakerId => speakerMap[speakerId])
@@ -109,7 +109,7 @@ export const ROOMS = ['Aula magna', 'IWD', 'seconda aula talk', 'terza aula talk
 console.log('Speakers:')
 for (const talk of TALKS) {
     console.log(`> ${talk.title} (${talk.id})`)
-    console.log(`  [${talk.category}] [${talk.language}] [${talk.room}] [${talk.startTime.toISOString()}]`)
+    console.log(`  [${talk.category}] [${talk.language}] [${talk.room}] [${talk.startTime}]`)
     for (const speaker of talk.speakers) {
         console.log(`  - ${speaker.firstName} ${speaker.lastName} @${speaker.id}`)
     }
