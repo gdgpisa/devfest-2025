@@ -56,6 +56,8 @@
         color: #333;
         background: #fff;
 
+        overscroll-behavior: none;
+
         /* New Item Modal Open */
         &:has(.news-item-trigger:checked) {
             overflow: hidden;
