@@ -704,8 +704,9 @@
         }
 
         > .text > p {
-            animation: slideIn 1s ease-in-out forwards,
-                       opacityIn 1s ease-in-out forwards;
+            animation:
+                slideIn 1s ease-in-out forwards,
+                opacityIn 1s ease-in-out forwards;
         }
 
         > a {
@@ -726,8 +727,9 @@
 
         z-index: 1;
 
-        animation: slideOut 1s ease-in-out forwards,
-                    opacityIn 1.5s ease-in-out forwards;
+        animation:
+            slideOut 1s ease-in-out forwards,
+            opacityIn 1.5s ease-in-out forwards;
 
         @media (width < 768px) {
             position: absolute;
@@ -1496,18 +1498,14 @@
         }
     }
 
-    .image-window {
+    #macc-image {
         border: 2px solid #333;
         border-radius: 0.5rem;
         max-width: 100%;
-        height: auto;
-
-        img {
-            width: 100%;
-            height: auto;
-            overflow: hidden;
-            border-radius: 0.33rem;
-        }
+        width: 70vh;
+        height: 40vh;
+        padding: 0;
+        object-fit: cover;
     }
 
     #location-map {

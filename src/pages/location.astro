@@ -2,8 +2,8 @@
 import Base from '@/layouts/Base.astro'
 import { Icon } from 'astro-icon/components'
 
-import { Image } from 'astro:assets';
-import macc from '@/assets/macc-pisa.jpg';
+import { Image } from 'astro:assets'
+import macc from '@/assets/macc-pisa.jpg'
 ---
 
 <Base>
@@ -62,9 +62,9 @@ import macc from '@/assets/macc-pisa.jpg';
                     in the heart of Pisa. This modern conference center provides an ideal space for our tech community to
                     gather, learn, and network.
                 </p>
-                <div class="image-window">
-                    <Image src={macc} alt="MACC - Meeting Art Craft Center" />
-                </div>
+            </div>
+            <Image id="macc-image" src={macc} alt="MACC - Meeting Art Craft Center" />
+            <div class="text">
                 <p>
                     The venue is easily accessible by public transportation and is within walking distance from many of
                     Pisa's famous attractions, including the Leaning Tower and the historical city center.
