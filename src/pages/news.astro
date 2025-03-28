@@ -43,7 +43,7 @@ for (const article of articles) {
                                 <button class="news-share-button flat square mobile-only">
                                     <Icon class="news-item-expanded" name="material-symbols:share" />
                                 </button>
-                                <label for={`news-${i + 1}`} class="button flat square">
+                                <label for={`news-${i + 1}`} class="news-share-button-close button flat square">
                                     <Icon class="news-item-not-expanded" name="material-symbols:open-in-full-rounded" />
                                     <Icon class="news-item-expanded" name="material-symbols:close" />
                                 </label>
@@ -94,6 +94,28 @@ for (const article of articles) {
                     })
                 }
             })
+        })
+
+        document.querySelectorAll('.news-share-button-close').forEach($button => {
+            $button.addEventListener('click', async e => {
+                const url = new URL(window.location.href)
+                url.searchParams.delete('item')
+
+                window.history.pushState({}, '', url.toString())
+            })
+        })
+
+        // overkill ma fa la cosa giusta in teoria
+        window.addEventListener('popstate', () => {
+            const url = new URL(window.location.href)
+            const item = url.searchParams.get('item')
+            if (item) {
+                const newsItem = document.querySelector(`[data-news-id="${item}"] .news-item-trigger`)
+                if (newsItem) {
+                    //@ts-ignore
+                    newsItem.checked = true
+                }
+            }
         })
     </script>
 </Base>
