@@ -8,6 +8,11 @@ const articles = await Promise.all(
 
 // @ts-ignore
 articles.sort((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date))
+
+for (const article of articles) {
+    // @ts-ignore
+    article.frontmatter.id = article.file.split('/').pop().split('.')[0]
+}
 ---
 
 <Base>
@@ -21,6 +26,7 @@ articles.sort((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date))
                 articles.map(({ Content, frontmatter }, i) => (
                     <div
                         class="news-item"
+                        data-news-id={frontmatter.id}
                         style={{
                             '--news-color': `hsl(${Math.random() * 360}, 100%, 50%)`,
                         }}
@@ -34,6 +40,9 @@ articles.sort((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date))
                                     id={`news-${i + 1}`}
                                     autocomplete="off"
                                 />
+                                <button class="news-share-button flat square mobile-only">
+                                    <Icon class="news-item-expanded" name="material-symbols:share" />
+                                </button>
                                 <label for={`news-${i + 1}`} class="button flat square">
                                     <Icon class="news-item-not-expanded" name="material-symbols:open-in-full-rounded" />
                                     <Icon class="news-item-expanded" name="material-symbols:close" />
@@ -56,4 +65,35 @@ articles.sort((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date))
             }
         </div>
     </section>
+    <script>
+        // ?item=<article.id>
+        const urlParams = new URLSearchParams(window.location.search)
+        const item = urlParams.get('item')
+        if (item) {
+            const newsItem = document.querySelector(`[data-news-id="${item}"] .news-item-trigger`)
+            if (newsItem) {
+                //@ts-ignore
+                newsItem.checked = true
+            }
+        }
+
+        document.querySelectorAll('.news-share-button').forEach($button => {
+            $button.addEventListener('click', async e => {
+                const newsItem = $button.closest('.news-item')
+                // @ts-ignore
+                const newsId = newsItem.getAttribute('data-news-id')
+                const url = new URL(window.location.href)
+                // @ts-ignore
+                url.searchParams.set('item', newsId)
+
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'DevFest Pisa 2025',
+                        text: 'Check out this news article!',
+                        url: url.toString(),
+                    })
+                }
+            })
+        })
+    </script>
 </Base>
