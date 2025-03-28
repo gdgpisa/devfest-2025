@@ -1,0 +1,210 @@
+---
+import Base from '@/layouts/Base.astro'
+import { Icon } from 'astro-icon/components'
+
+import { Image } from 'astro:assets'
+import macc from '@/assets/macc-pisa.jpg'
+---
+
+<Base>
+    <section id="location-hero">
+        <div class="location-hero-content">
+            <div class="location-text-container">
+                <div class="location-text">
+                    <h1>DevFest Pisa 2025</h1>
+                    <div class="location-badge">
+                        <Icon name="mdi:map-marker" />
+                        <div class="badge-text">
+                            <h3>MACC - Meeting Art Craft Center</h3>
+                            <p>P.za V. Emanuele II, 5, 56125 Pisa PI</p>
+                        </div>
+                    </div>
+                    <a class="primary large" href="#location-map" role="button">
+                        <Icon name="mdi:map-search" />
+                        Find on Map
+                    </a>
+                </div>
+            </div>
+            <div class="location-visual">
+                <div class="location-arno">
+                    <div class="map-pin map-pin-1">
+                        <div class="pin-dot"></div>
+                    </div>
+                    <div class="map-pin map-pin-2">
+                        <div class="pin-dot"></div>
+                    </div>
+                    <div class="map-pin map-pin-3 active">
+                        <div class="pin-dot pin-dot-3"></div>
+                        <div class="pin-label">MACC</div>
+                    </div>
+                    <div class="map-landmark landmark-1">
+                        <div class="landmark-icon">🏛️</div>
+                        <div class="landmark-label">Leaning Tower</div>
+                    </div>
+                    <div class="map-landmark landmark-2">
+                        <div class="landmark-icon">🚉</div>
+                        <div class="landmark-label">Central Station</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location-info">
+        <h2>Venue Information</h2>
+        <div class="card large">
+            <div class="text">
+                <p>
+                    DevFest Pisa 2025 will be held at the
+                    <a href="https://macc.pisa.it/">
+                        <strong>MACC (Meeting Art Craft Center)</strong>
+                    </a>
+                    in the heart of Pisa. This modern conference center provides an ideal space for our tech community to
+                    gather, learn, and network.
+                </p>
+            </div>
+            <Image id="macc-image" src={macc} alt="MACC - Meeting Art Craft Center" />
+            <div class="text">
+                <p>
+                    The venue is easily accessible by public transportation and is within walking distance from many of
+                    Pisa's famous attractions, including the Leaning Tower and the historical city center.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="location-map">
+        <div class="map-list">
+            <div class="wide">
+                <h2>Find Us</h2>
+            </div>
+            <div class="map-item">
+                <div class="title">
+                    <span>MACC - Meeting Art Craft Center</span>
+                    <div class="actions">
+                        <a
+                            href="https://www.google.com/maps/dir//MACC+-+Meeting+Art+Craft+Center,+Piazza+Vittorio+Emanuele+II,+5,+56125+Pisa+PI"
+                            class="button flat square"
+                            target="_blank"
+                        >
+                            <Icon name="mdi:directions" />
+                        </a>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="timestamp">P.za V. Emanuele II, 5, 56125 Pisa PI</div>
+                    <div class="text">
+                        <p>
+                            The MACC is located in Piazza Vittorio Emanuele II, close to the Pisa Central Station and
+                            the historic center of the city.
+                        </p>
+                    </div>
+                    <div class="map-container">
+                        <iframe
+                            width="100%"
+                            height="450"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=10.398583710193636%2C43.71016443480515%2C10.40074020624161%2C43.71169414443872&layer=mapnik&marker=43.71092929450233%2C10.39966195821762"
+                            style="border: none;"></iframe>
+                        <a
+                            href="https://www.google.com/maps/dir//MACC+-+Meeting+Art+Craft+Center,+Piazza+Vittorio+Emanuele+II,+5,+56125+Pisa+PI"
+                            class="primary"
+                            role="button"
+                            target="_blank"
+                        >
+                            <Icon name="mdi:open-in-new" />
+                            View Larger Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location-directions">
+        <h2>How to get there 🚶‍♂️</h2>
+        <div class="directions-list">
+            <div class="card large direction-card">
+                <Icon name="mdi:train" />
+                <h3>By Train</h3>
+                <div class="text">
+                    <p>
+                        <p>
+                            Pisa's railway station (Pisa Centrale) is directly connected with Turin, Rome, Genova and
+                            Milan. There are frequent connections with the Florence main station (Firenze Santa Maria
+                            Novella) that you can reach with a high-speed train (Freccia Rossa).
+                        </p>
+                        <p>
+                            <a href="http://www.trenitalia.com">
+                                The train schedule is available at the site of Trenitalia
+                            </a>.
+                        </p>
+                        <p>
+                            Recall that in Italy, before getting on the train, you must stamp your ticket by using those
+                            small yellow machines available within the station. The venue is 4 minutes walk from the
+                            train station <strong>Pisa Centrale</strong>.
+                        </p>
+                        <p>
+                            <a href="https://maps.app.goo.gl/p9k59wRKLiAQQPcTA">
+                                Here you can find the directions on Google maps
+                            </a>.
+                        </p>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card large direction-card">
+                <Icon name="mdi:airplane" />
+                <h3>By Plane</h3>
+                <div class="text">
+                    <p>
+                        <p>
+                            Pisa has an international airport with daily flights to London and Munich, as well as to
+                            Rome, Milan, and other important Italian cities.
+                        </p>
+                        <p>
+                            <a href="http://www.pisa-airport.com/it/i-passeggeri/arrivi/orario-generale.html">
+                                The timetable of incoming and outgoing flights is available at the site of Pisa airport.
+                            </a>
+                        </p>
+                        <p>
+                            The airport is approximately 3 km from the center. The most convenient way to reach the
+                            center is probably by taxi. Taxis are located near the "Arrivals" exit of the air terminal.
+                            If there is no taxi out there, you may call the <a href="http://www.cotapi.it/en/"
+                                >non-stop radio taxi service</a
+                            > by dialing 050 541600.
+                        </p>
+                        <p>
+                            As an alternative you can take the <a href="http://pisa-mover.com/en/">Pisa Mover</a>, a
+                            city train that connects Pisa Airport to Pisa Railway Station (Pisa Centrale), then walk to
+                            the venue (4 minutes walk).
+                        </p>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card large direction-card">
+                <Icon name="mdi:car" />
+                <h3>By car</h3>
+                <div class="text">
+                    <p>
+                        <p>
+                            Pisa is near the intersection of two highways: A12 north-south (Genova - Rosignano) and A11
+                            east-west (Pisa - Florence).
+                        </p>
+                        <p>
+                            Pisa is a <em>small town</em> with several pedestrian areas (with access control cameras). Parking
+                            is a bit of a problem and most parking areas are with pay-meters.
+                        </p>
+                        <p>
+                            The closer parking is
+                            <a href="https://maps.app.goo.gl/NyYJUSbcrvWrCD476"> Parcheggio Saba V. Emanuele </a>
+                            but it is not free. One free parkings is
+                            <a href="https://goo.gl/maps/1xpJnXVLowJ2"> Park Pratale </a>
+                            at 30 minutes walk.
+                        </p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</Base>
