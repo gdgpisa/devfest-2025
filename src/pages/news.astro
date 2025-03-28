@@ -40,6 +40,13 @@ for (const article of articles) {
                                     id={`news-${i + 1}`}
                                     autocomplete="off"
                                 />
+                                <a
+                                    class="button flat square desktop-only"
+                                    href={`/news?item=${frontmatter.id}`}
+                                    target="_blank"
+                                >
+                                    <Icon name="material-symbols:link" />
+                                </a>
                                 <button class="news-share-button flat square mobile-only">
                                     <Icon class="news-item-expanded" name="material-symbols:share" />
                                 </button>
