@@ -500,10 +500,6 @@
         max-height: fit-content;
 
         background: linear-gradient(to right, var(--pastel-yellow) 45%, #fff);
-
-        body:has(&) {
-            background: var(--pastel-yellow);
-        }
     }
 
     #cfp {
@@ -609,10 +605,6 @@
     #news {
         background: #f0f0f0;
         min-height: calc(100vh - 12rem);
-
-        body:has(&) {
-            background: #f0f0f0;
-        }
     }
 
     .card-gallery {
@@ -1306,10 +1298,6 @@
 
         background: var(--iwd-blue);
 
-        body:has(&) {
-            background: var(--iwd-blue);
-        }
-
         --card-bg: #fff;
 
         & > .card:first-child {
@@ -1384,10 +1372,6 @@
 
     #talk {
         background: #fff3d2;
-
-        body:has(&) {
-            background: #fff3d2;
-        }
 
         padding: 6rem 2rem;
 
