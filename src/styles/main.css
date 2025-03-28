@@ -36,8 +36,6 @@
         --iwd-green: #d1ece3;
 
         --iwd-blue-dark: oklch(from var(--iwd-blue) l calc(c + 0.1) h);
-
-        overscroll-behavior: none;
     }
 
     html,
@@ -49,14 +47,19 @@
         display: block;
     }
 
+    :root,
+    body {
+        @media (width >= 768px) {
+            overscroll-behavior-y: none;
+        }
+    }
+
     body {
         font-family: 'Product Sans', sans-serif;
         font-size: 1.125rem;
         line-height: 1.5;
         color: #333;
         background: #fff;
-
-        overscroll-behavior: none;
 
         /* New Item Modal Open */
         &:has(.news-item-trigger:checked) {

@@ -1,0 +1,20 @@
+# copisteria-ready.jpg
+# red-bull.png
+# the-developers-bakery.png
+# soul-studio.png
+
+# - name: 'GDG Bari'
+#   logo: 'gdg-bari.png'
+#   url: 'https://gdg.community.dev/gdg-bari/'
+
+- name: 'Copisteria Ready'
+  logo: 'copisteria-ready.png'
+  url: 'https://www.copisteriaready.it/'
+- name: 'Red Bull'
+  logo: 'red-bull.png'
+  url: 'https://www.redbull.com/it-it/'
+- name: 'The Developers Bakery'
+  logo: 'the-developers-bakery.png'
+  url: 'https://thebakery.dev/'
+- name: 'Soul Studio'
+  logo: 'soul-studio.png'
