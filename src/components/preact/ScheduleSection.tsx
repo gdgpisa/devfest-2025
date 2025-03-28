@@ -240,7 +240,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                         <div class="chip mobile-only">{talk.room}</div>
                                         <div class="chip">{talk.category}</div>
                                         <div class="chip">{talk.level}</div>
-                                        <div class="chip mobile-only">{talk.duration}min</div>
+                                        <div class="chip">{talk.duration}m</div>
                                     </div>
 
                                     <div class="actions">
