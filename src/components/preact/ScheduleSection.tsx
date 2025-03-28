@@ -28,7 +28,7 @@ function minutes(d: Date) {
     return d.getHours() * 60 + d.getMinutes()
 }
 
-const ROOMS = ['Aula magna', 'IWD', 'seconda aula talk', 'terza aula talks']
+const ROOMS = ['Sala Fibonacci', 'Sala Gentili', 'Sala Pacinotti', 'Sala Ricci']
 
 export function useLocalStorageState<T>(key: string, initialValue: T): [T, Dispatch<StateUpdater<T>>] {
     const [storedValue, setStoredValue] = useState<T>(() => {
@@ -123,14 +123,17 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
     const [selectedLevel, setSelectedLevel] = useState<string | null>(null)
 
+    const filterCount = (selectedCategory ? 1 : 0) + (selectedLevel ? 1 : 0)
+
     return (
         <section id="schedule" class="wide">
             <h1>Schedule</h1>
 
-            <div class="schedule-filters">
+            <div class="schedule-filters" tabIndex={0}>
                 <div class="title">
                     <MaterialSymbolsFilterAltOutline width={'1em'} height={'1em'} />
-                    Filters
+                    Filters<span class="mobile-only">{filterCount > 0 && ` (${filterCount})`}</span>
+                    {/* {filterCount > 0 ? `${filterCount} Filter${filterCount > 1 ? 's' : ''} Active` : 'Filters'} */}
                 </div>
                 <div class="subtitle">Categories</div>
                 <div class="filter-buttons">

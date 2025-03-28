@@ -1414,6 +1414,10 @@
                 grid-column: 1 / -1;
                 grid-row: auto;
 
+                &.hidden {
+                    display: none;
+                }
+
                 > .metadata {
                     font-size: 14px;
                 }
@@ -1540,6 +1544,11 @@
                 grid-auto-flow: column;
                 align-items: center;
                 justify-content: start;
+                gap: 0.25rem;
+
+                @media (width < 768px) {
+                    font-size: 24px;
+                }
             }
 
             > .subtitle {
@@ -1572,6 +1581,21 @@
 
                 > .subtitle {
                     grid-row: auto;
+                }
+
+                position: fixed;
+                bottom: 0;
+                z-index: 1;
+
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+
+                border-bottom: none;
+
+                transition: transform 200ms ease-in-out;
+
+                &:not(:focus-within) {
+                    transform: translateY(15.25rem);
                 }
             }
         }
