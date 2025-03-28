@@ -17,6 +17,7 @@ We're thrilled to introduce final incredible speakers 🌟 who will join us on s
 - **Gianluca Insolvibile**,  CTO @ Nextworks - ***Crafting Digital Twins with an Actor Model in Rust*** - *talk language 🇬🇧*
 - **Loredana Frontino**,  UX/UI Designer & Frontend Developer - WTM Ambassador - ***Form inclusivi: l'importanza dei dettagli nascosti*** - *talk language 🇮🇹*
 - **Gianfranco Di Pietro**,  Engineer - ***Il ruolo della Gen-AI nella data science geospaziale*** - *talk language 🇮🇹*
+- **Carmen Panepinto Zayati**, Research Assistant @ BioRobotics Institute (Sant’Anna) | Miss Universe Italy 2023 - ***The Courage to Be Different: Rewriting the STEM Narrative*** - *talk language 🇬🇧*
 - **Giacomo Ranieri**,  GDG Lead @ GDG Torino | Quantum Software Engineer @ Intesa Sanpaolo - ***Introduzione al Quantum Computing*** - *talk language 🇮🇹*
 - **Gloria Ciavarrini**,  Senior Software Engineer @ Red Hat - ***Overlay and Arazzo: From API Definitions to API Experiences*** - *talk language 🇬🇧*
 - **Alessio Schiavo**,  Machine Learning And Data Engineer @ LogObject AG - ***Verso una logistica intelligente: AI e Apprendimento Federato per ottimizzare processi logistici*** - *talk language 🇮🇹*
