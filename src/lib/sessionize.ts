@@ -1,5 +1,5 @@
-import rawSessions, { type RawSession } from '@/assets/speakers/sessions.json'
-import rawSpeakers, { type RawSpeaker } from '@/assets/speakers/speakers.json'
+import rawSessions from '@/assets/speakers/sessions.json'
+import rawSpeakers from '@/assets/speakers/speakers.json'
 
 export type Speaker = {
     id: string
@@ -18,9 +18,10 @@ export type Talk = {
 
     room: string
     category: string
+    level: string
     language: string
 
-    startTime: Date
+    startTime: string
     duration: number // in minutes
 
     speakers: Speaker[]
@@ -70,15 +71,18 @@ export const SPEAKERS: Speaker[] = Object.values(speakerMap)
 
 export const TALKS: Talk[] = rawSessions.map(session => {
     const id = slugify(session['Title'])
-    const speakers = session['Speaker Ids'].split(', ').map(speakerId => speakerMap[speakerId])
-    const description = excelCleanup(session['Description'])
     const title = session['Title']
+    const description = excelCleanup(session['Description'])
+
     const category = session['Category']
+    const level = session['Level']
     const language = session['Language']
 
     const room = session['Room']
-    const startTime = new Date(session['Scheduled At'])
+    const startTime = session['Scheduled At']
     const duration = session['Scheduled Duration'] ?? 0
+
+    const speakers = session['Speaker Ids'].split(', ').map(speakerId => speakerMap[speakerId])
 
     return {
         id,
@@ -87,6 +91,7 @@ export const TALKS: Talk[] = rawSessions.map(session => {
 
         room,
         category,
+        level,
         language,
 
         startTime,
@@ -96,11 +101,36 @@ export const TALKS: Talk[] = rawSessions.map(session => {
     }
 })
 
+// export const ROOMS = [...new Set(TALKS.map(talk => talk.room).filter(room => room !== 'unknown'))]
+export const ROOMS = ['Aula magna', 'IWD', 'seconda aula talk', 'terza aula talks']
+
+// Debug
+
+console.log('Speakers:')
 for (const talk of TALKS) {
     console.log(`> ${talk.title} (${talk.id})`)
-    console.log(`  [${talk.category}] [${talk.language}] [${talk.room}]`)
+    console.log(`  [${talk.category}] [${talk.language}] [${talk.room}] [${talk.startTime}]`)
     for (const speaker of talk.speakers) {
         console.log(`  - ${speaker.firstName} ${speaker.lastName} @${speaker.id}`)
     }
     console.log('')
 }
+
+// Rooms
+console.log('Rooms:')
+for (const room of ROOMS) {
+    console.log(`> ${room}`)
+}
+
+// console.log('Scheduled Talks:')
+// for (const [date, talks] of getTalkTimeBlocks(TALKS)) {
+//     console.log(`> ${date}`)
+//     for (const talk of talks) {
+//         console.log(`  - ${talk.title}`)
+//     }
+// }
+
+// console.log('Speaker Pictures:')
+// for (const speaker of SPEAKERS) {
+//     console.log(`${speaker.id}: ${speaker.profilePicture}`)
+// }

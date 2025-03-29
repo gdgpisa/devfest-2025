@@ -9,10 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/preact": "^4.0.7",
     "@iconify-json/material-symbols": "^1.2.14",
+    "@iconify/react": "^5.2.0",
     "astro": "^5.1.7",
     "astro-icon": "^1.1.5",
-    "katex": "^0.16.20"
+    "clsx": "^2.1.1",
+    "katex": "^0.16.20",
+    "preact": "^10.26.4"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.2.3",

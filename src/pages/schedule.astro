@@ -1,0 +1,13 @@
+---
+import Base from '@/layouts/Base.astro'
+
+import { ScheduleSection } from '@/components/preact/ScheduleSection'
+import { TALKS } from '@/lib/sessionize'
+---
+
+<Base>
+    <section id="schedule" class="wide">
+        <h1>Schedule</h1>
+        <ScheduleSection client:only talks={TALKS} />
+    </section>
+</Base>
