@@ -33,14 +33,16 @@ const teamMembers = memberPictures
 
 <Base>
     <section id="team">
-        <div class="team-list">
+        <div class="people-list">
             <div class="wide">
                 <h1>Team</h1>
             </div>
             {
                 teamMembers.map(member => (
-                    <div class="team-member">
-                        <img src={member.picture.default.src} alt={`Picture of ${member.fullName}`} />
+                    <div class="person">
+                        <div class="picture">
+                            <img src={member.picture.default.src} alt={`Picture of ${member.fullName}`} />
+                        </div>
                         <h3>{member.firstName}</h3>
                         <h3>{member.lastName}</h3>
                     </div>

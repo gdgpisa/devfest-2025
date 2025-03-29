@@ -1,0 +1,81 @@
+---
+import type { GetStaticPaths } from 'astro'
+import Base from '@/layouts/Base.astro'
+
+import gdeBannerImage from '@/assets/gde-banner.png'
+
+import { TALKS } from '@/lib/sessionize'
+
+export const getStaticPaths = (() => {
+    return TALKS.map(talk => ({
+        params: {
+            id: talk.id,
+        },
+        props: {
+            talk,
+        },
+    }))
+}) satisfies GetStaticPaths
+
+const { talk } = Astro.props
+---
+
+<Base>
+    <section id="talk">
+        <div class="talk">
+            <div class="speakers">
+                <h3>
+                    {talk.speakers.length > 1 ? 'Speakers' : 'Speaker'}
+                </h3>
+                {
+                    talk.speakers.map(speaker => (
+                        <div class="speaker">
+                            <div class="picture">
+                                <img src={speaker.profilePicture} alt={speaker.firstName + ' ' + speaker.lastName} />
+                                {speaker.isGDE && (
+                                    <div class="gde-banner">
+                                        <img src={gdeBannerImage.src} />
+                                    </div>
+                                )}
+                            </div>
+
+                            <div class="info">
+                                <div class="name">
+                                    <h3>
+                                        {speaker.firstName} {speaker.lastName}
+                                    </h3>
+                                </div>
+                                <div class="tag-line">
+                                    <div class="text">{speaker.tagLine}</div>
+                                </div>
+                            </div>
+
+                            <div class="bio text">
+                                {speaker.bio.split('\n').map(line => (
+                                    <p>{line}</p>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2>{talk.title}</h2>
+                </div>
+
+                <div class="metadata">
+                    <div class="chip">
+                        {talk.category}
+                    </div>
+                </div>
+
+                <div class="description">
+                    <div class="text">
+                        {talk.description.split('\n').map(line => <p>{line}</p>)}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Base>

@@ -10,17 +10,44 @@ Hello everyone! 🥳
 We're thrilled to introduce more incredible speakers 🌟 who will join us on stage at DevFest Pisa 2025! The event is getting closer and our lineup continues to grow with extraordinary talent! 🚀
 
 #### New confirmed speakers! 🎤✨
+
 #### We're delighted to welcome these fantastic professionals to our stage:
 
-- **Mirko Raimo**, GDG Firenze Organizer | Software Developer @ Alten - ***Flutter and Game Development: Where to Begin?*** - *talk language 🇬🇧*
-- **Ivan Venuti**,  Docente di informatica nella scuola secondaria di secondo grado - ***Service Design e accessibilità per i siti Web*** - *talk language 🇮🇹*
-- **Fabio Catinella**, Senior Android Developer @ VarGroup - ***Your app at a Glance: App Widgets in Compose*** - *talk language 🇬🇧*
-- **Anna Bernasconi**, Dipartimento di Informatica @ Università di Pisa - ***Problemi NP-hard e come affrontarli*** - *talk language 🇮🇹*
-- **Antonino Cangialosi**, Big Data Engineer @ Agile Lab - ***OTEL: How I Learned to Stop Worrying and Love My Microservices*** - *talk language 🇬🇧*
-- **Luca Corbucci**, Ph.D. candidate in Computer Science | podcaster and community manager - ***AI’s Hidden Cost: The Environmental Impact of Machine Learning*** - *talk language 🇬🇧*
-- **Federico Paolinelli**, Senior Principal Software Engineer @ Red Hat- ***How to give your first Talk without freaking out*** - *talk language 🇬🇧*
-- **Donatella Pasquale & Federico Matteoni**, Mobile app developers @ Garmin Italy Technologies SRL- ***A journey through the making of a new mobile app feature: from the idea to the customer*** - *talk language 🇬🇧*
-- **Chiara Aiola**, Organizer @ WordPress Meetup Pisa | PM @ Net7 - ***WordPress come Headless CMS: Sfruttarlo al Meglio con Angular*** - *talk language 🇮🇹*
+- **Mirko Raimo** -- GDG Firenze Organizer | Software Developer @ Alten
+
+    **_Flutter and Game Development: Where to Begin?_** - _talk language 🇬🇧_
+
+- **Ivan Venuti** -- Docente di informatica nella scuola secondaria di secondo grado
+
+    **_Service Design e accessibilità per i siti Web_** - _talk language 🇮🇹_
+
+- **Fabio Catinella** -- Senior Android Developer @ VarGroup
+
+    **_Your app at a Glance: App Widgets in Compose_** - _talk language 🇬🇧_
+
+- **Anna Bernasconi** -- Dipartimento di Informatica @ Università di Pisa
+
+    **_Problemi NP-hard e come affrontarli_** - _talk language 🇮🇹_
+
+- **Antonino Cangialosi** -- Big Data Engineer @ Agile Lab
+
+    **_OTEL: How I Learned to Stop Worrying and Love My Microservices_** - _talk language 🇬🇧_
+
+- **Luca Corbucci** -- Ph.D. candidate in Computer Science | podcaster and community manager
+
+    **_AI’s Hidden Cost: The Environmental Impact of Machine Learning_** - _talk language 🇬🇧_
+
+- **Federico Paolinelli** -- Senior Principal Software Engineer @ Red Hat
+
+    **_How to give your first Talk without freaking out_** - _talk language 🇬🇧_
+
+- **Donatella Pasquale & Federico Matteoni** -- Mobile app developers @ Garmin Italy Technologies SRL
+
+    **_A journey through the making of a new mobile app feature: from the idea to the customer_** - _talk language 🇬🇧_
+
+- **Chiara Aiola** -- Organizer @ WordPress Meetup Pisa | PM @ Net7
+
+    **_WordPress come Headless CMS: Sfruttarlo al Meglio con Angular_** - _talk language 🇮🇹_
 
 Don't miss this opportunity! ⏰
 
@@ -38,4 +65,4 @@ See you soon at DevFest Pisa 2025! 🎊
 
 DevFest Pisa Team 💻❤️
 
-***#DevFestPisa #GDG #TechCommunity #Developers #IWD #WTM #GDGPisa***
+**_#DevFestPisa #GDG #TechCommunity #Developers #IWD #WTM #GDGPisa_**

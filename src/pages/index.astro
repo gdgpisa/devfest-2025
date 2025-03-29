@@ -6,9 +6,15 @@ import KatexSSR from '@/components/astro/KatexSSR.astro'
 import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 
-import sponsors, { type Sponsors } from '@/sponsors.yaml'
 import { resolveImageModules } from '@/lib/util'
 import { Icon } from 'astro-icon/components'
+
+import sponsors, { type Sponsors } from '@/sponsors.yaml'
+import mediaPartnersData from '@/assets/media-partners/data.yaml'
+import gdgItaliaData from '@/assets/gdg-italia/data.yaml'
+import supportersData from '@/assets/supporters/data.yaml'
+
+import { unifyImages } from '@/lib/assets-helpers'
 
 const galleryImageModules = await resolveImageModules(
     import.meta.glob<{ default: ImageMetadata }>('@/assets/gallery/*.jpg'),
@@ -51,6 +57,33 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
 
         return [fileBasename + '.svg', m.default]
     }),
+)
+
+// Media Partners
+
+const mediaPartners = unifyImages(
+    mediaPartnersData,
+    await resolveImageModules(
+        import.meta.glob<{ default: ImageMetadata }>('@/assets/media-partners/*.{svg,png,jpg,jpeg}'),
+    ),
+)
+
+// GDG Italia
+
+const gdgItalia = unifyImages(
+    gdgItaliaData,
+    await resolveImageModules(
+        import.meta.glob<{ default: ImageMetadata }>('@/assets/gdg-italia/*.{svg,png,jpg,jpeg,webp}'),
+    ),
+)
+
+// Supporters
+
+const supporters = unifyImages(
+    supportersData,
+    await resolveImageModules(
+        import.meta.glob<{ default: ImageMetadata }>('@/assets/supporters/*.{svg,png,jpg,jpeg,webp}'),
+    ),
 )
 ---
 
@@ -309,7 +342,7 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
                                 <h3 class:list={{ 'text-custom': tier !== 'main' }} style={titleStyle[tier]}>
                                     <strong>{tier.charAt(0).toUpperCase() + tier.slice(1)}</strong>
                                 </h3>
-                                <div class="sponsor-list h-flex-wrap">
+                                <div class="small-card-list h-flex-wrap">
                                     {sponsors[tier]
                                         ?.toSorted((s1, s2) => s1.name.localeCompare(s2.name))
                                         .map(sponsor => {
@@ -327,6 +360,54 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
                     )
                 })
             }
+        </div>
+    </section>
+
+    <section id="media-partners">
+        <div class="v-stack">
+            <h2>Partners</h2>
+            <h3><strong>Supporters</strong></h3>
+            <div class="small-card-list h-flex-wrap">
+                {
+                    supporters.map(entry =>
+                        entry.url ? (
+                            <a href={entry.url} target="_blank" rel="noopener noreferrer">
+                                <div class="card">
+                                    <img src={entry.image.src} alt={entry.name} />
+                                </div>
+                            </a>
+                        ) : (
+                            <div class="card">
+                                <img src={entry.image.src} alt={entry.name} />
+                            </div>
+                        ),
+                    )
+                }
+            </div>
+            <h3><strong>Media Partners</strong></h3>
+            <div class="small-card-list h-flex-wrap">
+                {
+                    mediaPartners.map(entry => (
+                        <a href={entry.url} target="_blank" rel="noopener noreferrer">
+                            <div class="card">
+                                <img src={entry.image.src} alt={entry.name} />
+                            </div>
+                        </a>
+                    ))
+                }
+            </div>
+            <h3><strong>GDG Italia</strong></h3>
+            <div class="small-card-list h-flex-wrap">
+                {
+                    gdgItalia.map(entry => (
+                        <a href={entry.url} target="_blank" rel="noopener noreferrer">
+                            <div class="card">
+                                <img src={entry.image.src} alt={entry.name} />
+                            </div>
+                        </a>
+                    ))
+                }
+            </div>
         </div>
     </section>
 </Base>

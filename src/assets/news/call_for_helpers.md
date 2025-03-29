@@ -33,4 +33,4 @@ See you soon at DevFest Pisa 2025 on April 12th! 🎊
 
 DevFest Pisa Team 💻❤️
 
-***#DevFestPisa #GDG #TechCommunity #Developers #IWD #WTM #GDGPisa***
+**_#DevFestPisa #GDG #TechCommunity #Developers #IWD #WTM #GDGPisa_**
