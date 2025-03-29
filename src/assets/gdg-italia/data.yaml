@@ -47,6 +47,8 @@
 # gdg-roma-citta.svg
 # gdg-torino.png
 # gdg-venezia.png
+# gdg-vicenza.png
+
 
 - name: 'GDG Bari'
   logo: 'gdg-bari.png'
@@ -90,3 +92,6 @@
 - name: 'GDG Venezia'
   logo: 'gdg-venezia.png'
   url: 'https://gdg.community.dev/gdg-venezia/'
+- name: 'GDG Vicenza'
+  logo: 'gdg-vicenza.png'
+  url: 'https://gdg.community.dev/gdg-vicenza/'
