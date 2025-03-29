@@ -126,9 +126,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
     const filterCount = (selectedCategory ? 1 : 0) + (selectedLevel ? 1 : 0)
 
     return (
-        <section id="schedule" class="wide">
-            <h1>Schedule</h1>
-
+        <>
             <div class="schedule-filters" tabIndex={0}>
                 <div class="title">
                     <MaterialSymbolsFilterAltOutline width={'1em'} height={'1em'} />
@@ -308,6 +306,6 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                     .sort((a, b) => a.startTime.getTime() - b.startTime.getTime())
                     .map(({ element }) => element)}
             </div>
-        </section>
+        </>
     )
 }

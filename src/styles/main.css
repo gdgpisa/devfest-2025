@@ -1403,6 +1403,11 @@
             }
         }
 
+        @media (768px <= width < 1000px) {
+            padding: 0.5rem;
+            overflow-x: auto;
+        }
+
         @media (width < 768px) {
             grid-template-columns: auto;
 
@@ -1585,7 +1590,11 @@
 
                 position: fixed;
                 bottom: 0;
+                left: 0.5rem;
+                right: 0.5rem;
                 z-index: 1;
+
+                box-shadow: 0.25rem 0.25rem 0 0 #0006;
 
                 border-bottom-left-radius: 0;
                 border-bottom-right-radius: 0;
@@ -1595,7 +1604,7 @@
                 transition: transform 200ms ease-in-out;
 
                 &:not(:focus-within) {
-                    transform: translateY(15.25rem);
+                    transform: translateY(15.5rem);
                 }
             }
         }
