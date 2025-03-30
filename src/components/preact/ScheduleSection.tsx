@@ -28,7 +28,7 @@ function minutes(d: Date) {
     return d.getHours() * 60 + d.getMinutes()
 }
 
-const ROOMS = ['Sala Fibonacci', 'Sala Gentili', 'Sala Pacinotti', 'Sala Ricci']
+const ROOMS = ['Sala Ricci', 'Sala Fibonacci', 'Sala Gentili', 'Sala Pacinotti']
 
 export function useLocalStorageState<T>(key: string, initialValue: T): [T, Dispatch<StateUpdater<T>>] {
     const [storedValue, setStoredValue] = useState<T>(() => {
