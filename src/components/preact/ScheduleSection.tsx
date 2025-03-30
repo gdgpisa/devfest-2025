@@ -1,12 +1,13 @@
 // import { TALKS, TALKS_TIME_BLOCKS, ROOMS } from '@/lib/sessionize'
 import type { Talk } from '@/lib/sessionize'
 import clsx from 'clsx'
-import { useMemo, useState, type Dispatch, type StateUpdater } from 'preact/hooks'
+import { useEffect, useMemo, useState, type Dispatch, type StateUpdater } from 'preact/hooks'
 import {
     MaterialSymbolsBookmarkAddOutlineRounded,
     MaterialSymbolsBookmarkCheckOutlineRounded,
     MaterialSymbolsFilterAltOutline,
 } from './icons'
+import { hashString } from '@/lib/client-utils'
 
 export function getTalkTimeBlocks(talks: Talk[]) {
     return Object.entries(
@@ -47,7 +48,7 @@ export function useLocalStorageState<T>(key: string, initialValue: T): [T, Dispa
             setStoredValue(oldValue => {
                 const valueToStore = value instanceof Function ? value(oldValue) : value // Allow value to be a function
 
-                console.log(`Storing value for ${key}:`, valueToStore)
+                // console.log(`Storing value for ${key}:`, valueToStore)
 
                 localStorage.setItem(key, JSON.stringify(valueToStore))
                 return valueToStore
@@ -124,6 +125,20 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
     const [selectedLevel, setSelectedLevel] = useState<string | null>(null)
 
     const filterCount = (selectedCategory ? 1 : 0) + (selectedLevel ? 1 : 0)
+
+    useEffect(() => {
+        if (selectedTalks.length > 0) {
+            const talkIds = talks
+                .filter(talk => !!talk.room)
+                .map(talk => talk.id)
+                .sort()
+
+            const talkVersionHash = hashString(talkIds.join(','))
+            const selectedTalkBitMask = talkIds.map(talkId => (selectedTalks.includes(talkId) ? '1' : '0')).join('')
+
+            umami.track('selected-schedule', { v: talkVersionHash, s: selectedTalkBitMask })
+        }
+    }, [selectedTalks])
 
     return (
         <>

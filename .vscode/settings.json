@@ -3,5 +3,5 @@
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.words": ["sessionize", "snakecase"]
+  "cSpell.words": ["sessionize", "snakecase", "umami"]
 }
