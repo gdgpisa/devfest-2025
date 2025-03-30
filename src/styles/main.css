@@ -104,6 +104,10 @@
         &:has(#schedule) {
             background: hsl(from var(--pastel-yellow) h s calc(l + 10));
         }
+
+        &:has(#talk) {
+            background: #fff3d2;
+        }
     }
 
     strong {
@@ -2210,7 +2214,6 @@
                 }
 
                 position: fixed;
-                bottom: 0;
                 left: 0.5rem;
                 right: 0.5rem;
                 z-index: 1;
@@ -2222,10 +2225,14 @@
 
                 border-bottom: none;
 
-                transition: transform 200ms ease-in-out;
+                transition: all 200ms ease-in-out;
+
+                top: 100%;
+                transform: translateY(calc(-100%));
 
                 &:not(:focus-within) {
-                    transform: translateY(15.5rem);
+                    transform: translateY(0);
+                    top: calc(100% - 3.5rem);
                 }
             }
         }
