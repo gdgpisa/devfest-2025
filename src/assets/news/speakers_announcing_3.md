@@ -53,6 +53,14 @@ We're thrilled to introduce final incredible speakers 🌟 who will join us on s
 
     **_La Musica Del Malware_** - _talk language 🇮🇹_
 
+- **Michele Sponsale** -- Studente @ Università di Pisa
+
+    **_Addestra il tuo LLM a pensare con GRPO—ora anche su piccole GPU!_** - _talk language 🇮🇹_
+
+- **Mariagiovanna Rotundo** -- Ph.D. student @ University of Pisa | Lead @ GDG and WTM Pisa | WTM Ambassador
+
+    **_How can you keep your online searches secret?_** - _talk language 🇬🇧_
+
 Don't miss this opportunity! ⏰
 
 The complete agenda is almost ready! 📋 We're finalizing the last details to offer you an unforgettable experience! 🤩
