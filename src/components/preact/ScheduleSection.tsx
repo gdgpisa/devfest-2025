@@ -84,7 +84,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
             title: 'Opening Keynote',
             startTime: new Date(new Date(startOffset).setHours(9, 30)),
             duration: 30,
-            room: 'Aula magna',
+            room: 'Sala Ricci',
         },
         {
             title: 'Lunch',
@@ -100,7 +100,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
             title: 'Closing Keynote',
             startTime: new Date(new Date(startOffset).setHours(18, 40)),
             duration: 20,
-            room: 'Aula magna',
+            room: 'Sala Ricci',
         },
     ]
 

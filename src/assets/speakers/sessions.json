@@ -1,7 +1,7 @@
 [
   {
     "Session Id":854505,
-    "Title":"How can you keep your online searches secret?",
+    "Title":"More than Incognito: server-side secret searches",
     "Description":"Nowadays, privacy is a topic that comes up more and more often. Whenever you use a service or a platform, the provider typically knows exactly what you're doing and what you're interested in. But what if you don’t want the providers to know?_x000D_\n_x000D_\nIn this talk, we'll explore a different perspective on privacy, specifically, the scenario where you want to access data from a public database without revealing what you're looking for. We’ll discuss how this can be done, along with the advantages and disadvantages of the various solutions available to achieve this kind of privacy.",
     "Owner":"Mariagiovanna Rotundo",
     "Owner Email":"mariagiovannarotundo@gmail.com",
