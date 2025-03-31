@@ -9,7 +9,7 @@ import {
 } from './icons'
 import { hashString } from '@/lib/client-utils'
 
-import { resolveImageModules } from '@/lib/util'
+import { resolveImageModules } from '@/lib/server-utils'
 
 // Get the alternative speaker pictures as a dictionary
 const modulePictures = await resolveImageModules(
