@@ -15,61 +15,61 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 
 #### We're happy to welcome on stage the following speakers and sessions:
 
-- **Aldo d'Aquino**, Tech lead @ Bending Spoons
+- **Aldo d'Aquino** -- Tech lead @ Bending Spoons
 
-    **_The Feedback Loop: Building a Culture of Growth and Improvement_** -- _Talk Language: 🇬🇧_
+    **_The Feedback Loop: Building a Culture of Growth and Improvement_** - _talk language 🇬🇧_
 
-- **Aleandro Prudenzano**, Security Engineer @ Doyensec
+- **Aleandro Prudenzano** -- Security Engineer @ Doyensec
 
-    **_Imparare la cybersecurity catturando bandiere_** -- _Talk Language: 🇮🇹_
+    **_Imparare la cybersecurity catturando bandiere_** - _talk language 🇮🇹_
 
-- **Daniele Mario Areddu**, STUDENT @ ITIS VALLAURI VELLETRI | ASSOCIATED @ UNIDEA
+- **Daniele Mario Areddu** -- STUDENT @ ITIS VALLAURI VELLETRI | ASSOCIATED @ UNIDEA
 
-    **_Personalizzare l'IA per il Diritto: Addestrare Modelli su Dataset Legali_** -- _Talk Language: 🇮🇹_
+    **_Personalizzare l'IA per il Diritto: Addestrare Modelli su Dataset Legali_** - _talk language 🇮🇹_
 
-- **Francesco Paolo Liuzzi**, Community Manager @ Superhero Valley
+- **Francesco Paolo Liuzzi** -- Community Manager @ Superhero Valley
 
-    **_Superhero Valley: tips and tricks per un futuro in Big Tech_** -- _Talk Language: 🇮🇹_
+    **_Superhero Valley: tips and tricks per un futuro in Big Tech_** - _talk language 🇮🇹_
 
-- **Francesco Sciuti**, CEO @ Devmy | Google Developer Expert |Microsoft MVP | Google Certified Developer & AWS UG Lead
+- **Francesco Sciuti** -- CEO @ Devmy | Google Developer Expert |Microsoft MVP | Google Certified Developer & AWS UG Lead
 
-    **_AI + A11Y = Surfa il web senza tavola...e senza mani!_** -- _Talk Language: 🇮🇹_
+    **_AI + A11Y = Surfa il web senza tavola...e senza mani!_** - _talk language 🇮🇹_
 
-- **Fulvio Denza**, Software Engineer @ Civo
+- **Fulvio Denza** -- Software Engineer @ Civo
 
-    **_Extending Kubernetes: Building torproxy for Anonymous Container Communication_** -- _Talk Language: 🇬🇧_
+    **_Extending Kubernetes: Building torproxy for Anonymous Container Communication_** - _talk language 🇬🇧_
 
-- **Gregorio Palamà**, Google Cloud Innovator Champion | Mia-Platform Expert | Senior Enterprise Architect @ Adesso | Community Manager @ GDG Pescara
+- **Gregorio Palamà** -- Google Cloud Innovator Champion | Mia-Platform Expert | Senior Enterprise Architect @ Adesso | Community Manager @ GDG Pescara
 
-    **_Come racconterò Kubernetes a mia figlia_** -- _Talk Language: 🇮🇹_
+    **_Come racconterò Kubernetes a mia figlia_** - _talk language 🇮🇹_
 
-- **Jennifer D. Daniel**, PhD Researcher, University of Bristol
+- **Jennifer D. Daniel** -- PhD Researcher, University of Bristol
 
-    **_Breaking Free from the Need for Male Approval in Professional Growth_** -- _Talk Language: 🇬🇧_
+    **_Breaking Free from the Need for Male Approval in Professional Growth_** - _talk language 🇬🇧_
 
-- **Juna Salviati**, GDG Roma
+- **Juna Salviati** -- GDG Roma
 
-    **_Pixel e Particelle: quando l’arte generativa incontra il Quantum Computing_** -- _Talk Language: 🇬🇧_
+    **_Pixel and Particles: Generative Art meets Quantum Computing_** - _talk language 🇬🇧_
 
-- **Mike van der Bijl**, DevSecOps Expert @ Scyon
+- **Mike van der Bijl** -- DevSecOps Expert @ Scyon
 
-    **_Sailing the Waters using UI/UX Reinforced by Security_** -- _Talk Language: 🇬🇧_
+    **_Sailing the Waters using UI/UX Reinforced by Security_** - _talk language 🇬🇧_
 
-- **Nicola Corti**, Kotlin GDE - Android @ React
+- **Nicola Corti** -- Kotlin GDE - Android @ React
 
-    **_What I learned from Five Years of Advent of Code in Kotlin_** -- _Talk Language: 🇬🇧_
+    **_What I learned from Five Years of Advent of Code in Kotlin_** - _talk language 🇬🇧_
 
-- **Rowdy Rabouw**, Front-End Focused Senior DevOps Engineer
+- **Rowdy Rabouw** -- Front-End Focused Senior DevOps Engineer
 
-    **_Beats in the Browser: Coding Music with JavaScript_** -- _Talk Language: 🇬🇧_
+    **_Beats in the Browser: Coding Music with JavaScript_** - _talk language 🇬🇧_
 
-- **Valentina Giuffrè & Paolo Botti**, Full Stack Developer @ TD Group Italia S.r.l. & Chief Technologist & Cloud Architect @ TD Group Italia srl
+- **Valentina Giuffrè & Paolo Botti** -- Full Stack Developer @ TD Group Italia S.r.l. & Chief Technologist & Cloud Architect @ TD Group Italia srl
 
-    **_Storybook: l'Atomic Design oltre il wormhole 🌪️_** -- _Talk Language: 🇮🇹_
+    **_Storybook: l'Atomic Design oltre il wormhole 🌪️_** - _talk language 🇮🇹_
 
-- **Yassine Benabbas**, DevRel engineer @ Worldline | Teacher and LAUG member
+- **Yassine Benabbas** -- DevRel engineer @ Worldline | Teacher and LAUG member
 
-    **_How I ported Doom to the browser with WebAssembly_** -- _Talk Language: 🇬🇧_
+    **_How I ported Doom to the browser with WebAssembly_** - _talk language 🇬🇧_
 
 Finally, if you love what we're doing, please share this amazing lineup with your friends and colleagues ❤️.
 

@@ -6,5 +6,8 @@ import { TALKS } from '@/lib/sessionize'
 ---
 
 <Base>
-    <ScheduleSection client:only talks={TALKS} />
+    <section id="schedule" class="wide">
+        <h1>Schedule</h1>
+        <ScheduleSection client:only talks={TALKS} />
+    </section>
 </Base>

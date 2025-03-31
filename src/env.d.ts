@@ -41,6 +41,18 @@ declare module '@/assets/media-partners/data.yaml' {
     export default value
 }
 
+declare module '@/assets/supporters/data.yaml' {
+    export interface Entry {
+        name: string
+        logo: string
+        url?: string
+    }
+
+    const value: Entry[]
+
+    export default value
+}
+
 declare module '@/assets/speakers/sessions.json' {
     export type RawSession = {
         'Session Id': number

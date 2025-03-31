@@ -1,7 +1,7 @@
 export type Entry = {
     name: string
     logo: string
-    url: string
+    url?: string
 }
 
 export const unifyImages = (
@@ -10,7 +10,7 @@ export const unifyImages = (
 ): {
     name: string
     logo: string
-    url: string
+    url?: string
     image: ImageMetadata
 }[] => {
     if (!entries) {

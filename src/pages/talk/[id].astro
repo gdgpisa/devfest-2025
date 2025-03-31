@@ -68,6 +68,24 @@ const { talk } = Astro.props
                     <div class="chip">
                         {talk.category}
                     </div>
+                    <div class="chip">
+                        {talk.level}
+                    </div>
+                    {
+                        talk.room && (
+                            <>
+                                <div class="chip">
+                                    {new Date(talk.startTime).toLocaleString('en-US', {
+                                        hour: '2-digit',
+                                        minute: '2-digit',
+                                        hour12: false,
+                                    })}
+                                </div>
+                                <div class="chip">{talk.duration}min</div>
+                                <div class="chip">{talk.room}</div>
+                            </>
+                        )
+                    }
                 </div>
 
                 <div class="description">

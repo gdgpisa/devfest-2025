@@ -1,34 +1,3 @@
-# Loghi che abbiamo:
-# - SuperheroValley.svg
-# - Codemotion.png
-# - DjangoGirls.png
-# - ESN_Pisa_Logo_colour.png
-# - FirenzeDev.svg
-# - Grusp.png
-# - Gulp.png
-# - PHC.png
-# - PisaDev.png
-# - PointerPodcast.png
-# - Pycon25.jpg
-# - TheRedCode.jpg
-# - WTMItalia.png
-# - adi.svg
-
-# Links from Gemini Deep Research:
-# - Gruppo Utenti Linux Pisa	Da determinare (indagare su lugmap.linux.it)	Nessun link diretto trovato; si suggerisce di consultare la directory dei LUG italiani.
-# - phc.dm.unipi.it	poisson.phc.dm.unipi.it	Server web del Polo High-performance Computing del Dipartimento di Matematica dell'Università di Pisa.
-# - Women Techmakers Google in Italia	developers.google.com/womentechmakers	Sito web globale del programma Women Techmakers di Google; non è stato trovato un sito italiano specifico nel materiale fornito.
-# - Codemotion	codemotion.com	Sito web principale della comunità tecnologica europea.
-# - DjangoGirls	djangogirls.org	Sito web ufficiale dell'organizzazione non-profit che promuove la partecipazione femminile nella programmazione.
-# - ESN Pisa	pisa.esn.it	Sito web della sezione di Pisa dell'Erasmus Student Network.
-# - FirenzeDev	firenze.dev	Sito web ufficiale della comunità degli sviluppatori di Firenze.
-# - Grusp	grusp.org/en/	Sito web della comunità di sviluppo web. Nota: "GULP" menzionato in un frammento si riferisce a un diverso gruppo focalizzato sulla programmazione logica.
-# - PointerPodcast	pointerpodcast.it	Sito web ufficiale del podcast.
-# - Pycon Italia	2025.pycon.it, 2024.pycon.it	Siti web delle edizioni 2025 (Bologna) e 2024 (Firenze) di PyCon Italia.
-# - Superhero Valley	wiki.superherovalley.fun	Sito web ufficiale della comunità focalizzata sulla preparazione per i colloqui tecnici.
-# - TheRedCode	theredcode.it	Sito web ufficiale del blog e della comunità #tech.
-# - adi	adi.com (Analog Devices), aditech.it (Aditech), surfaces-group.it/adi/en/ (ADI Srl)	"adi" è ambiguo; questi sono i siti web più rilevanti in un contesto tecnologico/industriale dai frammenti. Analog Devices è un'azienda di semiconduttori, Aditech è specializzata in automazione e ADI Srl produce utensili diamantati per applicazioni industriali. L'utente dovrà determinare quale "adi" è rilevante per le proprie esigenze.
-
 - name: 'SuperheroValley'
   logo: 'SuperheroValley.svg'
   url: 'https://superherovalley.fun/'
@@ -39,7 +8,7 @@
   logo: 'DjangoGirls.png'
   url: 'https://djangogirls.org/'
 - name: 'ESN Pisa'
-  logo: 'ESN_Pisa_Logo_colour.png'
+  logo: 'ESN.png'
   url: 'https://pisa.esn.it/'
 - name: 'FirenzeDev'
   logo: 'FirenzeDev.svg'
@@ -60,14 +29,14 @@
   logo: 'PointerPodcast.png'
   url: 'https://pointerpodcast.it/'
 - name: 'Pycon25'
-  logo: 'Pycon25.jpg'
+  logo: 'pycon.png'
   url: 'https://2025.pycon.it/'
 - name: 'TheRedCode'
-  logo: 'TheRedCode.jpg'
+  logo: 'TheRedCode.png'
   url: 'https://theredcode.it/'
 - name: 'WTM Italia'
   logo: 'WTMItalia.png'
   url: 'https://developers.google.com/womentechmakers'
 - name: 'Android Developer Italia'
-  logo: 'adi.svg'
+  logo: 'AndroidDevelopersItalia.svg'
   url: 'https://androiddevs.it/'

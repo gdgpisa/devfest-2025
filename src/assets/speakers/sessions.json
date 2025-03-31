@@ -1,8 +1,8 @@
 [
   {
     "Session Id":854505,
-    "Title":"What happens to your privacy when data are moved on cloud?",
-    "Description":"Nowadays we heard often people that talk about privacy. Services, platform and so on explicitly specify what they can do with your data but what if you want not to allow them to read it?_x000D_\n_x000D_\nThis talk will give a different overview about privacy by considering the case where we want to store data on an external server (such as Amazon, Azure, etc,) but allowing it to learn nothing about the data itself. We will also see pro and cons of the solutions that can be used to achieve this kind of privacy.",
+    "Title":"More than Incognito: server-side secret searches",
+    "Description":"Nowadays, privacy is a topic that comes up more and more often. Whenever you use a service or a platform, the provider typically knows exactly what you're doing and what you're interested in. But what if you don’t want the providers to know?_x000D_\n_x000D_\nIn this talk, we'll explore a different perspective on privacy, specifically, the scenario where you want to access data from a public database without revealing what you're looking for. We’ll discuss how this can be done, along with the advantages and disadvantages of the various solutions available to achieve this kind of privacy.",
     "Owner":"Mariagiovanna Rotundo",
     "Owner Email":"mariagiovannarotundo@gmail.com",
     "Speakers":"Mariagiovanna Rotundo",
@@ -10,7 +10,7 @@
     "Session format":"Short (20min)",
     "Session duration (workshops)":null,
     "Level":"Introductory",
-    "Language":"English, Italian",
+    "Language":"English",
     "Are you a Google employee or GDE?":"No",
     "Country":"Italy",
     "Owner Informed":"No",

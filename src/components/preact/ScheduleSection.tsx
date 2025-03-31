@@ -1,12 +1,13 @@
 // import { TALKS, TALKS_TIME_BLOCKS, ROOMS } from '@/lib/sessionize'
 import type { Talk } from '@/lib/sessionize'
 import clsx from 'clsx'
-import { useMemo, useState, type Dispatch, type StateUpdater } from 'preact/hooks'
+import { useEffect, useMemo, useState, type Dispatch, type StateUpdater } from 'preact/hooks'
 import {
     MaterialSymbolsBookmarkAddOutlineRounded,
     MaterialSymbolsBookmarkCheckOutlineRounded,
     MaterialSymbolsFilterAltOutline,
 } from './icons'
+import { hashString } from '@/lib/client-utils'
 
 import { resolveImageModules } from '@/lib/util'
 
@@ -42,7 +43,7 @@ function minutes(d: Date) {
     return d.getHours() * 60 + d.getMinutes()
 }
 
-const ROOMS = ['Sala Fibonacci', 'Sala Gentili', 'Sala Pacinotti', 'Sala Ricci']
+const ROOMS = ['Sala Ricci', 'Sala Fibonacci', 'Sala Gentili', 'Sala Pacinotti']
 
 export function useLocalStorageState<T>(key: string, initialValue: T): [T, Dispatch<StateUpdater<T>>] {
     const [storedValue, setStoredValue] = useState<T>(() => {
@@ -61,7 +62,7 @@ export function useLocalStorageState<T>(key: string, initialValue: T): [T, Dispa
             setStoredValue(oldValue => {
                 const valueToStore = value instanceof Function ? value(oldValue) : value // Allow value to be a function
 
-                console.log(`Storing value for ${key}:`, valueToStore)
+                // console.log(`Storing value for ${key}:`, valueToStore)
 
                 localStorage.setItem(key, JSON.stringify(valueToStore))
                 return valueToStore
@@ -97,7 +98,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
             title: 'Opening Keynote',
             startTime: new Date(new Date(startOffset).setHours(9, 30)),
             duration: 30,
-            room: 'Aula magna',
+            room: 'Sala Ricci',
         },
         {
             title: 'Lunch',
@@ -113,7 +114,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
             title: 'Closing Keynote',
             startTime: new Date(new Date(startOffset).setHours(18, 40)),
             duration: 20,
-            room: 'Aula magna',
+            room: 'Sala Ricci',
         },
     ]
 
@@ -139,10 +140,22 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
 
     const filterCount = (selectedCategory ? 1 : 0) + (selectedLevel ? 1 : 0)
 
-    return (
-        <section id="schedule" class="wide">
-            <h1>Schedule</h1>
+    useEffect(() => {
+        if (selectedTalks.length > 0) {
+            const talkIds = talks
+                .filter(talk => !!talk.room)
+                .map(talk => talk.id)
+                .sort()
 
+            const talkVersionHash = hashString(talkIds.join(','))
+            const selectedTalkBitMask = talkIds.map(talkId => (selectedTalks.includes(talkId) ? '1' : '0')).join('')
+
+            umami.track('selected-schedule', { v: talkVersionHash, s: selectedTalkBitMask })
+        }
+    }, [selectedTalks])
+
+    return (
+        <>
             <div class="schedule-filters" tabIndex={0}>
                 <div class="title">
                     <MaterialSymbolsFilterAltOutline width={'1em'} height={'1em'} />
@@ -330,6 +343,6 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                     .sort((a, b) => a.startTime.getTime() - b.startTime.getTime())
                     .map(({ element }) => element)}
             </div>
-        </section>
+        </>
     )
 }

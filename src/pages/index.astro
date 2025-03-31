@@ -6,12 +6,13 @@ import KatexSSR from '@/components/astro/KatexSSR.astro'
 import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 
-import { resolveImageModules } from '@/lib/util'
+import { resolveImageModules } from '@/lib/server-utils'
 import { Icon } from 'astro-icon/components'
 
 import sponsors, { type Sponsors } from '@/sponsors.yaml'
 import mediaPartnersData from '@/assets/media-partners/data.yaml'
 import gdgItaliaData from '@/assets/gdg-italia/data.yaml'
+import supportersData from '@/assets/supporters/data.yaml'
 
 import { unifyImages } from '@/lib/assets-helpers'
 
@@ -71,7 +72,18 @@ const mediaPartners = unifyImages(
 
 const gdgItalia = unifyImages(
     gdgItaliaData,
-    await resolveImageModules(import.meta.glob<{ default: ImageMetadata }>('@/assets/gdg-italia/*.{svg,png,jpg,jpeg}')),
+    await resolveImageModules(
+        import.meta.glob<{ default: ImageMetadata }>('@/assets/gdg-italia/*.{svg,png,jpg,jpeg,webp}'),
+    ),
+)
+
+// Supporters
+
+const supporters = unifyImages(
+    supportersData,
+    await resolveImageModules(
+        import.meta.glob<{ default: ImageMetadata }>('@/assets/supporters/*.{svg,png,jpg,jpeg,webp}'),
+    ),
 )
 ---
 
@@ -354,6 +366,24 @@ const gdgItalia = unifyImages(
     <section id="media-partners">
         <div class="v-stack">
             <h2>Partners</h2>
+            <h3><strong>Supporters</strong></h3>
+            <div class="small-card-list h-flex-wrap">
+                {
+                    supporters.map(entry =>
+                        entry.url ? (
+                            <a href={entry.url} target="_blank" rel="noopener noreferrer">
+                                <div class="card">
+                                    <img src={entry.image.src} alt={entry.name} />
+                                </div>
+                            </a>
+                        ) : (
+                            <div class="card">
+                                <img src={entry.image.src} alt={entry.name} />
+                            </div>
+                        ),
+                    )
+                }
+            </div>
             <h3><strong>Media Partners</strong></h3>
             <div class="small-card-list h-flex-wrap">
                 {
