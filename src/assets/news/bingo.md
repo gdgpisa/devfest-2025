@@ -41,7 +41,7 @@ Collect all the stamps from the Diamond and Platinum sponsors present at the eve
 
 ### Bingo Completion:
 
-1. Once you have collected all the necessary stamps, go to the GDG Pisa check-in desk.
+1. Once you have collected all the necessary stamps, go to the GDG Pisa check-in desk after 11 am.
 2. The staff will verify the presence and validity of all the required stamps.
 3. If all the stamps are deemed valid, you will receive the final GDG Pisa stamp.
 4. With the final GDG Pisa stamp, you will have completed the BINGO!
