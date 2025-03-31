@@ -14,15 +14,13 @@ import { resolveImageModules } from '@/lib/util'
 const modulePictures = await resolveImageModules(
     import.meta.glob<{ default: ImageMetadata }>('@/assets/speakers/pictures/*.png'),
 )
-console.log(modulePictures)
+
 const speakerImages = Object.fromEntries(
     modulePictures.map(({ default: { src } }, i) => {
         const filename = src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
         return [filename, src]
     }),
 )
-
-console.log(speakerImages)
 
 export function getTalkTimeBlocks(talks: Talk[]) {
     return Object.entries(
@@ -292,6 +290,11 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                                         speaker.profilePicture
                                                     }
                                                     alt={`${speaker.firstName} ${speaker.lastName}`}
+                                                    style={
+                                                        `${speaker.firstName}_${speaker.lastName}` in speakerImages
+                                                            ? { borderRadius: 0, border: 'none', boxShadow: 'none' }
+                                                            : {}
+                                                    }
                                                 />
                                             </>
                                         ))}
