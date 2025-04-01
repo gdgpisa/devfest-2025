@@ -88,7 +88,15 @@ const languageEmoji =
                                         hour12: false,
                                     })}
                                 </div>
-                                <div class="chip">{talk.duration}min</div>
+                                <div class="chip">
+                                    {
+                                        {
+                                            [25]: '20min',
+                                            [30]: '20min',
+                                            [50]: '40min',
+                                        }[talk.duration]
+                                    }
+                                </div>
                                 <div class="chip">{talk.room}</div>
                             </>
                         )

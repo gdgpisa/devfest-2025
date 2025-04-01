@@ -260,7 +260,15 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                             <div class="chip">{talk.category}</div>
                                             <div class="chip">{talk.level}</div>
                                             {talk.language && <div class="chip emoji">{languageEmoji}</div>}
-                                            <div class="chip">{talk.duration}m</div>
+                                            <div class="chip">
+                                                {
+                                                    {
+                                                        [25]: '20m',
+                                                        [30]: '20m',
+                                                        [50]: '40m',
+                                                    }[talk.duration]
+                                                }
+                                            </div>
                                         </div>
 
                                         <div class="actions">

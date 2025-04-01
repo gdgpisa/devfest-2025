@@ -102,7 +102,7 @@ export const TALKS: Talk[] = rawSessions.map(session => {
 })
 
 // export const ROOMS = [...new Set(TALKS.map(talk => talk.room).filter(room => room !== 'unknown'))]
-export const ROOMS = ['Aula magna', 'IWD', 'seconda aula talk', 'terza aula talks']
+// export const ROOMS = ['Aula magna', 'IWD', 'seconda aula talk', 'terza aula talks']
 
 // Debug
 
@@ -117,10 +117,10 @@ for (const talk of TALKS) {
 }
 
 // Rooms
-console.log('Rooms:')
-for (const room of ROOMS) {
-    console.log(`> ${room}`)
-}
+// console.log('Rooms:')
+// for (const room of ROOMS) {
+//     console.log(`> ${room}`)
+// }
 
 // console.log('Scheduled Talks:')
 // for (const [date, talks] of getTalkTimeBlocks(TALKS)) {
