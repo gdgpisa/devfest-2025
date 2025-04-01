@@ -18,6 +18,12 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths
 
 const { talk } = Astro.props
+
+const languageEmoji =
+    {
+        English: '🇬🇧',
+        Italian: '🇮🇹',
+    }[talk.language] || null
 ---
 
 <Base>
@@ -71,6 +77,7 @@ const { talk } = Astro.props
                     <div class="chip">
                         {talk.level}
                     </div>
+                    {languageEmoji && <div class="chip emoji">{languageEmoji}</div>}
                     {
                         talk.room && (
                             <>

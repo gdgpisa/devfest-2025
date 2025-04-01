@@ -1315,6 +1315,10 @@
 
         background: #0002;
         color: #000a;
+
+        &.emoji {
+            color: #555;
+        }
     }
 
     .talk-schedule {
