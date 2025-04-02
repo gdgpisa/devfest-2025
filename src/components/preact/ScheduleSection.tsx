@@ -140,6 +140,26 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
         }
     }, [selectedTalks])
 
+    const [currentTime, setCurrentTime] = useState<Date | null>(null)
+
+    useEffect(() => {
+        const todayDate = new Date().toISOString().split('T')[0]
+        if (todayDate !== '2025-04-12') {
+            console.log('Not yet the DevFest day')
+            return
+        }
+
+        console.log('The DevFest is today!')
+
+        setCurrentTime(new Date())
+
+        const interval = setInterval(() => {
+            setCurrentTime(new Date())
+        }, 1000 * 10)
+
+        return () => clearInterval(interval)
+    }, [])
+
     return (
         <>
             <div class="schedule-filters" tabIndex={0}>
@@ -336,6 +356,17 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                 ]
                     .sort((a, b) => a.startTime.getTime() - b.startTime.getTime())
                     .map(({ element }) => element)}
+
+                {currentTime && (
+                    <div
+                        class="now-bar"
+                        style={{
+                            ['--start-time']: `${minutes(currentTime)}`,
+                        }}
+                    >
+                        <div class="label">Live</div>
+                    </div>
+                )}
             </div>
         </>
     )
