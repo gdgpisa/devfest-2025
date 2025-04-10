@@ -37,14 +37,14 @@ const slugify = (str: string) =>
 
 const excelCleanup = (str: string) => str.replaceAll('_x000D_', '\n')
 
-const speakerMap: Record<string, Speaker> = {}
+const speakersBySessionizeUUID: Record<string, Speaker> = {}
 
 for (const speaker of rawSpeakers) {
     const id = speaker['Speaker Id']
 
     console.log(`Processing speaker "${speaker['FirstName']} ${speaker['LastName']}"...`)
 
-    speakerMap[id] = {
+    speakersBySessionizeUUID[id] = {
         id: slugify(`${speaker['FirstName']} ${speaker['LastName']}`),
         firstName: speaker['FirstName'],
         lastName: speaker['LastName'],
@@ -60,56 +60,82 @@ for (const session of rawSessions) {
     if ((session['Are you a Google employee or GDE?'] ?? '').includes('Yes')) {
         const speakerIds = session['Speaker Ids'].split(', ')
         for (const speakerId of speakerIds) {
-            if (speakerMap[speakerId]) {
-                speakerMap[speakerId].isGDE = true
+            if (speakersBySessionizeUUID[speakerId]) {
+                speakersBySessionizeUUID[speakerId].isGDE = true
             }
         }
     }
 }
 
-export const SPEAKERS: Speaker[] = Object.values(speakerMap)
+const speakersById = Object.fromEntries(
+    Object.values(speakersBySessionizeUUID).map<[string, Speaker]>(speaker => [speaker.id, speaker]),
+)
 
-export const TALKS: Talk[] = rawSessions.map(session => {
-    const id = slugify(session['Title'])
-    const title = session['Title']
-    const description = excelCleanup(session['Description'])
+export const SPEAKERS: Speaker[] = Object.values(speakersBySessionizeUUID)
 
-    const category = session['Category']
-    const level = session['Level']
-    const language = session['Language']
+export const TALKS: Talk[] = Object.values(
+    Object.fromEntries(
+        [
+            ...rawSessions.map<Talk>(session => {
+                const id = slugify(session['Title'])
+                const title = session['Title']
+                const description = excelCleanup(session['Description'])
 
-    const room = session['Room']
-    const startTime = session['Scheduled At']
-    const duration = session['Scheduled Duration'] ?? 0
+                const category = session['Category']
+                const level = session['Level']
+                const language = session['Language']
 
-    const speakers = session['Speaker Ids'].split(', ').map(speakerId => speakerMap[speakerId])
+                const room = session['Room']
+                const startTime = session['Scheduled At']
+                const duration = session['Scheduled Duration'] ?? 0
 
-    return {
-        id,
-        title,
-        description,
+                const speakers = session['Speaker Ids']
+                    .split(', ')
+                    .map(speakerId => speakersBySessionizeUUID[speakerId])
 
-        room,
-        category,
-        level,
-        language,
+                return {
+                    id,
+                    title,
+                    description,
 
-        startTime,
-        duration,
+                    room,
+                    category,
+                    level,
+                    language,
 
-        speakers,
-    }
-})
+                    startTime,
+                    duration,
 
-// export const ROOMS = [...new Set(TALKS.map(talk => talk.room).filter(room => room !== 'unknown'))]
-// export const ROOMS = ['Aula magna', 'IWD', 'seconda aula talk', 'terza aula talks']
+                    speakers,
+                }
+            }),
+            // {
+            //     id: 'example-talk-1',
+            //     title: 'Example Talk 1',
+            //     description: 'This is an example talk description.',
+            //     room: 'Aula magna',
+            //     category: 'Other',
+            //     level: 'example-level',
+            //     duration: 25,
+            //     language: 'English',
+            //     startTime: '2025-04-12T10:00:00Z',
 
-// Debug
+            //     speakers: ['michele-sponsale'].map(id => speakersById[id]),
+            // },
+        ].map(talk => [talk.id, talk]),
+    ),
+)
 
-console.log('Speakers:')
+//
+// Debugging
+//
+
+console.log('Talks & Speakers:')
 for (const talk of TALKS) {
-    console.log(`> ${talk.title} (${talk.id})`)
+    console.log(`> ${talk.id}:`)
+    console.log(`  "${talk.title}"`)
     console.log(`  [${talk.category}] [${talk.language}] [${talk.room}] [${talk.startTime}]`)
+    console.log(`  ${talk.description.trim().replace(/\n+/g, '  ').slice(0, 100)}...`)
     for (const speaker of talk.speakers) {
         console.log(`  - ${speaker.firstName} ${speaker.lastName} @${speaker.id}`)
     }
@@ -117,8 +143,10 @@ for (const talk of TALKS) {
 }
 
 // Rooms
+
 // console.log('Rooms:')
-// for (const room of ROOMS) {
+// const rooms = [...new Set(TALKS.map(talk => talk.room).filter(room => room !== 'unknown'))]
+// for (const room of rooms) {
 //     console.log(`> ${room}`)
 // }
 
