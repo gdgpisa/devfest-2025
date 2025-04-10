@@ -140,6 +140,8 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
         }
     }, [selectedTalks])
 
+    const isJumbotron = location.search.includes('jumbotron')
+
     const [currentTime, setCurrentTime] = useState<Date | null>(null)
 
     useEffect(() => {
@@ -153,11 +155,24 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
 
         setCurrentTime(new Date())
 
-        const interval = setInterval(() => {
-            setCurrentTime(new Date())
-        }, 1000 * 10)
+        const timerHandle = setInterval(() => {
+            // TESTING CODE:
+            // setCurrentTime(new Date(new Date().setHours(9 + ((Math.random() * 9) | 0), 30)))
 
-        return () => clearInterval(interval)
+            setCurrentTime(new Date())
+
+            // scroll to the current time element after an instant if ?jumbotron is set
+            if (isJumbotron) {
+                setTimeout(() => {
+                    document.querySelector('.now-bar')?.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center',
+                    })
+                }, 100)
+            }
+        }, 1000 * 30)
+
+        return () => clearInterval(timerHandle)
     }, [])
 
     return (
