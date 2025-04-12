@@ -23,6 +23,29 @@
     "Speaker Ids":"493590fc-c38a-4f7f-b76f-e81d7cf6207a"
   },
   {
+    "Session Id":906812,
+    "Title":"Explainable ML 101: come rendere chiaro il tuo modello Black Box",
+    "Description":"La rapida crescita del machine learning ha reso possibile sviluppare applicazioni con modelli complessi capaci di risultati straordinari._x000D_\n_x000D_\nTuttavia, sebbene i modelli black box (scatola nera) abbiano conosciuto una crescita esplosiva, è molto difficile comprenderne le relazioni interne, rendendoli inadatti alla comprensione dei dati o all’utilizzo in contesti critici (ad esempio, in ambito medico)._x000D_\n_x000D_\nI modelli spiegabili, al contrario, sono molto più comprensibili, sia per la loro semplicità che per l’utilizzo di metriche interne facilmente interpretabili, ma in genere risultano molto meno potenti rispetto ai modelli black box._x000D_\n_x000D_\nNon sarebbe fantastico poter “collegare” un modello spiegabile a un modello black box per comprendere i risultati e le motivazioni dietro le scelte fatte dal modello?_x000D_\n_x000D_\nIn questa sessione esploreremo i fondamenti dei modelli spiegabili e come aggiungere una \"testa spiegabile\" al tuo modello black box.",
+    "Owner":"Leonardo Dipilato",
+    "Owner Email":"leonardipilato@gmail.com",
+    "Speakers":"Leonardo Dipilato",
+    "Category":"AI",
+    "Session format":"Full (40min)",
+    "Session duration (workshops)":null,
+    "Level":"Intermediate",
+    "Language":"Italian",
+    "Are you a Google employee or GDE?":"No",
+    "Country":"Italy",
+    "Owner Informed":"No",
+    "Owner Confirmed":"No",
+    "Room":null,
+    "Scheduled At":null,
+    "Scheduled Duration":null,
+    "Live Link":null,
+    "Recording Link":null,
+    "Speaker Ids":"e582e797-64a8-46b9-94fe-23bdcca5f525"
+  },
+  {
     "Session Id":850062,
     "Title":"Breaking Free from the Need for Male Approval in Professional Growth",
     "Description":"Women in the workplace often face an unspoken pressure to seek validation from male colleagues, leaders, or industry gatekeepers. This need for approval can shape career decisions, limit ambition, and reinforce self-doubt. But what happens when we stop waiting for permission and start defining success on our own terms?_x000D_\n_x000D_\nThis session is about breaking free from external validation and stepping into authentic, self-driven leadership. We’ll explore how societal conditioning influences professional growth, why women are often held to different standards of approval, and how to redefine confidence and authority without the need for male endorsement._x000D_\n_x000D_\nAttendees will walk away with:_x000D_\n_x000D_\nPractical strategies to shift from external validation to self-trust in decision-making._x000D_\nHow to navigate bias and double standards without shrinking or over-explaining._x000D_\nA mindset framework to own your expertise, advocate for yourself, and advance confidently._x000D_\nTools to build influence and credibility without conforming to outdated workplace norms.",
@@ -552,12 +575,12 @@
     "Speaker Ids":"23778c1e-25bf-477e-b1bd-a577b88a1205"
   },
   {
-    "Session Id":906812,
-    "Title":"Explainable ML 101: come rendere chiaro il tuo modello Black Box",
-    "Description":"La rapida crescita del machine learning ha reso possibile sviluppare applicazioni con modelli complessi capaci di risultati straordinari._x000D_\n_x000D_\nTuttavia, sebbene i modelli black box (scatola nera) abbiano conosciuto una crescita esplosiva, è molto difficile comprenderne le relazioni interne, rendendoli inadatti alla comprensione dei dati o all’utilizzo in contesti critici (ad esempio, in ambito medico)._x000D_\n_x000D_\nI modelli spiegabili, al contrario, sono molto più comprensibili, sia per la loro semplicità che per l’utilizzo di metriche interne facilmente interpretabili, ma in genere risultano molto meno potenti rispetto ai modelli black box._x000D_\n_x000D_\nNon sarebbe fantastico poter “collegare” un modello spiegabile a un modello black box per comprendere i risultati e le motivazioni dietro le scelte fatte dal modello?_x000D_\n_x000D_\nIn questa sessione esploreremo i fondamenti dei modelli spiegabili e come aggiungere una \"testa spiegabile\" al tuo modello black box.",
-    "Owner":"Leonardo Dipilato",
-    "Owner Email":"leonardipilato@gmail.com",
-    "Speakers":"Leonardo Dipilato",
+    "Session Id":907569,
+    "Title":"K-nearest-neighbor query e come usarla su Firebase",
+    "Description":"Negli ultimi anni, le ricerche semantiche basate su intelligenza artificiale sono passate da teoria accademica a strumenti pronti all'uso._x000D_\n_x000D_\nIn questo talk esploreremo come integrare la ricerca vettoriale in progetti Firebase, partendo dai concetti fondamentali fino all'implementazione concreta. Vedremo come salvare gli embedding, configurare un indice, ed eseguire query basate sulla similarità.",
+    "Owner":"Camillo Bucciarelli",
+    "Owner Email":"bucciarelli.camillo92@gmail.com",
+    "Speakers":"Camillo Bucciarelli",
     "Category":"AI",
     "Session format":"Full (40min)",
     "Session duration (workshops)":null,
@@ -572,7 +595,7 @@
     "Scheduled Duration":50.0,
     "Live Link":null,
     "Recording Link":null,
-    "Speaker Ids":"e582e797-64a8-46b9-94fe-23bdcca5f525"
+    "Speaker Ids":"c1f5a2da-9168-4e08-92a3-89cd792ca36a"
   },
   {
     "Session Id":813458,
