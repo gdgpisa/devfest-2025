@@ -27,7 +27,7 @@
         }
 
         body.not-on-top header nav {
-            top: 1rem;
+            top: 2.5rem;
 
             width: 80ch;
             max-width: calc(100vw - 2rem);

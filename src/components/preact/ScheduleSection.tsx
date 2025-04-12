@@ -177,7 +177,14 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
 
     return (
         <>
-            <div class="schedule-filters" tabIndex={0}>
+            <div
+                class={clsx(
+                    'schedule-filters',
+
+                    isJumbotron && 'hide-navbar',
+                )}
+                tabIndex={0}
+            >
                 <div class="title">
                     <MaterialSymbolsFilterAltOutline width={'1em'} height={'1em'} />
                     Filters<span class="mobile-only">{filterCount > 0 && ` (${filterCount})`}</span>
