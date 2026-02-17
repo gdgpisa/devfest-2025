@@ -6,7 +6,7 @@ date: 2025-03-29
 🌟🙌 A MASSIVE THANK YOU to all our incredible Supporters who made DevFest Pisa 2025 possible! 🚀🇮🇹
 We are deeply grateful to:
 
-🔹 Copisteria Ready 🖨️
+<!-- 🔹 Copisteria Ready 🖨️ -->
 
 🔹 Soul Studio 🎨
 

@@ -40,8 +40,6 @@ You can easily reach **Polo Fibonacci** with public transportation or just by wa
 
 > No, only the tickets issued from Eventbrite are valid.
 
-<!-- You can take one from this [platform](https://devfestpisa2024.eventbrite.com). -->
-
 #### What should I bring at the conference?
 
 > **Your ticket**. That's the only necessary thing you shouldn't forget. If you're attending one of our Workshops, the speakers will let you know if you need to carry on your laptop or not.

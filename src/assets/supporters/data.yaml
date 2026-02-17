@@ -3,13 +3,9 @@
 # the-developers-bakery.png
 # soul-studio.png
 
-# - name: 'GDG Bari'
-#   logo: 'gdg-bari.png'
-#   url: 'https://gdg.community.dev/gdg-bari/'
-
-- name: 'Copisteria Ready'
-  logo: 'copisteria-ready.png'
-  url: 'https://www.copisteriaready.it/'
+# - name: 'Copisteria Ready'
+#   logo: 'copisteria-ready.png'
+#   url: 'https://www.copisteriaready.it/'
 - name: 'The Developers Bakery'
   logo: 'the-developers-bakery.png'
   url: 'https://thebakery.dev/'
@@ -25,9 +21,6 @@
 - name: 'Fudeo'
   logo: 'fudeo.png'
   url: 'https://www.fudeo.it/'
-- name: 'Tech Jobs Fair'
-  logo: 'techjobsfair.png'
-  url: 'https://techjobsfair.it/'
 - name: 'Lo Spaventapasseri Pisa'
   logo: 'spaventapasseri.png'
   url: 'https://lospaventapasseripub.com/'

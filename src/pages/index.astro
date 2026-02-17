@@ -12,7 +12,6 @@ import { Icon } from 'astro-icon/components'
 import gdgItaliaData from '@/assets/gdg-italia/data.yaml'
 import mediaPartnersData from '@/assets/media-partners/data.yaml'
 import supportersData from '@/assets/supporters/data.yaml'
-import sponsors, { type Sponsors } from '@/sponsors.yaml'
 
 import { unifyImages } from '@/lib/assets-helpers'
 
@@ -92,24 +91,25 @@ const supporters = unifyImages(
         <div class="h-stack">
             <div class="hero-content v-stack">
                 <div class="text">
-                    <h1>DevFest Pisa 2025</h1>
-                    <h3>12 April 2025 @ MACC</h3>
+                    <h1>DevFest Pisa 2026</h1>
+                    <h3>18 April 2026 @ MACC</h3>
                     <p>Together we grow, together we build! 🌱</p>
                 </div>
                 <!-- <a class="primary large" href="#cfp" role="button">Call for Papers</a> -->
                 <!-- <a class="primary large" href="#tickets" role="button">Get Ticket</a> -->
-                <a class="primary large" href="https://devfest.gdgpisa.it" role="button">Go to this year's DevFest!</a>
+                <!-- <a class="primary large" href="https://devfest.gdgpisa.it" role="button">Go to this year's DevFest!</a> -->
             </div>
             <img class="hero-image" src={towerImageSvg.src} alt="Leaning Tower of Pisa" />
         </div>
     </section>
 
+    <!-- 
     <section id="tickets">
         <h2>Get Ticket</h2>
         <div class="card large">
             <div class="text">
                 <p>
-                    Get now your FREE ticket for DevFest Pisa 2025! Join us for a day of learning, networking, and fun
+                    Get now your FREE ticket for DevFest Pisa 2026! Join us for a day of learning, networking, and fun
                     with the tech community in Pisa.
                 </p>
             </div>
@@ -122,11 +122,12 @@ const supporters = unifyImages(
                 Book Now
             </a>
         </div>
-    </section>
+    </section> -->
 
     <section id="cfp">
         <h2>Call for Papers</h2>
-        <div class="card large" data-diagonal-message="Closed!">
+        <!-- <div class="card large" data-diagonal-message="Closed!"> -->
+        <div class="card large">
             <div class="text">
                 <p>
                     Call For Paper is closing soon! 🚀 Don't miss this incredible opportunity to share your knowledge,
@@ -137,7 +138,7 @@ const supporters = unifyImages(
                     make an impact. Submit your talk now and become a speaker! 🎤✨
                 </p>
             </div>
-            <a class="large" aria-disabled="true" href="#" role="button"> Submit your talk </a>
+            <a class="large" href="https://sessionize.com/gdg-devfest-pisa-2026/" role="button">Submit your talk</a>
         </div>
     </section>
 
@@ -145,7 +146,7 @@ const supporters = unifyImages(
         <div class="stats-layouts">
             <div class="stats-card card large">
                 <div class="text">
-                    <h2>DevFest Pisa 2025 is coming soon!</h2>
+                    <h2>DevFest Pisa 2026 is coming soon!</h2>
                     <p>
                         After last year's success, GDG Pisa is happy to announce that DevFest Pisa is coming back in
                         town with new surprises! You can enjoy a one-day conference all about AI, Web, Cloud and much
@@ -156,9 +157,9 @@ const supporters = unifyImages(
                         next year!
                     </p>
                 </div>
-                <a class="large" href="https://youtu.be/v3nYSljL8P4" role="button">
+                <a class="large" href="https://youtu.be/pR34hDlX7tY" role="button">
                     <Icon name="material-symbols:play-arrow-rounded" />
-                    DevFest Pisa 2024 Video Recap
+                    DevFest Pisa 2025 Video Recap
                 </a>
             </div>
             <div class="card large">
@@ -215,6 +216,17 @@ const supporters = unifyImages(
         <h3>New to DevFest Pisa? Check out our previous editions!</h3>
         <div class="card-gallery">
             <div class="h-stack">
+                <div class="card tight">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube-nocookie.com/embed/pR34hDlX7tY"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                </div>
                 <div class="card tight">
                     <iframe
                         width="560"
@@ -323,7 +335,7 @@ const supporters = unifyImages(
         }
     </section>
 
-    <section id="sponsors">
+    <!-- <section id="sponsors">
         <div class="v-stack">
             <h2>Sponsors</h2>
             {
@@ -362,7 +374,7 @@ const supporters = unifyImages(
                 })
             }
         </div>
-    </section>
+    </section> -->
 
     <section id="media-partners">
         <div class="v-stack">
