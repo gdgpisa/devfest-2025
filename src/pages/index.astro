@@ -3,16 +3,16 @@ import Base from '@/layouts/Base.astro'
 
 import towerImageSvg from '@/assets/tower_pisa_beta.svg'
 import KatexSSR from '@/components/astro/KatexSSR.astro'
-import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
 
 import { resolveImageModules } from '@/lib/server-utils'
 import { Icon } from 'astro-icon/components'
 
-import sponsors, { type Sponsors } from '@/sponsors.yaml'
-import mediaPartnersData from '@/assets/media-partners/data.yaml'
 import gdgItaliaData from '@/assets/gdg-italia/data.yaml'
+import mediaPartnersData from '@/assets/media-partners/data.yaml'
 import supportersData from '@/assets/supporters/data.yaml'
+import sponsors, { type Sponsors } from '@/sponsors.yaml'
 
 import { unifyImages } from '@/lib/assets-helpers'
 
@@ -97,7 +97,8 @@ const supporters = unifyImages(
                     <p>Together we grow, together we build! 🌱</p>
                 </div>
                 <!-- <a class="primary large" href="#cfp" role="button">Call for Papers</a> -->
-                <a class="primary large" href="#tickets" role="button">Get Ticket</a>
+                <!-- <a class="primary large" href="#tickets" role="button">Get Ticket</a> -->
+                <a class="primary large" href="https://devfest.gdgpisa.it" role="button">Go to this year's DevFest!</a>
             </div>
             <img class="hero-image" src={towerImageSvg.src} alt="Leaning Tower of Pisa" />
         </div>
