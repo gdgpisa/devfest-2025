@@ -4,6 +4,10 @@ export type Entry = {
     url?: string
 }
 
+/**
+ * Unifies the entries with the image modules by matching the logo field with the image file name.
+ * Throws an error if an image is missing for an entry.
+ */
 export const unifyImages = (
     entries: Entry[] | undefined,
     imageModules: { default: ImageMetadata }[],
@@ -19,6 +23,8 @@ export const unifyImages = (
 
     const imageDict: Record<string, ImageMetadata> = Object.fromEntries(
         imageModules.map(image => {
+            // Extract the file name and extension from the image src
+            // For reasons, Astro also adds a query string to the image src, so we need to split it out first
             const ext = image.default.src.split('?')[0].split('.').at(-1)
             const name = image.default.src.split('/').at(-1)?.split('?').at(0)?.split('.').at(0)
 

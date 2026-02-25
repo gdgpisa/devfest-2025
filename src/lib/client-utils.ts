@@ -35,6 +35,10 @@ export function binaryStringToBase64(binaryString: string) {
     return result
 }
 
+/**
+ * Generates a short hash from a string using a simple hashing algorithm (djb2)
+ * and encodes it in base36 to make it shorter.
+ */
 export function hashString(str: string): string {
     let hash = 0
     for (let i = 0; i < str.length; i++) {
