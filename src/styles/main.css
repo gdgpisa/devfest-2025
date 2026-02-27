@@ -125,6 +125,10 @@
     [data-diagonal-message] {
         position: relative;
 
+        a {
+            pointer-events: none;
+        }
+
         &::after {
             padding: 0.25rem 10rem;
 
