@@ -3,7 +3,7 @@ import Base from '@/layouts/Base.astro'
 
 import wtmBanner from '@/assets/iwd-banner.png'
 
-import wtmQuadrato from '@/assets/logo_wtm_quadrato.svg?raw'
+import wtmQuadrato from '@/assets/logo_wtm_quadrato_2026.png'
 import wtmQuadratoNoTitle from '@/assets/logo_wtm_quadrato_notitle.svg?raw'
 ---
 
@@ -14,7 +14,8 @@ import wtmQuadratoNoTitle from '@/assets/logo_wtm_quadrato_notitle.svg?raw'
         </div>
         <div class="h-stack top">
             <div class="card large">
-                <Fragment set:html={wtmQuadrato} />
+                <!-- <Fragment set:html={wtmQuadrato} /> -->
+                <img src={wtmQuadrato.src} alt="WTM Logo" width="300px" />
             </div>
             <div class="card large">
                 <div class="text">

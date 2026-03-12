@@ -14,6 +14,9 @@ import mediaPartnersData from '@/assets/media-partners/data.yaml'
 import supportersData from '@/assets/supporters/data.yaml'
 
 import { unifyImages } from '@/lib/assets-helpers'
+import * as sponsorsRaw from '@/sponsors.yaml'
+
+const sponsors = sponsorsRaw.default
 
 const galleryImageModules = await resolveImageModules(
     import.meta.glob<{ default: ImageMetadata }>('@/assets/gallery/*.jpg'),
@@ -341,11 +344,11 @@ const supporters = unifyImages(
         }
     </section>
 
-    <!-- <section id="sponsors">
+    <section id="sponsors">
         <div class="v-stack">
             <h2>Sponsors</h2>
             {
-                (Object.keys(sponsors) as (keyof Sponsors)[]).map(tier => {
+                (Object.keys(sponsors) as (keyof typeof sponsors)[]).map(tier => {
                     // prettier-ignore
                     const titleStyle = {
                         main: 'color: #444;',
@@ -380,7 +383,7 @@ const supporters = unifyImages(
                 })
             }
         </div>
-    </section> -->
+    </section>
 
     <section id="media-partners">
         <div class="v-stack">
