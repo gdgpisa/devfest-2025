@@ -108,7 +108,7 @@
         }
 
         &:has(#talk) {
-            background: #fff3d2;
+            background: var(--pastel-blue);
         }
     }
 
@@ -1649,7 +1649,7 @@
     }
 
     #talk {
-        background: #fff3d2;
+        background: var(--pastel-blue);
 
         padding: 6rem 2rem;
 
@@ -2055,10 +2055,10 @@
     }
 
     #location-info {
-        background: var(--pastel-blue);
+        background: var(--pastel-yellow);
 
         .card {
-            box-shadow: 0.5rem 0.5rem 0 0 var(--core-blue);
+            box-shadow: 0.5rem 0.5rem 0 0 var(--core-yellow);
         }
     }
 
@@ -2167,7 +2167,7 @@
     }
 
     #location-directions {
-        background: var(--iwd-blue);
+        background: var(--pastel-blue);
         place-content: unset;
 
         .directions-list {
@@ -2188,7 +2188,7 @@
             /*text-align: justify;*/
             padding-top: 3rem;
             padding-bottom: 2.5rem;
-            box-shadow: 6px 6px 0 0 rgb(123, 194, 208);
+            box-shadow: 6px 6px 0 0 var(--core-blue);
 
             [data-icon] {
                 font-size: 2.5rem;

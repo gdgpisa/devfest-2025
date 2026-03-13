@@ -45,5 +45,9 @@
                 padding-left: 0.75rem;
             }
         }
+
+        body.not-on-top:has(.talk-schedule) header nav {
+            top: 5rem;
+        }
     }
 }

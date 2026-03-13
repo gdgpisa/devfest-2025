@@ -31,18 +31,7 @@ function minutes(d: Date) {
     return d.getHours() * 60 + d.getMinutes()
 }
 
-// > Sala Fibonacci (35 posti)
-// > Sala Ricci (150 posti)
-// > Sala Gentili (35 posti) Build with AI
-// > Sala Pacinotti (50 posti)
-
-// const ROOMS = ['Sala Ricci', 'Sala Fibonacci', 'Sala Gentili', 'Sala Pacinotti']
-const ROOMS = [
-    'Sala Ricci (150 posti)',
-    'Sala Fibonacci (35 posti)',
-    'Sala Gentili (35 posti) Build with AI',
-    'Sala Pacinotti (50 posti)',
-]
+const ROOMS = ['Sala Ricci', 'Sala Fibonacci', 'Sala Gentili Build with AI', 'Sala Pacinotti']
 
 export function useLocalStorageState<T>(key: string, initialValue: T): [T, Dispatch<StateUpdater<T>>] {
     const [storedValue, setStoredValue] = useState<T>(() => {
