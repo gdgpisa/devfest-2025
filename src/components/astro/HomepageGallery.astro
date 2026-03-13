@@ -1,0 +1,90 @@
+---
+import { resolveImageModules } from '@/lib/astro/server-utils'
+import { Image } from 'astro:assets'
+
+const galleryImageModules = await resolveImageModules(
+    import.meta.glob<{ default: ImageMetadata }>('@/assets/gallery/*.jpg'),
+)
+
+// Calculate total grid spans for each row
+const getGridCols = (images: typeof galleryImageModules) => {
+    return images.reduce((acc, { default: { src } }) => {
+        const filename = src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
+        if (!filename) {
+            throw new Error('Invalid filename')
+        }
+
+        const [_rows, cols] = filename.includes('@')
+            ? (filename
+                  .split('@')
+                  .at(-1)
+                  ?.split('x')
+                  .map((s: string) => parseInt(s)) ?? [1, 1])
+            : [1, 1]
+
+        return acc + cols
+    }, 0)
+}
+
+const totalCols = getGridCols(galleryImageModules)
+---
+
+<!-- Static Photo Gallery Grid (desktop only) -->
+<section id="gallery" class="tight">
+    <div class="image-gallery">
+        <div class="image-gallery-wrapper">
+            {
+                galleryImageModules.slice(0, 10).map(({ default: { src } }, i) => {
+                    const filename = src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
+                    if (!filename) {
+                        throw new Error('Invalid filename')
+                    }
+
+                    const [rows, cols] = filename.includes('@')
+                        ? (filename
+                              .split('@')
+                              .at(-1)
+                              ?.split('x')
+                              .map((s: string) => parseInt(s)) ?? [1, 1])
+                        : [1, 1]
+
+                    return <img src={src} alt={`gallery image ${i}`} style={`--rows: ${rows}; --cols: ${cols};`} />
+                })
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Animated Photo Gallery (mobile only) -->
+<section class="photoContainer">
+    {
+        [0, 1].map(() => {
+            const rowImages = [...galleryImageModules, ...galleryImageModules.slice(0, 5)]
+
+            return (
+                <div class="track" style={{ '--total-boxes': totalCols }}>
+                    {rowImages.map((module, i) => {
+                        const filename = module.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
+                        if (!filename) {
+                            throw new Error('Invalid filename')
+                        }
+
+                        const [rows, cols] = filename.includes('@')
+                            ? (filename
+                                  .split('@')
+                                  .at(-1)
+                                  ?.split('x')
+                                  .map((s: string) => parseInt(s)) ?? [1, 1])
+                            : [1, 1]
+
+                        return (
+                            <div class="box card" style={{ gridColumn: `span ${cols}` }}>
+                                <Image class="boxImage" src={module.default} alt={`gallery image ${i}`} />
+                            </div>
+                        )
+                    })}
+                </div>
+            )
+        })
+    }
+</section>

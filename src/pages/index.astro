@@ -1,89 +1,17 @@
 ---
 import Base from '@/layouts/Base.astro'
 
-import towerImageSvg from '@/assets/tower_pisa_beta.svg'
-import KatexSSR from '@/components/astro/KatexSSR.astro'
-import type { ImageMetadata } from 'astro'
-import { Image } from 'astro:assets'
-
-import { resolveImageModules } from '@/lib/server-utils'
 import { Icon } from 'astro-icon/components'
 
-import gdgItaliaData from '@/assets/gdg-italia/data.yaml'
-import mediaPartnersData from '@/assets/media-partners/data.yaml'
-import supportersData from '@/assets/supporters/data.yaml'
+import HomepageGallery from '@/components/astro/HomepageGallery.astro'
+import KatexSSR from '@/components/astro/KatexSSR.astro'
 
-import { unifyImages } from '@/lib/assets-helpers'
+import towerImageSvg from '@/assets/tower_pisa_beta.svg'
 
-const galleryImageModules = await resolveImageModules(
-    import.meta.glob<{ default: ImageMetadata }>('@/assets/gallery/*.jpg'),
-)
-
-// Calculate total grid spans for each row
-const getGridCols = (images: typeof galleryImageModules) => {
-    return images.reduce((acc, { default: { src } }) => {
-        const filename = src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
-        if (!filename) {
-            throw new Error('Invalid filename')
-        }
-
-        const [rows, cols] = filename.includes('@')
-            ? (filename
-                  .split('@')
-                  .at(-1)
-                  ?.split('x')
-                  .map((s: string) => parseInt(s)) ?? [1, 1])
-            : [1, 1]
-
-        return acc + cols
-    }, 0)
-}
-
-const totalCols = getGridCols(galleryImageModules)
-
-// Sponsors
-
-const sponsorsImageModules = await resolveImageModules(
-    import.meta.glob<{ default: ImageMetadata }>('@/assets/sponsors/*'),
-)
-
-const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
-    sponsorsImageModules.map(m => {
-        const fileBasename = m.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
-        if (!fileBasename) {
-            throw new Error('Invalid filename')
-        }
-
-        return [fileBasename + '.svg', m.default]
-    }),
-)
-
-// Media Partners
-
-const mediaPartners = unifyImages(
-    mediaPartnersData,
-    await resolveImageModules(
-        import.meta.glob<{ default: ImageMetadata }>('@/assets/media-partners/*.{svg,png,jpg,jpeg}'),
-    ),
-)
-
-// GDG Italia
-
-const gdgItalia = unifyImages(
-    gdgItaliaData,
-    await resolveImageModules(
-        import.meta.glob<{ default: ImageMetadata }>('@/assets/gdg-italia/*.{svg,png,jpg,jpeg,webp}'),
-    ),
-)
-
-// Supporters
-
-const supporters = unifyImages(
-    supportersData,
-    await resolveImageModules(
-        import.meta.glob<{ default: ImageMetadata }>('@/assets/supporters/*.{svg,png,jpg,jpeg,webp}'),
-    ),
-)
+import { mediaPartners } from '@/assets/data-media-partners'
+import { gdgItalia } from '@/assets/data-gdg-italia'
+import { supporters } from '@/assets/data-supporters'
+import { sponsors } from '@/assets/data-sponsors'
 ---
 
 <Base>
@@ -281,78 +209,20 @@ const supporters = unifyImages(
         </div>
     </section>
 
-    <!-- Static Photo Gallery Grid (desktop only) -->
-    <section id="gallery" class="tight">
-        <div class="image-gallery">
-            <div class="image-gallery-wrapper">
-                {
-                    galleryImageModules.slice(0, 10).map(({ default: { src } }, i) => {
-                        const filename = src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
-                        if (!filename) {
-                            throw new Error('Invalid filename')
-                        }
+    <HomepageGallery />
 
-                        const [rows, cols] = filename.includes('@')
-                            ? (filename
-                                  .split('@')
-                                  .at(-1)
-                                  ?.split('x')
-                                  .map((s: string) => parseInt(s)) ?? [1, 1])
-                            : [1, 1]
-
-                        return <img src={src} alt={`gallery image ${i}`} style={`--rows: ${rows}; --cols: ${cols};`} />
-                    })
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- Animated Photo Gallery (mobile only) -->
-    <section class="photoContainer">
-        {
-            [0, 1].map(() => {
-                const rowImages = [...galleryImageModules, ...galleryImageModules.slice(0, 5)]
-
-                return (
-                    <div class="track" style={{ '--total-boxes': totalCols }}>
-                        {rowImages.map((module, i) => {
-                            const filename = module.default.src.split('/').at(-1)!.split('?').at(0)!.split('.').at(0)
-                            if (!filename) {
-                                throw new Error('Invalid filename')
-                            }
-
-                            const [rows, cols] = filename.includes('@')
-                                ? (filename
-                                      .split('@')
-                                      .at(-1)
-                                      ?.split('x')
-                                      .map((s: string) => parseInt(s)) ?? [1, 1])
-                                : [1, 1]
-
-                            return (
-                                <div class="box card" style={{ gridColumn: `span ${cols}` }}>
-                                    <Image class="boxImage" src={module.default} alt={`gallery image ${i}`} />
-                                </div>
-                            )
-                        })}
-                    </div>
-                )
-            })
-        }
-    </section>
-
-    <!-- <section id="sponsors">
+    <section id="sponsors">
         <div class="v-stack">
             <h2>Sponsors</h2>
             {
-                (Object.keys(sponsors) as (keyof Sponsors)[]).map(tier => {
+                (Object.keys(sponsors) as (keyof typeof sponsors)[]).map(tier => {
                     // prettier-ignore
                     const titleStyle = {
-                        main: 'color: #444;',
-                        diamond: 'background-image: linear-gradient(to right, hsl(300, 100%, 70%), hsl(189, 100%, 70%));',
-                        platinum: 'background-image: linear-gradient(to right, hsl(253, 100%, 71%), hsl(0, 0%, 59%));',
-                        gold: 'background-image: linear-gradient(to bottom right, hsl(42, 100%, 63%), hsl(42, 72%, 50%));',
-                        silver: 'background-image: linear-gradient(to bottom right, hsl(0, 0%, 59%), hsl(0, 0%, 31%));',
+                        main: `color: #444;`,
+                        diamond: `background-image: linear-gradient(to right, hsl(300, 100%, 70%), hsl(189, 100%, 70%));`,
+                        platinum: `background-image: linear-gradient(to right, hsl(253, 100%, 71%), hsl(0, 0%, 59%));`,
+                        gold: `background-image: linear-gradient(to bottom right, hsl(42, 100%, 63%), hsl(42, 72%, 50%));`,
+                        silver: `background-image: linear-gradient(to bottom right, hsl(0, 0%, 59%), hsl(0, 0%, 31%));`,
                     }
 
                     return (
@@ -368,7 +238,7 @@ const supporters = unifyImages(
                                             return (
                                                 <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
                                                     <div class="card">
-                                                        <img src={sponsorLogos[sponsor.logo].src} alt={sponsor.name} />
+                                                        <img src={sponsor.logo.src} alt={sponsor.name} />
                                                     </div>
                                                 </a>
                                             )
@@ -380,7 +250,7 @@ const supporters = unifyImages(
                 })
             }
         </div>
-    </section> -->
+    </section>
 
     <section id="media-partners">
         <div class="v-stack">
@@ -392,12 +262,12 @@ const supporters = unifyImages(
                         entry.url ? (
                             <a href={entry.url} target="_blank" rel="noopener noreferrer">
                                 <div class="card">
-                                    <img src={entry.image.src} alt={entry.name} />
+                                    <img src={entry.logo.src} alt={entry.name} />
                                 </div>
                             </a>
                         ) : (
                             <div class="card">
-                                <img src={entry.image.src} alt={entry.name} />
+                                <img src={entry.logo.src} alt={entry.name} />
                             </div>
                         ),
                     )
@@ -409,7 +279,7 @@ const supporters = unifyImages(
                     mediaPartners.map(entry => (
                         <a href={entry.url} target="_blank" rel="noopener noreferrer">
                             <div class="card">
-                                <img src={entry.image.src} alt={entry.name} />
+                                <img src={entry.logo.src} alt={entry.name} />
                             </div>
                         </a>
                     ))
@@ -421,7 +291,7 @@ const supporters = unifyImages(
                     gdgItalia.map(entry => (
                         <a href={entry.url} target="_blank" rel="noopener noreferrer">
                             <div class="card">
-                                <img src={entry.image.src} alt={entry.name} />
+                                <img src={entry.logo.src} alt={entry.name} />
                             </div>
                         </a>
                     ))

@@ -1,13 +1,15 @@
-// import { TALKS, TALKS_TIME_BLOCKS, ROOMS } from '@/lib/sessionize'
-import type { Talk } from '@/lib/sessionize'
 import clsx from 'clsx'
 import { useEffect, useMemo, useState, type Dispatch, type StateUpdater } from 'preact/hooks'
+
+import { type Talk } from '@/lib/astro/sessionize'
+
+import { hashString } from '@/lib/client/client-utils'
+
 import {
     MaterialSymbolsBookmarkAddOutlineRounded,
     MaterialSymbolsBookmarkCheckOutlineRounded,
     MaterialSymbolsFilterAltOutline,
 } from './icons'
-import { hashString } from '@/lib/client-utils'
 
 export function getTalkTimeBlocks(talks: Talk[]) {
     return Object.entries(
