@@ -20,20 +20,25 @@ All commands are run from the root of the project, from a terminal:
 ## Technology Stack
 
 - **Framework**: [Astro 5](https://astro.build) - Static site generation with Islands Architecture
+
 - **UI Components**: [Preact 10](https://preactjs.com) via `@astrojs/preact` integration for interactive sections
+
 - **Language**: [TypeScript](https://www.typescriptlang.org) with strict type checking
+
 - **Styling**: Cascading CSS with CSS layers and custom design system
+
 - **Icons**: `astro-icon` with Material Symbols and Material Design Icons
+
 - **(Preferred) Package Manager**: [Bun](https://bun.sh) or [npm](https://www.npmjs.com)
+
 - **Deployment**: [Netlify](https://netlify.com) with continuous deployment
 
 ## Project Structure
 
 ```
 src/
-├── assets/                    # Content & data files
+├── assets/                   # Content & data files
 │   ├── data-*/               # Structured data (sponsors, supporters, partners)
-│   ├── docs/                 # Other documentation (faq, code of conduct)
 │   ├── gallery/              # Event photography with responsive grid naming
 │   ├── news/                 # Blog posts and announcements
 │   ├── speakers/             # Speaker data (Sessionize JSON exports + sessions)
@@ -57,15 +62,21 @@ src/
 **Speaker & Talk Data:**
 
 - Source: Integrated with [Sessionize](https://sessionize.com) conference management platform
+
 - Files: `src/assets/speakers/sessions.json` and `speakers.json`
+
 - Processing: `src/lib/astro/sessionize.ts` transforms raw exports into typed Speaker and Talk objects
+
 - Features: Speaker deduplication, GDE (Google Developer Expert) badge detection, room/language/level categorization
 
 **Static Content:**
 
-- Markdown-based pages are stored in `src/assets/docs/`
+- Simple Markdown-based can be created directly in `src/pages/` using the `MarkdownPage.astro` layout
+
 - Blog posts and news announcements in `src/assets/news/`
+
 - Team photos automatically discovered from `src/assets/team/` directory
+
 - Sponsor/partner data in modular TypeScript files with image imports
 
 ## Development
@@ -96,9 +107,13 @@ The project uses convenient path aliases configured in `tsconfig.json` and `astr
 ### Key Configuration Files
 
 - `astro.config.mjs` - Astro framework configuration with integrations
+
 - `tsconfig.json` - TypeScript configuration with strict mode
+
 - `package.json` - Project dependencies and npm scripts
+
 - `public/` - Static assets and service worker
+
 - `src/env.d.ts` - TypeScript declarations for custom modules and assets
 
 ## Deployment
@@ -108,6 +123,9 @@ The site is automatically deployed to [Netlify](https://app.netlify.com/sites/gd
 **Deployment Configuration:**
 
 - Build command: `npm run build`
+
 - Publish directory: `./dist/`
+
 - Custom headers in `public/_headers`
+
 - Redirect rules in `public/_redirects`
