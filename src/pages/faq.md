@@ -1,3 +1,7 @@
+---
+layout: '@/layouts/MarkdownPage.astro'
+---
+
 ## FAQs
 
 We know that you could have some questions so we prepared for you a list of **FAQs** that may help you 💪

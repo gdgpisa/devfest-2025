@@ -2407,6 +2407,12 @@
         gap: var(--gap, 0);
     }
 
+    .grid-centered {
+        display: grid;
+        place-content: center;
+        place-items: center;
+    }
+
     .hide {
         display: none;
     }
