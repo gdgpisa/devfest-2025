@@ -24,6 +24,8 @@ export type Talk = {
     startTime: string
     duration: number // in minutes
 
+    workshopColor?: string
+
     speakers: Speaker[]
 }
 
@@ -67,64 +69,56 @@ for (const session of rawSessions) {
     }
 }
 
-const speakersById = Object.fromEntries(
-    Object.values(speakersBySessionizeUUID).map<[string, Speaker]>(speaker => [speaker.id, speaker]),
-)
-
 export const SPEAKERS: Speaker[] = Object.values(speakersBySessionizeUUID)
 
-export const TALKS: Talk[] = Object.values(
-    Object.fromEntries(
-        [
-            ...rawSessions.map<Talk>(session => {
-                const id = slugify(session['Title'])
-                const title = session['Title']
-                const description = excelCleanup(session['Description'])
+const WORKSHOPS: Record<string, { color: string }> = {
+    'Build a photo restoration app using Genkit Go and Nano Banana Pro': { color: 'red' },
+    'Costruiamo agenti con ADK-js': { color: 'green' },
+}
 
-                const category = session['Category']
-                const level = session['Level']
-                const language = session['Language']
+export const TALKS: Talk[] = [
+    ...rawSessions.map<Talk>(session => {
+        const id = slugify(session['Title'])
+        const title = session['Title']
+        const description = excelCleanup(session['Description'])
 
-                const room = session['Room']
-                const startTime = session['Scheduled At']
-                const duration = session['Scheduled Duration'] ?? 0
+        const category = session['Category']
+        const level = session['Level']
+        const language = session['Language']
 
-                const speakers = session['Speaker Ids']
-                    .split(', ')
-                    .map(speakerId => speakersBySessionizeUUID[speakerId])
+        const room = session['Room']
+        const startTime = session['Scheduled At']
+        const duration = session['Scheduled Duration'] ?? 0
 
-                return {
-                    id,
-                    title,
-                    description,
+        const speakers = session['Speaker Ids'].split(', ').map(speakerId => speakersBySessionizeUUID[speakerId])
 
-                    room,
-                    category,
-                    level,
-                    language,
+        return {
+            id,
+            title,
+            description,
 
-                    startTime,
-                    duration,
+            room,
+            category,
+            level,
+            language,
 
-                    speakers,
-                }
-            }),
-            // {
-            //     id: 'example-talk-1',
-            //     title: 'Example Talk 1',
-            //     description: 'This is an example talk description.',
-            //     room: 'Aula magna',
-            //     category: 'Other',
-            //     level: 'example-level',
-            //     duration: 25,
-            //     language: 'English',
-            //     startTime: '2025-04-12T10:00:00Z',
+            startTime,
+            duration,
 
-            //     speakers: ['michele-sponsale'].map(id => speakersById[id]),
-            // },
-        ].map(talk => [talk.id, talk]),
-    ),
-)
+            speakers,
+        }
+    }),
+].map(talk => {
+    const workshopInfo = WORKSHOPS[talk.title]
+    if (workshopInfo) {
+        return {
+            ...talk,
+            workshopColor: workshopInfo.color,
+        }
+    }
+
+    return talk
+})
 
 //
 // Debugging
@@ -144,11 +138,31 @@ for (const talk of TALKS) {
 
 // Rooms
 
-// console.log('Rooms:')
-// const rooms = [...new Set(TALKS.map(talk => talk.room).filter(room => room !== 'unknown'))]
-// for (const room of rooms) {
-//     console.log(`> ${room}`)
-// }
+console.log('Rooms:')
+const rooms = [...new Set(TALKS.map(talk => talk.room).filter(room => room !== 'unknown'))]
+for (const room of rooms) {
+    console.log(`> ${room}`)
+}
+
+console.log('Talk Durations:')
+const durations = new Set(TALKS.map(talk => talk.duration))
+for (const duration of durations) {
+    console.log(`> ${duration} minutes`)
+}
+
+console.log('Errors:')
+for (const talk of TALKS) {
+    if (talk.room === null || talk.room === 'unknown') {
+        console.log(`> ${talk.id} has no room assigned!`)
+    }
+    if (talk.duration === null || talk.duration === 0) {
+        console.log(`> ${talk.id} has no duration assigned!`)
+    }
+}
+
+// const speakersById = Object.fromEntries(
+//     Object.values(speakersBySessionizeUUID).map<[string, Speaker]>(speaker => [speaker.id, speaker]),
+// )
 
 // console.log('Scheduled Talks:')
 // for (const [date, talks] of getTalkTimeBlocks(TALKS)) {

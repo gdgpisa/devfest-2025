@@ -23,7 +23,6 @@
 
         --core-cyan: #00f43a;
         --halftone-cyan: #6aff8d;
-        --pastel-cyan: #a5ffba;
         --cyan-dark: #00c22d;
 
         --dark-blue: #516ebe;
@@ -31,6 +30,9 @@
         --pastel-blue: #a5d2ff;
 
         --red-500: #ea4335;
+
+        --pastel-cyan: #a5ffba;
+        --pastel-red: #ffb3a5;
 
         --iwd-blue: #cae6ff;
         --iwd-green: #d1ece3;
@@ -1412,7 +1414,7 @@
             &.selected {
                 padding: calc(1rem - 1px);
                 border: 3px solid #333;
-                background: hsl(from var(--schedule-accent) h s calc(l - 30));
+                background: hsl(from var(--schedule-accent) h s calc(l - 20));
             }
 
             > .title {

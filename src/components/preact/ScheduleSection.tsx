@@ -31,7 +31,18 @@ function minutes(d: Date) {
     return d.getHours() * 60 + d.getMinutes()
 }
 
-const ROOMS = ['Sala Ricci', 'Sala Fibonacci', 'Sala Gentili', 'Sala Pacinotti']
+// > Sala Fibonacci (35 posti)
+// > Sala Ricci (150 posti)
+// > Sala Gentili (35 posti) Build with AI
+// > Sala Pacinotti (50 posti)
+
+// const ROOMS = ['Sala Ricci', 'Sala Fibonacci', 'Sala Gentili', 'Sala Pacinotti']
+const ROOMS = [
+    'Sala Ricci (150 posti)',
+    'Sala Fibonacci (35 posti)',
+    'Sala Gentili (35 posti) Build with AI',
+    'Sala Pacinotti (50 posti)',
+]
 
 export function useLocalStorageState<T>(key: string, initialValue: T): [T, Dispatch<StateUpdater<T>>] {
     const [storedValue, setStoredValue] = useState<T>(() => {
@@ -287,6 +298,13 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                             ['--start-time']: `${minutes(new Date(talk.startTime!))}`,
                                             ['--duration']: `${talk.duration!}`,
                                             ['--room']: `${ROOMS.indexOf(talk.room!)}`,
+
+                                            ['--schedule-accent']: talk.workshopColor
+                                                ? {
+                                                      red: 'var(--pastel-red)',
+                                                      green: 'var(--pastel-cyan)',
+                                                  }[talk.workshopColor]
+                                                : undefined,
                                         }}
                                         href={`/talk/${talk.id}`}
                                     >
@@ -310,6 +328,9 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                                         [25]: '20m',
                                                         [30]: '20m',
                                                         [50]: '40m',
+                                                        [55]: '40m',
+                                                        [150]: '160m',
+                                                        [160]: '160m',
                                                     }[talk.duration]
                                                 }
                                             </div>
