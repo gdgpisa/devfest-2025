@@ -27,3 +27,6 @@
 - name: 'Sticker Mule'
   logo: 'sticker-mule.png'
   url: 'https://www.stickermule.com/it'
+- name: 'BacaroTech'
+  logo: 'bacaro-tech.svg'
+  url: 'https://bacarotech.github.io/'
