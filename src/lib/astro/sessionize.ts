@@ -39,12 +39,30 @@ const slugify = (str: string) =>
 
 const excelCleanup = (str: string) => str.replaceAll('_x000D_', '\n')
 
+// Remove talks with no room assigned
+const rawSessionsAssigned = rawSessions.filter(session => {
+    const isAccepted = session['Room'] !== null
+    if (!isAccepted) {
+        console.warn(`Talk "${session['Title']}" has been hidden for now`)
+    }
+    return isAccepted
+})
+
+const rawSpeakersAssigned = rawSpeakers.filter(speaker => {
+    const speakerId = speaker['Speaker Id']
+    const isAccepted = rawSessionsAssigned.some(session => session['Speaker Ids'].split(', ').includes(speakerId))
+    if (!isAccepted) {
+        console.warn(`Speaker "${speaker['FirstName']} ${speaker['LastName']}" has been hidden for now`)
+    }
+    return isAccepted
+})
+
 const speakersBySessionizeUUID: Record<string, Speaker> = {}
 
-for (const speaker of rawSpeakers) {
+for (const speaker of rawSpeakersAssigned) {
     const id = speaker['Speaker Id']
 
-    console.log(`Processing speaker "${speaker['FirstName']} ${speaker['LastName']}"...`)
+    // console.log(`Processing speaker "${speaker['FirstName']} ${speaker['LastName']}"...`)
 
     speakersBySessionizeUUID[id] = {
         id: slugify(`${speaker['FirstName']} ${speaker['LastName']}`),
@@ -57,8 +75,8 @@ for (const speaker of rawSpeakers) {
     }
 }
 
-for (const session of rawSessions) {
-    console.log(`Processing talk "${session['Title']}"...`)
+for (const session of rawSessionsAssigned) {
+    // console.log(`Processing talk "${session['Title']}"...`)
     if ((session['Are you a Google employee or GDE?'] ?? '').includes('Yes')) {
         const speakerIds = session['Speaker Ids'].split(', ')
         for (const speakerId of speakerIds) {
@@ -77,7 +95,7 @@ const WORKSHOPS: Record<string, { color: string }> = {
 }
 
 export const TALKS: Talk[] = [
-    ...rawSessions.map<Talk>(session => {
+    ...rawSessionsAssigned.map<Talk>(session => {
         const id = slugify(session['Title'])
         const title = session['Title']
         const description = excelCleanup(session['Description'])
@@ -136,6 +154,9 @@ for (const talk of TALKS) {
     console.log('')
 }
 
+console.log(`Total talks: ${TALKS.length}`)
+console.log(`Total speakers: ${SPEAKERS.length}`)
+
 // Rooms
 
 console.log('Rooms:')
@@ -150,15 +171,15 @@ for (const duration of durations) {
     console.log(`> ${duration} minutes`)
 }
 
-console.log('Errors:')
-for (const talk of TALKS) {
-    if (talk.room === null || talk.room === 'unknown') {
-        console.log(`> ${talk.id} has no room assigned!`)
-    }
-    if (talk.duration === null || talk.duration === 0) {
-        console.log(`> ${talk.id} has no duration assigned!`)
-    }
-}
+// console.log('Errors:')
+// for (const talk of TALKS) {
+//     if (talk.room === null || talk.room === 'unknown') {
+//         console.log(`> ${talk.id} has no room assigned!`)
+//     }
+//     if (talk.duration === null || talk.duration === 0) {
+//         console.log(`> ${talk.id} has no duration assigned!`)
+//     }
+// }
 
 // const speakersById = Object.fromEntries(
 //     Object.values(speakersBySessionizeUUID).map<[string, Speaker]>(speaker => [speaker.id, speaker]),
