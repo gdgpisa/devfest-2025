@@ -15,7 +15,7 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 
 #### We're happy to welcome on stage the following speakers and sessions:
 
-<!-- generated with "uv run generate_speakers_list.py" -->
+<!-- generated with "./src/assets/speakers/generate_speakers_list.py" -->
 <!-- START -->
 
 - **Francesco Sciuti & Emiliano Pisu** — CEO @ Devmy - Google Developer Expert, Microsoft MVP, Google Certified Developer & AWS UG Lead & Senior Design Engineer, Sensei & Co-Host @ DevDojoIT
