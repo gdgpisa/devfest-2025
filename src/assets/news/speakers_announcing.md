@@ -1,9 +1,9 @@
 ---
-title: Announcing Our First Amazing Speakers!
+title: Announcing Our Amazing Speakers!
 date: 2026-03-16
 ---
 
-## Announcing Our First Amazing Speakers! 📢
+## Announcing Our Amazing Speakers! 📢
 
 Hello everyone! 🥳
 
@@ -11,7 +11,7 @@ We know you've been eagerly awaiting this announcement, and today, we're thrille
 
 We can't wait to share the full agenda with you, but we're still finalizing some last details, so please stay tuned!
 
-#### The first speakers 🎤
+#### The speakers 🎤
 
 #### We're happy to welcome on stage the following speakers and sessions:
 
