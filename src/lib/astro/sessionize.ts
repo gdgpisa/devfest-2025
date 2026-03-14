@@ -1,5 +1,5 @@
-import rawSessions from '@/assets/speakers/sessions.json'
-import rawSpeakers from '@/assets/speakers/speakers.json'
+import rawSessions from '@/assets/sessionize/sessions.json'
+import rawSpeakers from '@/assets/sessionize/speakers.json'
 
 export type Speaker = {
     id: string

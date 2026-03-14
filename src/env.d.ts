@@ -1,4 +1,4 @@
-declare module '@/assets/speakers/sessions.json' {
+declare module '@/assets/sessionize/sessions.json' {
     export type RawSession = {
         'Session Id': number
         'Title': string
@@ -27,7 +27,7 @@ declare module '@/assets/speakers/sessions.json' {
     export default value
 }
 
-declare module '@/assets/speakers/speakers.json' {
+declare module '@/assets/sessionize/speakers.json' {
     export type RawSpeaker = {
         'Speaker Id': string
         'FirstName': string

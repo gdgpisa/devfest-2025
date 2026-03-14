@@ -63,7 +63,7 @@ src/
 
 - Source: Integrated with [Sessionize](https://sessionize.com) conference management platform
 
-- Files: `src/assets/speakers/sessions.json` and `speakers.json`
+- Files: `src/assets/sessionize/sessions.json` and `speakers.json`
 
 - Processing: `src/lib/astro/sessionize.ts` transforms raw exports into typed Speaker and Talk objects
 
