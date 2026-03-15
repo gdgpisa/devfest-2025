@@ -543,6 +543,31 @@
         max-height: fit-content;
 
         background: linear-gradient(to right, var(--pastel-blue) 45%, #fff);
+
+        .text {
+            --text-shadow-color: hsl(from var(--pastel-blue) h s calc(l - 3));
+
+            text-shadow:
+                0 0 2rem var(--text-shadow-color),
+                0 0 2rem var(--text-shadow-color);
+        }
+
+        #binary-art {
+            pointer-events: none;
+            position: absolute;
+            inset: 0;
+            /* z-index: -1; */
+
+            opacity: 0.5;
+
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+
+                background: linear-gradient(to right, rgba(from var(--pastel-blue) r g b / 0) 45%, #fff);
+            }
+        }
     }
 
     #cfp {

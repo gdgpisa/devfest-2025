@@ -16,6 +16,7 @@ import { sponsors } from '@/assets/data-sponsors'
 
 <Base>
     <section id="hero">
+        <div id="binary-art"></div>
         <div class="h-stack">
             <div class="hero-content v-stack">
                 <div class="text">
@@ -29,6 +30,22 @@ import { sponsors } from '@/assets/data-sponsors'
             </div>
             <img class="hero-image" src={towerImageSvg.src} alt="Leaning Tower of Pisa" />
         </div>
+        <script>
+            import { BinaryGrid } from '@/lib/client/binary-art-10y'
+            const $binaryArtContainer = document.getElementById('binary-art')!
+            new BinaryGrid($binaryArtContainer, {
+                cellSize: 32,
+                fontSize: 16,
+                fontFamily: "'Roboto Mono', 'Courier New', monospace",
+                updateInterval: 10,
+                samplingRate: 0.005,
+                colors: {
+                    base: '#7cbdff',
+                    bg: '#a5d2ff',
+                    highlight: '#579ee5',
+                },
+            })
+        </script>
     </section>
 
     <section id="tickets">
