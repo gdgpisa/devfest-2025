@@ -74,6 +74,10 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 
     **_Il bug non era nel codice: era nel team!_** - talk language 🇮🇹
 
+- **Jacopo Martellini** — Software Architect @ AuraSensae
+
+    **_Il miglior Copilot è umano_** - talk language 🇮🇹🇬🇧
+
 - **Federico Paolinelli** — Senior Principal Software Engineer at Red Hat
 
     **_Kubernetes Networking Demystified: From Pod IPs to Loadbalancers_** - talk language 🇬🇧
