@@ -5,22 +5,23 @@
     "": {
       "name": "devfest-2025",
       "dependencies": {
-        "@astrojs/preact": "latest",
-        "@iconify-json/material-symbols": "latest",
-        "@iconify/react": "latest",
-        "astro": "latest",
-        "astro-icon": "latest",
-        "clsx": "latest",
-        "katex": "latest",
-        "preact": "latest",
+        "@astrojs/preact": "^5.0.0",
+        "@fontsource/poppins": "^5.2.7",
+        "@iconify-json/material-symbols": "^1.2.62",
+        "@iconify/react": "^6.0.2",
+        "astro": "^6.0.4",
+        "astro-icon": "^1.1.5",
+        "clsx": "^2.1.1",
+        "katex": "^0.16.38",
+        "preact": "^10.29.0",
       },
       "devDependencies": {
-        "@iconify-json/mdi": "latest",
-        "@rollup/plugin-yaml": "latest",
-        "@types/katex": "latest",
-        "@types/umami": "latest",
-        "prettier": "latest",
-        "prettier-plugin-astro": "latest",
+        "@iconify-json/mdi": "^1.2.3",
+        "@rollup/plugin-yaml": "^4.1.2",
+        "@types/katex": "^0.16.8",
+        "@types/umami": "^2.10.1",
+        "prettier": "^3.8.1",
+        "prettier-plugin-astro": "^0.14.1",
       },
     },
   },
@@ -144,6 +145,8 @@
     "@esbuild/win32-ia32": ["@esbuild/win32-ia32@0.27.4", "", { "os": "win32", "cpu": "ia32" }, "sha512-DAyGLS0Jz5G5iixEbMHi5KdiApqHBWMGzTtMiJ72ZOLhbu/bzxgAe8Ue8CTS3n3HbIUHQz/L51yMdGMeoxXNJw=="],
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.27.4", "", { "os": "win32", "cpu": "x64" }, "sha512-+knoa0BDoeXgkNvvV1vvbZX4+hizelrkwmGJBdT17t8FNPwG2lKemmuMZlmaNQ3ws3DKKCxpb4zRZEIp3UxFCg=="],
+
+    "@fontsource/poppins": ["@fontsource/poppins@5.2.7", "", {}, "sha512-6uQyPmseo4FgI97WIhA4yWRlNaoLk4vSDK/PyRwdqqZb5zAEuc+Kunt8JTMcsHYUEGYBtN15SNkMajMdqUSUmg=="],
 
     "@iconify-json/material-symbols": ["@iconify-json/material-symbols@1.2.62", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-FmAzV8UT7pcH6bv8vJxxFKrf3/ebt/CzpUxljjbWgWw0PjbjUHlkwxmtHTiRNS+MGD7t6ii2JdiDWHdBkvPSpQ=="],
 

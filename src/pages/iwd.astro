@@ -1,20 +1,29 @@
 ---
 import Base from '@/layouts/Base.astro'
 
-import wtmBanner from '@/assets/iwd-banner.png'
+// import wtmBanner from '@/assets/iwd-banner.png'
 
-import wtmQuadrato from '@/assets/logo_wtm_quadrato.svg?raw'
-import wtmQuadratoNoTitle from '@/assets/logo_wtm_quadrato_notitle.svg?raw'
+import wtmQuadrato from '@/assets/logo_wtm_quadrato_2026.png'
+import wtmQuadratoNoTitle from '@/assets/logo_wtm_quadrato_2026.png'
+
+import breakThePatternVideo from '@/assets/Break-The-Pattern.mp4'
+
+import '@fontsource/poppins'
 ---
 
 <Base>
     <section class="desktop-only" id="iwd-hero">
         <div class="card large tight">
-            <img src={wtmBanner.src} alt="IWD Banner" />
+            <!-- <img src={breakThePatternVideo} alt="IWD Banner" /> -->
+            <video autoplay loop muted playsinline>
+                <source src={breakThePatternVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
         </div>
         <div class="h-stack top">
             <div class="card large">
-                <Fragment set:html={wtmQuadrato} />
+                <!-- <Fragment set:html={wtmQuadrato} /> -->
+                <img class="logo-wtm" src={wtmQuadrato.src} alt="Women Techmakers Logo" />
             </div>
             <div class="card large">
                 <div class="text">
@@ -36,11 +45,16 @@ import wtmQuadratoNoTitle from '@/assets/logo_wtm_quadrato_notitle.svg?raw'
         </div>
     </section>
     <section class="mobile-only" id="iwd-hero-mobile">
-        <img src={wtmBanner.src} alt="IWD Banner" />
+        <!-- <img src={breakThePatternVideo} alt="IWD Banner" /> -->
+        <video autoplay loop muted playsinline>
+            <source src={breakThePatternVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
     </section>
     <section class="mobile-only" id="iwd-hero-mobile-content">
         <div class="card large">
-            <Fragment set:html={wtmQuadratoNoTitle} />
+            <!-- <Fragment set:html={wtmQuadratoNoTitle} /> -->
+            <img class="logo-wtm" src={wtmQuadratoNoTitle.src} alt="Women Techmakers Logo" />
         </div>
         <div class="card large">
             <div class="text">
@@ -62,18 +76,19 @@ import wtmQuadratoNoTitle from '@/assets/logo_wtm_quadrato_notitle.svg?raw'
     </section>
     <section id="iwd-theme">
         <div class="text text-center">
-            <h2>
-                <strong>
-                    Redefine <span style="color: #00947B;">Possible</span>
-                </strong>
+            <h2 style="font-family: 'Poppins', sans-serif;">
+                <strong>BREAK THE <span style="color: #0b2b9b;">PATTERN</span></strong>
             </h2>
-            <p>
+            <!-- <p>
                 This year's theme it's a bold declaration that challenges the boundaries<br />
                 of what technology can achieve and reimagines who shapes its future.
-            </p>
+            </p> -->
+            <!-- <p>Breaking the pattern means to stop accepting <br /> things just because they've always been that way.</p> -->
+
+            <p>Breaking the pattern starts when we stop <br />settling for <em>"this is how it's always been"</em>.</p>
         </div>
         <div class="card large">
-            <p>
+            <!-- <p>
                 We stand at a pivotal moment where AI is transforming our world bringing unprecedented opportunities but
                 also risking the amplification of gender biases and systemic barriers. As artificial intelligence
                 becomes woven into society, we believe that women are not just participating in its development they're
@@ -83,7 +98,26 @@ import wtmQuadratoNoTitle from '@/assets/logo_wtm_quadrato_notitle.svg?raw'
             <p>
                 The future of technology isn't predetermined it is something we actively shape. What seems impossible
                 today becomes tomorrow’s reality when we dare to challenge it.
+            </p> -->
+
+            <p>
+                Women Techmakers' International Women's Day (IWD) campaign brings together thousands of technologists to
+                celebrate, connect, and learn. Globally, it's a moment to recognize the incredible contributions of
+                women around the world, and is also a call to action for accelerating gender equity.
             </p>
+
+            <p>
+                The theme for IWD 2026 is Break the Pattern. This theme is intended to tie a thread through the many
+                local events that make up the global movement that is International Women's Day.
+            </p>
+
+            <p>
+                Breaking the pattern means to stop accepting things just because they've always been that way. This is
+                the moment to disrupt old biases, step into spaces where we weren't expected, and rewrite the rules of
+                who gets to shape technology's future.
+            </p>
+
+            <p><strong>What will you do to #breakthepattern?</strong></p>
         </div>
     </section>
     <section id="iwd-whats-wtm" style="background-color: var(--iwd-blue);">
@@ -91,7 +125,8 @@ import wtmQuadratoNoTitle from '@/assets/logo_wtm_quadrato_notitle.svg?raw'
             <h2>
                 What’s
                 <div class="text-wtm-logo">
-                    <Fragment set:html={wtmQuadratoNoTitle} />
+                    <!-- <Fragment set:html={wtmQuadratoNoTitle} /> -->
+                    <img class="logo-wtm" src={wtmQuadratoNoTitle.src} alt="Women Techmakers Logo" />
                 </div>
                 ?
             </h2>
@@ -99,9 +134,8 @@ import wtmQuadratoNoTitle from '@/assets/logo_wtm_quadrato_notitle.svg?raw'
         <div class="card large">
             <div class="text">
                 <p>
-                    Women Techmakers (WTM) is Google's global initiative dedicated to empowering women in technology.
-                    WTM is a supportive community that provide increased visibility, and essential resources to help
-                    women at all career stages join, succeed, and lead in the industry.
+                    Women Techmakers is an ecosystem of engaged professionals advocating for more gender diversity in
+                    tech from around the world, through community, visibility and resources
                 </p>
                 <p>
                     WTM exists because the tech industry faces a significant challenge: underrepresentation of women. We

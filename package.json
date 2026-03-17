@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/preact": "^5.0.0",
+    "@fontsource/poppins": "^5.2.7",
     "@iconify-json/material-symbols": "^1.2.62",
     "@iconify/react": "^6.0.2",
     "astro": "^6.0.4",

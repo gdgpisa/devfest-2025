@@ -1628,8 +1628,18 @@
             }
         }
 
+        .logo-wtm {
+            max-width: 270px;
+        }
+
         section:nth-child(2) {
             background: #fff;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            max-height: 75vh;
         }
 
         @media (width < 768px) {
@@ -1645,6 +1655,10 @@
 
     #iwd-hero-mobile-content {
         background: var(--iwd-blue);
+
+        .logo-wtm {
+            max-width: 300px;
+        }
     }
 
     #iwd-theme {
@@ -1657,6 +1671,11 @@
 
     #iwd-whats-wtm {
         --button-bg: var(--iwd-blue-dark);
+
+        img {
+            border: none;
+            box-shadow: none;
+        }
     }
 
     #iwd-hero-mobile {
@@ -1670,6 +1689,10 @@
             aspect-ratio: 1.61 / 1;
 
             object-fit: cover;
+        }
+
+        video {
+            max-width: 100vw;
         }
     }
 
