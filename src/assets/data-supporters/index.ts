@@ -32,6 +32,7 @@
 //   url: 'https://bacarotech.github.io/'
 
 import bacaroTech from './bacaro-tech.svg'
+import dalMozza from './dal-mozza.svg'
 import stickerMule from './sticker-mule.png'
 import theDevelopersBakery from './the-developers-bakery.png'
 
@@ -50,5 +51,10 @@ export const supporters = [
         name: 'BacaroTech',
         logo: bacaroTech,
         url: 'https://bacarotech.github.io/',
+    },
+    {
+        name: 'Dal Mozza Gourmet',
+        logo: dalMozza,
+        url: 'https://linktr.ee/dalmozzagourmet',
     },
 ]
