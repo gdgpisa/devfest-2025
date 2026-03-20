@@ -22,6 +22,10 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 
     **_60fps o niente: Rendering Pipeline a suon di esempi pratici!_** - talk language 🇮🇹
 
+- **Daniela Petruzalek** — Developer Relations Engineer at Google
+
+    **_Advanced Techniques for Building Agents with ADK and Vertex AI_** - talk language 🇬🇧
+
 - **Gregory Pardini** — Tech Lead @ Rosso
 
     **_Agenti in produzione: come sbloccare il potenziale in sicurezza_** - talk language 🇮🇹
@@ -56,11 +60,11 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 
 - **Valeria Salis** — Tech Sustainability Consultant, Speaker, Host @ Green Tech Tales
 
-    **_From shy contributor to (kinda) confident community leader_** - talk language 🇮🇹🇬🇧
+    **_From shy contributor to (kinda) confident community leader_** - talk language 🇬🇧
 
 - **Nicola Corti** — Android GDE - Android @ React
 
-    **_Gotta Build 'Em All: Android Pokedex 10 Years Later_** - talk language 🇮🇹🇬🇧
+    **_Gotta Build 'Em All: Android Pokedex 10 Years Later_** - talk language 🇬🇧
 
 - **Chiara Corrado & Federica Merenda & Pinelopi Troullinou & Luciana Bertoncini** — Senior Software Engineer - Green Software Italia co-founder - WTM & She Tech Ambassador - Donne 4.0 member & Post-doc Researcher, Feminist AI and Ethics of Technology & AI Governance & Responsible Innovation Consultant & AI Process Eng @ Dumarey Flowmotion Technologies, Donne 4.0 Member
 
@@ -88,7 +92,11 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 
 - **Pietro Tempesti & Franco Riformato** — Software Engineer @NTT DATA Italy & Advanced Software Engineer @ NTT DATA
 
-    **_La Context Engineering come l'arma finale di ogni sviluppatore_** - talk language 🇮🇹🇬🇧
+    **_La Context Engineering come l'arma finale di ogni sviluppatore_** - talk language 🇬🇧
+
+- **Diego Giorgini** — Head of AI @ AI Technologies
+
+    **_LLM Steering: progettare 'stati mentali' per modelli linguistici_** - talk language 🇮🇹
 
 - **Irene Burresi** — AI Team Leader @ Value Partners
 
@@ -124,7 +132,7 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 
 - **Katarina Zivkovic** — Brand & Content Strategist
 
-    **_Synthetic Trust: AI, Security, and the Collapse of “Seeing Is Believing”_** - talk language 🇮🇹🇬🇧
+    **_Synthetic Trust: AI, Security, and the Collapse of “Seeing Is Believing”_** - talk language 🇬🇧
 
 - **Luca Di Vita** — Machine Learning Engineer @ Cy4Gate | Member @ GDG Pescara | Co-Founder @ Python Pescara
 

@@ -1,5 +1,6 @@
 import rawSessions from '@/assets/sessionize/sessions.json'
 import rawSpeakers from '@/assets/sessionize/speakers.json'
+import { getTalkTimeBlocks } from '@/components/preact/ScheduleSection'
 
 export type Speaker = {
     id: string
@@ -171,15 +172,24 @@ for (const duration of durations) {
     console.log(`> ${duration} minutes`)
 }
 
-// console.log('Errors:')
-// for (const talk of TALKS) {
-//     if (talk.room === null || talk.room === 'unknown') {
-//         console.log(`> ${talk.id} has no room assigned!`)
-//     }
-//     if (talk.duration === null || talk.duration === 0) {
-//         console.log(`> ${talk.id} has no duration assigned!`)
-//     }
-// }
+console.log('Errors:')
+const errorTalks = TALKS.filter(
+    talk => talk.room === null || talk.room === 'unknown' || talk.duration === null || talk.duration === 0,
+)
+if (errorTalks.length === 0) {
+    console.log('No errors found!')
+} else {
+    console.log(`Found ${errorTalks.length} talks with errors:`)
+}
+errorTalks.forEach(talk => {
+    console.log(`> ${talk.title} (${talk.id})`)
+    if (talk.room === null || talk.room === 'unknown') {
+        console.log('  - Missing or unknown room')
+    }
+    if (talk.duration === null || talk.duration === 0) {
+        console.log('  - Missing or zero duration')
+    }
+})
 
 // const speakersById = Object.fromEntries(
 //     Object.values(speakersBySessionizeUUID).map<[string, Speaker]>(speaker => [speaker.id, speaker]),
