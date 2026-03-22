@@ -2,8 +2,8 @@ import { defineConfig } from 'astro/config'
 
 import yaml from '@rollup/plugin-yaml'
 
+import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import { join, dirname } from 'path'
 
 import icon from 'astro-icon'
 
@@ -15,6 +15,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export default defineConfig({
     devToolbar: {
         enabled: false,
+    },
+
+    image: {
+        cacheDir: './.astro/image-cache',
     },
 
     vite: {
