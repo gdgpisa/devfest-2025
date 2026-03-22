@@ -36,8 +36,10 @@
 
     .box {
         padding: 0;
+        /*
         min-height: var(--box-min-height);
         max-height: calc(45vh - var(--gap) - var(--container-ypadding));
+        */
         overflow: clip;
     }
 
@@ -51,6 +53,19 @@
         height: 100%;
         min-height: var(--box-min-height);
         object-fit: cover;
+    }
+
+    .hfix {
+        grid-column: span var(--colspan);
+        background-size: cover;
+        background-position: center;
+        height: clamp(
+            var(--box-min-height),
+            calc(
+                (var(--colspan) * (100vw / var(--visible-boxes)) + (var(--colspan) - 1) * var(--gap)) * var(--imgRatio)
+            ),
+            calc(45vh - var(--gap) - var(--container-ypadding))
+        );
     }
 
     @keyframes scrollToLeft {
