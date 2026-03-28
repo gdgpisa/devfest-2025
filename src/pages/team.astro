@@ -14,16 +14,33 @@ const memberPictures: { default: { src: string } }[] = await Promise.all(
     ),
 )
 
+const nameOverrides: Record<string, { firstName: string; lastName: string }> = {
+    davide_pio_lomonaco: { firstName: 'Davide Pio', lastName: 'Lomonaco' },
+}
+
+const extractFileName = (src: string) => src.split('/').at(-1)!.split('?')[0].split('.')[0]
+
+const parseNameParts = (fileName: string): { firstName: string; lastName: string } => {
+    if (nameOverrides[fileName]) {
+        return nameOverrides[fileName]
+    }
+
+    const nameParts = snakecaseToTitleCase(fileName).split(' ')
+    return {
+        firstName: nameParts.at(0)!,
+        lastName: nameParts.slice(1).join(' '),
+    }
+}
+
 const teamMembers = memberPictures
     .map(picture => {
-        const nameTitleCase = snakecaseToTitleCase(picture.default.src.split('/').at(-1)!.split('?')[0].split('.')[0])
+        const fileName = extractFileName(picture.default.src)
+        const { firstName, lastName } = parseNameParts(fileName)
 
         return {
-            fullName: nameTitleCase,
-
-            firstName: nameTitleCase.split(' ').at(0),
-            lastName: nameTitleCase.split(' ').slice(1).join(' '),
-
+            fullName: snakecaseToTitleCase(fileName),
+            firstName,
+            lastName,
             picture,
         }
     })
