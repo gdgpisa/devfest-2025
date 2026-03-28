@@ -468,7 +468,7 @@
 
         a {
             cursor: pointer;
-            text-decoration: underline 1px solid !important;
+            text-decoration: underline 2px solid !important;
 
             svg,
             img {
@@ -485,7 +485,11 @@
             }
 
             &:hover {
-                text-decoration: underline 1px solid !important;
+                text-decoration: underline 2px solid !important;
+            }
+
+            &::before {
+                display: none;
             }
         }
 
@@ -1296,6 +1300,10 @@
                 box-shadow: 6px 6px 0 0 #0004;
 
                 padding: 2rem;
+
+                &.workshop {
+                    background: var(--workshop-color, #fff);
+                }
             }
         }
 

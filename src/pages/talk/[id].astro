@@ -24,6 +24,17 @@ const languageEmoji =
         English: '🇬🇧',
         Italian: '🇮🇹',
     }[talk.language] || null
+
+const workshops = Object.values(import.meta.glob<any>('../../assets/workshops/*.md', { eager: true }))
+const workshop = workshops.find((w: any) => w.file.endsWith(`/${talk.id}.md`))
+const WorkshopContent = workshop ? workshop.Content : null
+
+const workshopCSSColor = talk.workshopColor
+    ? {
+          red: 'var(--pastel-red)',
+          green: 'var(--pastel-cyan)',
+      }[talk.workshopColor]
+    : undefined
 ---
 
 <Base>
@@ -94,6 +105,8 @@ const languageEmoji =
                                             [25]: '20min',
                                             [30]: '20min',
                                             [50]: '40min',
+                                            [130]: '2h',
+                                            [150]: '2h30min',
                                         }[talk.duration]
                                     }
                                 </div>
@@ -108,6 +121,19 @@ const languageEmoji =
                         {talk.description.split('\n').map(line => <p>{line}</p>)}
                     </div>
                 </div>
+
+                {
+                    WorkshopContent && (
+                        <div
+                            class="description workshop"
+                            style={workshopCSSColor ? `--workshop-color: ${workshopCSSColor};` : undefined}
+                        >
+                            <div class="text">
+                                <WorkshopContent />
+                            </div>
+                        </div>
+                    )
+                }
             </div>
         </div>
     </section>
