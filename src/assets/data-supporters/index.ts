@@ -33,6 +33,7 @@
 
 import bacaroTech from './bacaro-tech.svg'
 import dalMozza from './dal-mozza.svg'
+import spaventapasseri from './spaventapasseri.png'
 import stickerMule from './sticker-mule.png'
 import theDevelopersBakery from './the-developers-bakery.png'
 
@@ -56,5 +57,10 @@ export const supporters = [
         name: 'Dal Mozza Gourmet',
         logo: dalMozza,
         url: 'https://linktr.ee/dalmozzagourmet',
+    },
+    {
+        name: 'Lo Spaventapasseri Pisa',
+        logo: spaventapasseri,
+        url: 'https://lospaventapasseripub.com/',
     },
 ]

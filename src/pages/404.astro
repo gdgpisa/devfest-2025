@@ -1,0 +1,277 @@
+---
+import Base from '@/layouts/Base.astro'
+import towerImageSvg from '@/assets/tower_pisa_gray.svg'
+import chromeDinoSvg from '@/assets/chrome_dino.svg'
+---
+
+<style>
+    body {
+        background: linear-gradient(to right, #f0f2f5 45%, #fff);
+    }
+
+    .hero-404-section {
+        background: linear-gradient(to right, #f0f2f5 45%, #fff) !important;
+        display: flex;
+        align-items: center;
+    }
+
+    .h-stack-404 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 4rem;
+        position: relative;
+        padding-bottom: 4rem; /* Push content slightly higher on larger screens */
+    }
+
+    @media (max-width: 768px) {
+        .h-stack-404 {
+            flex-direction: column;
+            justify-content: center;
+            gap: 6rem;
+            padding-bottom: 2rem;
+            padding-top: 2rem;
+        }
+
+        .code-block {
+            font-size: 0.95rem;
+        }
+
+        .code-block .indent {
+            padding-left: 1rem;
+        }
+
+        .illustration-group {
+            margin-top: 6rem;
+            max-width: 400px;
+        }
+    }
+
+    .content-wrapper {
+        z-index: 2;
+        flex: 2;
+        max-width: 900px;
+    }
+
+    .title-text {
+        text-shadow: none !important;
+    }
+
+    .title-text h1 {
+        font-size: clamp(4rem, 8vw, 6rem);
+        margin-bottom: 0px;
+        line-height: 1.1;
+    }
+
+    .title-text h3 {
+        margin-top: 0px;
+        color: #333;
+    }
+
+    .exception-card {
+        align-items: flex-start;
+        text-align: left;
+        background: #fff;
+    }
+
+    .code-block {
+        font-family: 'Roboto Mono', Courier, monospace;
+        margin-bottom: 1.5rem;
+        width: 100%;
+        text-shadow: none !important;
+        font-size: 1.15rem;
+        line-height: 1.6;
+        background: transparent;
+        padding: 0;
+        border: none;
+        white-space: pre-wrap;
+    }
+
+    .code-block .indent {
+        padding-left: 2rem;
+    }
+
+    .code-block .kw {
+        color: var(--core-blue);
+        font-weight: bold;
+    }
+
+    .code-block .str {
+        color: var(--red-500);
+    }
+
+    .action-button {
+        font-family: 'Roboto Mono', Courier, monospace;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 2rem;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .action-button-subtitle {
+        font-family: 'Product Sans', sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+        opacity: 0;
+        letter-spacing: 0.5px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        margin-top: 0;
+    }
+
+    .action-button:hover .action-button-subtitle {
+        opacity: 0.9;
+        max-height: 20px;
+        margin-top: 0.2rem;
+    }
+
+    .illustration-group {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        padding-top: 3rem;
+    }
+
+    .composite-graphic {
+        position: relative;
+        width: 70%;
+        min-width: 300px;
+        max-width: 550px;
+    }
+
+    .tower-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .dino-container {
+        position: absolute;
+        top: var(--dino-top, -30%);
+        right: var(--dino-right, -10%);
+        width: var(--dino-width, 140%);
+        z-index: 2;
+    }
+
+    .dino-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .question-mark {
+        position: absolute;
+        top: var(--qm-top, -45%);
+        right: var(--qm-right, 25%);
+        font-size: clamp(3rem, 7vw, 5.5rem);
+        font-weight: bold;
+        color: #535353;
+        font-family: 'Product Sans', sans-serif;
+        z-index: 2;
+    }
+</style>
+
+<Base title="404 - Page Not Found">
+    <section id="hero" class="hero-404-section">
+        <div id="binary-art"></div>
+        <div class="h-stack-404">
+            <div class="hero-content v-stack content-wrapper">
+                <div class="text title-text">
+                    <h1>404</h1>
+                    <h3>Code Exception</h3>
+                </div>
+
+                <div class="card large exception-card">
+                    <pre
+                        class="code-block"><code><span class="kw">try</span> <span>&#123;</span>
+<span class="indent"><span class="kw">await</span> navigateTo(<span class="str">"<span id="requested-url">/your-requested-page</span>"</span>);</span>
+<span>&#125;</span> <span class="kw">catch</span> (error) <span>&#123;</span>
+<span class="indent">console.error(<span class="str" id="random-error-message">"404: Route not registered in the DevFest manifest."</span>);</span>
+<span>&#125;</span></code></pre>
+                    <a class="button large primary action-button" href="/" role="button">
+                        <span>&gt; <span id="random-button-text">git checkout main</span></span>
+                        <span class="action-button-subtitle">Return to Homepage</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="illustration-group">
+                <div class="composite-graphic">
+                    <img src={towerImageSvg.src} alt="Leaning Tower of Pisa" class="tower-image" />
+
+                    <!-- Fine-tuned inline offsets that you can also playfully tweak! -->
+                    <div class="dino-container" style="--dino-top: -12%; --dino-right: 28%; --dino-width: 30%;">
+                        <img src={chromeDinoSvg.src} alt="Chrome Dino" class="dino-image" />
+                    </div>
+
+                    <div class="question-mark" style="--qm-top: -25%; --qm-right: 10%;">?</div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Random phrases for the 404 page
+            const phrases = [
+                '"404: Route not registered in the DevFest manifest."',
+                '"404: The requested speaker is currently offline."',
+                '"404: NullPointerException - Page is out of bounds."',
+                '"Error: Uncaught Promise Rejection. Page not found."',
+                '"404: Looks like a broken pipeline in GitHub Actions."',
+                '"Warning: this track has been deprecated."',
+            ]
+
+            const messageElement = document.getElementById('random-error-message')
+            if (messageElement) {
+                const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)]
+                messageElement.textContent = randomPhrase
+            }
+
+            // Random phrases for the button text
+            const buttonPhrases = [
+                'git checkout main',
+                'cd /home',
+                'npm run start',
+                'docker restart devfest',
+                'sudo reboot',
+                'Ctrl+Z',
+                'git reset --hard HEAD',
+                'rm -rf node_modules',
+            ]
+
+            const buttonTextElement = document.getElementById('random-button-text')
+            if (buttonTextElement) {
+                const randomBtnPhrase = buttonPhrases[Math.floor(Math.random() * buttonPhrases.length)]
+                buttonTextElement.textContent = randomBtnPhrase
+            }
+
+            const urlElement = document.getElementById('requested-url')
+            if (urlElement) {
+                urlElement.textContent = window.location.pathname
+            }
+
+            import { BinaryGrid } from '@/lib/client/binary-art-10y'
+            const $binaryArtContainer = document.getElementById('binary-art')!
+            new BinaryGrid($binaryArtContainer, {
+                cellSize: 32,
+                fontSize: 16,
+                fontFamily: "'Roboto Mono', 'Courier New', monospace",
+                updateInterval: 10,
+                samplingRate: 0.005,
+                colors: {
+                    base: '#cccccc',
+                    bg: '#f0f2f5',
+                    highlight: '#999999',
+                },
+            })
+        </script>
+    </section>
+</Base>
