@@ -350,6 +350,20 @@
     "Profile Picture":"https:\/\/sessionize.com\/image\/56d9-400o400o1-P2kemErpqogrPsG2zXiUxQ.jpg"
   },
   {
+    "Speaker Id":"b3fd818c-10c9-4e96-a32b-d95deba9fc21",
+    "FirstName":"Fabrizio",
+    "LastName":"Baldazzi",
+    "Email":"f.baldazzi@tiscali.it",
+    "TagLine":"Solution Archityect",
+    "Bio":"I have a degree in computer science and have been working in this field since the 1990s. I deal with architectural solutions and development in various languages, such as Java, Angular, Python, and so on.",
+    "LinkedIn":null,
+    "Company Website":null,
+    "Instagram":null,
+    "Blog":null,
+    "Facebook":null,
+    "Profile Picture":"https:\/\/sessionize.com\/image\/7123-400o400o1-wFgsBEnphmM2rKKLn7Xf3Q.jpg"
+  },
+  {
     "Speaker Id":"b8b99b42-456a-4934-a1ac-414d4ba2990b",
     "FirstName":"Francesco",
     "LastName":"Sciuti",
@@ -434,6 +448,20 @@
     "Profile Picture":"https:\/\/sessionize.com\/image\/3e16-400o400o1-7jvdkF5R8VCzcbkb33Ty6R.jpg"
   },
   {
+    "Speaker Id":"d1f80578-6fe5-45f4-ba37-5020a69f550f",
+    "FirstName":"Giorgio",
+    "LastName":"Basile",
+    "Email":"giorgiobasile631@gmail.com",
+    "TagLine":"Angular Frontend Developer",
+    "Bio":"I am a young man born in 2000 and I am currently finishing my studies in computer science at the Ca' Foscari University of Venice, located in Mestre, in addition to being a full-time web developer._x000D_\nIn addition to studying, I love playing role-playing games, skateboarding and playing Magic the Gathering.",
+    "LinkedIn":"https:\/\/www.linkedin.com\/in\/giorgiobasile00\/",
+    "Company Website":null,
+    "Instagram":"https:\/\/www.instagram.com\/bacarotechofficial\/",
+    "Blog":"https:\/\/www.linkedin.com\/in\/giorgiobasile00\/",
+    "Facebook":null,
+    "Profile Picture":"https:\/\/sessionize.com\/image\/291e-400o400o1-fZ88yJQ1jSUdb8xqVryTQ5.jpg"
+  },
+  {
     "Speaker Id":"d26a7c22-25fc-466d-89ff-c0a77c93f820",
     "FirstName":"Federico",
     "LastName":"Paolinelli",
@@ -516,20 +544,6 @@
     "Blog":"https:\/\/chiaracorrado.dev",
     "Facebook":null,
     "Profile Picture":"https:\/\/sessionize.com\/image\/bbe0-400o400o1-GC45U3jx4Sw9b64DsYA27P.jpg"
-  },
-  {
-    "Speaker Id":"f5c30de4-cd93-4022-97f6-b0a58c92197c",
-    "FirstName":"Rowdy",
-    "LastName":"Rabouw",
-    "Email":"hi@rowdy.codes",
-    "TagLine":"Front-End Focused Senior DevOps Engineer",
-    "Bio":"Rowdy Rabouw is a Google Developer Expert in Web Technologies with over 25 years of experience in HTML, CSS and JavaScript. Currently, he works as a Front-End-Focused Senior DevOps Engineer on Vue, Node, and NestJS projects, with a focus on usability and accessibility. Rowdy loves his electronic drum kit and dabbles in creating music on his laptop.",
-    "LinkedIn":"http:\/\/nl.linkedin.com\/in\/rowdyrabouw",
-    "Company Website":"https:\/\/rowdy.codes",
-    "Instagram":"https:\/\/www.instagram.com\/rowdyrabouw\/",
-    "Blog":"https:\/\/rowdy.codes",
-    "Facebook":"https:\/\/www.facebook.com\/rowdy.rabouw",
-    "Profile Picture":"https:\/\/sessionize.com\/image\/f20e-400o400o1-LqCirkShubcxGkm5Ac1CrN.jpg"
   },
   {
     "Speaker Id":"fec11d0b-9f52-4f13-8c44-a4afe2b76204",
