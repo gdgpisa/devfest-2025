@@ -318,7 +318,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                                     [50]: '40m',
                                                     [55]: '40m',
                                                     [130]: '2h',
-                                                    [150]: '2h30min',
+                                                    [150]: '2h30m',
                                                 }[talk.duration] ?? `${talk.duration}m`}
                                             </div>
                                         </div>

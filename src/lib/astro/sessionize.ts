@@ -1,6 +1,5 @@
 import rawSessions from '@/assets/sessionize/sessions.json'
 import rawSpeakers from '@/assets/sessionize/speakers.json'
-import { getTalkTimeBlocks } from '@/components/preact/ScheduleSection'
 
 export type Speaker = {
     id: string
@@ -22,8 +21,11 @@ export type Talk = {
     level: string
     language: string
 
+    /** ISO string */
     startTime: string
-    duration: number // in minutes
+
+    /** Duration in minutes */
+    duration: number
 
     workshopColor?: string
 
