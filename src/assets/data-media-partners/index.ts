@@ -41,6 +41,7 @@
 // #   logo: 'AndroidDevelopersItalia.svg'
 // #   url: 'https://androiddevs.it/'
 
+import codemotionLogo from './Codemotion.png'
 import gruspLogo from './Grusp.png'
 import phcLogo from './PHC.png'
 import pisaDevLogo from './PisaDev.png'
@@ -72,5 +73,10 @@ export const mediaPartners = [
         name: 'WTM Italia',
         logo: wtmItaliaLogo,
         url: 'https://developers.google.com/womentechmakers',
+    },
+    {
+        name: 'Codemotion',
+        logo: codemotionLogo,
+        url: 'https://codemotion.com/',
     },
 ]

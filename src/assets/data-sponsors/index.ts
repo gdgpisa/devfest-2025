@@ -23,7 +23,7 @@ export const sponsors = {
             url: 'https://www.google.it/',
         },
     ],
-     diamond: [
+    diamond: [
         {
             name: 'Nextworks srl',
             logo: nextworksLogo,
@@ -39,16 +39,16 @@ export const sponsors = {
             logo: rossoLogo,
             url: 'https://donarosso.it/',
         },
-    //     {
-    //         name: 'Vianova spa',
-    //         logo: vianovaLogo,
-    //         url: 'https://www.vianova.it/',
-    //     },
-    //     {
-    //         name: 'NTT DATA',
-    //         logo: nttDataLogo,
-    //         url: 'https://it.nttdata.com/',
-    //     },
+        {
+            name: 'Vianova spa',
+            logo: vianovaLogo,
+            url: 'https://www.vianova.it/',
+        },
+        {
+            name: 'NTT DATA',
+            logo: nttDataLogo,
+            url: 'https://it.nttdata.com/',
+        },
         {
             name: 'Garmin Italy Technologies',
             logo: garminLogo,
@@ -59,31 +59,31 @@ export const sponsors = {
             logo: tdGroupLogo,
             url: 'https://www.tdgroupitalia.it/',
         },
-    //     {
-    //         name: 'CCH Tagetik | Wolters Kluwer',
-    //         logo: woltersKluwerLogo,
-    //         url: 'https://www.wolterskluwer.com/en/solutions/cch-tagetik',
-    //     },
-    //     {
-    //         name: 'Link.it',
-    //         logo: linkItLogo,
-    //         url: 'https://www.link.it',
-    //     },
-    //     {
-    //         name: 'Logobject AG',
-    //         logo: logobjectLogo,
-    //         url: 'https://logobject.com/',
-    //     },
-    //     {
-    //         name: 'GILBARCO ITALIA SRL',
-    //         logo: gilbarcoLogo,
-    //         url: 'https://www.gilbarco.com/eu/it/',
-    //     },
-    //     {
-    //         name: 'Randstad Digital',
-    //         logo: randstadLogo,
-    //         url: 'https://www.randstad.it/digital/',
-    //     },
+        {
+            name: 'CCH Tagetik | Wolters Kluwer',
+            logo: woltersKluwerLogo,
+            url: 'https://www.wolterskluwer.com/en/solutions/cch-tagetik',
+        },
+        //     {
+        //         name: 'Link.it',
+        //         logo: linkItLogo,
+        //         url: 'https://www.link.it',
+        //     },
+        //     {
+        //         name: 'Logobject AG',
+        //         logo: logobjectLogo,
+        //         url: 'https://logobject.com/',
+        //     },
+        //     {
+        //         name: 'GILBARCO ITALIA SRL',
+        //         logo: gilbarcoLogo,
+        //         url: 'https://www.gilbarco.com/eu/it/',
+        //     },
+        //     {
+        //         name: 'Randstad Digital',
+        //         logo: randstadLogo,
+        //         url: 'https://www.randstad.it/digital/',
+        //     },
     ],
     // platinum: [
     //     {

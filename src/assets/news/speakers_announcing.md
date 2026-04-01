@@ -52,7 +52,7 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 
 - **Lorenzo Spiridioni** — Software Engineer @ RoxPay
 
-    **_DevBox: Nix made easy_** - talk language 🇮🇹🇬🇧
+    **_DevBox: Nix made easy_** - talk language 🇬🇧
 
 - **Michela Bertaina** — Head of Community & Growth @ Codemotion| Partnership Team Lead @ TEDx Cuneo | WTM Ambassador | GDG Bari Lead | Tourism Councilor @ Cissone
 
@@ -120,15 +120,19 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 
 - **Luigi De Bianchi** — Senior backend software engineer at Klarna with a kink for software testing and everything related to non frontend technologies. Passionate maker and curios pastry chef in the free time.
 
-    **_Senior Engineer ≠ More Code: A Git History Tell-All_** - talk language 🇮🇹🇬🇧
+    **_Senior Engineer ≠ More Code: A Git History Tell-All_** - talk language 🇮🇹
 
 - **Giovanni Toraldo** — DevOps Engineer @ Hyland
 
-    **_Shift left with performance testing_** - talk language 🇮🇹🇬🇧
+    **_Shift left with performance testing_** - talk language 🇬🇧
 
 - **Martino Fornasa** — Independent Consultant & Strategic Advisor | DevOps | Cloud Native | FinOps | Trainer
 
     **_Strategie incrementali per l'adozione di OpenTelemetry_** - talk language 🇮🇹
+
+- **Giorgio Basile & Fabrizio Baldazzi** — Angular Frontend Developer & Solution Architect
+
+    **_Superset, dashboard, embedding e dolori_** - talk language 🇮🇹
 
 - **Katarina Zivkovic** — Brand & Content Strategist
 
@@ -137,10 +141,6 @@ We can't wait to share the full agenda with you, but we're still finalizing some
 - **Luca Di Vita** — Machine Learning Engineer @ Cy4Gate | Member @ GDG Pescara | Co-Founder @ Python Pescara
 
     **_Tutti a bordo delle Neural ODE!_** - talk language 🇮🇹
-
-- **Rowdy Rabouw** — Front-End Focused Senior DevOps Engineer
-
-    **_Warp Pipes and Prefetching: Navigating the Web at Mario Speed_** - talk language 🇬🇧
 
 - **Christian Liebel** — Member of the W3C Technical Architecture Group (TAG)
 

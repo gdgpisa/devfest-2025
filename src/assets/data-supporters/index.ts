@@ -33,6 +33,7 @@
 
 import bacaroTech from './bacaro-tech.svg'
 import dalMozza from './dal-mozza.svg'
+import khorLogo from './khor.png'
 import spaventapasseri from './spaventapasseri.png'
 import stickerMule from './sticker-mule.png'
 import theDevelopersBakery from './the-developers-bakery.png'
@@ -62,5 +63,10 @@ export const supporters = [
         name: 'Lo Spaventapasseri Pisa',
         logo: spaventapasseri,
         url: 'https://lospaventapasseripub.com/',
+    },
+    {
+        name: 'KHOR',
+        logo: khorLogo,
+        url: 'https://khor.store/',
     },
 ]

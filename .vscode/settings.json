@@ -8,6 +8,5 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "cSpell.words": ["sessionize", "snakecase", "umami"]
+  }
 }
