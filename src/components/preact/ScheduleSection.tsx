@@ -70,7 +70,8 @@ type ScheduleSectionProps = {
 export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
     const categories = useMemo(() => [...new Set(talks.map(talk => talk.category))], [talks])
 
-    const levels = useMemo(() => [...new Set(talks.map(talk => talk.level))], [talks])
+    // const levels = useMemo(() => [...new Set(talks.map(talk => talk.level))], [talks])
+    const levels = ['Introductory', 'Intermediate', 'Advanced']
 
     const talkTimeBlocks = useMemo(() => getTalkTimeBlocks(talks), [talks])
 
@@ -81,28 +82,45 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
             title: 'Breakfast',
             startTime: new Date(new Date(startOffset).setHours(8, 30)),
             duration: 60,
+            timeLabel: true,
+            wide: true,
         },
         {
             title: 'Opening Keynote',
             startTime: new Date(new Date(startOffset).setHours(9, 30)),
-            duration: 30,
-            room: 'Sala Ricci',
+            duration: 20,
+            chips: ['Sala Ricci'],
+            timeLabel: true,
+            wide: true,
         },
         {
             title: 'Lunch',
-            startTime: new Date(new Date(startOffset).setHours(12, 40)),
-            duration: 80,
+            startTime: new Date(new Date(startOffset).setHours(12, 50)),
+            duration: 90,
+            timeLabel: true,
+            wide: true,
         },
         {
             title: 'Coffee Break',
-            startTime: new Date(new Date(startOffset).setHours(16, 30)),
+            startTime: new Date(new Date(startOffset).setHours(16, 50)),
             duration: 30,
+            timeLabel: true,
+            wide: true,
         },
         {
             title: 'Closing Keynote',
-            startTime: new Date(new Date(startOffset).setHours(18, 40)),
+            startTime: new Date(new Date(startOffset).setHours(19, 0)),
             duration: 20,
-            room: 'Sala Ricci',
+            chips: ['Sala Ricci'],
+            timeLabel: true,
+            wide: true,
+        },
+        {
+            title: 'Workshop (Coming Soon...)',
+            startTime: new Date(new Date(startOffset).setHours(17, 20)),
+            duration: 90,
+            chips: ['Build with AI'],
+            comingSoon: true,
         },
     ]
 
@@ -116,13 +134,16 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                     : Infinity,
             ),
         })),
-        ...EXTRA_EVENTS.map(event => ({
+        ...EXTRA_EVENTS.filter(event => event.timeLabel).map(event => ({
             startTime: new Date(event.startTime),
             duration: event.duration,
         })),
     ].sort((a, b) => a.startTime.getTime() - b.startTime.getTime())
 
+    // Selected talks state (persisted in localStorage)
     const [selectedTalks, setSelectedTalks] = useLocalStorageState<string[]>('devfest-2025-user-schedule-v1', [])
+
+    // Filter state
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
     const [selectedLevel, setSelectedLevel] = useState<string | null>(null)
 
@@ -190,11 +211,14 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                 <div class="title">
                     <MaterialSymbolsFilterAltOutline width={'1em'} height={'1em'} />
                     Filters<span class="mobile-only">{filterCount > 0 && ` (${filterCount})`}</span>
-                    {/* {filterCount > 0 ? `${filterCount} Filter${filterCount > 1 ? 's' : ''} Active` : 'Filters'} */}
                 </div>
                 <div class="subtitle">Categories</div>
                 <div class="filter-buttons">
-                    {categories.map(category => (
+                    {[
+                        ...categories,
+                        // Extra "Build with AI" category for workshops
+                        'Build with AI',
+                    ].map(category => (
                         <button
                             class={clsx('chip', {
                                 selected: selectedCategory === category,
@@ -273,6 +297,11 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                 { lang: 'Italian', emoji: '🇮🇹' },
                             ].find(({ lang }) => talk.language?.includes(lang))?.emoji
 
+                            const talkCategories = [talk.category]
+                            if (talk.workshopColor) {
+                                talkCategories.push('Build with AI')
+                            }
+
                             return {
                                 startTime: new Date(talk.startTime),
                                 element: (
@@ -280,8 +309,8 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                         class={clsx('schedule-cell', 'interactive', {
                                             selected: selectedTalks.includes(talk.id),
                                             hidden:
-                                                (selectedCategory && talk.category !== selectedCategory) ||
-                                                (selectedLevel && talk.level !== selectedLevel),
+                                                (selectedCategory && !talkCategories.includes(selectedCategory)) ||
+                                                (selectedLevel && selectedLevel !== talk.level),
                                         })}
                                         style={{
                                             ['--start-time']: `${minutes(new Date(talk.startTime!))}`,
@@ -314,13 +343,15 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                             <div class="chip">
                                                 {{
                                                     [25]: '20m',
-                                                    [30]: '20m',
+                                                    [30]: '30m',
                                                     [50]: '40m',
                                                     [55]: '40m',
+                                                    [90]: '1h30m',
                                                     [130]: '2h',
                                                     [150]: '2h30m',
                                                 }[talk.duration] ?? `${talk.duration}m`}
                                             </div>
+                                            {talk.workshopColor && <div class="chip">Build with AI</div>}
                                         </div>
 
                                         <div class="actions">
@@ -365,7 +396,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                         startTime: event.startTime,
                         element: (
                             <div
-                                class="schedule-cell wide"
+                                class={clsx('schedule-cell', { 'wide': event.wide, 'coming-soon': event.comingSoon })}
                                 style={{
                                     ['--start-time']: `${minutes(new Date(event.startTime))}`,
                                     ['--duration']: `${event.duration}`,
@@ -380,7 +411,9 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                             hour12: false,
                                         })}
                                     </div>
-                                    {event.room && <div class="chip">{event.room}</div>}
+                                    {event.chips?.map(chip => (
+                                        <div class="chip">{chip}</div>
+                                    ))}
                                 </div>
                             </div>
                         ),

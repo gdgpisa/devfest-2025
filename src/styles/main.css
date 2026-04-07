@@ -2486,4 +2486,35 @@
             display: none;
         }
     }
+
+    @keyframes diagonal-phase {
+        0% {
+            background-position: 0% 0%;
+        }
+        100% {
+            background-position: 100% 100%;
+        }
+    }
+
+    .coming-soon {
+        background: linear-gradient(
+            110deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(128, 128, 128, 0.3) calc(100% / 12),
+            rgba(255, 255, 255, 0) calc(100% / 12 * 2),
+            rgba(128, 128, 128, 0.3) calc(100% / 12 * 3),
+            rgba(255, 255, 255, 0) calc(100% / 12 * 4),
+            rgba(128, 128, 128, 0.3) calc(100% / 12 * 5),
+            rgba(255, 255, 255, 0) calc(100% / 12 * 6),
+            rgba(128, 128, 128, 0.3) calc(100% / 12 * 7),
+            rgba(255, 255, 255, 0) calc(100% / 12 * 8),
+            rgba(128, 128, 128, 0.3) calc(100% / 12 * 9),
+            rgba(255, 255, 255, 0) calc(100% / 12 * 10),
+            rgba(128, 128, 128, 0.3) calc(100% / 12 * 11),
+            rgba(255, 255, 255, 0) 100%
+        );
+        background-size: 200% 200%;
+        animation: diagonal-phase 4s linear infinite;
+        opacity: 0.5;
+    }
 }

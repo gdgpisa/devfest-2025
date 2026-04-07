@@ -93,8 +93,14 @@ for (const session of rawSessionsAssigned) {
 export const SPEAKERS: Speaker[] = Object.values(speakersBySessionizeUUID)
 
 const WORKSHOPS: Record<string, { color: string }> = {
+    // Old coloring
+    // 'Build a photo restoration app using Genkit Go and Nano Banana Pro': { color: 'red' },
+    // 'Costruiamo agenti con ADK-js': { color: 'green' },
+    // third workshop coming soon => this orange color(srgb 1 0.68 0.25)
+
+    // New coloring
     'Build a photo restoration app using Genkit Go and Nano Banana Pro': { color: 'red' },
-    'Costruiamo agenti con ADK-js': { color: 'green' },
+    'Costruiamo agenti con ADK-js': { color: 'red' },
 }
 
 export const TALKS: Talk[] = [

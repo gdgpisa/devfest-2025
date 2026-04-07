@@ -100,15 +100,13 @@ const workshopCSSColor = talk.workshopColor
                                     })}
                                 </div>
                                 <div class="chip">
-                                    {
-                                        {
-                                            [25]: '20mi',
-                                            [30]: '20mi',
-                                            [50]: '40mi',
-                                            [130]: '2h',
-                                            [150]: '2h30m',
-                                        }[talk.duration] ?? `${talk.duration}m`
-                                    }
+                                    {{
+                                        [25]: '20min',
+                                        [30]: '30min',
+                                        [50]: '40min',
+                                        [130]: '2h',
+                                        [150]: '2h30m',
+                                    }[talk.duration] ?? `${talk.duration}m`}
                                 </div>
                                 <div class="chip">{talk.room}</div>
                             </>
