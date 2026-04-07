@@ -1394,6 +1394,8 @@
             background: hsl(from var(--schedule-accent) h s calc(l - 5));
             color: #333;
 
+            z-index: 0;
+
             &:where(.wide) {
                 grid-column: 2 / -1;
             }
@@ -1427,6 +1429,7 @@
 
                     padding: 1.125rem 0.5rem 0.5rem;
                     margin: -0.25rem;
+                    margin-bottom: 0;
                 }
             }
 
@@ -1448,6 +1451,43 @@
                 padding: calc(1rem - 1px);
                 border: 3px solid #333;
                 background: hsl(from var(--schedule-accent) h s calc(l - 20));
+            }
+
+            &.time-label {
+                grid-template-columns: 1fr;
+                border: none;
+                background: none;
+                border-radius: 0;
+                padding: 0.5rem 0.45rem;
+                align-self: start;
+
+                font-size: 19px;
+                font-weight: bold;
+
+                color: #0007;
+                background: #00000020;
+                border-bottom-left-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
+
+                transform: translate(0, calc(-0.75rem + 1px));
+
+                position: relative;
+
+                z-index: 0;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    width: calc(100vw - 2rem);
+                    /* right: -1rem; */
+                    top: -2px;
+                    border-top: 2px dashed #0004;
+                }
+
+                .text {
+                    line-height: 1;
+                }
             }
 
             > .title {
@@ -1566,6 +1606,10 @@
                 &.selected {
                     padding: calc(0.75rem - 1px);
                 }
+
+                &.time-label {
+                    transform: translate(0, calc(-0.5rem + 1px));
+                }
             }
         }
 
@@ -1584,6 +1628,8 @@
             .schedule-cell {
                 grid-column: 1 / -1;
                 grid-row: auto;
+
+                order: var(--start-time);
 
                 &.hidden {
                     display: none;

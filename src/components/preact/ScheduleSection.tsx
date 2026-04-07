@@ -258,7 +258,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
             >
                 {TIME_LABELS.map(time => (
                     <div
-                        class="schedule-cell header-row desktop-only"
+                        class="schedule-cell header-row time-label desktop-only"
                         style={{
                             ['--start-time']: `${minutes(time.startTime)}`,
                             ['--duration']: `${time.duration}`,
