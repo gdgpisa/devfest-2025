@@ -35,20 +35,11 @@ import bacaroTech from './bacaro-tech.svg'
 import dalMozza from './dal-mozza.svg'
 import khorLogo from './khor.png'
 import spaventapasseri from './spaventapasseri.png'
+import stampasi from './stampasi.svg'
 import stickerMule from './sticker-mule.png'
 import theDevelopersBakery from './the-developers-bakery.png'
 
 export const supporters = [
-    {
-        name: 'The Developers Bakery',
-        logo: theDevelopersBakery,
-        url: 'https://thebakery.dev/',
-    },
-    {
-        name: 'Sticker Mule',
-        logo: stickerMule,
-        url: 'https://www.stickermule.com/it',
-    },
     {
         name: 'BacaroTech',
         logo: bacaroTech,
@@ -60,13 +51,28 @@ export const supporters = [
         url: 'https://linktr.ee/dalmozzagourmet',
     },
     {
+        name: 'KHOR',
+        logo: khorLogo,
+        url: 'https://khor.store/',
+    },
+    {
         name: 'Lo Spaventapasseri Pisa',
         logo: spaventapasseri,
         url: 'https://lospaventapasseripub.com/',
     },
     {
-        name: 'KHOR',
-        logo: khorLogo,
-        url: 'https://khor.store/',
+        name: 'Stampasi',
+        logo: stampasi,
+        url: 'https://www.stampasi.it/',
+    },
+    {
+        name: 'Sticker Mule',
+        logo: stickerMule,
+        url: 'https://www.stickermule.com/it',
+    },
+    {
+        name: 'The Developers Bakery',
+        logo: theDevelopersBakery,
+        url: 'https://thebakery.dev/',
     },
 ]
