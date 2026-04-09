@@ -23,10 +23,10 @@ export type Talk = {
     sessionFormat: string
 
     /** ISO string */
-    startTime: string
+    scheduledStart: string
 
     /** Duration in minutes */
-    duration: number
+    scheduledDuration: number
 
     workshopColor?: string
 
@@ -79,6 +79,7 @@ for (const speaker of rawSpeakersAssigned) {
     }
 }
 
+// the GDE status is only available in the sessions, so we need to loop through the sessions to assign it to the speakers
 for (const session of rawSessionsAssigned) {
     // console.log(`Processing talk "${session['Title']}"...`)
     if ((session['Are you a Google employee or GDE?'] ?? '').includes('Yes')) {
@@ -93,10 +94,13 @@ for (const session of rawSessionsAssigned) {
 
 export const SPEAKERS: Speaker[] = Object.values(speakersBySessionizeUUID)
 
-export const DURATION_LABELS: Record<string, { label: string; short?: string }> = {
-    'Short (20min)': { label: '20min', short: '20m' },
-    'Medium (30min)': { label: '30min', short: '30m' },
-    'Full (40min)': { label: '40min', short: '40m' },
+/**
+ * Session format labels, used to display the session format in a more user-friendly way in talk/[id].astro and in ScheduleSection.tsx
+ */
+export const SESSION_FORMAT_LABELS: Record<string, { label: string; shortLabel?: string }> = {
+    'Short (20min)': { label: '20min', shortLabel: '20m' },
+    'Medium (30min)': { label: '30min', shortLabel: '30m' },
+    'Full (40min)': { label: '40min', shortLabel: '40m' },
     'Workshop (1+ hr)': { label: '1h30m' },
 }
 
@@ -124,8 +128,9 @@ export const TALKS: Talk[] = [
         const sessionFormat = session['Session format']
 
         const room = session['Room']
-        const startTime = session['Scheduled At']
-        const duration = session['Scheduled Duration'] ?? 0
+
+        const scheduledStart = session['Scheduled At']
+        const scheduledDuration = session['Scheduled Duration'] ?? 0
 
         const speakers = session['Speaker Ids'].split(', ').map(speakerId => speakersBySessionizeUUID[speakerId])
 
@@ -138,10 +143,10 @@ export const TALKS: Talk[] = [
             category,
             level,
             language,
-            sessionFormat,
 
-            startTime,
-            duration,
+            sessionFormat,
+            scheduledStart,
+            scheduledDuration,
 
             speakers,
         }
@@ -166,7 +171,7 @@ console.log('Talks & Speakers:')
 for (const talk of TALKS) {
     console.log(`> ${talk.id}:`)
     console.log(`  "${talk.title}"`)
-    console.log(`  [${talk.category}] [${talk.language}] [${talk.room}] [${talk.startTime}]`)
+    console.log(`  [${talk.category}] [${talk.language}] [${talk.room}] [${talk.scheduledStart}]`)
     console.log(`  ${talk.description.trim().replace(/\n+/g, '  ').slice(0, 100)}...`)
     for (const speaker of talk.speakers) {
         console.log(`  - ${speaker.firstName} ${speaker.lastName} @${speaker.id}`)
@@ -185,11 +190,11 @@ for (const room of rooms) {
     console.log(`> ${room}`)
 }
 
-console.log('Talk Durations:')
-const durations = new Set(TALKS.map(talk => talk.duration))
-for (const duration of durations) {
-    console.log(`> ${duration} minutes`)
-}
+// console.log('Talk Durations:')
+// const durations = new Set(TALKS.map(talk => talk.scheduledDuration))
+// for (const duration of durations) {
+//     console.log(`> ${duration} minutes`)
+// }
 console.log('Session Formats:')
 const sessionFormats = new Set(TALKS.map(talk => talk.sessionFormat))
 for (const sessionFormat of sessionFormats) {
@@ -201,10 +206,10 @@ const errorTalks = TALKS.filter(
     talk =>
         talk.room === null ||
         talk.room === 'unknown' ||
-        talk.duration === null ||
-        talk.duration === 0 ||
+        talk.scheduledDuration === null ||
+        talk.scheduledDuration === 0 ||
         !talk.sessionFormat ||
-        !DURATION_LABELS[talk.sessionFormat],
+        !SESSION_FORMAT_LABELS[talk.sessionFormat],
 )
 if (errorTalks.length === 0) {
     console.log('No errors found!')
@@ -216,13 +221,13 @@ errorTalks.forEach(talk => {
     if (talk.room === null || talk.room === 'unknown') {
         console.log('  - Missing or unknown room')
     }
-    if (talk.duration === null || talk.duration === 0) {
+    if (talk.scheduledDuration === null || talk.scheduledDuration === 0) {
         console.log('  - Missing or zero duration')
     }
     if (!talk.sessionFormat) {
         console.log('  - Missing session format')
     }
-    if (talk.sessionFormat && !DURATION_LABELS[talk.sessionFormat]) {
+    if (talk.sessionFormat && !SESSION_FORMAT_LABELS[talk.sessionFormat]) {
         console.log(`  - Unknown session format: "${talk.sessionFormat}"`)
     }
 })

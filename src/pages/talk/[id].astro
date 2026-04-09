@@ -4,7 +4,7 @@ import type { GetStaticPaths } from 'astro'
 
 import gdeBannerImage from '@/assets/gde-banner.png'
 
-import { TALKS, DURATION_LABELS } from '@/lib/astro/sessionize'
+import { TALKS, SESSION_FORMAT_LABELS } from '@/lib/astro/sessionize'
 
 export const getStaticPaths = (() => {
     return TALKS.map(talk => ({
@@ -93,14 +93,17 @@ const workshopCSSColor = talk.workshopColor
                         talk.room && (
                             <>
                                 <div class="chip">
-                                    {new Date(talk.startTime).toLocaleString('en-US', {
+                                    {new Date(talk.scheduledStart).toLocaleString('en-US', {
                                         hour: '2-digit',
                                         minute: '2-digit',
                                         hour12: false,
                                     })}
                                 </div>
                                 <div class="chip">
-                                    {DURATION_LABELS[talk.sessionFormat]?.label ?? `${talk.duration}m`}
+                                    {
+                                        // prefer the long label or fallback to the explicit duration in minutes
+                                        SESSION_FORMAT_LABELS[talk.sessionFormat]?.label ?? `${talk.scheduledDuration}m`
+                                    }
                                 </div>
                                 <div class="chip">{talk.room}</div>
                             </>

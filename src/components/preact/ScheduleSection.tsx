@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { useEffect, useMemo, useState, type Dispatch, type StateUpdater } from 'preact/hooks'
 
-import { DURATION_LABELS, type Talk } from '@/lib/astro/sessionize'
+import { SESSION_FORMAT_LABELS, type Talk } from '@/lib/astro/sessionize'
 
 import { hashString } from '@/lib/client/client-utils'
 
@@ -14,14 +14,14 @@ import {
 export function getTalkTimeBlocks(talks: Talk[]) {
     return Object.entries(
         talks.reduce<Record<string, Talk[]>>((acc, talk) => {
-            if (!talk.startTime || !talk.duration) {
+            if (!talk.scheduledStart || !talk.scheduledDuration) {
                 return acc
             }
 
-            if (!acc[talk.startTime]) {
-                acc[talk.startTime] = []
+            if (!acc[talk.scheduledStart]) {
+                acc[talk.scheduledStart] = []
             }
-            acc[talk.startTime].push(talk)
+            acc[talk.scheduledStart].push(talk)
             return acc
         }, {}),
     ).sort(([a], [b]) => a.localeCompare(b))
@@ -79,8 +79,8 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
 
     const EXTRA_EVENTS: {
         title: string
-        startTime: Date
-        duration: number
+        scheduledStart: Date
+        scheduledDuration: number
         chips?: string[]
         timeLabel?: boolean
         wide?: boolean
@@ -88,37 +88,37 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
     }[] = [
         {
             title: 'Breakfast',
-            startTime: new Date(new Date(startOffset).setHours(8, 30)),
-            duration: 60,
+            scheduledStart: new Date(new Date(startOffset).setHours(8, 30)),
+            scheduledDuration: 60,
             timeLabel: true,
             wide: true,
         },
         {
             title: 'Opening Keynote',
-            startTime: new Date(new Date(startOffset).setHours(9, 30)),
-            duration: 20,
+            scheduledStart: new Date(new Date(startOffset).setHours(9, 30)),
+            scheduledDuration: 20,
             chips: ['Sala Ricci'],
             timeLabel: true,
             wide: true,
         },
         {
             title: 'Lunch',
-            startTime: new Date(new Date(startOffset).setHours(12, 50)),
-            duration: 90,
+            scheduledStart: new Date(new Date(startOffset).setHours(12, 50)),
+            scheduledDuration: 90,
             timeLabel: true,
             wide: true,
         },
         {
             title: 'Coffee Break',
-            startTime: new Date(new Date(startOffset).setHours(16, 50)),
-            duration: 30,
+            scheduledStart: new Date(new Date(startOffset).setHours(16, 50)),
+            scheduledDuration: 30,
             timeLabel: true,
             wide: true,
         },
         {
             title: 'Closing Keynote',
-            startTime: new Date(new Date(startOffset).setHours(19, 0)),
-            duration: 20,
+            scheduledStart: new Date(new Date(startOffset).setHours(19, 0)),
+            scheduledDuration: 20,
             chips: ['Sala Ricci'],
             timeLabel: true,
             wide: true,
@@ -126,27 +126,33 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
         // {
         //     title: 'Workshop (Coming Soon...)',
         //     startTime: new Date(new Date(startOffset).setHours(17, 20)),
-        //     duration: 90,
+        //     scheduledDuration: 90,
         //     chips: ['Build with AI'],
         //     comingSoon: true,
         // },
     ]
 
-    const TIME_LABELS = [
+    const TIME_LABELS: {
+        scheduledStart: Date
+        scheduledDuration: number
+    }[] = [
         ...talkTimeBlocks.map(([blockStart, talks], i) => ({
-            startTime: new Date(blockStart),
-            duration: Math.min(
-                talks.reduce((acc, talk) => (acc > 0 ? Math.min(acc, talk.duration!) : talk.duration!), 0),
+            scheduledStart: new Date(blockStart),
+            scheduledDuration: Math.min(
+                talks.reduce(
+                    (acc, talk) => (acc > 0 ? Math.min(acc, talk.scheduledDuration!) : talk.scheduledDuration!),
+                    0,
+                ),
                 talkTimeBlocks[i + 1]
                     ? minutes(new Date(talkTimeBlocks[i + 1][0])) - minutes(new Date(blockStart))
                     : Infinity,
             ),
         })),
         ...EXTRA_EVENTS.filter(event => event.timeLabel).map(event => ({
-            startTime: new Date(event.startTime),
-            duration: event.duration,
+            scheduledStart: new Date(event.scheduledStart),
+            scheduledDuration: event.scheduledDuration,
         })),
-    ].sort((a, b) => a.startTime.getTime() - b.startTime.getTime())
+    ].sort((a, b) => a.scheduledStart.getTime() - b.scheduledStart.getTime())
 
     // Selected talks state (persisted in localStorage)
     const [selectedTalks, setSelectedTalks] = useLocalStorageState<string[]>('devfest-2025-user-schedule-v1', [])
@@ -268,13 +274,13 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                     <div
                         class="schedule-cell header-row time-label desktop-only"
                         style={{
-                            ['--start-time']: `${minutes(time.startTime)}`,
-                            ['--duration']: `${time.duration}`,
+                            ['--start-time']: `${minutes(time.scheduledStart)}`,
+                            ['--duration']: `${time.scheduledDuration}`,
                         }}
                     >
                         <div class="text">
                             <p>
-                                {time.startTime.toLocaleTimeString('en-US', {
+                                {time.scheduledStart.toLocaleTimeString('en-US', {
                                     hour: '2-digit',
                                     minute: '2-digit',
                                     hour12: false,
@@ -298,7 +304,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                 {[
                     ...talks
                         .filter(talk => !!talk.room)
-                        .sort((a, b) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime())
+                        .sort((a, b) => new Date(a.scheduledStart).getTime() - new Date(b.scheduledStart).getTime())
                         .map(talk => {
                             const languageEmoji = [
                                 { lang: 'English', emoji: '🇬🇧' },
@@ -311,7 +317,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                             }
 
                             return {
-                                startTime: new Date(talk.startTime),
+                                startTime: new Date(talk.scheduledStart),
                                 element: (
                                     <a
                                         class={clsx('schedule-cell', 'interactive', {
@@ -321,8 +327,8 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                                 (selectedLevel && selectedLevel !== talk.level),
                                         })}
                                         style={{
-                                            ['--start-time']: `${minutes(new Date(talk.startTime!))}`,
-                                            ['--duration']: `${talk.duration!}`,
+                                            ['--start-time']: `${minutes(new Date(talk.scheduledStart!))}`,
+                                            ['--duration']: `${talk.scheduledDuration!}`,
                                             ['--room']: `${ROOMS.indexOf(talk.room!)}`,
 
                                             ['--schedule-accent']: talk.workshopColor
@@ -338,7 +344,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
 
                                         <div class="metadata">
                                             <div class="chip mobile-only">
-                                                {new Date(talk.startTime).toLocaleTimeString('en-US', {
+                                                {new Date(talk.scheduledStart).toLocaleTimeString('en-US', {
                                                     hour: '2-digit',
                                                     minute: '2-digit',
                                                     hour12: false,
@@ -349,9 +355,9 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                             <div class="chip">{talk.level}</div>
                                             {talk.language && <div class="chip emoji">{languageEmoji}</div>}
                                             <div class="chip">
-                                                {DURATION_LABELS[talk.sessionFormat]?.short ??
-                                                    DURATION_LABELS[talk.sessionFormat]?.label ??
-                                                    `${talk.duration}m`}
+                                                {SESSION_FORMAT_LABELS[talk.sessionFormat]?.shortLabel ??
+                                                    SESSION_FORMAT_LABELS[talk.sessionFormat]?.label ??
+                                                    `${talk.scheduledDuration}m`}
                                             </div>
                                             {talk.workshopColor && <div class="chip">Build with AI</div>}
                                         </div>
@@ -395,7 +401,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                             }
                         }),
                     ...EXTRA_EVENTS.map(event => ({
-                        startTime: event.startTime,
+                        startTime: event.scheduledStart,
                         element: (
                             <div
                                 class={clsx('schedule-cell', {
@@ -403,14 +409,14 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                     'coming-soon': event.comingSoon,
                                 })}
                                 style={{
-                                    ['--start-time']: `${minutes(new Date(event.startTime))}`,
-                                    ['--duration']: `${event.duration}`,
+                                    ['--start-time']: `${minutes(new Date(event.scheduledStart))}`,
+                                    ['--duration']: `${event.scheduledDuration}`,
                                 }}
                             >
                                 <div class="title">{event.title}</div>
                                 <div class="metadata">
                                     <div class="chip mobile-only">
-                                        {event.startTime.toLocaleTimeString('en-US', {
+                                        {event.scheduledStart.toLocaleTimeString('en-US', {
                                             hour: '2-digit',
                                             minute: '2-digit',
                                             hour12: false,
