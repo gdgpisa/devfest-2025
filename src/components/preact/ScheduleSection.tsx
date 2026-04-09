@@ -77,7 +77,15 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
 
     const startOffset = new Date('2025-04-12').setHours(8, 30)
 
-    const EXTRA_EVENTS = [
+    const EXTRA_EVENTS: {
+        title: string
+        startTime: Date
+        duration: number
+        chips?: string[]
+        timeLabel?: boolean
+        wide?: boolean
+        comingSoon?: boolean
+    }[] = [
         {
             title: 'Breakfast',
             startTime: new Date(new Date(startOffset).setHours(8, 30)),
@@ -391,8 +399,8 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                         element: (
                             <div
                                 class={clsx('schedule-cell', {
-                                    wide: event.wide,
-                                    // 'coming-soon': event.comingSoon,
+                                    'wide': event.wide,
+                                    'coming-soon': event.comingSoon,
                                 })}
                                 style={{
                                     ['--start-time']: `${minutes(new Date(event.startTime))}`,
