@@ -20,6 +20,7 @@ export type Talk = {
     category: string
     level: string
     language: string
+    sessionFormat: string
 
     /** ISO string */
     startTime: string
@@ -92,6 +93,13 @@ for (const session of rawSessionsAssigned) {
 
 export const SPEAKERS: Speaker[] = Object.values(speakersBySessionizeUUID)
 
+export const DURATION_LABELS: Record<string, { label: string; short?: string }> = {
+    'Short (20min)': { label: '20min', short: '20m' },
+    'Medium (30min)': { label: '30min', short: '30m' },
+    'Full (40min)': { label: '40min', short: '40m' },
+    'Workshop (1+ hr)': { label: '1h30m' },
+}
+
 const WORKSHOPS: Record<string, { color: string }> = {
     // Old coloring
     // 'Build a photo restoration app using Genkit Go and Nano Banana Pro': { color: 'red' },
@@ -113,6 +121,7 @@ export const TALKS: Talk[] = [
         const category = session['Category']
         const level = session['Level']
         const language = session['Language']
+        const sessionFormat = session['Session format']
 
         const room = session['Room']
         const startTime = session['Scheduled At']
@@ -129,6 +138,7 @@ export const TALKS: Talk[] = [
             category,
             level,
             language,
+            sessionFormat,
 
             startTime,
             duration,
@@ -180,10 +190,21 @@ const durations = new Set(TALKS.map(talk => talk.duration))
 for (const duration of durations) {
     console.log(`> ${duration} minutes`)
 }
+console.log('Session Formats:')
+const sessionFormats = new Set(TALKS.map(talk => talk.sessionFormat))
+for (const sessionFormat of sessionFormats) {
+    console.log(`> ${sessionFormat}`)
+}
 
 console.log('Errors:')
 const errorTalks = TALKS.filter(
-    talk => talk.room === null || talk.room === 'unknown' || talk.duration === null || talk.duration === 0,
+    talk =>
+        talk.room === null ||
+        talk.room === 'unknown' ||
+        talk.duration === null ||
+        talk.duration === 0 ||
+        !talk.sessionFormat ||
+        !DURATION_LABELS[talk.sessionFormat],
 )
 if (errorTalks.length === 0) {
     console.log('No errors found!')
@@ -197,6 +218,12 @@ errorTalks.forEach(talk => {
     }
     if (talk.duration === null || talk.duration === 0) {
         console.log('  - Missing or zero duration')
+    }
+    if (!talk.sessionFormat) {
+        console.log('  - Missing session format')
+    }
+    if (talk.sessionFormat && !DURATION_LABELS[talk.sessionFormat]) {
+        console.log(`  - Unknown session format: "${talk.sessionFormat}"`)
     }
 })
 

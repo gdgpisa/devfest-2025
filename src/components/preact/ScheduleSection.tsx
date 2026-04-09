@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { useEffect, useMemo, useState, type Dispatch, type StateUpdater } from 'preact/hooks'
 
-import { type Talk } from '@/lib/astro/sessionize'
+import { DURATION_LABELS, type Talk } from '@/lib/astro/sessionize'
 
 import { hashString } from '@/lib/client/client-utils'
 
@@ -341,16 +341,9 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                                             <div class="chip">{talk.level}</div>
                                             {talk.language && <div class="chip emoji">{languageEmoji}</div>}
                                             <div class="chip">
-                                                {{
-                                                    [25]: '20m',
-                                                    [30]: '30m',
-                                                    [50]: '40m',
-                                                    [55]: '40m',
-                                                    [90]: '1h30m',
-                                                    [100]: '1h30m',
-                                                    [130]: '2h',
-                                                    [150]: '2h30m',
-                                                }[talk.duration] ?? `${talk.duration}m`}
+                                                {DURATION_LABELS[talk.sessionFormat]?.short ??
+                                                    DURATION_LABELS[talk.sessionFormat]?.label ??
+                                                    `${talk.duration}m`}
                                             </div>
                                             {talk.workshopColor && <div class="chip">Build with AI</div>}
                                         </div>

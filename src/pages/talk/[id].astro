@@ -4,7 +4,7 @@ import type { GetStaticPaths } from 'astro'
 
 import gdeBannerImage from '@/assets/gde-banner.png'
 
-import { TALKS } from '@/lib/astro/sessionize'
+import { TALKS, DURATION_LABELS } from '@/lib/astro/sessionize'
 
 export const getStaticPaths = (() => {
     return TALKS.map(talk => ({
@@ -100,14 +100,7 @@ const workshopCSSColor = talk.workshopColor
                                     })}
                                 </div>
                                 <div class="chip">
-                                    {{
-                                        [25]: '20min',
-                                        [30]: '30min',
-                                        [50]: '40min',
-                                        [100]: '1h30m',
-                                        [130]: '2h',
-                                        [150]: '2h30m',
-                                    }[talk.duration] ?? `${talk.duration}m`}
+                                    {DURATION_LABELS[talk.sessionFormat]?.label ?? `${talk.duration}m`}
                                 </div>
                                 <div class="chip">{talk.room}</div>
                             </>
