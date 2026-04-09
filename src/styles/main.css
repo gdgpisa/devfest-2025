@@ -1631,6 +1631,8 @@
 
                 order: var(--start-time);
 
+                transform: translate(0, 0);
+
                 &.hidden {
                     display: none;
                 }

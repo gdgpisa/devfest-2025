@@ -99,6 +99,7 @@ const WORKSHOPS: Record<string, { color: string }> = {
     // third workshop coming soon => this orange color(srgb 1 0.68 0.25)
 
     // New coloring
+    'Inferenza locale o remota: un viaggio andata e ritorno!': { color: 'red' },
     'Build a photo restoration app using Genkit Go and Nano Banana Pro': { color: 'red' },
     'Costruiamo agenti con ADK-js': { color: 'red' },
 }

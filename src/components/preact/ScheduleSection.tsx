@@ -115,13 +115,13 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
             timeLabel: true,
             wide: true,
         },
-        {
-            title: 'Workshop (Coming Soon...)',
-            startTime: new Date(new Date(startOffset).setHours(17, 20)),
-            duration: 90,
-            chips: ['Build with AI'],
-            comingSoon: true,
-        },
+        // {
+        //     title: 'Workshop (Coming Soon...)',
+        //     startTime: new Date(new Date(startOffset).setHours(17, 20)),
+        //     duration: 90,
+        //     chips: ['Build with AI'],
+        //     comingSoon: true,
+        // },
     ]
 
     const TIME_LABELS = [
@@ -396,7 +396,10 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                         startTime: event.startTime,
                         element: (
                             <div
-                                class={clsx('schedule-cell', { 'wide': event.wide, 'coming-soon': event.comingSoon })}
+                                class={clsx('schedule-cell', {
+                                    wide: event.wide,
+                                    // 'coming-soon': event.comingSoon,
+                                })}
                                 style={{
                                     ['--start-time']: `${minutes(new Date(event.startTime))}`,
                                     ['--duration']: `${event.duration}`,
