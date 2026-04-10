@@ -3,6 +3,8 @@ import Base from '@/layouts/Base.astro'
 import type { GetStaticPaths } from 'astro'
 
 import gdeBannerImage from '@/assets/gde-banner.png'
+import wtmLogo from '@/assets/logo_wtm_quadrato_2026_notitle.png'
+import googlerBanner from '@/assets/banner-googler.svg'
 
 import { TALKS, SESSION_FORMAT_LABELS } from '@/lib/astro/sessionize'
 
@@ -49,11 +51,24 @@ const workshopCSSColor = talk.workshopColor
                         <div class="speaker">
                             <div class="picture">
                                 <img src={speaker.profilePicture} alt={speaker.firstName + ' ' + speaker.lastName} />
-                                {speaker.isGDE && (
-                                    <div class="gde-banner">
-                                        <img src={gdeBannerImage.src} />
-                                    </div>
-                                )}
+                                <div class="picture-chips-stack">
+                                    {speaker.isWtmAmbassador && (
+                                        <div class="picture-chip">
+                                            <img src={wtmLogo.src} />
+                                            <span>Ambassador</span>
+                                        </div>
+                                    )}
+                                    {speaker.isGDE && (
+                                        <div class="picture-chip">
+                                            <img src={gdeBannerImage.src} />
+                                        </div>
+                                    )}
+                                    {speaker.isGoogler && (
+                                        <div class="picture-chip">
+                                            <img style={{ transform: 'translateY(2px)' }} src={googlerBanner.src} />
+                                        </div>
+                                    )}
+                                </div>
                             </div>
 
                             <div class="info">
