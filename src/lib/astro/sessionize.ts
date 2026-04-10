@@ -118,6 +118,7 @@ for (const speakerId in speakersBySessionizeUUID) {
 const GOOGLER_NAMES = new Set([
     // These names must match exactly the "<firstName> <lastName>"
     'Cristian Burrini',
+    'Daniela Petruzalek',
 ])
 
 const foundGooglers = new Set<string>()
