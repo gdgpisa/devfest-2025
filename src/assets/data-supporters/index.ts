@@ -32,7 +32,10 @@
 //   url: 'https://bacarotech.github.io/'
 
 import bacaroTech from './bacaro-tech.svg'
+import continualIst from './continualIst.png'
+import copisteriaReady from './copisteria-ready.png'
 import dalMozza from './dal-mozza.svg'
+import jetbrains from './jetbrains.png'
 import khorLogo from './khor.png'
 import spaventapasseri from './spaventapasseri.png'
 import stampasi from './stampasi.svg'
@@ -74,5 +77,20 @@ export const supporters = [
         name: 'The Developers Bakery',
         logo: theDevelopersBakery,
         url: 'https://thebakery.dev/',
+    },
+    {
+        name: 'JetBrains',
+        logo: jetbrains,
+        url: 'https://www.jetbrains.com/',
+    },
+    {
+        name: 'Copisteria Ready',
+        logo: copisteriaReady,
+        url: 'https://www.copisteriaready.it/',
+    },
+    {
+        name: 'ContinualIST',
+        logo: continualIst,
+        url: 'https://www.continualist.ai',
     },
 ]
