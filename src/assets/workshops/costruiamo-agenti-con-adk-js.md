@@ -5,7 +5,7 @@
 ### 📋 Workshop requirements
 
 ✅ Basic knowledge of TypeScript and JavaScript<br>
-⚠️ Limited spots — sign up [HERE](https://www.eventbrite.com/e/biglietti-costruiamo-agenti-con-adk-js-1986929142552?aff=oddtdtcreator) as soon as possible!<br>
+⚠️ Limited spots — sign up as soon as possible!<br>
 🎟 Workshop ticket needed — the event ticket is **NOT** enough. 
 
 ### 🛠 Tools to install before the workshop

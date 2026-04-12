@@ -5,7 +5,7 @@
 ### 📋 Workshop requirements
 
 ✅ Basic understanding of Go and API development (knowledge is not strictly required, but recommended)<br>
-⚠️ Limited spots — sign up [HERE](https://www.eventbrite.com/e/1986931450455?aff=oddtdtcreator) as soon as possible!<br>
+⚠️ Limited spots — sign up as soon as possible!<br>
 🎟 Workshop ticket needed — the event ticket is **NOT** enough. 
 
 ### 🛠 Tools to install before the workshop
