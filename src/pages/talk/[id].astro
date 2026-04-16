@@ -126,6 +126,8 @@ const workshopCSSColor = talk.workshopColor
                     }
                 </div>
 
+                <a href={talk.feedbackLink || '#'} target="_blank" class="button feedback large">📝 Leave Feedback</a>
+
                 <div class="description">
                     <div class="text">
                         {talk.description.split('\n').map(line => <p>{line}</p>)}

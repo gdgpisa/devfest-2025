@@ -279,6 +279,12 @@
             aspect-ratio: 1 / 1;
             min-width: 2.25rem;
         }
+
+        &.feedback {
+            --button-bg: var(--halftone-cyan);
+            justify-self: start;
+            align-self: center;
+        }
     }
 
     header {

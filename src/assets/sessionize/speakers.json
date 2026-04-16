@@ -487,7 +487,7 @@
     "Instagram":null,
     "Blog":null,
     "Facebook":null,
-    "Profile Picture":"https:\/\/sessionize.com\/image\/6608-400o400o1-fQpCZYe9sknA587wZtkspH.jpg"
+    "Profile Picture":"https:\/\/sessionize.com\/image\/9ecb-400o400o1-ay19ePZHDxVVTQexxoAmT6.jpg"
   },
   {
     "Speaker Id":"d26a7c22-25fc-466d-89ff-c0a77c93f820",
@@ -516,6 +516,20 @@
     "Blog":null,
     "Facebook":null,
     "Profile Picture":"https:\/\/sessionize.com\/image\/6006-400o400o1-pXFGUWtYDmaJi3DTRo2tE9.jpg"
+  },
+  {
+    "Speaker Id":"d2ecc764-8de2-4e9c-9766-14a527f8820c",
+    "FirstName":"Fabio",
+    "LastName":"Biondi",
+    "Email":"hello@fabiobiondi.io",
+    "TagLine":"Google Expert in Angular | LearnByDo.ing",
+    "Bio":"Fabio Biondi è uno sviluppatore freelance con più di 15 anni di esperienza nella creazione di applicazioni web enterprise._x000D_\nSpeaker in numerosi eventi front-end, ha inoltre fondato diverse community italiane che si occupano di Javascript, Angular e React (~30000 membri)._x000D_\nAttualmente si occupa principalmente di formazione e consulenza su JS, TS, Angular, React, Redux, NGRX, Next e RxJS, Google Gemini e AI Gen_x000D_\n_x000D_\n_x000D_\n_x000D_\n",
+    "LinkedIn":"https:\/\/www.linkedin.com\/in\/fabiobiondi\/",
+    "Company Website":"https:\/\/learnbydo.ing\/",
+    "Instagram":"https:\/\/www.instagram.com\/biondifabio\/",
+    "Blog":"http:\/\/fabiobiondi.dev\/",
+    "Facebook":"https:\/\/www.facebook.com\/groups\/fabiobiondi.training",
+    "Profile Picture":"https:\/\/sessionize.com\/image\/b9d2-400o400o1-64-8de2-4e9c-9766-14a527f8820c.b46b3700-6eeb-4a6f-857c-7ee0c024ee00.png"
   },
   {
     "Speaker Id":"d3f982bf-06f2-4a7a-ac5a-2479f4cec0b2",

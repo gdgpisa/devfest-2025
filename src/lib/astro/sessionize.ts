@@ -1,3 +1,4 @@
+import rawFeedbackLinks from '@/assets/sessionize/sessionize_feedback_links.json'
 import rawSessions from '@/assets/sessionize/sessions.json'
 import rawSpeakers from '@/assets/sessionize/speakers.json'
 
@@ -32,6 +33,8 @@ export type Talk = {
 
     workshopColor?: string
 
+    feedbackLink?: string
+
     speakers: Speaker[]
 }
 
@@ -45,20 +48,49 @@ const slugify = (str: string) =>
 
 const excelCleanup = (str: string) => str.replaceAll('_x000D_', '\n')
 
+// Speakers to exclude
+const EXCLUDED_SPEAKERS = new Set([
+    // These names must match exactly the "<firstName> <lastName>"
+    'Francesco Sciuti',
+])
+
 // Remove talks with no room assigned
-const rawSessionsAssigned = rawSessions.filter(session => {
-    const isAccepted = session['Room'] !== null
-    if (!isAccepted) {
-        console.warn(`Talk "${session['Title']}" has been hidden for now`)
-    }
-    return isAccepted
-})
+const rawSessionsAssigned = rawSessions
+    .filter(session => {
+        const isAccepted = session['Room'] !== null
+        if (!isAccepted) {
+            console.warn(`Talk "${session['Title']}" has been hidden for now`)
+        }
+        return isAccepted
+    })
+    .filter(session => {
+        // Remove sessions where all speakers are excluded
+        const speakerIds = session['Speaker Ids'].split(', ').filter(id => {
+            const speaker = rawSpeakers.find(s => s['Speaker Id'] === id)
+            if (!speaker) return true
+            const fullName = `${speaker['FirstName']} ${speaker['LastName']}`
+            return !EXCLUDED_SPEAKERS.has(fullName)
+        })
+        const hasValidSpeakers = speakerIds.length > 0
+        if (!hasValidSpeakers) {
+            console.warn(`Talk "${session['Title']}" has been hidden because all its speakers are excluded`)
+        }
+        return hasValidSpeakers
+    })
 
 const rawSpeakersAssigned = rawSpeakers.filter(speaker => {
     const speakerId = speaker['Speaker Id']
+    const fullName = `${speaker['FirstName']} ${speaker['LastName']}`
+
+    // Skip excluded speakers
+    if (EXCLUDED_SPEAKERS.has(fullName)) {
+        console.warn(`Speaker "${fullName}" has been excluded`)
+        return false
+    }
+
     const isAccepted = rawSessionsAssigned.some(session => session['Speaker Ids'].split(', ').includes(speakerId))
     if (!isAccepted) {
-        console.warn(`Speaker "${speaker['FirstName']} ${speaker['LastName']}" has been hidden for now`)
+        console.warn(`Speaker "${fullName}" has been hidden for now`)
     }
     return isAccepted
 })
@@ -95,6 +127,7 @@ for (const session of rawSessionsAssigned) {
         }
     }
 }
+
 // Set WTM Ambassador status for specific speakers
 const WTM_AMBASSADOR_NAMES = new Set([
     // These names must match exactly the "<firstName> <lastName>"
@@ -150,7 +183,7 @@ const WORKSHOPS: Record<string, { color: string }> = {
     // third workshop coming soon => this orange color(srgb 1 0.68 0.25)
 
     // New coloring
-    'Inferenza locale o remota: un viaggio andata e ritorno!': { color: 'red' },
+    'Agentic Apps con Google Gemini SDK e TypeScript': { color: 'red' },
     'Build a photo restoration app using Genkit Go and Nano Banana Pro': { color: 'red' },
     'Costruiamo agenti con ADK-js': { color: 'red' },
 }
@@ -171,7 +204,10 @@ export const TALKS: Talk[] = [
         const scheduledStart = session['Scheduled At']
         const scheduledDuration = session['Scheduled Duration'] ?? 0
 
-        const speakers = session['Speaker Ids'].split(', ').map(speakerId => speakersBySessionizeUUID[speakerId])
+        const speakers = session['Speaker Ids']
+            .split(', ')
+            .map(speakerId => speakersBySessionizeUUID[speakerId])
+            .filter(Boolean)
 
         return {
             id,
@@ -192,14 +228,17 @@ export const TALKS: Talk[] = [
     }),
 ].map(talk => {
     const workshopInfo = WORKSHOPS[talk.title]
-    if (workshopInfo) {
-        return {
-            ...talk,
-            workshopColor: workshopInfo.color,
-        }
-    }
+    // Find feedback link by matching the talk ID (since feedback IDs are trimmed versions of talk IDs)
+    const feedbackEntry = rawFeedbackLinks.find(entry =>
+        talk.id.replaceAll('-', '').startsWith(entry.session_name.replaceAll('-', '')),
+    )
+    const feedbackLink = feedbackEntry?.url
 
-    return talk
+    return {
+        ...talk,
+        ...(feedbackLink && { feedbackLink }),
+        ...(workshopInfo && { workshopColor: workshopInfo.color }),
+    }
 })
 
 //
@@ -301,6 +340,40 @@ if (googlerErrors.size === 0) {
 } else {
     console.log(`> Found ${googlerErrors.size} Googler errors:`)
     googlerErrors.forEach(name => console.log(`  ${name}`))
+}
+
+console.log('-'.repeat(50))
+console.log('Feedback Links Errors:')
+const talkIds = new Set(TALKS.map(talk => talk.id))
+const feedbackIds = new Set(rawFeedbackLinks.map(entry => entry.session_name))
+
+// Talks with feedback links
+const talksWithFeedback = TALKS.filter(talk => talk.feedbackLink)
+console.log(`> ${talksWithFeedback.length}/${TALKS.length} talks have feedback links`)
+
+// Talks without feedback links (using startsWith matching)
+const talksWithoutFeedback = [...talkIds].filter(
+    id => !rawFeedbackLinks.some(entry => id.replaceAll('-', '').startsWith(entry.session_name.replaceAll('-', ''))),
+)
+// Feedback links without corresponding talks
+const orphanedFeedbackLinks = [...feedbackIds].filter(
+    fid => !TALKS.some(talk => talk.id.replaceAll('-', '').startsWith(fid.replaceAll('-', ''))),
+)
+
+if (talksWithoutFeedback.length === 0 && orphanedFeedbackLinks.length === 0) {
+    console.log('> No feedback link errors found!')
+} else {
+    if (talksWithoutFeedback.length > 0) {
+        console.warn(`> Found ${talksWithoutFeedback.length} talks without feedback links:`)
+        talksWithoutFeedback.forEach(id => {
+            const talk = TALKS.find(t => t.id === id)
+            console.warn(`  - ${id}: "${talk?.title}"`)
+        })
+    }
+    if (orphanedFeedbackLinks.length > 0) {
+        console.warn(`> Found ${orphanedFeedbackLinks.length} feedback links without corresponding talks:`)
+        orphanedFeedbackLinks.forEach(id => console.warn(`  - ${id}`))
+    }
 }
 
 // const speakersById = Object.fromEntries(
