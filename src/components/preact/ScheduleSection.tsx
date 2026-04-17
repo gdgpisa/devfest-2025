@@ -173,8 +173,10 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
             const talkVersionHash = hashString(talkIds.join(','))
             const selectedTalkBitMask = talkIds.map(talkId => (selectedTalks.includes(talkId) ? '1' : '0')).join('')
 
-            // @ts-ignore
-            umami.track('selected-schedule', { v: talkVersionHash, s: selectedTalkBitMask })
+            if ('umami' in window) {
+                // @ts-ignore
+                window.umami.track('selected-schedule', { v: talkVersionHash, s: selectedTalkBitMask })
+            }
         }
     }, [selectedTalks])
 
@@ -434,7 +436,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
                     .sort((a, b) => a.startTime.getTime() - b.startTime.getTime())
                     .map(({ element }) => element)}
 
-                {currentTime && (
+                {currentTime && isJumbotron && (
                     <div
                         class="now-bar"
                         style={{
