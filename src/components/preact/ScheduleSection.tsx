@@ -173,6 +173,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
             const talkVersionHash = hashString(talkIds.join(','))
             const selectedTalkBitMask = talkIds.map(talkId => (selectedTalks.includes(talkId) ? '1' : '0')).join('')
 
+            // @ts-ignore
             umami.track('selected-schedule', { v: talkVersionHash, s: selectedTalkBitMask })
         }
     }, [selectedTalks])
@@ -183,7 +184,7 @@ export const ScheduleSection = ({ talks }: ScheduleSectionProps) => {
 
     useEffect(() => {
         const todayDate = new Date().toISOString().split('T')[0]
-        if (todayDate !== '2025-04-12') {
+        if (!['2026-04-17', '2026-04-18'].includes(todayDate)) {
             console.log('Not yet the DevFest day')
             return
         }
